@@ -743,3 +743,7 @@ service sim-restart /system/bin/init.sim.restart.sh
 
 on property:sys.boot_completed=1
     start sim-restart
+
+on property:vendor.post_boot.parsed=1
+    # Disable vblank IRQ immediately after turning off
+    write /sys/module/drm/parameters/vblankoffdelay -1
