@@ -171,7 +171,6 @@ vendor/lib64/libmcs.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libmis6.so
 vendor/lib64/libmisfpsop.so
 vendor/lib64/libmisops.so
-vendor/lib64/libmisoundfx_ext.so
 vendor/lib64/libmisoundsa.so
 vendor/lib64/libpal_net_if.so
 vendor/lib64/libpalclient.so;MAKE_COPY_RULE_ONLY
