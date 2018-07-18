@@ -305,6 +305,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     ApertureOverlayPeridot \
     DeviceAsWebcamOverlayPeridot \
+    DialerOverlayPeridot \
     BluetoothOverlayPeridot \
     CarrierConfigOverlayPeridot \
     FrameworkOverlayPeridot \
