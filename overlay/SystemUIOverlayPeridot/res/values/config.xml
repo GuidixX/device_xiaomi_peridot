@@ -105,4 +105,8 @@
          near and far break points. A sensor value less than this is considered "near". -->
     <item format="float" name="proximity_sensor_secondary_threshold" translatable="false" type="dimen">5</item>
 
+     <!-- Should we vibrate on an icon animation of the shelf. This should only be active if the
+          vibrator is capable of subtle vibrations -->
+     <bool name="config_vibrateOnIconAnimation">true</bool>
+
 </resources>
