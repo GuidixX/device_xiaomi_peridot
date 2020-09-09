@@ -250,7 +250,8 @@ PRODUCT_COPY_FILES += \
 # Init
 PRODUCT_PACKAGES += \
     charger_fw_fstab.qti \
-    fstab.qcom
+    fstab.qcom \
+    fstab.zram
 
 PRODUCT_PACKAGES += \
     init.class_main.sh \
