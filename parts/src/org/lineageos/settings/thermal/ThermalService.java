@@ -35,6 +35,7 @@ public class ThermalService extends Service {
 
     private boolean mScreenOn = true;
     private String mCurrentApp = "";
+    private String mPreviousApp = "";
     private ThermalUtils mThermalUtils;
 
     private BroadcastReceiver mIntentReceiver = new BroadcastReceiver() {
@@ -43,6 +44,9 @@ public class ThermalService extends Service {
             switch (intent.getAction()) {
                 case Intent.ACTION_SCREEN_OFF:
                     mScreenOn = false;
+                    mPreviousApp = "";
+                    mThermalUtils.setDefaultThermalProfile();
+                    mThermalUtils.resetTouchModes();
                     setThermalProfile();
                     break;
                 case Intent.ACTION_SCREEN_ON:
@@ -86,6 +90,12 @@ public class ThermalService extends Service {
     @Override
     public IBinder onBind(Intent intent) {
         return null;
+    }
+
+    @Override
+    public void onConfigurationChanged(Configuration newConfig) {
+        super.onConfigurationChanged(newConfig);
+        mThermalUtils.updateTouchRotation();
     }
 
     private void registerReceiver() {
