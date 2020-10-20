@@ -41,6 +41,10 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.NoSuchElementException;
+
+import vendor.xiaomi.hw.touchfeature.ITouchFeature;
+import android.os.ServiceManager;
 
 public final class ThermalUtils {
 
@@ -121,15 +125,14 @@ public final class ThermalUtils {
 
     private static final String THERMAL_SCONFIG = "/sys/class/thermal/thermal_message/sconfig";
 
-    private static final String GMAPS_PACKAGE = "com.google.android.apps.maps";
-    private static final String GMEET_PACKAGE = "com.google.android.apps.tachyon";
-
     private Context mContext;
-    private Display mDisplay;
-    private SharedPreferences mSharedPrefs;
     private Boolean mEnabled;
     private String mCurrentState;
     private Intent mServiceIntent;
+    private boolean mTouchModeChanged;
+    private ITouchFeature mTouchFeature = null;
+    private Display mDisplay;
+    private SharedPreferences mSharedPrefs;
 
     private static ThermalUtils sInstance;
 
@@ -141,6 +144,14 @@ public final class ThermalUtils {
         mDisplay = mWindowManager.getDefaultDisplay();
         mEnabled = isEnabled();
         mServiceIntent = new Intent(mContext, ThermalService.class);
+
+        try {
+            mTouchFeature = ITouchFeature.Stub.asInterface(
+                ServiceManager.getService("touchfeature")
+            );
+        } catch (Exception e) {
+            // Do nothing
+        }
     }
 
     public static synchronized ThermalUtils getInstance(Context context) {
@@ -363,9 +374,9 @@ public final class ThermalUtils {
 
     private int getDefaultStateForPackage(String packageName) {
         switch (packageName) {
-            case GMAPS_PACKAGE:
+            case "com.google.android.apps.maps":
                 return STATE_NAVIGATION;
-            case GMEET_PACKAGE:
+            case "com.google.android.apps.tachyon":
                 return STATE_VIDEOCHAT;
             case "com.google.android.youtube":
             case "app.revanced.android.youtube":
@@ -428,6 +439,83 @@ public final class ThermalUtils {
     private static void dlog(String msg) {
         if (Log.isLoggable(TAG, Log.DEBUG)) {
             Log.d(TAG, msg);
+        }
+    }
+
+    // Touch Control methods
+    private void updateTouchModes(String packageName) {
+        String values = mSharedPrefs.getString(packageName, null);
+        resetTouchModes();
+
+        if (values == null || values.isEmpty()) {
+            return;
+        }
+
+        String[] value = values.split(",");
+        int gameMode = Integer.parseInt(value[Constants.TOUCH_GAME_MODE]);
+        int touchResponse = Integer.parseInt(value[Constants.TOUCH_RESPONSE]);
+        int touchSensitivity = Integer.parseInt(value[Constants.TOUCH_SENSITIVITY]);
+        int touchResistant = Integer.parseInt(value[Constants.TOUCH_RESISTANT]);
+        int touchActiveMode = (touchResponse != 0 && touchSensitivity != 0 && touchResistant != 0)
+                ? 1 : 0;
+        try {
+            mTouchFeature.setTouchMode(0, Constants.MODE_TOUCH_TOLERANCE, touchSensitivity);
+            mTouchFeature.setTouchMode(0, Constants.MODE_TOUCH_UP_THRESHOLD, touchResponse);
+            mTouchFeature.setTouchMode(0, Constants.MODE_TOUCH_EDGE_FILTER, touchResistant);
+            mTouchFeature.setTouchMode(0, Constants.MODE_TOUCH_GAME_MODE, gameMode);
+            mTouchFeature.setTouchMode(0, Constants.MODE_TOUCH_ACTIVE_MODE, touchActiveMode);
+        } catch (RemoteException e) {
+            // Do nothing
+        }
+
+        mTouchModeChanged = true;
+        updateTouchRotation();
+    }
+
+    protected void resetTouchModes() {
+        if (!mTouchModeChanged) {
+            return;
+        }
+
+        try {
+            mTouchFeature.resetTouchMode(0, Constants.MODE_TOUCH_GAME_MODE);
+            mTouchFeature.resetTouchMode(0, Constants.MODE_TOUCH_ACTIVE_MODE);
+            mTouchFeature.resetTouchMode(0, Constants.MODE_TOUCH_UP_THRESHOLD);
+            mTouchFeature.resetTouchMode(0, Constants.MODE_TOUCH_TOLERANCE);
+            mTouchFeature.resetTouchMode(0, Constants.MODE_TOUCH_EDGE_FILTER);
+            mTouchFeature.resetTouchMode(0, Constants.MODE_TOUCH_ROTATION);
+        } catch (RemoteException e) {
+            // Do nothing
+        }
+
+        mTouchModeChanged = false;
+    }
+
+    protected void updateTouchRotation() {
+        if (!mTouchModeChanged) {
+            return;
+        }
+
+        int touchRotation = 0;
+        switch (mDisplay.getRotation()) {
+            case Surface.ROTATION_0:
+                touchRotation = 0;
+                break;
+            case Surface.ROTATION_90:
+                touchRotation = 1;
+                break;
+            case Surface.ROTATION_180:
+                touchRotation = 2;
+                break;
+            case Surface.ROTATION_270:
+                touchRotation = 3;
+                break;
+        }
+
+        try {
+            mTouchFeature.setTouchMode(0, Constants.MODE_TOUCH_ROTATION, touchRotation);
+        } catch (RemoteException e) {
+            // Do nothing
         }
     }
 }

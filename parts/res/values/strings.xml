@@ -128,4 +128,15 @@
     <string name="htsr_app_selector_activity_title">Select Apps for High Touch Polling</string>
     <string name="htsr_app_remover_activity_title">Remove Auto-Enable Apps</string>
 
+    <!-- Touch Control Settings -->
+    <string name="touch_control_title">Touch Control</string>
+    <string name="touch_game_mode_title">Enable game mode</string>
+    <string name="touch_game_mode_summary">Increases touch sampling rate</string>
+    <string name="touch_response_title">Touch response</string>
+    <string name="touch_response_summary">Controls touch response</string>
+    <string name="touch_sensitivity_title">Touch sensitivity</string>
+    <string name="touch_sensitivity_summary">Controls touch sensitivity for repeated taps</string>
+    <string name="touch_resistant_title">Touch-resistant area</string>
+    <string name="touch_resistant_summary">Reduce touch sensitivity near the edges to avoid triggering touch controls</string>
+
 </resources>
