@@ -22,4 +22,8 @@
 
     <!-- The padding on the start of the statusbar -->
     <dimen name="status_bar_padding_start">36px</dimen>
+
+    <!-- If not zero, limits the internal screen recorder's framerate to the set value. -->
+    <integer name="config_screenRecorderMaxFramerate">90</integer>
+    
 </resources>
