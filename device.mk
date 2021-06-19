@@ -77,7 +77,8 @@ PRODUCT_PACKAGES += \
     audioadsprpcd \
     audio.bluetooth.default \
     audio.r_submix.default \
-    audio.usb.default
+    audio.usb.default \
+    sound_trigger.primary.pineapple
 
 PRODUCT_PACKAGES += \
     lib_bt_aptx \
