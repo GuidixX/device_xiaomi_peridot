@@ -104,4 +104,9 @@
     <string name="toast_turbo_on">Turbo Charging turned ON</string>
     <string name="toast_turbo_off">Turbo Charging turned OFF</string>
 
+    <!-- High Touch Polling -->
+    <string name="htsr_title">Enhanced Touch Responsiveness</string>
+    <string name="htsr_enable_title">High Touch Polling Rate</string>
+    <string name="htsr_enable_summary">Increases touch polling rate to decrease touch input latency for a smoother experience</string>
+
 </resources>
