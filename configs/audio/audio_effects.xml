@@ -79,7 +79,6 @@
         <library name="misoundfx" path="libmisoundfx.so"/>
         <library name="v4a_re" path="libv4a_re.so"/>
         <!--DOLBY START-->
-        <library name="shoebox" path="libshoebox.so"/>
         <!--DOLBY DAP-->
         <!--AUDIO MOD-->
         <library name="dap" path="libhwdap.so"/>

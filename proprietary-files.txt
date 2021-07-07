@@ -174,7 +174,6 @@ vendor/lib64/soundfx/libasphere.so
 vendor/lib64/soundfx/libdlbvol.so
 vendor/lib64/soundfx/libhwdap.so
 vendor/lib64/soundfx/libquasar.so
-vendor/lib64/soundfx/libshoebox.so
 vendor/lib64/soundfx/libspatializer.so
 vendor/lib64/soundfx/libswgamedap.so
 vendor/lib64/soundfx/libswspatializer.so
