@@ -21,22 +21,34 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.hardware.display.DisplayManager;
 import android.os.IBinder;
+import android.os.SystemProperties;
 import android.os.UserHandle;
 import android.util.Log;
 import android.view.Display;
 
+import org.lineageos.settings.utils.FileUtils;
 import org.lineageos.settings.doze.PocketService;
 import org.lineageos.settings.soundcontrol.SoundControlUtils;
 import org.lineageos.settings.chargecontrol.ChargeControlService;
 
+import androidx.preference.PreferenceManager;
+
+
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final String TAG = "XiaomiParts";
     private static final boolean DEBUG = true;
+    private static final String DC_DIMMING_ENABLE_KEY = "dc_dimming_enable";
+    private static final String DC_DIMMING_NODE = "/sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param";
+
+    private SharedPreferences sharedPrefs;
 
     @Override
     public void onReceive(final Context context, Intent intent) {
+        sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+
         if (DEBUG) Log.i(TAG, "Received intent: " + intent.getAction());
         switch (intent.getAction()) {
             case Intent.ACTION_LOCKED_BOOT_COMPLETED:
@@ -70,6 +82,10 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Start Pocket Mode Service
         PocketService.startService(context);
+
+        // DC Dimming
+        boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
+        FileUtils.writeLine(DC_DIMMING_NODE, dcDimmingEnabled ? "08 01" : "08 00");
 
         // Start Charge Control Service
         context.startServiceAsUser(new Intent(context, ChargeControlService.class), UserHandle.CURRENT);
