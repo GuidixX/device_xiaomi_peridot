@@ -20,6 +20,9 @@ genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,
 genfscon sysfs /class/power_supply/battery                                                                   u:object_r:vendor_sysfs_power_supply:s0
 genfscon sysfs /class/qcom-battery/sport_mode                                                                u:object_r:sysfs_fastcharge:s0
 
+# Display param
+genfscon sysfs /devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param                                u:object_r:sysfs_disp_param:s0
+
 # Powercap
 genfscon sysfs /class/powercap                                                                               u:object_r:sysfs_thermal:s0
 
