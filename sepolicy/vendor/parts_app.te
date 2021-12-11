@@ -10,5 +10,7 @@ allow parts_app vendor_sysfs_battery_supply:file rw_file_perms;
 allow parts_app vendor_sysfs_kgsl_gpuclk:file { read open getattr };
 allow parts_app vendor_sysfs_kgsl_gpuclk:file { read open getattr };
 allow parts_app vendor_sysfs_power_supply:file w_file_perms;
+allow parts_app vendor_sysfs_displayfeature:dir { search read open getattr };
+allow parts_app vendor_sysfs_displayfeature:file { read open getattr };
 binder_call(parts_app, vendor_hal_displayfeature_xiaomi_default)
 binder_call(parts_app, vendor_hal_qspmhal_default)

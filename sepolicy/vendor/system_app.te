@@ -1,3 +1,7 @@
+type sysfs_disp_param, sysfs_type, fs_type;
+ 
+# Xiaomi Parts
+allow system_app sysfs_disp_param:file rw_file_perms;
 allow system_app sysfs_thermal:file write;
 allow system_app sysfs_thermal:file rw_file_perms;
 allow system_app vendor_hal_qspmhal_service:service_manager find;

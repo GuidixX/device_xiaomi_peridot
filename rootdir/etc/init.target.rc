@@ -230,6 +230,10 @@ on property:sys.boot_completed=1
     chown system system /sys/devices/virtual/touch/touch_dev/bump_sample_rate
     chmod 0660 /sys/devices/virtual/touch/touch_dev/bump_sample_rate
 
+    # DC Dimming
+    chown system system sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param
+    chmod 0660 sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param
+
 on property:vendor.display.lcd_density=560
    setprop dalvik.vm.heapgrowthlimit 256m
 
