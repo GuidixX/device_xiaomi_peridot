@@ -8,6 +8,9 @@ DEVICE_PATH := device/xiaomi/peridot
 
 BUILD_BROKEN_DUP_RULES := true
 
+# Inherit from proprietary files for miuicamera
+-include device/xiaomi/peridot-miuicamera/BoardConfig.mk
+
 # A/B
 AB_OTA_UPDATER := true
 AB_OTA_PARTITIONS := \
