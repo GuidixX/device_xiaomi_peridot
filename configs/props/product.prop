@@ -23,6 +23,12 @@ vendor.audio.use.sw.ape.decoder=true
 vendor.audio_hal.period_size=192
 vendor.voice.path.for.pcm.voip=true
 
+# App launch prefetching (IORapd)
+ro.iorapd.enable=false
+iorapd.perfetto.enable=false
+iorapd.readahead.enable=false
+persist.device_config.runtime_native_boot.iorap_readahead_enable=false
+
 # Low Memory Killer Daemon
 ro.lmk.log_stats=false
 ro.lmk.debug=false
