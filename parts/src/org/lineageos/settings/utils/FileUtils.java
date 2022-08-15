@@ -157,4 +157,7 @@ public final class FileUtils {
         }
         return ok;
     }
+    public static String readLine(String fileName) {
+        return readOneLine(fileName);
+    }
 }

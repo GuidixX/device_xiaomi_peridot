@@ -223,6 +223,18 @@
             </intent-filter>
         </service>
 
+        <!-- Flashlight Brightness -->
+        <activity
+            android:name=".flashlight.FlashlightBrightnessActivity"
+            android:label="@string/flashlight_title"
+            android:exported="true"
+            android:theme="@style/Theme.SubSettingsBase">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.DEFAULT" />
+            </intent-filter>
+        </activity>
+
         <!-- Tile Entry Activity -->
         <activity
             android:name=".TileEntryActivity"

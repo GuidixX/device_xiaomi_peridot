@@ -25,6 +25,8 @@
     <string name="tile_already_added">Tile already added</string>
     <string name="tile_on">On</string>
     <string name="tile_off">Off</string>
+    <string name="system_category_title">System</string>
+    <string name="other_settings_title">Miscellaneous</string>
 
     <!-- Thermal Profiles -->
     <string name="thermal_title">Thermal profiles</string>
@@ -82,4 +84,13 @@
     <string name="htsr_enable_title">Enable High Touch Polling Rate</string>
     <string name="htsr_enable_summary">Increases touch polling rate to decrease touch input latency for a smoother experience</string>
     <string name="touch_sampling_tile_label">Touch Boost</string>
+
+    <!-- Flashlight Brightness Settings -->
+    <string name="flashlight_title">Flashlight brightness</string>
+    <string name="flashlight_category_title">Torch</string>
+    <string name="flashlight_warning">Setting-up flashlight brightness too high may cause permanent hardware damage, use at your own risk</string>
+    <string name="flashlight_summary">Customize flashlight brgitness value</string>
+    <string name="flashlight_brightness_title">Brightness</string>
+    <string name="flashlight_brightness_summary">The amount of brightness for flashlight</string>
+    <string name="flashlight_brightness_summary_incompatible">Kernel did not support this feature</string>
 </resources>

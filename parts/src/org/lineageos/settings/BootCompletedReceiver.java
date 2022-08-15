@@ -34,6 +34,7 @@ import android.view.Display.HdrCapabilities;
 
 import vendor.xiaomi.hw.touchfeature.ITouchFeature;
 
+import org.lineageos.settings.flashlight.FlashlightUtils;
 import org.lineageos.settings.display.ColorModeService;
 import org.lineageos.settings.doze.PocketService;
 import org.lineageos.settings.thermal.ThermalUtils;
@@ -98,6 +99,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Start Refresh Rate Service
         RefreshUtils.startService(context);
+
+        // Start Flashlight Brightness Service
+        FlashlightUtils.restoreBrightness(context);
 
         // Start Pocket Mode Service
         PocketService.startService(context);
