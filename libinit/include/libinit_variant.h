@@ -17,6 +17,7 @@ typedef struct variant_info {
     std::string name;
     std::string marketname;
     std::string model;
+    std::string mod_device;
     std::string build_fingerprint;
 } variant_info_t;
 

@@ -12,6 +12,7 @@
 static const variant_info_t global_variant = {
     .hwc_value = "GL",
 
+    .mod_device = "peridot_global",
     .brand = "POCO",
     .device = "peridot",
     .name = "peridot_global",
@@ -23,6 +24,7 @@ static const variant_info_t global_variant = {
 static const variant_info_t indian_variant = {
     .hwc_value = "IN",
 
+    .mod_device = "peridot_global",
     .brand = "POCO",
     .device = "peridot",
     .name = "peridot_global",
@@ -34,6 +36,7 @@ static const variant_info_t indian_variant = {
 static const variant_info_t chinese_variant = {
     .hwc_value = "CN",
 
+    .mod_device = "peridot_global",
     .brand = "Redmi",
     .device = "peridot",
     .name = "peridot_global",
