@@ -385,6 +385,9 @@ on boot
     chown system system /sys/class/thermal/thermal_message/cpu_nolimit_temp
     # END Thermal_NodeReq
 
+    # Default country code
+    setprop ro.boot.wificountrycode 00
+
     # MIUI ADD: Memory_CLD
     # ufscld functions permission
     chown root system /sys/devices/platform/soc/1d84000.ufshc/ufscld/auto_hibern8_enable
