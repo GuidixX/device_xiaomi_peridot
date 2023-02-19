@@ -220,6 +220,10 @@ on property:vendor.post_boot.parsed=1
     write /proc/irq/70/smp_affinity_list 2
     write /proc/irq/222/smp_affinity_list 1
 
+    # CPUSets
+    setprop dalvik.vm.dex2oat-cpu-set 0,1,2,3,4,5,6
+    setprop dalvik.vm.dex2oat-threads 6
+
 on property:sys.boot_completed=1
     write /dev/kmsg "start qrtr-lookup after Boot completed "
     start qrtr-lookup
