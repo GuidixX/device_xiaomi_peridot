@@ -364,6 +364,13 @@ on boot
     chown system system /sys/class/mi_display/disp-DSI-1/max_brightness_clone
     chmod 0664 /sys/class/mi_display/disp-DSI-1/max_brightness_clone
 
+    # Double Tap Sensor
+    chown system system /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed
+    chmod 0660 /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed
+    # Single Tap Sensor
+    chown system system /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed
+    chmod 0660 /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed
+
     # MIUI ADD:Thermal_NodeReq
     chmod 0664 /sys/class/thermal/thermal_message/sconfig
     chown system system /sys/class/thermal/thermal_message/sconfig
