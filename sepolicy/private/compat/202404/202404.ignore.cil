@@ -1,0 +1,14 @@
+;; new_objects - a collection of types that have been introduced that have no
+;;   analogue in older policy.  Thus, we do not need to map these types to
+;;   previous ones.  Add here to pass checkapi tests.
+(type new_objects)
+(typeattribute new_objects)
+(typeattributeset new_objects
+  ( new_objects
+    settingslib_prop
+    vendor_hal_displayfeature_xiaomi_default
+    vendor_hal_displayfeature_xiaomi_default_exec
+    vendor_hal_displayfeature_xiaomi_hwservice
+    vendor_hal_displayfeature_xiaomi_service
+    vendor_hal_fingerprint_hwservice_xiaomi
+    vendor_hal_fingerprint_service_xiaomi))
