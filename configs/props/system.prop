@@ -23,6 +23,10 @@ persist.dbg.wfc_avail_ovr=1
 
 # Logging
 persist.vendor.camera.logInfoMask=false
+persist.log.tag.ACDB-LOADER=S
+persist.log.tag.CVP=S
+persist.log.tag.ResourcesCompat=S
+persist.log.tag.SYNX-UMD=S
 
 # Radio Options
 persist.radio.volte.dan_support=true
