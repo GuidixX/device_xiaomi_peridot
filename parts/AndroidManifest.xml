@@ -119,7 +119,7 @@
         <activity
             android:name=".refreshrate.RefreshActivity"
             android:label="@string/refresh_title"
-            android:exported="false">
+            android:exported="true">
             <intent-filter>
                 <action android:name="com.android.settings.action.IA_SETTINGS" />
             </intent-filter>
@@ -135,6 +135,17 @@
             android:name=".refreshrate.RefreshService"
             android:exported="true"
             android:permission="RefreshService">
+        </service>
+
+        <service
+            android:name=".refreshrate.RefreshTileService"
+            android:icon="@drawable/ic_qs_refresh_rate"
+            android:label="@string/refresh_title"
+            android:exported="true"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
         </service>
 
         <!-- Display Saturation activity -->

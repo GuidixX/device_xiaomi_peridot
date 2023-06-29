@@ -49,8 +49,8 @@
     <string name="thermal_mode_unknown">Unknown Mode</string>
     <string name="thermal_tile_disabled_subtitle">Disabled (Per-app thermal profiles enabled)</string>
 
-    <!-- Per-app refresh rate -->
-    <string name="refresh_title">Per-app refresh rate</string>
+    <!-- Refresh rate -->
+    <string name="refresh_title">Refresh rate</string>
     <string name="refresh_summary">Set the maximum refresh rate for a specific application</string>
     <string name="refresh_default">Default</string>
     <string name="refresh_standard">60Hz</string>
