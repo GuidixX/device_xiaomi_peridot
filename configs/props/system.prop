@@ -28,6 +28,9 @@ persist.log.tag.CVP=S
 persist.log.tag.ResourcesCompat=S
 persist.log.tag.SYNX-UMD=S
 
+# LMK
+ro.config.low_ram=false
+
 # Radio Options
 persist.radio.volte.dan_support=true
 persist.radio.rat_on=combine
