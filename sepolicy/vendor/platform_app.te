@@ -26,3 +26,6 @@ binder_call(platform_app, vendor_hal_camerapostproc_xiaomi)
 typeattribute platform_app system_executes_vendor_violators;
 allow platform_app vendor_displayfeature_prop:file { read open };
 allow platform_app vendor_camera_p3enable_prop:file { read open };
+
+# we don't have google battery support, add dummy domain and let it return null by selinux denial
+dontaudit platform_app hal_dummy_googlebattery_service:service_manager find;
