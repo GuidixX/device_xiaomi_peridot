@@ -34,3 +34,6 @@ attribute hal_mlipay_server;
 
 # Sysfs
 attribute sysfs_file;
+
+# Vendor service attribute
+attribute vendor_service;
