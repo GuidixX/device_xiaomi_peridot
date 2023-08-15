@@ -42,3 +42,6 @@ allow platform_app vendor_hal_fingerprint_service_xiaomi:service_manager { find 
 
 # Touchfeature
 allow platform_app hal_touchfeature_xiaomi_service:service_manager find;
+
+# we don't have google battery support, add dummy domain and let it return null by selinux denial
+dontaudit platform_app hal_dummy_googlebattery_service:service_manager find;
