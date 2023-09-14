@@ -94,7 +94,6 @@ ODM_MANIFEST_FILES := $(DEVICE_PATH)/configs/hidl/manifest_odm.xml
 # Kernel
 BOARD_INCLUDE_DTB_IN_BOOTIMG := true
 BOARD_RAMDISK_USE_LZ4 := true
-TARGET_NEEDS_DTBOIMAGE := true
 
 BOARD_KERNEL_BASE := 0x00000000
 BOARD_KERNEL_PAGESIZE := 4096
@@ -128,6 +127,9 @@ TARGET_KERNEL_CONFIG := \
     vendor/pineapple_GKI.config \
     vendor/peridot_GKI.config
 KERNEL_LTO := none
+
+BOARD_USES_QCOM_MERGE_DTBS_SCRIPT := true
+TARGET_NEEDS_DTBOIMAGE := true
 
 # Kernel (modules)
 TARGET_KERNEL_EXT_MODULE_ROOT := kernel/xiaomi/sm8635-modules
