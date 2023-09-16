@@ -49,7 +49,6 @@ ro.vendor.display.standard_d75_enable=true
 ro.vendor.display.update_dbi_by_temperature=true
 ro.vendor.histogram.enable=true
 ro.vendor.localhbm.enable=true
-ro.vendor.sre.enable=true
 sys.displayfeature.entry.enable=true
 vendor.display.boost_cpu_layer_number_threshold=10
 vendor.display.disable_3d_adaptive_tm=1
