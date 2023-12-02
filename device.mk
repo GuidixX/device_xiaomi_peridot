@@ -143,6 +143,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.context_hub.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.context_hub.xml
 
+# Characteristics
+PRODUCT_CHARACTERISTICS := nosdcard
+
 # DeviceAsWebcam
 PRODUCT_PACKAGES += \
     DeviceAsWebcam
