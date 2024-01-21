@@ -1,0 +1,4 @@
+typeattribute platform_app system_executes_vendor_violators;
+
+# Touchfeature
+allow platform_app hal_touchfeature_xiaomi_service:service_manager find;
