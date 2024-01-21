@@ -91,6 +91,10 @@ persist.vendor.dpm.vndr.idletimer.mode=default
 drm.service.enabled=true
 vendor.wv.oemcrypto.debug.enable_hlos_data_path=true
 
+# Fingerprint
+ro.vendor.fingerprint.type=udfps
+ro.vendor.fingerprint.sensor_location=720|1220|150|local:4630946545580055171
+
 # FRP
 ro.frp.pst=/dev/block/bootdevice/by-name/frp
 
@@ -196,6 +200,9 @@ ro.vendor.radio.build_region=global
 
 # SKU
 ro.boot.product.vendor.sku=cliffs
+
+# Sensors
+ro.vendor.sensors.xiaomi.udfps=true
 
 # USB
 ro.recovery.usb.adb.pid=D001

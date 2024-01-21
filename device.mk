@@ -185,6 +185,7 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
+    android.hardware.biometrics.fingerprint-service.xiaomi \
     android.hardware.biometrics.common.thread \
     android.hardware.biometrics.common.util \
     android.hardware.biometrics.fingerprint-V3-ndk.vendor
@@ -451,7 +452,8 @@ PRODUCT_SOONG_NAMESPACES += \
 
 # Sensors
 PRODUCT_PACKAGES += \
-    android.hardware.sensors-service.xiaomi-multihal
+    android.hardware.sensors-service.xiaomi-multihal \
+    sensors.xiaomi.v2
 
 PRODUCT_PACKAGES += \
     libsensorndkbridge \
