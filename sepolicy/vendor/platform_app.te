@@ -1,4 +1,5 @@
 allow platform_app app_data_file:file execute;
+allow platform_app vendor_file:file { read open getattr map execute watch };
 
 binder_call(platform_app, hal_camera_default)
 
@@ -26,3 +27,10 @@ get_prop(platform_app, vendor_panel_info_prop)
 
 allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
 binder_call(platform_app, vendor_hal_camerapostproc_xiaomi)
+typeattribute platform_app system_executes_vendor_violators;
+
+# Fingerprint
+allow platform_app vendor_hal_fingerprint_service_xiaomi:service_manager { find };
+
+# Touchfeature
+allow platform_app hal_touchfeature_xiaomi_service:service_manager find;
