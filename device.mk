@@ -231,6 +231,25 @@ $(call soong_config_set,lineage_health,fast_charge_node,/sys/class/qcom-battery/
 $(call soong_config_set,lineage_health,fast_charge_value_none,0)
 $(call soong_config_set,lineage_health,fast_charge_value_fast_charge,1)
 
+# Logging
+SPAMMY_LOG_TAGS := \
+    MiClstc \
+    MiStcImpl \
+    SDM \
+    SRE \
+    android.hardware.power-service-qti \
+    libsensor-boledalgo \
+    libsensor-parseRGB \
+    libsensor-qshcalapi \
+    sensors \
+    vendor.qti.hardware.display.composer-service \
+    vendor.xiaomi.sensor.citsensorservice-service.aidl
+
+ifneq ($(TARGET_BUILD_VARIANT),eng)
+PRODUCT_VENDOR_PROPERTIES += \
+    $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=E)
+endif
+
 # Media
 PRODUCT_COPY_FILES += \
     $(AUDIO_HAL_DIR)/configs/common/codec2/media_codecs_c2_audio.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_c2_audio.xml
