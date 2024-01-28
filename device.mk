@@ -250,7 +250,26 @@ SPAMMY_LOG_TAGS := \
     libsensor-qshcalapi \
     sensors \
     vendor.qti.hardware.display.composer-service \
-    vendor.xiaomi.sensor.citsensorservice-service.aidl
+    vendor.xiaomi.sensor.citsensorservice-service.aidl \
+    vendor.qti.camera.provider-service_64 \
+    CamX \
+    CAM_Thumbnail \
+    CAM_CaptureRequestBuilder \
+    CameraLatencyHistogram \
+    ChiX \
+    CHIIQUTILS \
+    CHISEG \
+    CHIUSECASE \
+    DEBUG-portrait_repair \
+    MAW \
+    MiAlgoEngine \
+    mialgo_rfs_api \
+    MiCamHAL\
+    MISV2 \
+    MISV3 \
+    MISV4 \
+    MIGME \
+    MISHisAdapter
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 PRODUCT_VENDOR_PROPERTIES += \
