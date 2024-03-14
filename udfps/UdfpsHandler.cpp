@@ -65,6 +65,27 @@ static bool readBool(int fd) {
     return c != '0';
 }
 
+static disp_event_resp* parseDispEvent(int fd) {
+    disp_event header;
+    ssize_t headerSize = read(fd, &header, sizeof(header));
+    if (headerSize < sizeof(header)) {
+        LOG(ERROR) << "unexpected display event header size: " << headerSize;
+        return nullptr;
+    }
+
+    struct disp_event_resp* response =
+            reinterpret_cast<struct disp_event_resp*>(malloc(header.length));
+    response->base = header;
+    int dataLength = response->base.length - sizeof(response->base);
+    ssize_t dataSize = read(fd, &response->data, dataLength);
+    if (dataSize < dataLength) {
+        LOG(ERROR) << "unexpected display event data size: " << dataSize;
+        return nullptr;
+    }
+
+    return response;
+}
+
 }  // anonymous namespace
 
 class XiaomiPeridotUdfpsHandler : public UdfpsHandler {
@@ -72,6 +93,54 @@ class XiaomiPeridotUdfpsHandler : public UdfpsHandler {
     void init(fingerprint_device_t* device) {
         mDevice = device;
         disp_fd_ = android::base::unique_fd(open(DISP_FEATURE_PATH, O_RDWR));
+
+        // Thread to listen for fod ui changes
+        std::thread([this]() {
+            int fd = open(DISP_FEATURE_PATH, O_RDWR);
+            if (fd < 0) {
+                LOG(ERROR) << "failed to open " << DISP_FEATURE_PATH << " , err: " << fd;
+                return;
+            }
+
+            // Register for FOD events
+            disp_event_req req;
+            req.base.flag = 0;
+            req.base.disp_id = MI_DISP_PRIMARY;
+            req.type = MI_DISP_EVENT_FOD;
+            ioctl(fd, MI_DISP_IOCTL_REGISTER_EVENT, &req);
+
+            struct pollfd dispEventPoll = {
+                    .fd = fd,
+                    .events = POLLIN,
+                    .revents = 0,
+            };
+
+            while (true) {
+                int rc = poll(&dispEventPoll, 1, -1);
+                if (rc < 0) {
+                    LOG(ERROR) << "failed to poll " << FOD_PRESS_STATUS_PATH << ", err: " << rc;
+                    continue;
+                }
+
+                struct disp_event_resp* response = parseDispEvent(fd);
+                if (response == nullptr) {
+                    continue;
+                }
+
+                if (response->base.type != MI_DISP_EVENT_FOD) {
+                    LOG(ERROR) << "unexpected display event: " << response->base.type;
+                    continue;
+                }
+
+                int value = response->data[0];
+                LOG(DEBUG) << "received data: " << std::bitset<8>(value);
+
+                bool localHbmUiReady = value & LOCAL_HBM_UI_READY;
+
+                mDevice->extCmd(mDevice, COMMAND_NIT,
+                                localHbmUiReady ? PARAM_NIT_FOD : PARAM_NIT_NONE);
+            }
+        }).detach();
     }
 
     void onFingerDown(uint32_t x, uint32_t y, float /*minor*/, float /*major*/) {
@@ -127,7 +196,6 @@ class XiaomiPeridotUdfpsHandler : public UdfpsHandler {
     }
 
     void setFingerDown(bool pressed) {
-        mDevice->extCmd(mDevice, COMMAND_NIT, pressed ? PARAM_NIT_FOD : PARAM_NIT_NONE);
 
         // Request HBM
         disp_local_hbm_req req;
