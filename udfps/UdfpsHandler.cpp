@@ -18,6 +18,8 @@
 #define PARAM_NIT_NONE 0
 
 #define COMMAND_FOD_PRESS_STATUS 1
+#define COMMAND_FOD_PRESS_X 2
+#define COMMAND_FOD_PRESS_Y 3
 #define PARAM_FOD_PRESSED 1
 #define PARAM_FOD_RELEASED 0
 
@@ -48,8 +50,12 @@ class XiaomiPeridotUdfpsHandler : public UdfpsHandler {
         mDevice = device;
     }
 
-    void onFingerDown(uint32_t /*x*/, uint32_t /*y*/, float /*minor*/, float /*major*/) {
-        LOG(DEBUG) << __func__;
+    void onFingerDown(uint32_t x, uint32_t y, float /*minor*/, float /*major*/) {
+        LOG(DEBUG) << __func__ << "x: " << x << ", y: " << y;
+        // Track x and y coordinates
+        lastPressX = x;
+        lastPressY = y;
+
         // Ensure touchscreen is aware of the press state, ideally this is not needed
         setFingerDown(true);
     }
@@ -88,6 +94,7 @@ class XiaomiPeridotUdfpsHandler : public UdfpsHandler {
 
   private:
     fingerprint_device_t* mDevice;
+    uint32_t lastPressX, lastPressY;
 
     void setFodStatus(int value) {
         set(FOD_STATUS_PATH, value);
