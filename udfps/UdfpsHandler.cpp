@@ -10,9 +10,13 @@
 #include <android-base/logging.h>
 #include <android-base/unique_fd.h>
 
+#include <poll.h>
+#include <sys/ioctl.h>
 #include <fstream>
+#include <thread>
 
 #include "UdfpsHandler.h"
+#include "mi_disp.h"
 
 #define COMMAND_NIT 10
 #define PARAM_NIT_FOD 1
@@ -28,10 +32,7 @@
 #define FOD_STATUS_OFF 0
 #define FOD_STATUS_ON 1
 
-#define DISP_PARAM_PATH "/sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param"
-#define DISP_PARAM_LOCAL_HBM_MODE "9"
-#define DISP_PARAM_LOCAL_HBM_OFF "0"
-#define DISP_PARAM_LOCAL_HBM_ON "1"
+#define DISP_FEATURE_PATH "/dev/mi_display/disp_feature"
 
 #define FINGERPRINT_ACQUIRED_VENDOR 7
 
@@ -45,12 +46,32 @@ static void set(const std::string& path, const T& value) {
     file << value;
 }
 
+static bool readBool(int fd) {
+    char c;
+    int rc;
+
+    rc = lseek(fd, 0, SEEK_SET);
+    if (rc) {
+        LOG(ERROR) << "failed to seek fd, err: " << rc;
+        return false;
+    }
+
+    rc = read(fd, &c, sizeof(char));
+    if (rc != 1) {
+        LOG(ERROR) << "failed to read bool from fd, err: " << rc;
+        return false;
+    }
+
+    return c != '0';
+}
+
 }  // anonymous namespace
 
 class XiaomiPeridotUdfpsHandler : public UdfpsHandler {
   public:
     void init(fingerprint_device_t* device) {
         mDevice = device;
+        disp_fd_ = android::base::unique_fd(open(DISP_FEATURE_PATH, O_RDWR));
     }
 
     void onFingerDown(uint32_t x, uint32_t y, float /*minor*/, float /*major*/) {
@@ -98,6 +119,7 @@ class XiaomiPeridotUdfpsHandler : public UdfpsHandler {
 
   private:
     fingerprint_device_t* mDevice;
+    android::base::unique_fd disp_fd_;
     uint32_t lastPressX, lastPressY;
 
     void setFodStatus(int value) {
@@ -107,9 +129,13 @@ class XiaomiPeridotUdfpsHandler : public UdfpsHandler {
     void setFingerDown(bool pressed) {
         mDevice->extCmd(mDevice, COMMAND_NIT, pressed ? PARAM_NIT_FOD : PARAM_NIT_NONE);
 
-        set(DISP_PARAM_PATH,
-            std::string(DISP_PARAM_LOCAL_HBM_MODE) + " " +
-                    (pressed ? DISP_PARAM_LOCAL_HBM_ON : DISP_PARAM_LOCAL_HBM_OFF));
+        // Request HBM
+        disp_local_hbm_req req;
+        req.base.flag = 0;
+        req.base.disp_id = MI_DISP_PRIMARY;
+        req.local_hbm_value = pressed ? LHBM_TARGET_BRIGHTNESS_WHITE_1000NIT
+                                      : LHBM_TARGET_BRIGHTNESS_OFF_FINGER_UP;
+        ioctl(disp_fd_.get(), MI_DISP_IOCTL_SET_LOCAL_HBM, &req);
 
         if (pressed) {
             mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS, PARAM_FOD_PRESSED);
