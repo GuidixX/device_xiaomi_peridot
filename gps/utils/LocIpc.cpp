@@ -30,7 +30,7 @@
 /*
 Changes from Qualcomm Innovation Center are provided under the following license:
 
-Copyright (c) 2022-2023 Qualcomm Innovation Center, Inc. All rights reserved.
+Copyright (c) 2022-2024 Qualcomm Innovation Center, Inc. All rights reserved.
 
 Redistribution and use in source and binary forms, with or without
 modification, are permitted (subject to the limitations in the
@@ -107,7 +107,8 @@ Sock::Sock(int sid, const uint32_t maxTxSize) :
         srand48(time(NULL));
         sRandSeeded = true;
     }
-    snprintf(LOC_IPC_HEAD, sizeof(LOC_IPC_HEAD), "$MSG_CONCAT_HDR$%16.16lX$$%8.8X$", lrand48(), 0);
+    memset(LOC_IPC_HEAD, 0, sizeof(LOC_IPC_HEAD));
+    snprintf(LOC_IPC_HEAD, sizeof(LOC_IPC_HEAD), "$MSG_CONCAT_HDR$%16.16lX$", lrand48());
 }
 
 ssize_t Sock::send(const void *buf, uint32_t len, int flags, const struct sockaddr *destAddr,
