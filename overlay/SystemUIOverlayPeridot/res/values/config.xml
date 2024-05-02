@@ -11,6 +11,9 @@
      vibrator is capable of subtle vibrations -->
     <bool name="config_vibrateOnIconAnimation">true</bool>
 
+    <!-- Bottom margin size when fingerprint in display is active -->
+    <dimen name="keyguard_indication_margin_bottom">8dp</dimen>
+
     <!-- Preferred refresh rate at keyguard, if supported by the display. Overrides
          keyguardMaxRefreshRate. -->
     <integer name="config_keyguardRefreshRate">120</integer>
