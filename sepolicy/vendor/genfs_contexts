@@ -2,6 +2,15 @@
 genfscon sysfs /class/qcom-battery                                                                                                                                                        u:object_r:vendor_sysfs_battery_supply:s0
 genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,ucsi/typec/port0/data_role                                                                              u:object_r:vendor_sysfs_battery_supply:s0
 
+# Camera Torch
+genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,spmi:qcom,pmxr2230@1:qcom,flash_led@ee00/leds/led:torch_0/brightness                                      u:object_r:sysfs_torch:s0
+genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,spmi:qcom,pmxr2230@1:qcom,flash_led@ee00/leds/led:torch_0/max_brightness                                  u:object_r:sysfs_torch:s0
+genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,spmi:qcom,pmxr2230@1:qcom,flash_led@ee00/leds/led:torch_1/brightness                                      u:object_r:sysfs_torch:s0
+genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,spmi:qcom,pmxr2230@1:qcom,flash_led@ee00/leds/led:torch_1/max_brightness                                  u:object_r:sysfs_torch:s0
+genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,spmi:qcom,pmxr2230@1:qcom,flash_led@ee00/leds/led:switch_0/brightness                                     u:object_r:sysfs_torch:s0
+genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,spmi:qcom,pmxr2230@1:qcom,flash_led@ee00/leds/led:switch_1/brightness                                     u:object_r:sysfs_torch:s0
+genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,spmi:qcom,pmxr2230@1:qcom,flash_led@ee00/leds/led:switch_2/brightness                                     u:object_r:sysfs_torch:s0
+
 # Extcon sysfs
 genfscon sysfs /devices/platform/soc/soc:spf_core_platform/soc:spf_core_platform:lpass-cdc/wcd937x-codec/extcon                                                                           u:object_r:sysfs_extcon:s0
 
