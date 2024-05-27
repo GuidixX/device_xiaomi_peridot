@@ -610,3 +610,8 @@ subsystem mem_buf_vm
 # Battery
 /sys/class/qcom-battery                                 input_suspend                   0660    system  system
 /sys/class/qcom-battery                                 fastcharge_enable               0660    system  system
+
+# Torch control
+/sys/class/leds/led:torch_0                             brightness                      0660    cameraserver camera
+/sys/class/leds/led:torch_1                             brightness                      0660    cameraserver camera
+/sys/class/leds/led:switch_2                            brightness                      0660    cameraserver camera
