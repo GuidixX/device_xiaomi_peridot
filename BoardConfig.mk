@@ -198,6 +198,7 @@ ENABLE_VENDOR_RIL_SERVICE := true
 SOONG_CONFIG_rfs_mpss_firmware_symlink_target := modem_firmware
 
 # Sepolicy
+include device/lineage/sepolicy/libperfmgr/sepolicy.mk
 include device/qcom/sepolicy_vndr/SEPolicy.mk
 BOARD_VENDOR_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/vendor
 SYSTEM_EXT_PUBLIC_SEPOLICY_DIRS += $(DEVICE_PATH)/sepolicy/public
