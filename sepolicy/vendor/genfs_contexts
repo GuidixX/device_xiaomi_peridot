@@ -17,7 +17,7 @@ genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,spmi:qcom,pmxr2230@1:qcom,flash_led@ee00/leds/led:switch_2/brightness         u:object_r:sysfs_torch:s0
 
 # FastCharge
-genfscon sysfs /sys/class/qcom-battery/sport_mode                                                            u:object_r:sysfs_fastcharge:s0
+genfscon sysfs /class/qcom-battery/sport_mode                                                                u:object_r:sysfs_fastcharge:s0
 
 # Wakeup
 genfscon sysfs /devices/platform/soc/soc:xiaomi_fingerprint/wakeup                                           u:object_r:sysfs_wakeup:s0
