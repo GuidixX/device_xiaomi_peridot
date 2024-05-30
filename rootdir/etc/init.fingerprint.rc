@@ -40,6 +40,14 @@ on boot
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/power_ctrl
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/screen
 
+    # Xiaomi touch
+    chown system system /dev/xiaomi-touch
+    chmod 0660 /dev/xiaomi-touch
+    chown system system /sys/class/touch/touch_dev/gesture_single_tap_enabled
+    chmod 0660 /sys/class/touch/touch_dev/gesture_single_tap_enabled
+    chown system system /sys/class/touch/touch_dev/gesture_single_tap_state
+    chmod 0664 /sys/class/touch/touch_dev/gesture_single_tap_state
+
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
     mkdir /data/vendor/misc/mi_fp 0770 system system

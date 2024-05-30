@@ -385,6 +385,7 @@ ro.boot.product.vendor.sku=cliffs
 
 # Sensors
 ro.vendor.sensors.xiaomi.udfps=true
+ro.vendor.sensors.xiaomi.single_tap=true
 
 # USB
 ro.recovery.usb.adb.pid=D001
