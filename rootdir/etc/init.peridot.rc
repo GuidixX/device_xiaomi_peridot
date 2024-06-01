@@ -125,6 +125,8 @@ on boot
     # Default country code
     setprop ro.boot.wificountrycode 00
 
+    write /sys/block/sda/queue/wbt_lat_usec 75000
+
 on charger
     chown system system /sys/class/backlight/panel0-backlight/brightness
     write /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled n
