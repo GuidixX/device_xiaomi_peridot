@@ -565,6 +565,8 @@ on property:sys.boot_completed=1
     write /sys/devices/virtual/cvp/cvp/boot 1
     write /dev/kmsg "start qrtr-lookup after Boot completed "
     start qrtr-lookup
+    # Enable PowerHAL hint processing
+    setprop vendor.powerhal.init 1
 
 on property:persist.vendor.radio.atfwd.start=false
     stop vendor.atfwd
