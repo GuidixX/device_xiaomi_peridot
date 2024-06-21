@@ -9,13 +9,9 @@
 #include <android-base/logging.h>
 #include <android-base/unique_fd.h>
 
-#include <poll.h>
-#include <sys/ioctl.h>
 #include <fstream>
-#include <thread>
 
 #include "UdfpsHandler.h"
-#include "xiaomi_touch.h"
 
 #define COMMAND_NIT 10
 #define PARAM_NIT_FOD 1
@@ -23,18 +19,13 @@
 
 #define COMMAND_FOD_PRESS_STATUS 1
 #define PARAM_FOD_PRESSED 1
-#define PARAM_FOD_RELEASED 1
+#define PARAM_FOD_RELEASED 0
 
+#define FOD_STATUS_PATH "/sys/class/touch/touch_dev/fod_press_status"
 #define FOD_STATUS_OFF 0
 #define FOD_STATUS_ON 1
 
-#define TOUCH_DEV_PATH "/dev/xiaomi-touch"
-#define TOUCH_ID 0
-#define TOUCH_MAGIC 'T'
-#define TOUCH_IOC_SET_CUR_VALUE _IO(TOUCH_MAGIC, SET_CUR_VALUE)
-#define TOUCH_IOC_GET_CUR_VALUE _IO(TOUCH_MAGIC, GET_CUR_VALUE)
-
-#define DISP_PARAM_PATH "sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param"
+#define DISP_PARAM_PATH "/sys/devices/virtual/mi_display/disp_feature/disp-DSI-0/disp_param"
 #define DISP_PARAM_LOCAL_HBM_MODE "9"
 #define DISP_PARAM_LOCAL_HBM_OFF "0"
 #define DISP_PARAM_LOCAL_HBM_ON "1"
@@ -74,32 +65,6 @@ class XiaomiPeridotUdfpsHander : public UdfpsHandler {
   public:
     void init(fingerprint_device_t* device) {
         mDevice = device;
-        touch_fd_ = android::base::unique_fd(open(TOUCH_DEV_PATH, O_RDWR));
-
-        std::thread([this]() {
-            int fd = open(FOD_PRESS_STATUS_PATH, O_RDONLY);
-            if (fd < 0) {
-                LOG(ERROR) << "failed to open fd, err: " << fd;
-                return;
-            }
-
-            struct pollfd fodPressStatusPoll = {
-                    .fd = fd,
-                    .events = POLLERR | POLLPRI,
-                    .revents = 0,
-            };
-
-            while (true) {
-                int rc = poll(&fodPressStatusPoll, 1, -1);
-                if (rc < 0) {
-                    LOG(ERROR) << "failed to poll fd, err: " << rc;
-                    continue;
-                }
-
-                mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS,
-                                readBool(fd) ? PARAM_FOD_PRESSED : PARAM_FOD_RELEASED);
-            }
-        }).detach();
     }
 
     void onFingerDown(uint32_t /*x*/, uint32_t /*y*/, float /*minor*/, float /*major*/) {
@@ -134,22 +99,21 @@ class XiaomiPeridotUdfpsHander : public UdfpsHandler {
 
   private:
     fingerprint_device_t* mDevice;
-    android::base::unique_fd touch_fd_;
 
     void setFodStatus(int value) {
-        int buf[MAX_BUF_SIZE] = {TOUCH_ID, Touch_Fod_Enable, value};
-        ioctl(touch_fd_.get(), TOUCH_IOC_SET_CUR_VALUE, &buf);
+        set(FOD_STATUS_PATH, value);
     }
 
     void setFingerDown(bool pressed) {
         mDevice->extCmd(mDevice, COMMAND_NIT, pressed ? PARAM_NIT_FOD : PARAM_NIT_NONE);
 
-        int buf[MAX_BUF_SIZE] = {TOUCH_ID, THP_FOD_DOWNUP_CTL, pressed ? 1 : 0};
-        ioctl(touch_fd_.get(), TOUCH_IOC_SET_CUR_VALUE, &buf);
-
         set(DISP_PARAM_PATH,
             std::string(DISP_PARAM_LOCAL_HBM_MODE) + " " +
                     (pressed ? DISP_PARAM_LOCAL_HBM_ON : DISP_PARAM_LOCAL_HBM_OFF));
+
+        if (pressed) {
+            mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS, PARAM_FOD_PRESSED);
+        }
     }
 };
 
