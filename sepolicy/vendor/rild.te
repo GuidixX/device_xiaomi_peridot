@@ -1,5 +1,6 @@
 allow rild vendor_mbn_data_file:dir create_dir_perms;
 allow rild vendor_mbn_data_file:file create_file_perms;
+allow rild diag_device:chr_file rw_file_perms;
 get_prop(rild, vendor_cpuid_prop)
 get_prop(rild, vendor_miui_region_prop)
 get_prop(rild, vendor_miui_singlesim_prop)
