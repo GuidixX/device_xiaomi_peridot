@@ -189,6 +189,7 @@ ro.bluetooth.a2dp_offload.supported=true
 # Camera
 camera.disable_zsl_mode=true
 ro.camera.enableCamera1MaxZsl=1
+persist.vendor.camera.perflock.enable=0
 
 # Dalvik
 dalvik.vm.dex2oat-cpu-set=4,5,6,7
