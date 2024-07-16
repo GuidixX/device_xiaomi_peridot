@@ -190,7 +190,8 @@ PRODUCT_COPY_FILES += \
 
 # Graphics
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.composer3-V2-ndk.vendor
+    android.hardware.graphics.composer3-V2-ndk.vendor \
+    android.hardware.graphics.common-V4-ndk
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute-0.xml \

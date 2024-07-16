@@ -182,6 +182,9 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/touch-drivers \
     nxp/opensource/driver
 
+# MiuiCamera
+CAMERA_PACKAGE_NAME := com.android.camera
+
 # Partitions
 -include vendor/voltage/config/BoardConfigReservedSize.mk
 
