@@ -422,6 +422,9 @@ PRODUCT_PACKAGES += \
     android.hardware.sensors-service.xiaomi-multihal
 
 PRODUCT_PACKAGES += \
+    sensor-notifier
+
+PRODUCT_PACKAGES += \
     sensors.dynamic_sensor_hal \
     sensors.xiaomi.v2
 
@@ -483,9 +486,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/thermal/thermal-normal.conf:$(TARGET_COPY_OUT_ODM)/etc/thermal-normal.conf
 
 # Touchscreen
-PRODUCT_PACKAGES += \
-    nonui-notifier
-
 PRODUCT_PACKAGES += \
     vendor.lineage.touch-service.xiaomi
 
