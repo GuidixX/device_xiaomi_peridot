@@ -149,6 +149,10 @@ on init
     mkdir /dev/cpuctl/small-window
     copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
 
+    # Report max frequency to unity tasks.
+    write /proc/sys/walt/sched_lib_name "UnityMain,libunity.so,libil2cpp.so,com.miHoYo.,com.pubg.imobile,com.pubg.,com.activision."
+    write /proc/sys/walt/sched_lib_mask_force 255
+
 on fs
     mkdir /dev/logfs 0771 system system
     mount vfat /dev/block/bootdevice/by-name/logfs /dev/logfs noatime umask=006,uid=1000,gid=1000
