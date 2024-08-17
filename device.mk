@@ -82,6 +82,7 @@ PRODUCT_PACKAGES += \
     libqcomvisualizer \
     libqcomvoiceprocessing \
     libvolumelistener \
+    libsndcardparser
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/audio/mixer_paths_overlay_static.xml:$(TARGET_COPY_OUT_ODM)/etc/audio/sku_cliffs/mixer_paths_overlay_static.xml \
@@ -113,18 +114,7 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth.audio-V3-ndk.vendor \
-    android.hardware.bluetooth.audio-impl \
-    android.hardware.bluetooth@1.1.vendor
-
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.bluetooth.audio-V1-ndk.vendor \
-    vendor.qti.hardware.bluetooth_audio@2.1.vendor \
-    vendor.qti.hardware.btconfigstore@1.0.vendor \
-    vendor.qti.hardware.btconfigstore@2.0.vendor
-
-PRODUCT_PACKAGES += \
-    com.dsi.ant@1.0.vendor
+    android.hardware.bluetooth.audio-impl
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.bluetooth.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.bluetooth.xml \
@@ -148,30 +138,7 @@ PRODUCT_PACKAGES += \
 
 # Camera
 PRODUCT_PACKAGES += \
-    android.hardware.camera.common-V1-ndk.vendor \
-    android.hardware.camera.device-V2-ndk.vendor \
-    android.hardware.camera.metadata-V2-ndk.vendor \
-    android.hardware.camera.provider-V2-ndk.vendor \
-    android.hardware.camera.provider@2.4-external \
-    android.hardware.camera.provider@2.4-legacy \
-    android.hardware.camera.provider@2.7.vendor \
-    android.hardware.camera.common@1.0.vendor \
-    vendor.qti.hardware.camera.aon-V1-ndk.vendor \
-    vendor.qti.hardware.camera.aon@1.3.vendor \
-    vendor.qti.hardware.camera.device@1.0.vendor \
-    vendor.qti.hardware.camera.offlinecamera-V1-ndk.vendor \
-    vendor.qti.hardware.camera.postproc@1.0.vendor
-
-PRODUCT_PACKAGES += \
-    camera.device@1.0-impl \
-    libcamera2ndk_vendor \
-    liblz4.vendor \
-    libcamera_metadata.vendor \
-    libexif.vendor \
-    libutilscallstack.vendor \
-    libyuv.vendor \
-    libwrapper_dlengine_shim \
-    libprocessgroup_shim
+    libcamera2ndk_vendor
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \
@@ -183,29 +150,14 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/permissions/camerax-vendor-extensions.xml:$(TARGET_COPY_OUT_SYSTEM_EXT)/etc/permissions/camerax-vendor-extensions.xml
 
-# ConfigStore
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.capabilityconfigstore@1.0.vendor
-
 # Contexthub
-PRODUCT_PACKAGES += \
-    android.hardware.contexthub-V2-ndk.vendor
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.context_hub.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.context_hub.xml
 
 # Display
 PRODUCT_PACKAGES += \
-    vendor.display.config@1.11.vendor \
-    vendor.qti.hardware.display.allocator@4.0.vendor \
-    vendor.qti.hardware.display.config-V2-ndk.vendor \
-    vendor.qti.hardware.display.config-V5-ndk.vendor \
-    vendor.qti.hardware.display.config-V7-ndk.vendor \
-    vendor.qti.hardware.display.mapper@2.0.vendor \
-    vendor.qti.hardware.display.mapper@3.0.vendor \
-    vendor.qti.hardware.display.mapper@4.0.vendor \
-    vendor.qti.hardware.display.mapperextensions@1.3.vendor \
-    vendor.qti.hardware.display.postproc-V1-ndk.vendor
+    vendor.qti.hardware.display.composer3-V1-ndk.vendor \
+    vendor.qti.hardware.display.config-V11-ndk.vendor
 
 PRODUCT_PACKAGES += \
     init.qti.display_boot.rc \
@@ -214,13 +166,6 @@ PRODUCT_PACKAGES += \
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
-
-PRODUCT_PACKAGES += \
-    libdrm.vendor
-
-# DumpState
-PRODUCT_PACKAGES += \
-    android.hardware.dumpstate-V1-ndk.vendor
 
 # Enable whole-program R8 Java optimizations for SystemUI and system_server,
 # but also allow explicit overriding for testing and development.
@@ -264,11 +209,6 @@ PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.opengles.deqp.level-2023-03-01.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.opengles.deqp.level.xml
 
 # GNSS
-PRODUCT_PACKAGES += \
-    android.hardware.gnss-V3-ndk.vendor \
-    libloc_net_iface \
-    libloc_net_iface.vendor
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.location.gps.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.location.gps.xml
 
@@ -301,10 +241,6 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.consumerir.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.consumerir.xml
-
-# Identity
-PRODUCT_PACKAGES += \
-    android.hardware.identity-V5-ndk.vendor
 
 # Init
 PRODUCT_PACKAGES += \
@@ -345,36 +281,11 @@ PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0-service
 
 PRODUCT_PACKAGES += \
-    android.hardware.authsecret@1.0.vendor \
-    android.hardware.gatekeeper-V1-ndk.vendor \
-    android.hardware.gatekeeper@1.0.vendor \
-    android.hardware.hardware_keystore.xml \
-    android.hardware.keymaster-V3-ndk.vendor \
-    android.hardware.keymaster-V4-ndk.vendor \
-    android.hardware.keymaster@3.0.vendor \
-    android.hardware.keymaster@4.1.vendor \
-    android.hardware.security.keymint-V1-ndk.vendor \
-    android.hardware.security.keymint-V2-ndk.vendor \
-    android.hardware.security.keymint-V3-ndk.vendor \
-    android.hardware.security.rkp-V3-ndk.vendor \
-    android.hardware.security.secureclock-V1-ndk.vendor \
-    android.hardware.security.sharedsecret-V1-ndk.vendor \
-    android.system.keystore2-V1-ndk.vendor \
-    lib_android_keymaster_keymint_utils.vendor \
-    libcppbor_external.vendor \
-    libgatekeeper.vendor \
-    libsoft_attestation_cert.vendor \
-    libkeymaster_messages.vendor \
-    libkeymaster_portable.vendor \
-    libcppbor_external.vendor
+    android.hardware.hardware_keystore.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.device_id_attestation.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.device_id_attestation.xml \
     frameworks/native/data/etc/android.hardware.keystore.app_attest_key.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.keystore.app_attest_key.xml
-
-# Lights
-PRODUCT_PACKAGES += \
-    android.hardware.light-V2-ndk.vendor
 
 # Linker
 PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
@@ -384,25 +295,6 @@ PRODUCT_VENDOR_LINKER_CONFIG_FRAGMENTS += \
 include $(LOCAL_PATH)/configs/logging.mk
 
 # Media
-PRODUCT_PACKAGES += \
-    android.hardware.media.c2@1.2.vendor \
-    libavservices_minijail \
-    libavservices_minijail_vendor \
-    libcodec2_hidl@1.0.vendor \
-    libcodec2_hidl@1.1.vendor \
-    libcodec2_hidl@1.2.vendor \
-    libcodec2_hidl_shim \
-    libcodec2_soft_common.vendor \
-    libcodec2_shim \
-    libcodec2_vndk.vendor
-
-PRODUCT_PACKAGES += \
-    android.hardware.media.bufferpool2-V1-ndk.vendor \
-    android.hardware.media.c2-V1-ndk.vendor
-
-PRODUCT_PACKAGES += \
-    libstagefright_foundation
-
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_profiles_cliffs_v0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_cliffs_v0.xml \
 
@@ -421,25 +313,13 @@ PRODUCT_PACKAGES += \
 $(call soong_config_set,rfs,mpss_firmware_symlink_target,modem_firmware)
 
 # Network
-PRODUCT_PACKAGES += \
-    android.system.net.netd-V1-ndk.vendor \
-    android.hardware.tetheroffload-V1-ndk.vendor
-
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.software.ipsec_tunnels.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnels.xml \
     frameworks/native/data/etc/android.software.ipsec_tunnel_migration.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.software.ipsec_tunnel_migration.xml
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc-V1-ndk.vendor \
-    android.hardware.nfc@1.2.vendor \
-    android.hardware.secure_element-V1-ndk.vendor \
-    android.hardware.secure_element@1.2.vendor
-
-PRODUCT_PACKAGES += \
-    nqnfcinfo \
-    vendor.nxp.nxpese@1.0.vendor \
-    vendor.nxp.nxpnfc_aidl-V1-ndk.vendor
+    nqnfcinfo
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.nfc.ese.xml \
@@ -493,16 +373,7 @@ PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=log
 
 # QMI
 PRODUCT_PACKAGES += \
-    libcurl.vendor \
-    libjson \
-    libjsoncpp.vendor \
-    libprocessgroup.vendor \
-    libqti_vndfwk_detect.vendor \
-    libqti_vndfwk_detect_vendor \
-    libsqlite.vendor \
-    libvndfwk_detect_jni.qti.vendor \
-    libvndfwk_detect_jni.qti_vendor \
-    vendor.qti.hardware.systemhelper@1.0.vendor
+    libvndfwk_detect_jni.qti_vendor # Needed by CNE app
 
 # QSPA
 PRODUCT_PACKAGES += \
@@ -515,22 +386,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/props/odm_IN.prop:$(TARGET_COPY_OUT_ODM)/etc/odm_IN.prop
 
 # Radio
-PRODUCT_PACKAGES += \
-    android.hardware.radio-V2-ndk.vendor \
-    android.hardware.radio.config-V2-ndk.vendor \
-    android.hardware.radio.data-V2-ndk.vendor \
-    android.hardware.radio.messaging-V2-ndk.vendor \
-    android.hardware.radio.modem-V2-ndk.vendor \
-    android.hardware.radio.network-V2-ndk.vendor \
-    android.hardware.radio.sap-V1-ndk.vendor \
-    android.hardware.radio.sim-V2-ndk.vendor \
-    android.hardware.radio.voice-V2-ndk.vendor \
-    android.hardware.radio@1.6.vendor
-
-PRODUCT_PACKAGES += \
-    libandroid_runtime_lazy.vendor \
-    librmnetctl
-
 PRODUCT_PACKAGES += \
     rfs_msm_mpss_readonly_mbnconfig_symlink
 
@@ -549,10 +404,7 @@ PRODUCT_PACKAGES += \
     sensors.xiaomi.v2
 
 PRODUCT_PACKAGES += \
-    libsensorndkbridge \
-    sensors.dynamic_sensor_hal \
-    android.frameworks.sensorservice-V1-ndk.vendor \
-    android.frameworks.sensorservice@1.0.vendor
+    sensors.dynamic_sensor_hal
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
@@ -606,9 +458,6 @@ PRODUCT_BOOT_JARS += \
     xiaomi-telephony-stub
 
 PRODUCT_PACKAGES += \
-    framework-permission-aidl-cpp.vendor
-
-PRODUCT_PACKAGES += \
     qcrilNrDb_vendor
 
 PRODUCT_COPY_FILES += \
@@ -621,9 +470,6 @@ PRODUCT_COPY_FILES += \
 # Thermal
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.pixel \
-    android.hardware.thermal-V1-ndk.vendor \
-    android.hardware.thermal@2.0.vendor \
-    android.hardware.thermal@1.0.vendor \
     thermal_symlinks \
     thermal_charging_service
 
@@ -683,31 +529,19 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     prebuilts/vndk/v34/arm64/arch-arm64-armv8-a/shared/vndk-core/libaudioroute.so:$(TARGET_COPY_OUT_VENDOR)/lib64/libaudioroute-v34.so
 
-# Weaver
-PRODUCT_PACKAGES += \
-    android.hardware.weaver-V2-ndk.vendor
-
 # WiFi
 PRODUCT_PACKAGES += \
     android.hardware.wifi-service \
-    android.hardware.wifi.hostapd@1.0.vendor \
     hostapd \
     hostapd_cli \
-    libcld80211 \
     libkeystore-engine-wifi-hidl \
     libkeystore-wifi-hidl \
     libwifi-hal \
     libwifi-hal-ctrl \
     libwifi-hal-qcom \
-    libwpa_client \
     wpa_cli \
     wpa_supplicant \
     wpa_supplicant.conf
-
-PRODUCT_PACKAGES += \
-    android.hardware.wifi.supplicant-V1-ndk.vendor \
-    android.hardware.wifi.supplicant-V2-ndk.vendor \
-    android.hardware.wifi.hostapd-V1-ndk.vendor
 
 PRODUCT_PACKAGES += \
     firmware_wlanmdsp.otaupdate_symlink \
