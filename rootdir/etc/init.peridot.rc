@@ -32,6 +32,7 @@ on boot
 # Migrate tasks again in case kernel threads are created during boot
 on property:sys.boot_completed=1
     copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
+    restart android-hardware-media-c2-hal-1-2
 
 on property:vendor.post_boot.parsed=1
     # Setup runtime cpus
