@@ -8,4 +8,7 @@
     <string-array name="config_skuSupportsSecureNfc" translatable="false">
         <item>peridot</item>
     </string-array>
+
+    <bool name="enable_secure_nfc_support">true</bool>
+    <bool name="nfcc_always_on_allowed">false</bool>
 </resources>
