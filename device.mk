@@ -450,6 +450,9 @@ PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti_vendor \
     vendor.qti.hardware.systemhelper@1.0.vendor
 
+PRODUCT_PACKAGES += \
+    libhidlbase_shim \
+
 # QSPA
 PRODUCT_PACKAGES += \
     vendor.qti.qspa-service
