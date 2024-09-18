@@ -25,6 +25,8 @@ blob_fixups: blob_fixups_user_type = {
         'odm/etc/camera/night_motiontuning.xml'
     ): blob_fixup()
         .regex_replace('xml=version', 'xml version'),
+    'vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy': blob_fixup()
+        .add_line_if_missing('setsockopt: 1'),
     (
         'vendor/lib64/hw/com.qti.chi.override.so',
         'vendor/lib64/hw/camera.xiaomi.so',
