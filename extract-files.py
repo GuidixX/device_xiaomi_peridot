@@ -35,6 +35,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libmialgoengine.so'
     ): blob_fixup()
         .add_needed('libprocessgroup_shim.so'),
+    'vendor/lib64/libqcodec2_core.so': blob_fixup()
+        .add_needed('libcodec2_shim.so'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libhidlbase_shim.so'),
 }  # fmt: skip

@@ -358,6 +358,9 @@ PRODUCT_PACKAGES += \
     libmm-omxcore
 
 PRODUCT_PACKAGES += \
+    libcodec2_shim
+
+PRODUCT_PACKAGES += \
     android.hardware.media.bufferpool2-V1-ndk.vendor
 
 PRODUCT_COPY_FILES += \
