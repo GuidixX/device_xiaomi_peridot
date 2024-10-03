@@ -213,6 +213,13 @@ on property:persist.vendor.ssr.restart_level=ALL_ENABLE
 on property:persist.vendor.ssr.restart_level=ALL_DISABLE
     write /sys/kernel/cnss/recovery 0
 
+on property:vendor.post_boot.parsed=1
+    # IRQ Tuning
+    # IRQ 70: msm_drm0
+    # IRQ 222: kgsl_3d0_irq
+    write /proc/irq/70/smp_affinity_list 2
+    write /proc/irq/222/smp_affinity_list 1
+
 on property:sys.boot_completed=1
     write /dev/kmsg "start qrtr-lookup after Boot completed "
     start qrtr-lookup
