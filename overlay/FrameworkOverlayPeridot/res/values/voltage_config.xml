@@ -33,6 +33,9 @@
     <bool name="config_powerOffAlarmEnabled">true</bool>
 
     <!-- media controls -->
-    <bool name="config_mediaControlsTurbulenceByDefault">true</bool>
+    <bool name="config_mediaControlsTurbulenceByDefault">false</bool>
+
+    <!-- Whether to play turbulence noise after clicking the play button -->
+    <bool name="config_turbulenceNoise">false</bool>
 
 </resources>
