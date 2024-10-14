@@ -76,6 +76,12 @@ ro.bluetooth.a2dp_offload.supported=true
 camera.disable_zsl_mode=true
 ro.camera.enableCamera1MaxZsl=1
 
+# Dalvik
+dalvik.vm.dex2oat-cpu-set=4,5,6,7
+dalvik.vm.dex2oat-threads=4
+dalvik.vm.image-dex2oat-cpu-set=4,5,6,7
+dalvik.vm.image-dex2oat-threads=4
+
 # DPM
 persist.vendor.dpm.vndr.feature=1
 persist.vendor.dpm.vndr.halservice.enable=1
