@@ -394,6 +394,9 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/power/config/pineapple/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
+# Platform
+TARGET_BOARD_PLATFORM := pineapple
+
 # QMI
 PRODUCT_PACKAGES += \
     libcurl.vendor \
