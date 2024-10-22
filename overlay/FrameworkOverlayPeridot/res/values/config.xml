@@ -998,6 +998,9 @@
         an app is not changed during subsequent reboots.  -->
     <bool name="config_stopSystemPackagesByDefault">false</bool>
 
+    <!-- Whether device supports in-display fingerprint -->
+    <bool name="config_supportsUdfps">true</bool>
+
     <!-- The default intensity level for haptic feedback. See
          Settings.System.HAPTIC_FEEDBACK_INTENSITY more details on the constant values and
          meanings. -->
