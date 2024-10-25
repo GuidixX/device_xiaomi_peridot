@@ -27,6 +27,8 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('xml=version', 'xml version'),
     'vendor/etc/seccomp_policy/c2audio.vendor.ext-arm64.policy': blob_fixup()
         .add_line_if_missing('setsockopt: 1'),
+    'vendor/etc/seccomp_policy/wfdhdcphalservice.policy': blob_fixup()
+        .add_line_if_missing('gettid: 1'),
     (
         'vendor/lib64/hw/com.qti.chi.override.so',
         'vendor/lib64/hw/camera.xiaomi.so',
