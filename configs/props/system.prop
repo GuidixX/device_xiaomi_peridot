@@ -1,3 +1,11 @@
+# Camera
+persist.vendor.camera.privapp.list=org.codeaurora.snapcam,com.android.camera
+ro.com.google.lens.oem_camera_package=com.android.camera
+ro.hardware.camera=xiaomi
+ro.miui.notch=1
+ro.product.mod_device=peridot_global
+vendor.camera.aux.packagelist=org.lineageos.aperture,org.codeaurora.snapcam,com.android.camera,com.google.camera
+
 # QTI
 ro.vendor.qti.va_aosp.support=1
 
@@ -5,3 +13,8 @@ ro.vendor.qti.va_aosp.support=1
 media.stagefright.thumbnail.prefer_hw_codecs=true
 ro.media.recorder-max-base-layer-fps=60
 ro.media.xml_variant.profiles=_cliffs_v0
+
+# Radio VoNR Calling
+persist.radio.is_vonr_enabled_0=true
+persist.radio.is_vonr_enabled_1=true
+persist.vendor.vonr_setting_support=1
