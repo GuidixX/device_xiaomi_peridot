@@ -20,4 +20,6 @@
     <!-- Whether to disable Smart Pixels on UDFPS -->
     <bool name="config_disableSmartPixelsOnUDFPS">true</bool>
 
+    <!-- The padding on the start of the statusbar -->
+    <dimen name="status_bar_padding_start">36px</dimen>
 </resources>
