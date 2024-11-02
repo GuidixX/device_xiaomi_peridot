@@ -1,0 +1,24 @@
+allow platform_app app_data_file:file execute;
+
+binder_call(platform_app, hal_camera_default)
+
+get_prop(platform_app, vendor_camera_prop)
+get_prop(platform_app, vendor_fp_prop)
+get_prop(platform_app, vendor_display_prop)
+get_prop(platform_app, vendor_panel_info_prop)
+
+# Camera
+allow platform_app app_data_file:file execute;
+allow platform_app hal_aidlbgservice_service:service_manager find;
+
+binder_call(platform_app, hal_camera_default)
+
+get_prop(platform_app, vendor_audio_prop)
+get_prop(platform_app, vendor_camera_prop)
+get_prop(platform_app, vendor_camera_sensor_prop)
+get_prop(platform_app, vendor_fp_prop)
+get_prop(platform_app, vendor_display_prop)
+get_prop(platform_app, vendor_panel_info_prop)
+
+allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
+binder_call(platform_app, vendor_hal_camerapostproc_xiaomi)
