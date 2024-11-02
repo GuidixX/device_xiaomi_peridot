@@ -306,6 +306,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     vendor/qcom/opensource/power/config/pineapple/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
+
+# Privapp permissions
+PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=log
+
 # QMI
 PRODUCT_PACKAGES += \
     libvndfwk_detect_jni.qti_vendor # Needed by CNE app
