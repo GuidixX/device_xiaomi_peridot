@@ -35,3 +35,8 @@ persist.vendor.vonr_setting_support=1
 
 # Disable default frame rate limit for games
 debug.graphics.game_default_frame_rate.disabled=1
+
+# QTI Mem Optimisation
+persist.vendor.sys.memplus.enable=false
+ro.vendor.qti.sys.fw.bg_apps_limit=30
+ro.vendor.qti.sys.fw.bservice_limit=60
