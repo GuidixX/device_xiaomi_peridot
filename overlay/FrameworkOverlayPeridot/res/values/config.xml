@@ -594,8 +594,15 @@
          For example, no higher refresh rate if
              display brightness <= disp0 && ambient brightness <= amb0
              || display brightness <= disp1 && ambient brightness <= amb1 -->
-    <integer-array name="config_brightnessThresholdsOfPeakRefreshRate" />
-    <integer-array name="config_ambientThresholdsOfPeakRefreshRate" />
+    <integer-array name="config_brightnessThresholdsOfPeakRefreshRate">
+         <!-- System brightness for 15 nits: round((15-2)/(1000-2)*(255-1)+1) -->
+         <item>4</item> <!-- 20% UI brightness -->
+         <!-- System brightness for 25 nits: round((25-2)/(1000-2)*(255-1)+1) -->
+         <item>7</item> <!-- 27% UI brightnes -->    </integer-array>
+    <integer-array name="config_ambientThresholdsOfPeakRefreshRate">
+        <item>-1</item>
+        <item>5</item>
+    </integer-array>
 
     <!-- Array of ambient lux threshold values. This is used for determining hysteresis constraint
          values by calculating the index to use for lookup and then setting the constraint value
