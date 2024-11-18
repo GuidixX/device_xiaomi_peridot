@@ -14,6 +14,9 @@ filegroup {
         "other/10_version_update_ecc_table.sql",
         "other/11_version_update_ecc_table.sql",
         "other/12_version_update_ecc_table.sql",
+        "other/13_version_update_ecc_table.sql",
+        "other/14_version_update_modules.sql",
+        "other/15_version_add_iccid_clir_pref_table.sql",
     ],
 }
 
@@ -29,6 +32,7 @@ filegroup {
         "config/12.0_config.sql",
         "config/13.0_config.sql",
         "config/14.0_config.sql",
+        "config/15.0_config.sql",
     ],
 }
 
@@ -69,6 +73,9 @@ prebuilt_etc {
         "10_version_update_ecc_table.sql",
         "11_version_update_ecc_table.sql",
         "12_version_update_ecc_table.sql",
+        "13_version_update_ecc_table.sql",
+        "14_version_update_modules.sql",
+        "15_version_add_iccid_clir_pref_table.sql",
         "6.0_config.sql",
         "7.0_config.sql",
         "8.0_config.sql",
@@ -78,5 +85,6 @@ prebuilt_etc {
         "12.0_config.sql",
         "13.0_config.sql",
         "14.0_config.sql",
+        "15.0_config.sql",
     ],
 }
