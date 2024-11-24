@@ -36,6 +36,7 @@ import org.lineageos.settings.turbocharging.TurboChargingService;
 import org.lineageos.settings.sensors.TapToWakeService;
 import org.lineageos.settings.touchsampling.TouchSamplingUtils;
 import org.lineageos.settings.touchsampling.TouchSamplingService;
+import org.lineageos.settings.touchsampling.TouchSamplingTileService;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final String TAG = "XiaomiParts";
@@ -90,16 +91,11 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         Intent turboChargingIntent = new Intent(context, TurboChargingService.class);
         context.startService(turboChargingIntent);
 
-        // Restore touch sampling rate
-        TouchSamplingUtils.restoreSamplingValue(context);
+        // Start Touch Sampling Tile Service
+        context.startServiceAsUser(new Intent(context, TouchSamplingTileService.class), UserHandle.CURRENT);
 
-        // Register unlock receiver for restoring HTSR
-        IntentFilter filter = new IntentFilter(Intent.ACTION_USER_PRESENT);
-        context.registerReceiver(new UnlockReceiver(), filter);
-
-        // Start TouchSamplingService to restore sampling rate
-        Intent touchSamplingServiceIntent = new Intent(context, TouchSamplingService.class);
-        context.startServiceAsUser(touchSamplingServiceIntent, UserHandle.CURRENT);
+        // Start Touch Sampling Service
+        context.startServiceAsUser(new Intent(context, TouchSamplingService.class), UserHandle.CURRENT);
 
         // Start TapToWakeService
         try {
