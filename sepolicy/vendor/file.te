@@ -16,3 +16,7 @@ type vendor_charge_log_file, data_file_type, file_type;
 type thermal_data_file, data_file_type, file_type;
 type vendor_modem_data_file, data_file_type, file_type;
 type vendor_ins_vendor_data_file, data_file_type, file_type;
+type hal_lineage_fastcharge, data_file_type, file_type;
+type hal_lineage_fastcharge_default, domain;
+type hal_lineage_fastcharge_default_exec, file_type, dev_type, exec_type;
+
