@@ -66,13 +66,13 @@ BOARD_USES_QCOM_HARDWARE := true
 
 # HIDL
 DEVICE_FRAMEWORK_COMPATIBILITY_MATRIX_FILE := \
-    $(DEVICE_PATH)/configs/hidl/compatibility_matrix.device.xml \
-    $(DEVICE_PATH)/configs/hidl/vendor_framework_compatibility_matrix.xml \
-    $(DEVICE_PATH)/configs/hidl/device_framework_matrix.xml
+    $(DEVICE_PATH)/configs/vintf/compatibility_matrix.device.xml \
+    $(DEVICE_PATH)/configs/vintf/vendor_framework_compatibility_matrix.xml \
+    $(DEVICE_PATH)/configs/vintf/device_framework_matrix.xml
 
-DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/hidl/compatibility_matrix.xml
-DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/hidl/manifest_vendor.xml
-ODM_MANIFEST_FILES := $(DEVICE_PATH)/configs/hidl/manifest_odm.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/configs/vintf/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/configs/vintf/manifest_vendor.xml
+ODM_MANIFEST_FILES := $(DEVICE_PATH)/configs/vintf/manifest_odm.xml
 
 # Kernel
 TARGET_KERNEL_VERSION := 6.1
