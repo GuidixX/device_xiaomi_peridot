@@ -18,3 +18,6 @@ ro.media.xml_variant.profiles=_cliffs_v0
 persist.radio.is_vonr_enabled_0=true
 persist.radio.is_vonr_enabled_1=true
 persist.vendor.vonr_setting_support=1
+
+# Disable default frame rate limit for games
+debug.graphics.game_default_frame_rate.disabled=1
