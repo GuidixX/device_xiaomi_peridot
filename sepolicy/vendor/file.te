@@ -20,6 +20,7 @@ type hal_lineage_fastcharge, data_file_type, file_type;
 type hal_lineage_fastcharge_default, domain;
 type hal_lineage_fastcharge_default_exec, file_type, dev_type, exec_type;
 <<<<<<< HEAD
+<<<<<<< HEAD
 type vendor_hal_nxpnfc_service, file_type, dev_type, exec_type;
 type service_manager, service_manager_type;
 type sysfs_touch_suspend, sysfs_file;
@@ -27,3 +28,6 @@ type sysfs_touch_hostprocess, sysfs_file;
 type proc_tp_lockdown, file_type;
 =======
 >>>>>>> f2bf89f (peridot: sepolicy: Declare hal_lineage_fastcharge type)
+=======
+type vendor_hal_nxpnfc_service, file_type, dev_type, exec_type;
+>>>>>>> dfbcf80 (peridot: sepolicy: Define nfc denials)
