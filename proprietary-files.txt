@@ -2080,7 +2080,7 @@ vendor/lib64/libtracker_6dof_impl.so
 vendor/lib64/vendor.qti.hardware.qxr-V1-ndk.so
 vendor/lib64/vendor.qti.qegahal-V1-ndk_platform.so
 
-# RIL
+# RIL Except IMS(system) from LA.QSSI.15.0.r1-10500-qssi.0
 odm/etc/MESubway_prebuilt.db
 odm/etc/me_config.xml
 product/app/uimgbaservice/uimgbaservice.apk
