@@ -28,4 +28,6 @@
     <bool name="config_pocketModeSupported">false</bool>
     <bool name="config_pocketUseLightSensor">false</bool>
 
+    <!-- PowerOffAlarmService -->
+    <bool name="config_powerOffAlarmEnabled">true</bool>
 </resources>
