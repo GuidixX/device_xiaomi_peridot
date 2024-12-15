@@ -106,7 +106,7 @@ on init
 on post-fs
 
 on early-boot
-    # set RLIMIT_MEMLOCK to 64KB
+    # Set RLIMIT_MEMLOCK to 64KB
     setrlimit 8 65536 65536
     exec u:r:vendor_qti_init_shell:s0 -- /vendor/bin/init.qcom.early_boot.sh
     setprop ro.sf.lcd_density ${vendor.display.lcd_density}
@@ -173,7 +173,7 @@ on boot
     mkdir /mnt/vendor/persist/iar_db 0770 system system
     mkdir /mnt/vendor/spunvm 0770 system system
 
-    #Create WIGIG socket area
+    # Create WIGIG socket area
     mkdir /dev/socket/wigig 0770 wifi wifi
 
     setprop wifi.interface wlan0
@@ -182,7 +182,7 @@ on boot
 
     setprop ro.telephony.call_ring.multiple false
 
-    #Remove SUID bit for iproute2 ip tool
+    # Remove SUID bit for iproute2 ip tool
     chmod 0755 /system/bin/ip
 
 
@@ -249,7 +249,7 @@ on boot
     chown system system /sys/class/power_debug/debug_suspend
     # END Power_LogEnhance
 
-     # MIUI ADD: Performance_LogEnhance
+    # MIUI ADD: Performance_LogEnhance
     chmod 0666 /dev/mi_exception_log
     chown system system /proc/mi_log/binder_delay
     chown system system /proc/mi_log/delay
@@ -263,14 +263,13 @@ on boot
     # Create vpp directory
     mkdir /mnt/vendor/persist/vpp 0770 media media
 
-
     # Create hvdcp_opti directory
     mkdir /mnt/vendor/persist/hvdcp_opti 0770 root system
 
     # limit discard size to 128MB in order to avoid long IO latency
     write /sys/block/sda/queue/discard_max_bytes 134217728
 
-# msm specific files that need to be created on /data
+# MSM specific files that need to be created on /data
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
 
@@ -295,7 +294,7 @@ on post-fs-data
     # Create directory for apps access via QTEEConnector
     mkdir /data/vendor/qtee 0770 system system
 
-    #Create folder of camera
+    # Create folder of camera
     mkdir /data/vendor/camera 0777 camera camera
     mkdir /data/vendor/camera/offlinelog 0777 cameraserver audio
     mkdir /data/vendor/camera/aftersalelog 0777 cameraserver audio
@@ -308,7 +307,7 @@ on post-fs-data
     chmod 0666 /dev/mi_cam_sched
     # END Camera_Sched
 
-    #Create directory for tftp
+    # Create directory for tftp
     mkdir /data/vendor/tombstones 0771 system system
     mkdir /data/vendor/tombstones/rfs 0771 system system
 
@@ -374,10 +373,10 @@ on post-fs-data
     chown system system /sys/devices/platform/msm_sdcc.3/polling
     chown system system /sys/devices/platform/msm_sdcc.4/polling
 
-    #Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
-    #symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
+    # Create the symlink to qcn wpa_supplicant folder for ar6000 wpa_supplicant
+    # symlink /data/misc/wifi/wpa_supplicant /data/system/wpa_supplicant
 
-    #Create directories for Location services
+    # Create directories for Location services
     mkdir /data/vendor/location 0770 gps gps
     mkdir /data/vendor/location/mq 0770 gps gps
     mkdir /data/vendor/location/xtwifi 0770 gps gps
@@ -387,7 +386,7 @@ on post-fs-data
     mkdir /dev/socket/location/ehub 0770 gps gps
     mkdir /dev/socket/location/dgnss 0770 gps gps
 
-    #Create directories for wifihal services
+    # Create directories for wifihal services
     mkdir /dev/socket/wifihal 0770 wifi wifi
     chmod 2770 /dev/socket/wifihal
 
@@ -396,10 +395,10 @@ on post-fs-data
 
     setprop vold.post_fs_data_done 1
 
-    #Create a folder for SRS to be able to create a usercfg file
-    #mkdir /data/data/media 0770 media media
+    # Create a folder for SRS to be able to create a usercfg file
+    # mkdir /data/data/media 0770 media media
 
-    #Create FM dir for patchdownloader
+    # Create FM dir for patchdownloader
     mkdir /data/vendor/fm 0770 system system
     chmod 0770 /data/vendor/fm
 
@@ -416,7 +415,7 @@ on post-fs-data
     chown radio radio /data/vendor/radio/copy_complete
     chmod 0660 /data/vendor/radio/copy_complete
 
-    # copy prebuilt qcril.db files always
+    # Copy prebuilt qcril.db files always
     copy /vendor/radio/qcril_database/qcril.db /data/vendor/radio/qcril_prebuilt.db
     chown radio radio /data/vendor/radio/qcril_prebuilt.db
     chmod 0660 /data/vendor/radio/qcril_prebuilt.db
@@ -441,11 +440,11 @@ on post-fs-data
     mkdir /data/vendor/qti-logkit/socket-public/ 2750 system diag
     mkdir /data/vendor/qti-logkit/logdata/ 2750 system shell
 
-    #Create SWAP related dirs
+    # Create SWAP related dirs
     mkdir /data/vendor/swap 0770 root system
     chmod 2770 /data/vendor/swap
 
-    # set aggressive read ahead for dm-0 and dm-1 during boot up
+    # Set aggressive read ahead for dm-0 and dm-1 during boot up
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
     write /sys/block/dm-2/queue/read_ahead_kb 2048
@@ -453,7 +452,7 @@ on post-fs-data
     # Create vpp directory
     mkdir /data/vendor/vpp 0770 media media
 
-    #Create dir for TUI
+    # Create dir for TUI
     mkdir /data/vendor/tui 0700 system drmrpc
 
     # Create the directory used by qrtr-lookup
@@ -541,19 +540,19 @@ on property:persist.vendor.sys.rawdump_copy=0
 
 on property:sys.boot_completed=1
     write /dev/kmsg "Boot completed "
-    #Enable UFS clock scaling back
+    # Enable UFS clock scaling back
     write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 1
-    #Enable UFS auto_hibern8 back
+    # Enable UFS auto_hibern8 back
     write /sys/bus/platform/devices/1d84000.ufshc/auto_hibern8 5000
-    #Enable UFS clock gating back
+    # Enable UFS clock gating back
     write /sys/bus/platform/devices/1d84000.ufshc/clkgate_enable 1
-    #Reset read ahead for dm-0 and dm-1 to 512kb
+    # Reset read ahead for dm-0 and dm-1 to 512kb
     write /sys/block/dm-0/queue/read_ahead_kb 512
     write /sys/block/dm-1/queue/read_ahead_kb 512
-    #WDSP FW boot sysfs node used by STHAL
+    # WDSP FW boot sysfs node used by STHAL
     chown media audio /sys/kernel/wdsp0/boot
     chown media audio /sys/kernel/wcd_cpe0/fw_name
-    #Reinit lmkd to reconfigure lmkd properties
+    # Reinit lmkd to reconfigure lmkd properties
     setprop lmkd.reinit 1
     chown media audio /sys/kernel/aud_dev/state
     write /sys/devices/virtual/cvp/cvp/boot 1
@@ -566,7 +565,7 @@ on property:persist.vendor.radio.atfwd.start=false
 on property:vendor.radio.atfwd.start=false
     stop vendor.atfwd
 
-# corefile limit
+# Corefile limit
 on property:persist.debug.trace=1
     mkdir /data/core 0777 root root
     write /proc/sys/kernel/core_pattern "/data/core/%E.%p.%e"
@@ -599,7 +598,7 @@ service vendor.wigig_supplicant /vendor/bin/hw/wpa_supplicant \
     -O/data/vendor/wifi/wigig_sockets -dd \
     -e/data/vendor/wifi/wigig_entropy.bin -g@android:wigig/wpa_wigig0 \
     -S wigigsvc
-    #   we will start as root and wpa_supplicant will switch to user wifi
+    #   We will start as root and wpa_supplicant will switch to user wifi
     #   after setting up the capabilities required for WEXT
     #   user wifi
     #   group wifi inet keystore

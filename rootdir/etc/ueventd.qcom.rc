@@ -217,7 +217,7 @@ subsystem mem_buf_vm
 
 #QDSS
 /dev/byte-cntr            0660   system    oem_2902
-/dev/byte-cntr1            0660   system    oem_2902
+/dev/byte-cntr1           0660   system    oem_2902
 /dev/mhi_qdss             0660   system    oem_2902
 /sys/class/qdss_bridge/mhi_qdss  mode      0660     system   oem_2902
 
@@ -316,7 +316,7 @@ subsystem mem_buf_vm
 /dev/tsc_mux0             0660   media       media
 /dev/tsc_ci0              0660   media       media
 
-# sensors
+# Sensors
 /dev/sensors              0660   system     system
 /sys/devices/i2c-12/12-*  pollrate_ms 0664 system system
 /sys/devices/f9925000.i2c/i2c-0/0-*                 enable         0660    input    system
@@ -360,17 +360,17 @@ subsystem mem_buf_vm
 /sys/devices/virtual/input/input*                   set_delay_ms     0660  system   input
 /sys/devices/virtual/input/input*                   do_flush         0660  system   input
 
-# vm_bms
+# VM_bms
 /dev/vm_bms               0660   system     system
 /dev/battery_data         0660   system     system
 
-# wlan
+# Wlan
 /dev/wcnss_wlan           0660   system     system
 /dev/wcnss_ctrl           0660   system     system
 /sys/devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/wlan0/queues/rx-* rps_cpus 0660 system system
 /sys/devices/soc/600000.qcom,pcie/pci0000:00/0000:00:00.0/0000:01:00.0/net/p2p0/queues/rx-* rps_cpus 0660 system system
 
-# wigig
+# Wigig
 /sys/bus/pci/drivers/wil6210* 0000:01:00.0/wil6210/fst_link_loss 0660 wifi wifi
 /sys/bus/pci/drivers/wil6210* 0000:01:00.0/wil6210/thermal_throttling 0660 system system
 /sys/bus/pci/drivers/wil6210* 0000:01:00.0/wil6210/snr_thresh 0660 wifi wifi
@@ -378,7 +378,7 @@ subsystem mem_buf_vm
 /sys/bus/pci/drivers/wil6210* 0000:01:00.0/net/wigig0/gro_flush_timeout 0660 system system
 /sys/devices/virtual/net/bond0 queues/rx-0/rps_cpus 0660 system system
 
-#nfc permissions
+# NFC permissions
 /dev/nfc-nci              0660    nfc         nfc
 /dev/nq-nci               0660    nfc         nfc
 /dev/assd                 0660    nfc         nfc
@@ -393,10 +393,10 @@ subsystem mem_buf_vm
 /dev/uio2                 0660   system     system
 
 # SSR devices
-/dev/subsys_*         0640   system     system
+/dev/subsys_*             0640   system     system
 
-# remoteproc devices
-/dev/remoteproc*      0640   system     system
+# Remoteproc devices
+/dev/remoteproc*          0640   system     system
 
 # Ultrasound device
 /dev/usf1                 0660   system     system
@@ -412,7 +412,7 @@ subsystem mem_buf_vm
 /sys/class/fts/touch_aoi aoi_set 0660 root system
 /sys/class/fts/touch_aoi power_set 0660 root system
 
-#ImproveTouch device
+# ImproveTouch device
 /dev/hbtp_input           0660   system     system
 /dev/hbtp_vm              0660   system     system
 
@@ -477,22 +477,22 @@ subsystem mem_buf_vm
 /sys/bus/usb/devices/*      power/control              0660  system  usb
 /sys/bus/usb/devices/*      power/wakeup               0660  system  usb
 
-#USB root hub authorize setting
+# USB root hub authorize setting
 /sys/bus/usb/devices/usb*   authorized                 0660  system  usb
 
-#USB mode setting
+# USB mode setting
 /sys/bus/platform/devices/a600000.ssusb    mode        0660  system  usb
 /sys/bus/platform/devices/4e00000.ssusb    mode        0660  system  usb
 
-#Memory Offline
+# Memory Offline
 /sys/devices/system/memory/memory* state    0660 system system
 
 /sys/devices/virtual/hdcp/msm_hdcp  min_level_change 0664    system  graphics
 
-#KGSL
+# KGSL
 /sys/class/kgsl/kgsl-3d0    perfcounter              0660    root    shell
 
-# sys-fs display
+# Sys-fs display
 /sys/class/graphics/fb*     hpd                      0664    system  graphics
 /sys/class/graphics/fb*     res_info                 0664    system  graphics
 /sys/class/graphics/fb*     vendor_name              0664    system  graphics
@@ -525,8 +525,8 @@ subsystem mem_buf_vm
 
 /sys/devices/platform/soc/ae00000.qcom,mdss_mdp power/control 0664 system graphics
 
-#asm330 sensor
-#common sensors files
+# asm330 sensor
+# Common sensors files
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   buffer/enable                   0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   buffer/length                   0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   buffer/watermark                0664   system  system
@@ -543,7 +543,7 @@ subsystem mem_buf_vm
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   scan_elements/in_timestamp_index 0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   scan_elements/in_timestamp_type 0664    system  system
 
-# standard iio accel attributes
+# Standard iio accel attributes
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_accel_scale_available        0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_accel_x_raw                  0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_accel_x_scale                0664    system  system
@@ -561,7 +561,7 @@ subsystem mem_buf_vm
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   scan_elements/in_accel_z_index  0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   scan_elements/in_accel_z_type   0664    system  system
 
-# standard iio gyro attributes
+# Standard iio gyro attributes
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_anglvel_scale_available      0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_anglvel_x_raw                0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_anglvel_x_scale              0664    system  system
@@ -580,16 +580,16 @@ subsystem mem_buf_vm
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   scan_elements/in_anglvel_z_type  0664    system  system
 
 
-# standard iio temp attributes
+# Standard iio temp attributes
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_temp_offset                  0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_temp_raw                     0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_temp_scale                   0664    system  system
 /sys/devices/platform/soc/*.i2c/i2c-*/*-*/iio:device*   in_temp_scale_available         0664    system  system
 
-# devcoredump data attributes
+# Devcoredump data attributes
 /sys/class/devcoredump/devcd*                           data                            0600    system  system
 
-#Virtualization Attributes
+# Virtualization Attributes
 /dev/gunyah                 0666   root     root
 
 # Q2SPI UWB device

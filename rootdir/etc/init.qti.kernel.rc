@@ -60,14 +60,14 @@ on post-fs
     chown root system /sys/fs/cgroup/memory/bg/tasks
     chmod 0660 /sys/fs/cgroup/memory/bg/tasks
 
-    # update scheduler tunables
+    # Update scheduler tunables
     write /dev/cpuctl/foreground/cpu.uclamp.sched_boost_no_override 1
     write /dev/cpuctl/top-app/cpu.uclamp.sched_boost_no_override 1
     write /dev/cpuctl/background/cpu.uclamp.colocate 0
     write /dev/cpuctl/foreground/cpu.uclamp.colocate 0
     write /dev/cpuctl/top-app/cpu.uclamp.colocate 1
 
-    # set aggressive read ahead for dm-0 and dm-1 during boot up
+    # Set aggressive read ahead for dm-0 and dm-1 during boot up
     write /sys/block/dm-0/queue/read_ahead_kb 2048
     write /sys/block/dm-1/queue/read_ahead_kb 2048
     write /sys/block/dm-2/queue/read_ahead_kb 2048
@@ -90,11 +90,11 @@ on boot
     chown root system /sys/kernel/dload/dload_mode
     chmod 0660 /sys/kernel/dload/dload_mode
 
-    # set the io-scheduler to bfq on all eMMC and SD devices
+    # Set the io-scheduler to bfq on all eMMC and SD devices
     write /sys/class/block/mmcblk0/queue/scheduler bfq
     write /sys/class/block/mmcblk1/queue/scheduler bfq
 
-    # update io-scheduler tunables
+    # Update io-scheduler tunables
     write /sys/class/block/mmcblk0/queue/iosched/slice_idle 0
     write /sys/class/block/mmcblk1/queue/iosched/slice_idle 0
 
