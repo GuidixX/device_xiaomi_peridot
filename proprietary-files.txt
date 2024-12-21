@@ -2078,7 +2078,8 @@ vendor/lib64/libtracker_6dof_impl.so
 vendor/lib64/vendor.qti.hardware.qxr-V1-ndk.so
 vendor/lib64/vendor.qti.qegahal-V1-ndk_platform.so
 
-# RIL Except IMS(system) from LA.QSSI.15.0.r1-10500-qssi.0
+# RIL - from op5cfbl1 qssi-user-14-UKQ1.231108.001-1717690720477-release-keys Except IMS(system) from LA.QSSI.15.0.r1-10500-qssi.0
+vendor/lib64/libqcrilNrVoiceModule.so
 odm/etc/MESubway_prebuilt.db
 odm/etc/me_config.xml
 product/app/uimgbaservice/uimgbaservice.apk
@@ -2235,7 +2236,6 @@ vendor/lib64/libqcrilNrQtiBus.so
 vendor/lib64/libqcrilNrQtiMutex.so
 vendor/lib64/libqcrilNrSmsModule.so
 vendor/lib64/libqcrilNrSocketModule.so
-vendor/lib64/libqcrilNrVoiceModule.so
 vendor/lib64/libqcrildataaidl.so
 vendor/lib64/libqcrildatactl.so
 vendor/lib64/libqcrildataqos.so
