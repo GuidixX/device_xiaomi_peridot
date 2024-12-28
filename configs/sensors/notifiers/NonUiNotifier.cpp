@@ -10,7 +10,7 @@
 
 #include <android-base/logging.h>
 #include <android-base/unique_fd.h>
-#include <linux/xiaomi_touch.h>
+#include "xiaomi_touch.h"
 #include <poll.h>
 #include <sys/ioctl.h>
 
@@ -34,8 +34,11 @@ class NonUiSensorCallback : public IEventQueueCallback {
     }
 
     Return<void> onEvent(const Event& e) {
-        int buf[MAX_BUF_SIZE] = {0, Touch_Nonui_Mode, static_cast<int>(e.u.scalar)};
-        ioctl(touch_fd_.get(), TOUCH_IOC_SET_CUR_VALUE, &buf);
+        struct touch_mode_request request = {
+            .mode = TOUCH_MODE_NONUI_MODE,
+            .value = static_cast<int>(e.u.scalar),
+        };
+        ioctl(touch_fd_.get(), TOUCH_IOC_SET_CUR_VALUE, &request);
 
         return Void();
     }

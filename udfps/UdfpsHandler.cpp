@@ -17,7 +17,7 @@
 #include <thread>
 
 #include <display/drm/mi_disp.h>
-#include <linux/xiaomi_touch.h>
+#include "xiaomi_touch.h"
 
 #include "UdfpsHandler.h"
 
