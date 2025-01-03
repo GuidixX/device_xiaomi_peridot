@@ -554,13 +554,25 @@
          level[n] <= value < level[n+1]  n+1
          level[MAX] <= value             MAX+1 -->
     <integer-array name="config_ambientThresholdLevels">
+        <item>1</item>
         <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+        <item>6</item>
+        <item>7</item>
+        <item>8</item>
+        <item>9</item>
         <item>10</item>
+        <item>20</item>
         <item>30</item>
+        <item>40</item>
+        <item>50</item>
+        <item>60</item>
+        <item>70</item>
+        <item>80</item>
+        <item>90</item>
         <item>100</item>
-        <item>800</item>
-        <item>2000</item>
-        <item>4000</item>
     </integer-array>
 
     <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
@@ -570,13 +582,25 @@
          the screen brightness is recalculated. See the config_ambientThresholdLevels
          description for how the constraint value is chosen. -->
     <integer-array name="config_ambientBrighteningThresholds">
-        <item>2</item>
-        <item>6</item>
-        <item>10</item>
-        <item>30</item>
-        <item>100</item>
-        <item>400</item>
-        <item>600</item>
+        <item>14000</item>
+        <item>12000</item>
+        <item>10400</item>
+        <item>9000</item>
+        <item>8000</item>
+        <item>7000</item>
+        <item>6000</item>
+        <item>5000</item>
+        <item>4000</item>
+        <item>3000</item>
+        <item>3000</item>
+        <item>3000</item>
+        <item>2000</item>
+        <item>2000</item>
+        <item>2000</item>
+        <item>1500</item>
+        <item>1500</item>
+        <item>1500</item>
+        <item>1000</item>
         <item>1000</item>
     </integer-array>
 
@@ -587,14 +611,26 @@
          the screen brightness is recalculated. See the config_ambientThresholdLevels
          description for how the constraint value is chosen. -->
     <integer-array name="config_ambientDarkeningThresholds">
-        <item>800</item>
-        <item>800</item>
+        <item>853</item>
+        <item>700</item>
+        <item>683</item>
+        <item>666</item>
+        <item>650</item>
+        <item>640</item>
+        <item>630</item>
+        <item>620</item>
+        <item>610</item>
+        <item>600</item>
         <item>500</item>
         <item>500</item>
-        <item>500</item>
-        <item>500</item>
-        <item>500</item>
-        <item>500</item>
+        <item>440</item>
+        <item>385</item>
+        <item>348</item>
+        <item>311</item>
+        <item>274</item>
+        <item>237</item>
+        <item>200</item>
+        <item>200</item>
     </integer-array>
 
     <!-- Array of screen brightness threshold values. This is used for determining hysteresis
