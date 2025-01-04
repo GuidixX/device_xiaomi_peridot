@@ -97,10 +97,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         // Start Touch Sampling Tile Service
         context.startServiceAsUser(new Intent(context, TouchSamplingTileService.class), UserHandle.CURRENT);
 
-        // Register unlock receiver for restoring HTSR
-        IntentFilter filter = new IntentFilter(Intent.ACTION_USER_PRESENT);
-        context.registerReceiver(new UnlockReceiver(), filter);
-
         // Start TouchSamplingService to restore sampling rate
         Intent touchSamplingServiceIntent = new Intent(context, TouchSamplingService.class);
         context.startServiceAsUser(touchSamplingServiceIntent, UserHandle.CURRENT);
