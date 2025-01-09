@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 The LineageOS Project
+ * Copyright (C) 2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,12 @@
 
 package org.lineageos.settings.thermal;
 
+import android.app.Notification;
+import android.app.NotificationChannel;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.PowerManager;
 import android.service.quicksettings.Tile;
@@ -37,16 +42,20 @@ public class ThermalTileService extends TileService {
     private String[] modes;
     private int currentMode = 0; // Default mode index
     private SharedPreferences mSharedPrefs;
+    private NotificationManager mNotificationManager;
+    private Notification mNotification;
 
     @Override
     public void onCreate() {
         super.onCreate();
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(this);
+        mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         // Ensure a default value for the master switch
         if (!mSharedPrefs.contains(THERMAL_ENABLED_KEY)) {
             mSharedPrefs.edit().putBoolean(THERMAL_ENABLED_KEY, false).apply();
         }
+        setupNotificationChannel();
     }
 
     @Override
@@ -59,13 +68,11 @@ public class ThermalTileService extends TileService {
                 getString(R.string.thermal_mode_unknown)
         };
 
-        // Check the state of the master switch
         boolean isMasterEnabled = mSharedPrefs.getBoolean(THERMAL_ENABLED_KEY, false);
         if (isMasterEnabled) {
             updateTileDisabled();
         } else {
             currentMode = getCurrentThermalMode();
-            // Reset to Default if mode is Unknown
             if (currentMode == 3) {
                 currentMode = 0;
                 setThermalMode(currentMode);
@@ -78,7 +85,6 @@ public class ThermalTileService extends TileService {
     public void onClick() {
         boolean isMasterEnabled = mSharedPrefs.getBoolean(THERMAL_ENABLED_KEY, false);
         if (isMasterEnabled) {
-            // Tile is disabled; ignore click events
             return;
         }
         toggleThermalMode();
@@ -86,10 +92,8 @@ public class ThermalTileService extends TileService {
 
     private void toggleThermalMode() {
         if (currentMode == 3) {
-            // If in Unknown mode, reset to Default
             currentMode = 0;
         } else {
-            // Cycle through the order: Default → Performance → Battery Saver → Default
             currentMode = (currentMode + 1) % 3;
         }
         setThermalMode(currentMode);
@@ -127,8 +131,14 @@ public class ThermalTileService extends TileService {
 
         if (mode == 2) { // If Battery Saver mode is selected
             enableBatterySaver(true);
+            cancelPerformanceNotification();
         } else {
             enableBatterySaver(false);
+            if (mode == 1) { // Performance mode
+                showPerformanceNotification();
+            } else {
+                cancelPerformanceNotification();
+            }
         }
     }
 
@@ -137,10 +147,10 @@ public class ThermalTileService extends TileService {
         if (powerManager != null) {
             boolean isBatterySaverEnabled = powerManager.isPowerSaveMode();
             if (enable && !isBatterySaverEnabled) {
-                powerManager.setPowerSaveModeEnabled(true); // Enable Battery Saver
+                powerManager.setPowerSaveModeEnabled(true);
                 Log.d(TAG, "Battery Saver mode enabled.");
             } else if (!enable && isBatterySaverEnabled) {
-                powerManager.setPowerSaveModeEnabled(false); // Disable Battery Saver
+                powerManager.setPowerSaveModeEnabled(false);
                 Log.d(TAG, "Battery Saver mode disabled.");
             }
         }
@@ -149,13 +159,11 @@ public class ThermalTileService extends TileService {
     private void updateTile() {
         Tile tile = getQsTile();
         if (tile != null) {
-            // Set tile state based on current mode
             if (currentMode == 1) { // Performance
                 tile.setState(Tile.STATE_ACTIVE);
             } else {
                 tile.setState(Tile.STATE_INACTIVE);
             }
-            // Update label and subtitle based on current mode
             tile.setLabel(getString(R.string.thermal_tile_label));
             tile.setSubtitle(modes[currentMode]);
             tile.updateTile();
@@ -165,10 +173,34 @@ public class ThermalTileService extends TileService {
     private void updateTileDisabled() {
         Tile tile = getQsTile();
         if (tile != null) {
-            tile.setState(Tile.STATE_UNAVAILABLE); // Tile is greyed out
+            tile.setState(Tile.STATE_UNAVAILABLE);
             tile.setLabel(getString(R.string.thermal_tile_label));
             tile.setSubtitle(getString(R.string.thermal_tile_disabled_subtitle));
             tile.updateTile();
         }
+    }
+
+    private void setupNotificationChannel() {
+        NotificationChannel channel = new NotificationChannel(TAG, getString(R.string.perf_mode_title), NotificationManager.IMPORTANCE_DEFAULT);
+        channel.setBlockable(true);
+        mNotificationManager.createNotificationChannel(channel);
+    }
+
+    private void showPerformanceNotification() {
+        Intent intent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
+        mNotification = new Notification.Builder(this, TAG)
+                .setContentTitle(getString(R.string.perf_mode_title))
+                .setContentText(getString(R.string.perf_mode_notification))
+                .setSmallIcon(R.drawable.ic_thermal_tile)
+                .setContentIntent(pendingIntent)
+                .setOngoing(true)
+                .setFlag(Notification.FLAG_NO_CLEAR, true)
+                .build();
+        mNotificationManager.notify(1, mNotification);
+    }
+
+    private void cancelPerformanceNotification() {
+        mNotificationManager.cancel(1);
     }
 }
