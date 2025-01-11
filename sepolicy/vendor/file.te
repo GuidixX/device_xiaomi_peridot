@@ -13,6 +13,7 @@ type vendor_fingerprint_data_file, data_file_type, file_type;
 type vendor_fingerprint_data_file_fpdump, data_file_type, file_type;
 type vendor_mfp-daemon_data_file, data_file_type, file_type;
 type vendor_charge_log_file, data_file_type, file_type;
+type vendor_sysfs_thermal, data_file_type, sysfs_type;
 type thermal_data_file, data_file_type, file_type;
 type vendor_modem_data_file, data_file_type, file_type;
 type vendor_ins_vendor_data_file, data_file_type, file_type;
