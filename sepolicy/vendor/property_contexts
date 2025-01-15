@@ -171,6 +171,8 @@ vendor.sys.rpmb_state                         u:object_r:vendor_payment_security
 # NFC
 ro.vendor.nfc.                                u:object_r:vendor_nfc_mi_prop:s0
 ro.vendor.se.                                 u:object_r:vendor_nfc_mi_prop:s0
+persist.vendor.nfc.                           u:object_r:vendor_nfc_prop:s0
+vendor.nfc.fw_status                          u:object_r:vendor_nfc_prop:s0
 
 # RIL
 ro.vendor.oem.imei                            u:object_r:vendor_deviceid_prop:s0
