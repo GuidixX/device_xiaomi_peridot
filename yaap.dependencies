@@ -15,6 +15,10 @@
     "branch": "fifteen"
   },
   {
+    "repository"  : "packages_apps_FastCharge",
+    "target_path" : "packages/apps/FastCharge",
+  },
+  {
     "repository": "packages_apps_DisplayFeatures",
     "target_path": "packages/apps/DisplayFeatures"
   }

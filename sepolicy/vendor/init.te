@@ -3,10 +3,11 @@ allow init vendor_file:file execute;
 allow init debugfs_tracing_debug:dir mounton;
 allow init vendor_sysfs_battery_supply:file setattr;
 allow init vendor_sysfs_usb_supply:file setattr;
-allow init vendor_sysfs_battery_supply:file setattr;
+allow init vendor_sysfs_battery_supply:file { open read getattr setattr};
 allow vendor_init block_device:lnk_file { relabelfrom relabelto setattr };
 allow vendor_init block_device:file { mounton relabelfrom relabelto setattr };
 allow vendor_init debugfs_tracing_debug:file w_file_perms;
+allow init sysfs_fastcharge:file { setattr };
 set_prop(vendor_init, vendor_displayfeature_prop)
 set_prop(vendor_init, vendor_touchfeature_prop)
 set_prop(vendor_init, vendor_ssr_prop)
