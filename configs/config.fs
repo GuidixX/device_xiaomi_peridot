@@ -25,17 +25,11 @@ value:2908
 [AID_VENDOR_QTR]
 value:2909
 
-[AID_VENDOR_NXP_STRONGBOX]
-value:2910
-
 [AID_VENDOR_NXP_WEAVER]
 value:2911
 
 [AID_VENDOR_SSGTZD]
 value:2912
-
-[AID_VENDOR_THALES_STRONGBOX]
-value:2913
 
 [AID_VENDOR_QCC]
 value:2914
@@ -45,19 +39,6 @@ value:2915
 
 [AID_VENDOR_THALES_WEAVER]
 value:2916
-
-[vendor/bin/hw/android.hardware.security.keymint-service.strongbox-thales]
-mode: 0755
-user: AID_VENDOR_THALES_STRONGBOX
-group: AID_SYSTEM
-caps: SYS_ADMIN SYS_NICE
-
-[vendor/bin/hw/android.hardware.weaver-service.thales]
-mode: 0755
-user: AID_VENDOR_THALES_WEAVER
-group: AID_SYSTEM
-caps: SYS_ADMIN SYS_NICE
-
 
 [vendor/bin/wcnss_filter]
 mode: 0755

@@ -281,7 +281,7 @@ PRODUCT_COPY_FILES += \
 
 # Keymint
 PRODUCT_PACKAGES += \
-    android.hardware.authsecret-service.nxp
+    android.hardware.authsecret@1.0-service
 
 PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0.vendor \
