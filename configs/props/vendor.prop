@@ -194,6 +194,15 @@ vendor.gatekeeper.is_security_level_spu=0
 # Media
 debug.stagefright.c2inputsurface=-1
 persist.mm.enable.prefetch=true
+debug.stagefright.ccodec=4
+debug.stagefright.omx_default_rank=0
+media.stagefright.enable-aac=true
+media.stagefright.enable-fma2dp=true
+media.stagefright.enable-http=true
+media.stagefright.enable-player=true
+media.stagefright.enable-qcp=true
+media.stagefright.enable-scan=true
+vendor.mm.enable.qcom_parser=16777215
 
 # Media configs
 ro.media.xml_variant.profiles=_cliffs_v0
