@@ -486,6 +486,8 @@ on property:sys.boot_completed=1
     # Xiaomi touch
     chown system system /dev/xiaomi-touch
     chmod 0660 /dev/xiaomi-touch
+    chown system system /sys/devices/virtual/touch/touch_dev/bump_sample_rate
+    chmod 0660 /sys/devices/virtual/touch/touch_dev/bump_sample_rate
 
 on init && property:ro.boot.mode=charger
     wait_for_prop vendor.all.modules.ready 1
