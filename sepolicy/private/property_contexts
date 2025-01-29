@@ -1,16 +1,16 @@
 # Camera
 ro.camera.req.fmq.                  u:object_r:exported_default_prop:s0
 ro.camera.res.fmq.                  u:object_r:exported_default_prop:s0
-ro.miui.region			            u:object_r:exported_system_prop:s0
-ro.miui.build.region				u:object_r:exported_system_prop:s0
-ro.vendor.audio.zoom.type			u:object_r:exported_default_prop:s0
-system.algo.aivs.debug				u:object_r:exported_default_prop:s0
+ro.miui.region                      u:object_r:exported_system_prop:s0
+ro.miui.build.region                u:object_r:exported_system_prop:s0
+ro.vendor.audio.zoom.type           u:object_r:exported_default_prop:s0
+system.algo.aivs.debug              u:object_r:exported_default_prop:s0
 
 # Hardware
-ro.hardware.chipname				u:object_r:exported_default_prop:s0
+ro.hardware.chipname                u:object_r:exported_default_prop:s0
 
 # SettingsLib
-settingsdebug.instant.packages u:object_r:settingslib_prop:s0
+settingsdebug.instant.packages      u:object_r:settingslib_prop:s0
 
-ro.max.fling_velocity          u:object_r:exported_system_prop:s0
-ro.min.fling_velocity          u:object_r:exported_system_prop:s0
+ro.max.fling_velocity               u:object_r:exported_system_prop:s0
+ro.min.fling_velocity               u:object_r:exported_system_prop:s0
