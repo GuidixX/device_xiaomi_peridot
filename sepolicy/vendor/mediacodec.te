@@ -1,4 +1,3 @@
 allow mediacodec vendor_mistcdisplay_service:service_manager find;
-allow mediacodec vendor_sys_nonsp_comp:file { open read getattr };
 get_prop(mediacodec, vendor_displayfeature_prop)
 hal_client_domain(mediacodec, hal_dms)
