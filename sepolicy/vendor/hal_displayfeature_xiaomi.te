@@ -1,7 +1,3 @@
-type vendor_hal_displayfeature_xiaomi_default, domain;
-type vendor_hal_displayfeature_xiaomi_default_exec, exec_type, file_type, vendor_file_type;
-type vendor_hal_displayfeature_xiaomi_service, protected_service, service_manager_type;
-
 allow vendor_hal_displayfeature_xiaomi vendor_sysfs_graphics:file rw_file_perms;
 allow vendor_hal_displayfeature_xiaomi vendor_qdisplay_service:service_manager find;
 allow vendor_hal_displayfeature_xiaomi hal_graphics_composer:binder { call transfer };

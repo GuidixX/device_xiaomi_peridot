@@ -1,24 +1,48 @@
+# Audio
 type adsprpcd, domain;
-type sysfs_therm, fs_type, sysfs_type;
+type audio_socket, file_type;
+
+# Camera
+type sysfs_torch, sysfs_type, fs_type;
+type camera_persist_file, file_type, vendor_persist_type;
+
+# Display
 type vendor_sysfs_displayfeature, fs_type, sysfs_type;
+type xiaomi_display, domain;
+
+# Fastcharge
+type sysfs_fastcharge, sysfs_type, fs_type;
+type vendor_charge_log_file, data_file_type, file_type;
+
+# Fingerprint
 type sysfs_tp_fodstatus, fs_type, sysfs_type;
 type sysfs_tp_virtual_prox, fs_type, sysfs_type;
+type sysfs_touch_suspend, sysfs_file;
+type sysfs_touch_hostprocess, sysfs_file;
+type vendor_fingerprint_data_file, data_file_type, file_type;
+type vendor_fingerprint_data_file_fpdump, data_file_type, file_type;
+type proc_tp_lockdown, file_type;
+
+# GNSS
+type vendor_ins_vendor_data_file, data_file_type, file_type;
+
+# Modem
+type vendor_mac_vendor_data_file, data_file_type, file_type, mlstrustedobject;
+type vendor_modem_data_file, data_file_type, file_type;
+
+# MediaCodec
+type vendor_media_comp, file_type;
+
+# NFC
+type hal_nxpnfc_hwservice, hwservice_manager_type;
+
+# Perf
+type vendor_sys_perf_comp, file_type;
+
+# Thermal
 type sys_thermal_wifi_limit, fs_type, sysfs_type;
 type sys_thermal_flash_state, fs_type, sysfs_type;
 type sys_thermal_torch_real_level, fs_type, sysfs_type;
-type camera_persist_file, file_type, vendor_persist_type;
-type vendor_mac_vendor_data_file, data_file_type, file_type, mlstrustedobject;
-type audio_socket, file_type;
-type vendor_fingerprint_data_file, data_file_type, file_type;
-type vendor_fingerprint_data_file_fpdump, data_file_type, file_type;
-type vendor_charge_log_file, data_file_type, file_type;
-type vendor_sysfs_thermal, data_file_type, sysfs_type;
+type vendor_sysfs_thermal, sysfs_type, fs_type;
 type thermal_data_file, data_file_type, file_type;
-type vendor_modem_data_file, data_file_type, file_type;
-type vendor_ins_vendor_data_file, data_file_type, file_type;
-type sysfs_fastcharge, sysfs_type, fs_type;
-type hal_nxpnfc_hwservice, hwservice_manager_type;
-type sysfs_touch_suspend, sysfs_file;
-type sysfs_touch_hostprocess, sysfs_file;
-type proc_tp_lockdown, file_type;
-type sysfs_torch, sysfs_type, fs_type;
+type sysfs_therm, fs_type, sysfs_type;
