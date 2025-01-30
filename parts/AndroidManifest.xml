@@ -223,5 +223,16 @@
             </intent-filter>
         </service>
 
+        <!-- Tile Entry Activity -->
+        <activity
+            android:name=".TileEntryActivity"
+            android:label="@string/app_title"
+            android:exported="true"
+            android:theme="@style/Theme.SubSettingsBase">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE_PREFERENCES" />
+            </intent-filter>
+        </activity>
+
     </application>
 </manifest>
