@@ -28,11 +28,13 @@ import androidx.annotation.Nullable;
 
 import org.lineageos.settings.saturation.SaturationActivity;
 import org.lineageos.settings.chargecontrol.ChargeControlActivity;
+import org.lineageos.settings.display.DcDimmingSettingsActivity;
 
 public class TileEntryActivity extends Activity {
     private static final String TAG = "TileEntryActivity";
     private static final String SATURATION_TILE = "org.lineageos.settings.saturation.SaturationTileService";
     private static final String CHGCTRL_TILE = "org.lineageos.settings.chargecontrol.ChargeControlTileService";
+    private static final String DCDIMMING_TILE = "org.lineageos.settings.display.DcDimmingTileService";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -49,6 +51,8 @@ public class TileEntryActivity extends Activity {
 
         if (SATURATION_TILE.equals(sourceClassName)) {
             intent = new Intent(this, SaturationActivity.class);
+        } else if (DCDIMMING_TILE.equals(sourceClassName)) {
+            intent = new Intent(this, DcDimmingSettingsActivity.class);
         } else if (CHGCTRL_TILE.equals(sourceClassName)) {
             intent = new Intent(this, ChargeControlActivity.class);
         } else {
