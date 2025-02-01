@@ -6,6 +6,9 @@ ro.miui.build.region                u:object_r:exported_system_prop:s0
 ro.vendor.audio.zoom.type           u:object_r:exported_default_prop:s0
 system.algo.aivs.debug              u:object_r:exported_default_prop:s0
 
+# DC Dimming
+persist.sys.parts.dc.enable         u:object_r:dc_parts_prop:s0
+
 # Hardware
 ro.hardware.chipname                u:object_r:exported_default_prop:s0
 

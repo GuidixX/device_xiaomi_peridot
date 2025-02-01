@@ -223,6 +223,35 @@
             </intent-filter>
         </service>
 
+        <!-- DC Dimming Settings Activity -->
+        <activity
+            android:name=".display.DcDimmingSettingsActivity"
+            android:label="@string/dc_dimming_enable_title"
+            android:exported="true"
+            android:theme="@style/Theme.SubSettingsBase">
+            <intent-filter>
+                <action android:name="com.android.settings.action.IA_SETTINGS" />
+            </intent-filter>
+            <meta-data
+                android:name="com.android.settings.category"
+                android:value="com.android.settings.category.ia.display" />
+            <meta-data
+                android:name="com.android.settings.summary"
+                android:resource="@string/dc_dimming_enable_summary" />
+        </activity>
+
+        <!-- DC Dimming Tile Service -->
+        <service
+            android:name=".display.DcDimmingTileService"
+            android:icon="@drawable/ic_qs_dc_dimming"
+            android:label="@string/dc_dimming_enable_title"
+            android:exported="true"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE"/>
+            </intent-filter>
+        </service>
+
         <!-- Tile Entry Activity -->
         <activity
             android:name=".TileEntryActivity"

@@ -40,6 +40,12 @@ on boot
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/power_ctrl
     chmod 0700 /sys/bus/platform/devices/soc:fingerprint_fpc/screen
 
+    # Touch feature & Display feature
+    chown system system /dev/xiaomi-touch
+    chown system system /dev/mi_display/disp_feature
+    chmod 0666 /dev/mi_display/disp_feature
+    chmod 0660 /dev/xiaomi-touch
+
 on post-fs-data
     mkdir /data/vendor/misc 01771 system system
     mkdir /data/vendor/misc/mi_fp 0770 system system
@@ -51,3 +57,6 @@ on post-fs-data
     mkdir /data/vendor/fingerprint 0770 system system
     mkdir /mnt/vendor/persist/goodix 0770 system system
     chown system system /data/vendor
+
+on property:dev.bootcomplete=1 && property:persist.sys.parts.dc.enable=*
+    exec /vendor/bin/displayfeature 8 ${persist.sys.parts.dc.enable}

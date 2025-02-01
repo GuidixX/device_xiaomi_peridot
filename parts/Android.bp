@@ -34,6 +34,7 @@ android_app {
 
     required: [
         "privapp_whitelist_org.lineageos.settings.xml",
+        "disp_feature",
     ],
 }
 
@@ -42,4 +43,19 @@ prebuilt_etc {
     src: "permissions/privapp_whitelist_org.lineageos.settings.xml",
     sub_dir: "permissions",
     system_ext_specific: true,
+}
+
+cc_binary {
+    name: "disp_feature",
+    srcs: [
+        "disp_feature.cpp",
+    ],
+    local_include_dirs: [
+        "include",
+    ],
+    shared_libs: [
+        "libcutils",
+        "liblog",
+    ],
+    vendor: true,
 }

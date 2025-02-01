@@ -55,8 +55,17 @@ allow parts_app {
 
 # Allow XiaomiParts to get settingsdebug.instant.packages prop
 get_prop(parts_app, settingslib_prop)
+get_prop(parts_app, vendor_prop)
+set_prop(parts_app, vendor_prop)
+set_prop(parts_app, system_prop)
+get_prop(parts_app, system_prop)
 allow parts_app sysfs:file { read write open getattr };
 allow parts_app sysfs:dir { search open };
+allow parts_app property_socket:sock_file { write };
+allow parts_app init:unix_stream_socket { connectto };
+allow parts_app system_prop:property_service set;
+allow parts_app dc_parts_prop:property_service set;
+allow parts_app default_prop:file read;
 
 # Allow XiaomiParts to read/write to sysfs_htsr;
 allow parts_app sysfs_htsr:file rw_file_perms;
