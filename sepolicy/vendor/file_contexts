@@ -63,6 +63,7 @@
 /dev/mi_display/disp_feature                                                                     u:object_r:vendor_displayfeature_device:s0
 /sys/devices/virtual/mi_display/disp_feature/disp-DSI-+[0-1](/.*)?                               u:object_r:vendor_sysfs_displayfeature:s0
 /vendor/bin/displayfeature                                                                       u:object_r:xiaomi_display_exec:s0
+/system/bin/disp_feature                                                                         u:object_r:xiaomi_display_exec:s0
 
 # Dolby
 /vendor/bin/hw/vendor\.dolby\.media\.c2@1\.0-service                                             u:object_r:mediacodec_exec:s0

@@ -57,3 +57,6 @@ on post-fs-data
     mkdir /data/vendor/fingerprint 0770 system system
     mkdir /mnt/vendor/persist/goodix 0770 system system
     chown system system /data/vendor
+
+on property:dev.bootcomplete=1 && property:persist.sys.parts.dc.enable=*
+    exec /system/bin/disp_feature 8 ${persist.sys.parts.dc.enable}

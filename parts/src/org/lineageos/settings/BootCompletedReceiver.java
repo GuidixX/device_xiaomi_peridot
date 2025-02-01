@@ -1,6 +1,6 @@
 /*
  * Copyright (C) 2015 The CyanogenMod Project
- *               2017-2019 The LineageOS Project
+ *               2017-2020 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,15 +22,19 @@ import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
+import android.content.SharedPreferences;
 import android.database.ContentObserver;
 import android.hardware.display.DisplayManager;
 import android.os.Handler;
 import android.os.IBinder;
 import android.os.UserHandle;
+import android.os.SystemProperties;
 import android.provider.Settings;
 import android.util.Log;
 import android.view.Display;
 import android.view.Display.HdrCapabilities;
+
+import androidx.preference.PreferenceManager;
 
 import vendor.xiaomi.hw.touchfeature.ITouchFeature;
 
@@ -48,6 +52,8 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     private static final String TAG = "XiaomiParts";
     private static final boolean DEBUG = true;
     private static final int DOUBLE_TAP_TO_WAKE_MODE = 14;
+    private static final String DC_DIMMING_ENABLE_KEY = "dc_dimming_enable";
+    
     private ITouchFeature xiaomiTouchFeatureAidl;
 
     @Override
@@ -66,7 +72,12 @@ public class BootCompletedReceiver extends BroadcastReceiver {
     private void handleLockedBootCompleted(Context context) {
         if (DEBUG) Log.i(TAG, "Handling locked boot completed.");
         try {
-            // Start necessary services
+            // DC Dimming
+            SharedPreferences sharedPrefs = PreferenceManager.getDefaultSharedPreferences(context);
+            boolean dcDimmingEnabled = sharedPrefs.getBoolean(DC_DIMMING_ENABLE_KEY, false);
+            SystemProperties.set("persist.sys.parts.dc.enable", dcDimmingEnabled ? "1" : "0");
+
+            // Start services
             startServices(context);
 
             // Override HDR types
@@ -172,5 +183,3 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         }
     }
 }
-
-
