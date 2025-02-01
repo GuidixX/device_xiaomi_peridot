@@ -31,6 +31,7 @@ import org.lineageos.settings.touchsampling.TouchSamplingSettingsActivity;
 import org.lineageos.settings.thermal.ThermalSettingsActivity;
 import org.lineageos.settings.saturation.SaturationActivity;
 import org.lineageos.settings.flashlight.FlashlightBrightnessActivity;
+import org.lineageos.settings.display.DcDimmingSettingsActivity;
 
 public class TileEntryActivity extends Activity {
     private static final String TAG = "TileEntryActivity";
@@ -39,6 +40,7 @@ public class TileEntryActivity extends Activity {
     private static final String THERMAL_TILE = "org.lineageos.settings.thermal.ThermalTileService";
     private static final String SATURATION_TILE = "org.lineageos.settings.saturation.SaturationTileService";
     private static final String TORCH_TILE = "org.lineageos.settings.flashlight.FlashlightTileService";
+    private static final String DCDIMMING_TILE = "org.lineageos.settings.display.DcDimmingTileService";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +61,8 @@ public class TileEntryActivity extends Activity {
             intent = new Intent(this, TouchSamplingSettingsActivity.class);
         } else if (THERMAL_TILE.equals(sourceClassName)) {
             intent = new Intent(this, ThermalSettingsActivity.class);
+        } else if (DCDIMMING_TILE.equals(sourceClassName)) {
+            intent = new Intent(this, DcDimmingSettingsActivity.class);
         } else if (SATURATION_TILE.equals(sourceClassName)) {
             intent = new Intent(this, SaturationActivity.class);
         } else if (TORCH_TILE.equals(sourceClassName)) {
