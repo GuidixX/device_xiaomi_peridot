@@ -17,25 +17,24 @@
 package org.lineageos.settings.flashlight;
 
 import android.content.Context;
+import android.provider.Settings;
 import android.os.VibrationEffect;
 import android.os.Vibrator;
-import android.provider.Settings;
-
 import java.lang.Math;
 
 import org.lineageos.settings.utils.FileUtils;
+import org.lineageos.settings.Constants;
 
 public final class FlashlightUtils {
 
     final static String PREF_BRIGHTNESS = "flashlight_brightness_pref";
     final static String PATH_BRIGHTNESS = "/sys/class/leds/led:torch_0/max_brightness";
 
-    // Min(10), Max(255)
     final static int MIN_BRIGHTNESS = 10;
 
     public static int getTorchMaxBrightness() {
         if (FileUtils.fileExists(PATH_BRIGHTNESS)) {
-            String s = FileUtils.readLine(PATH_BRIGHTNESS);
+            String s = FileUtils.readOneLine(PATH_BRIGHTNESS);
             try {
                 return Integer.parseInt(s.trim());
             } catch (Exception e) {
@@ -47,9 +46,16 @@ public final class FlashlightUtils {
     public static void applyBrightness(Context context, int percent) {
         if (FileUtils.fileExists(PATH_BRIGHTNESS)) {
             int maxBrightness = getTorchMaxBrightness();
+            // (max - MIN_BRIGHTNESS) + MIN_BRIGHTNESS
             int newValue = (int) Math.floor((percent / 100.0) * (maxBrightness - MIN_BRIGHTNESS)) + MIN_BRIGHTNESS;
             newValue = Math.min(newValue, maxBrightness);
-            FileUtils.writeLine(PATH_BRIGHTNESS, String.valueOf(newValue));
+            if (newValue > Constants.FLASHLIGHT_MAX_BRIGHTNESS) {
+                FileUtils.writeLine(Constants.FLASHLIGHT_BRIGHTNESS_NODE, String.valueOf(Constants.FLASHLIGHT_MAX_BRIGHTNESS));
+            } else if (newValue < Constants.FLASHLIGHT_MIN_BRIGHTNESS) {
+                FileUtils.writeLine(Constants.FLASHLIGHT_BRIGHTNESS_NODE, String.valueOf(Constants.FLASHLIGHT_MIN_BRIGHTNESS));
+            } else {
+                FileUtils.writeLine(Constants.FLASHLIGHT_BRIGHTNESS_NODE, String.valueOf(newValue));
+            }
         }
     }
 
