@@ -253,6 +253,7 @@
         <ctl name="ADC3 Volume" value="8" />
     </path>
 
+    <!--
     <path name="speaker-top">
         <ctl name="aw_dev_0_prof"  value="Music" />
         <ctl name="aw_dev_0_switch" value="Enable" />
@@ -261,6 +262,7 @@
     <path name="speaker-top-prot">
         <path name="speaker-top" />
     </path>
+    -->
 
     <path name="speaker-bot">
         <ctl name="aw_dev_1_prof"  value="Music" />
