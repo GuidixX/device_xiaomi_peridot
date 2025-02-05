@@ -103,4 +103,8 @@
     <string name="display_settings_title">Custom display settings</string>
     <string name="display_settings_summary">DC Dimming, High Brightness Mode</string>
 
+    <!-- UiBench -->
+    <string name="jitter_test_title">Jitter Test</string>
+    <string name="jitter_test_summary">Calculate rendering jitter</string>
+  
 </resources>

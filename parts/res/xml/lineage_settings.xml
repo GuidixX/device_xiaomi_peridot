@@ -23,4 +23,15 @@
             android:targetPackage="org.lineageos.settings"
             android:targetClass="org.lineageos.settings.flashlight.FlashlightBrightnessActivity" />
     </Preference>
+
+        <Preference
+            android:icon="@drawable/ic_jitter"
+            android:title="@string/jitter_test_title"
+            android:summary="@string/jitter_test_summary">
+            <intent 
+                android:action="android.intent.action.MAIN"
+                android:targetClass="org.lineageos.settings.uibench.JitterTestActivity"
+                android:targetPackage="org.lineageos.settings" />
+        </Preference>
+
 </PreferenceScreen>
