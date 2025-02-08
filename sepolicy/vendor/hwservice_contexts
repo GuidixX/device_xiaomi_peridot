@@ -15,6 +15,3 @@ com.fingerprints.extension::IFingerprintNavigation                              
 com.fingerprints.extension::IFingerprintSensorTest                                   u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
 com.fingerprints.extension::IFingerprintCalibration                                  u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
 com.fingerprints.extension::IFingerprintOptical                                      u:object_r:vendor_hal_fingerprint_hwservice_xiaomi:s0
-
-# NFC
-vendor.nxp.nxpnfc::INxpNfc                                                           u:object_r:hal_nxpnfc_hwservice:s0
