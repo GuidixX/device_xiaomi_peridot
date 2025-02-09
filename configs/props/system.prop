@@ -6,6 +6,25 @@ ro.miui.notch=1
 ro.product.mod_device=peridot_global
 vendor.camera.aux.packagelist=org.lineageos.aperture,com.android.camera,com.google.camera,com.snapchat.android
 
+# Dexopt
+pm.dexopt.post-boot=speed
+pm.dexopt.first-boot=speed
+pm.dexopt.boot-after-ota=speed-profile
+pm.dexopt.boot-after-mainline-update=speed
+pm.dexopt.install=speed-profile
+pm.dexopt.install-fast=speed
+pm.dexopt.install-bulk=speed-profile
+pm.dexopt.install-bulk-secondary=speed
+pm.dexopt.install-bulk-downgraded=speed
+pm.dexopt.install-bulk-secondary-downgraded=speed
+pm.dexopt.bg-dexopt=speed-profile
+pm.dexopt.ab-ota=speed-profile
+pm.dexopt.inactive=speed
+pm.dexopt.cmdline=speed
+pm.dexopt.first-use=speed-profile
+pm.dexopt.secondary=speed-profile
+pm.dexopt.shared=speed
+
 # Media
 media.settings.xml=/vendor/etc/media_profiles_cliffs_v0.xml
 media.stagefright.thumbnail.prefer_hw_codecs=true
