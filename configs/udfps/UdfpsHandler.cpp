@@ -30,7 +30,7 @@
 #define DISP_PARAM_LOCAL_HBM_OFF "0"
 #define DISP_PARAM_LOCAL_HBM_ON "1"
 
-#define FINGERPRINT_ACQUIRED_VENDOR 7
+#define FINGERPRINT_ACQUIRED_VENDOR 6
 
 namespace {
 
@@ -67,15 +67,15 @@ class XiaomiSM8650UdfpsHander : public UdfpsHandler {
         if (result != FINGERPRINT_ACQUIRED_VENDOR) {
             setFingerDown(false);
             if (result == FINGERPRINT_ACQUIRED_GOOD) setFodStatus(FOD_STATUS_OFF);
-        } else if (vendorCode == 21 || vendorCode == 23) {
+        } else if (vendorCode == 20 || vendorCode == 22) {
             /*
-             * vendorCode = 21 waiting for fingerprint authentication
-             * vendorCode = 23 waiting for fingerprint enroll
+             * vendorCode = 20 waiting for fingerprint authentication
+             * vendorCode = 22 waiting for fingerprint enroll
              */
             setFodStatus(FOD_STATUS_ON);
-        } else if (vendorCode == 44) {
+        } else if (vendorCode == 42) {
             /*
-             * vendorCode = 44 fingerprint scan failed
+             * vendorCode = 42 fingerprint scan failed
              */
             setFingerDown(false);
         }
