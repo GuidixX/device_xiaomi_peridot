@@ -27,6 +27,9 @@ persist.log.tag.SYNX-UMD=S
 # LMK
 ro.config.low_ram=false
 
+# minksocket
+persist.log.tag.minksocket=S
+
 # Radio Options
 persist.radio.volte.dan_support=true
 persist.radio.rat_on=combine
