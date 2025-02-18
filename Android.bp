@@ -5,7 +5,8 @@
 
 soong_namespace {
     imports: [
-        "hardware/xiaomi"
+        "hardware/xiaomi",
+        "hardware/qcom-caf/bootctrl",
     ],
 }
 
@@ -42,4 +43,16 @@ install_symlink {
     vendor: true,
     installed_location: "rfs/msm/mpss/readonly/firmware",
     symlink_target: "/vendor/modem_firmware",
+}
+
+cc_binary {
+    name: "android.hardware.boot-service.qti",
+    defaults: ["android.hardware.boot-service.qti_defaults"],
+    static_libs: ["libgptutils.peridot"],
+}
+
+cc_binary {
+    name: "android.hardware.boot-service.qti.recovery",
+    defaults: ["android.hardware.boot-service.qti.recovery_defaults"],
+    static_libs: ["libgptutils.peridot"],
 }
