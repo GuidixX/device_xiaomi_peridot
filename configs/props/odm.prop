@@ -53,7 +53,7 @@ ro.vendor.qti.va_odm.support=1
 
 # Fingerprint
 persist.vendor.sys.fp.expolevel=0x88
-persist.vendor.fingerprint.type=udfps_optical
+persist.vendor.fingerprint.type=udfps
 persist.vendor.fingerprint.sensor_location=600|2282|110
 persist.vendor.fingerprint.sensor_modules=goodix_fod
 ro.hardware.fp.fod.location=low
