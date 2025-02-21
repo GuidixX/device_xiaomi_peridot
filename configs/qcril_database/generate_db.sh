@@ -4,6 +4,8 @@
 #
 # SPDX-License-Identifier: Apache-2.0
 #
+chmod +x "$0"
+
 set -e
 
 if [[ $# -le 2 ]]; then

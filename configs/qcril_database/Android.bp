@@ -50,7 +50,7 @@ genrule {
     tools: [
         "sqlite3",
     ],
-    cmd: "$(location generate_db.sh) $(location sqlite3) $(out) $(in)",
+    cmd: "chmod +x $(location generate_db.sh) && $(location generate_db.sh) $(location sqlite3) $(out) $(in)",
     out: ["qcrilNr.db"],
 }
 
