@@ -330,6 +330,8 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/lib64/libVoiceSdk.so',
     ): blob_fixup()
         .replace_needed('libtensorflowlite_c.so', 'libtensorflowlite_c_vendor.so'),
+    'odm/etc/init/vendor.qti.camera.provider-service_64.rc': blob_fixup()
+        .regex_replace(r'^(.*\n){5}', '\\1    setenv JE_MALLOC_ZERO_FILLING 1\n'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
