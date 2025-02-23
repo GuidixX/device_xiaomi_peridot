@@ -35,8 +35,8 @@ typedef struct fingerprint_hal {
 } fingerprint_hal_t;
 
 static const fingerprint_hal_t kModules[] = {
-        {"fortsense"},  {"fpc"},         {"fpc_fod"}, {"goodix"}, {"goodix:gf_fingerprint"},
-        {"goodix_fod"}, {"goodix_fod6"}, {"silead"},  {"syna"}, {"goodix_us"},
+        {"fpc"},{"fpc_fod"},{"goodix"},
+        {"goodix_fod"},  {"goodix_us"},
 };
 
 #define FINGERPRINT_MODULE_API_VERSION_2_1 HARDWARE_MODULE_API_VERSION(2, 1)
