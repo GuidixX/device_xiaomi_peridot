@@ -21,5 +21,13 @@
   {
     "repository": "packages_apps_DisplayFeatures",
     "target_path": "packages/apps/DisplayFeatures"
+  },
+  {
+    "repository": "device_xiaomi_peridot-miuicamera",
+    "target_path": "device/xiaomi/peridot-miuicamera"
+  },
+  {
+    "repository": "vendor_xiaomi_peridot-miuicamera",
+    "target_path": "vendor/xiaomi/peridot-miuicamera"
   }
 ]
