@@ -492,6 +492,7 @@ PRODUCT_SOONG_NAMESPACES += \
 # Sensors
 PRODUCT_PACKAGES += \
     android.hardware.sensors-service.xiaomi-multihal \
+    sensors.xiaomi.v2 \
     sensors.xiaomi.peridot
 
 PRODUCT_PACKAGES += \
