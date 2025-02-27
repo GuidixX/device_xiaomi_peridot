@@ -1,5 +1,5 @@
 /*
- * Copyright (C) 2024 The LineageOS Project
+ * Copyright (C) 2025 The LineageOS Project
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -42,6 +42,7 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
 
     private SwitchPreference mHTSRPreference;
     private SharedPreferences mPrefs;
+    private VideoPreference videoPreference;
 
     @Override
     public void onCreatePreferences(Bundle savedInstanceState, String rootKey) {
@@ -61,6 +62,17 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
         // Start the service if the toggle is enabled
         if (htsrEnabled) {
             startTouchSamplingService(true);
+        }
+
+        // Find the VideoPreference
+        videoPreference = (VideoPreference) findPreference("htsr_media");
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        if (videoPreference != null) {
+            videoPreference.restartVideo();
         }
     }
 

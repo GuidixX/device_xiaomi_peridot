@@ -157,7 +157,7 @@
         <!-- Touch Sampling Settings activity -->
         <activity
             android:name=".touchsampling.TouchSamplingSettingsActivity"
-            android:label="@string/htsr_enable_title"
+            android:label="@string/htsr_title"
             android:theme="@style/Theme.SubSettingsBase"
             android:exported="false">
             <intent-filter>
