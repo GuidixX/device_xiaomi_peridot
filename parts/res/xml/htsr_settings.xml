@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2018-2024 The LineageOS Project
+     Copyright (C) 2025 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License"
      you may not use this file except in compliance with the License.
@@ -13,10 +13,19 @@
      limitations under the License.
 -->
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
-    <SwitchPreference
-        android:defaultValue="false"
-        android:key="htsr_enable"
-        android:summary="@string/htsr_enable_summary"
-        android:title="@string/htsr_enable_title"
-        android:showDefault="false" />
+    <PreferenceCategory>
+
+        <!-- Custom VideoPreference for MP4 video -->
+        <org.lineageos.settings.touchsampling.VideoPreference
+            android:key="htsr_media"
+            android:selectable="false" />
+
+        <!-- SwitchPreference for High Touch Polling Rate -->
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="htsr_enable"
+            android:summary="@string/htsr_enable_summary"
+            android:title="@string/htsr_enable_title"
+            android:showDefault="false" />
+    </PreferenceCategory>
 </PreferenceScreen>
