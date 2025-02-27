@@ -16,6 +16,9 @@
 
 package org.lineageos.settings.touchsampling;
 
+import android.app.Notification;
+import android.app.NotificationManager;
+import android.app.PendingIntent;
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
@@ -39,6 +42,10 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
     private static final String HTSR_ENABLE_KEY = "htsr_enable";
     public static final String SHAREDHTSR = "SHAREDHTSR";
     public static final String HTSR_STATE = "htsr_state";
+    
+    // Added constants for notification
+    private static final int NOTIFICATION_ID = 3;
+    private static final String NOTIFICATION_CHANNEL_ID = "touch_sampling_tile_service_channel";
 
     private SwitchPreference mHTSRPreference;
     private SharedPreferences mPrefs;
@@ -86,6 +93,13 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
 
             // Start or stop the service based on the toggle state
             startTouchSamplingService(isEnabled);
+            
+            // Show or cancel notification based on the state
+            if (isEnabled) {
+                showTouchSamplingNotification();
+            } else {
+                cancelTouchSamplingNotification();
+            }
         }
         return true;
     }
@@ -107,5 +121,30 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
         }
         return false;
     }
-}
+    
+    private void showTouchSamplingNotification() {
+        NotificationManager notificationManager = (NotificationManager)
+                getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        Intent intent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(
+                getActivity(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
+        Notification notification = new Notification.Builder(getActivity(), NOTIFICATION_CHANNEL_ID)
+                .setContentTitle(getString(R.string.touch_sampling_mode_title))
+                .setContentText(getString(R.string.touch_sampling_mode_notification))
+                .setSmallIcon(R.drawable.ic_touch_sampling_tile)
+                .setContentIntent(pendingIntent)
+                .setOngoing(true)
+                .setFlag(Notification.FLAG_NO_CLEAR, true)
+                .build();
+
+        notificationManager.notify(NOTIFICATION_ID, notification);
+    }
+    
+    private void cancelTouchSamplingNotification() {
+        NotificationManager notificationManager = (NotificationManager)
+                getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
+        notificationManager.cancel(NOTIFICATION_ID);
+    }
+}
