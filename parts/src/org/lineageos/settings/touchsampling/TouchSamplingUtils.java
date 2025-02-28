@@ -25,6 +25,7 @@ import android.provider.Settings;
 import android.util.Log;
 import androidx.preference.PreferenceManager;
 
+import org.lineageos.settings.touchsampling.TouchSamplingSettingsFragment;
 import org.lineageos.settings.utils.FileUtils;
 
 import java.io.File;
@@ -37,11 +38,17 @@ import java.io.FileReader;
 public final class TouchSamplingUtils {
     private static final String TAG = "TouchSamplingUtils";
     public static final String HTSR_FILE = "/sys/devices/platform/goodix_ts.0/switch_report_rate";
+    public static final String SCONFIG_FILE = "/sys/class/thermal/thermal_message/sconfig";
 
     public static void restoreSamplingValue(Context context) {
         SharedPreferences sharedPref = context.getSharedPreferences(
                 TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
         int htsrState = sharedPref.getInt(TouchSamplingSettingsFragment.SHAREDHTSR, 0);
         FileUtils.writeLine(HTSR_FILE, Integer.toString(htsrState));
+    }
+
+    public static boolean isGameModeActive() {
+        String sconfig = FileUtils.readOneLine(SCONFIG_FILE);
+        return "6".equals(sconfig);
     }
 }

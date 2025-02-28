@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
+import android.os.FileObserver;
 import android.os.IBinder;
 import android.util.Log;
 
@@ -32,6 +33,7 @@ public class TouchSamplingService extends Service {
 
     private BroadcastReceiver mScreenUnlockReceiver;
     private SharedPreferences.OnSharedPreferenceChangeListener mPreferenceChangeListener;
+    private FileObserver mSconfigObserver;
 
     @Override
     public void onCreate() {
@@ -46,6 +48,18 @@ public class TouchSamplingService extends Service {
 
         // Apply the touch sampling rate initially
         applyTouchSamplingRateFromPreferences();
+
+        // Start a FileObserver to watch the sconfig file changes
+        mSconfigObserver = new FileObserver(TouchSamplingUtils.SCONFIG_FILE, FileObserver.MODIFY) {
+            @Override
+            public void onEvent(int event, String path) {
+                if ((event & FileObserver.MODIFY) != 0) {
+                    Log.d(TAG, "sconfig file modified. Reapplying touch sampling rate.");
+                    applyTouchSamplingRateFromPreferences();
+                }
+            }
+        };
+        mSconfigObserver.startWatching();
     }
 
     @Override
@@ -67,6 +81,11 @@ public class TouchSamplingService extends Service {
         SharedPreferences sharedPref = getSharedPreferences(
                 TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
         sharedPref.unregisterOnSharedPreferenceChangeListener(mPreferenceChangeListener);
+
+        // Stop watching sconfig file changes
+        if (mSconfigObserver != null) {
+            mSconfigObserver.stopWatching();
+        }
     }
 
     @Override
@@ -96,18 +115,24 @@ public class TouchSamplingService extends Service {
     }
 
     /**
-     * Registers a SharedPreferences.OnSharedPreferenceChangeListener to monitor
-     * changes in the touch sampling rate setting.
+     * Registers a SharedPreferences listener to monitor changes in the touch sampling settings.
      */
     private void registerPreferenceChangeListener() {
         SharedPreferences sharedPref = getSharedPreferences(
                 TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
 
         mPreferenceChangeListener = (sharedPreferences, key) -> {
-            if (TouchSamplingSettingsFragment.HTSR_STATE.equals(key)) {
+            if (TouchSamplingSettingsFragment.HTSR_STATE.equals(key) || "htsr_game_mode_auto".equals(key)) {
                 Log.d(TAG, "Preference changed. Reapplying touch sampling rate.");
-                boolean htsrEnabled = sharedPreferences.getBoolean(key, false);
-                applyTouchSamplingRate(htsrEnabled ? 1 : 0);
+                boolean mainEnabled = sharedPreferences.getBoolean(TouchSamplingSettingsFragment.HTSR_STATE, false);
+                boolean gameModeAuto = sharedPreferences.getBoolean("htsr_game_mode_auto", false);
+                int effectiveState = 0;
+                if (mainEnabled) {
+                    effectiveState = 1;
+                } else if (gameModeAuto && TouchSamplingUtils.isGameModeActive()) {
+                    effectiveState = 1;
+                }
+                applyTouchSamplingRate(effectiveState);
             }
         };
 
@@ -115,13 +140,20 @@ public class TouchSamplingService extends Service {
     }
 
     /**
-     * Reads the touch sampling rate preference and applies the appropriate state.
+     * Reads the touch sampling rate preferences and applies the effective state.
      */
     private void applyTouchSamplingRateFromPreferences() {
         SharedPreferences sharedPref = getSharedPreferences(
                 TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
-        boolean htsrEnabled = sharedPref.getBoolean(TouchSamplingSettingsFragment.HTSR_STATE, false);
-        applyTouchSamplingRate(htsrEnabled ? 1 : 0);
+        boolean mainEnabled = sharedPref.getBoolean(TouchSamplingSettingsFragment.HTSR_STATE, false);
+        boolean gameModeAuto = sharedPref.getBoolean("htsr_game_mode_auto", false);
+        int effectiveState = 0;
+        if (mainEnabled) {
+            effectiveState = 1;
+        } else if (gameModeAuto && TouchSamplingUtils.isGameModeActive()) {
+            effectiveState = 1;
+        }
+        applyTouchSamplingRate(effectiveState);
     }
 
     /**

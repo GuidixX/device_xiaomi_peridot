@@ -27,5 +27,14 @@
             android:summary="@string/htsr_enable_summary"
             android:title="@string/htsr_enable_title"
             android:showDefault="false" />
+
+        <!-- SwitchPreference for Auto-enable High Touch Polling in Game Mode -->
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="htsr_game_mode_auto"
+            android:title="@string/htsr_game_mode_auto_title"
+            android:summary="@string/htsr_game_mode_auto_summary"
+            android:showDefault="false" />
+            
     </PreferenceCategory>
 </PreferenceScreen>

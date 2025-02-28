@@ -111,5 +111,7 @@
     <string name="touch_sampling_mode_title">High Touch Polling Mode</string>
     <string name="touch_sampling_mode_notification">High Touch Polling Rate is now active. This reduces touch input latency but may increase battery consumption</string>
     <string name="touch_sampling_tile_label">Touch Boost</string>
+    <string name="htsr_game_mode_auto_title">Auto-enable High Touch Polling in Game Boost Mode</string>
+    <string name="htsr_game_mode_auto_summary">Automatically enable enhanced touch responsiveness when Power Profile set to Game Boost</string>
 
 </resources>
