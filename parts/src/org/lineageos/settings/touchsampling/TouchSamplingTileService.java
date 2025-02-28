@@ -29,7 +29,6 @@ import android.service.quicksettings.TileService;
 import android.util.Log;
 
 import org.lineageos.settings.R;
-import org.lineageos.settings.touchsampling.TouchSamplingUtils;
 import org.lineageos.settings.utils.FileUtils;
 
 public class TouchSamplingTileService extends TileService {
@@ -76,11 +75,10 @@ public class TouchSamplingTileService extends TileService {
     }
 
     private void updateTileState() {
-        boolean htsrEnabled = isTouchSamplingEnabled();
-
+        boolean effectiveState = isEffectiveTouchSamplingEnabled();
         Tile tile = getQsTile();
         if (tile != null) {
-            tile.setState(htsrEnabled ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+            tile.setState(effectiveState ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
             tile.updateTile();
         }
     }
@@ -89,10 +87,10 @@ public class TouchSamplingTileService extends TileService {
         boolean currentState = isTouchSamplingEnabled();
         boolean newState = !currentState;
 
-        // Update SharedPreferences
+        // Update SharedPreferences for the main HTSR toggle
         saveTouchSamplingState(newState);
 
-        // Start or stop the service
+        // Start or stop the service based on the new state
         Intent serviceIntent = new Intent(this, TouchSamplingService.class);
         if (newState) {
             startService(serviceIntent);
@@ -135,7 +133,8 @@ public class TouchSamplingTileService extends TileService {
     }
 
     private void showTouchSamplingNotification() {
-        Intent intent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent intent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY)
+                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
         Notification notification = new Notification.Builder(this, NOTIFICATION_CHANNEL_ID)
@@ -152,6 +151,20 @@ public class TouchSamplingTileService extends TileService {
 
     private void cancelTouchSamplingNotification() {
         mNotificationManager.cancel(NOTIFICATION_ID);
+    }
+
+    /**
+     * Computes the effective touch sampling state based on the main toggle and game mode auto setting.
+     */
+    private boolean isEffectiveTouchSamplingEnabled() {
+        SharedPreferences sharedPref = getSharedPreferences(
+                TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
+        boolean mainEnabled = sharedPref.getBoolean(TouchSamplingSettingsFragment.HTSR_STATE, false);
+        boolean gameModeAuto = sharedPref.getBoolean("htsr_game_mode_auto", false);
+        if (mainEnabled) {
+            return true;
+        }
+        return gameModeAuto && TouchSamplingUtils.isGameModeActive();
     }
 
     /**

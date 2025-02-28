@@ -36,8 +36,7 @@ import org.lineageos.settings.R;
 import org.lineageos.settings.touchsampling.TouchSamplingUtils;
 import org.lineageos.settings.utils.FileUtils;
 
-public class TouchSamplingSettingsFragment extends PreferenceFragment implements
-        Preference.OnPreferenceChangeListener {
+public class TouchSamplingSettingsFragment extends PreferenceFragment implements Preference.OnPreferenceChangeListener {
 
     private static final String HTSR_ENABLE_KEY = "htsr_enable";
     public static final String SHAREDHTSR = "SHAREDHTSR";
@@ -59,19 +58,23 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
         mHTSRPreference = (SwitchPreference) findPreference(HTSR_ENABLE_KEY);
         mPrefs = getActivity().getSharedPreferences(SHAREDHTSR, Context.MODE_PRIVATE);
 
-        // Set the initial state of the switch
+        // Set the initial state of the main toggle
         boolean htsrEnabled = mPrefs.getBoolean(HTSR_STATE, false);
         mHTSRPreference.setChecked(htsrEnabled);
-
-        // Enable the switch and set its listener
         mHTSRPreference.setOnPreferenceChangeListener(this);
 
-        // Start the service if the toggle is enabled
+        // Setup the "Automatically enable HTSR when game mode active" toggle
+        SwitchPreference gameModePreference = (SwitchPreference) findPreference("htsr_game_mode_auto");
+        boolean gameModeEnabled = mPrefs.getBoolean("htsr_game_mode_auto", false);
+        gameModePreference.setChecked(gameModeEnabled);
+        gameModePreference.setOnPreferenceChangeListener(this);
+
+        // Start the service if the main toggle is enabled
         if (htsrEnabled) {
             startTouchSamplingService(true);
         }
 
-        // Find the VideoPreference
+        // Find the VideoPreference (if any)
         videoPreference = (VideoPreference) findPreference("htsr_media");
     }
 
@@ -87,19 +90,19 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
     public boolean onPreferenceChange(Preference preference, Object newValue) {
         if (HTSR_ENABLE_KEY.equals(preference.getKey())) {
             boolean isEnabled = (Boolean) newValue;
-
-            // Save the state in shared preferences
             mPrefs.edit().putBoolean(HTSR_STATE, isEnabled).apply();
-
-            // Start or stop the service based on the toggle state
             startTouchSamplingService(isEnabled);
-            
-            // Show or cancel notification based on the state
             if (isEnabled) {
                 showTouchSamplingNotification();
             } else {
                 cancelTouchSamplingNotification();
             }
+        } else if ("htsr_game_mode_auto".equals(preference.getKey())) {
+            boolean isGameModeAuto = (Boolean) newValue;
+            mPrefs.edit().putBoolean("htsr_game_mode_auto", isGameModeAuto).apply();
+            // Reapply the service state: if main toggle is off, effective state depends on game mode.
+            boolean mainEnabled = mPrefs.getBoolean(HTSR_STATE, false);
+            startTouchSamplingService(mainEnabled || (isGameModeAuto && TouchSamplingUtils.isGameModeActive()));
         }
         return true;
     }
@@ -121,7 +124,7 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
         }
         return false;
     }
-    
+
     private void showTouchSamplingNotification() {
         NotificationManager notificationManager = (NotificationManager)
                 getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
@@ -141,7 +144,7 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
 
         notificationManager.notify(NOTIFICATION_ID, notification);
     }
-    
+
     private void cancelTouchSamplingNotification() {
         NotificationManager notificationManager = (NotificationManager)
                 getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
