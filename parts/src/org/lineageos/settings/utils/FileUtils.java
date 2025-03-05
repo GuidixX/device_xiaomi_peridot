@@ -27,7 +27,10 @@ import java.io.FileWriter;
 import java.io.IOException;
 
 public final class FileUtils {
-    private static final String TAG = "FileUtils";
+    private static final String TAG = FileUtils.class.getSimpleName();
+
+    private static final String TURBO_CHARGING_PATH = "/sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/power_supply/battery/constant_charge_current";
+    private static final String TURBO_CHARGING_BACKUP_PATH = "/sys/class/power_supply/battery/constant_charge_current";
 
     private FileUtils() {
         // This class is not supposed to be instantiated
@@ -156,5 +159,41 @@ public final class FileUtils {
             Log.e(TAG, "NullPointerException trying to rename " + srcPath + " to " + dstPath, e);
         }
         return ok;
+    }
+
+    public static boolean writeTurboChargingValue(String value) {
+        if (isFileWritable(TURBO_CHARGING_PATH)) {
+            if (writeLine(TURBO_CHARGING_PATH, value)) {
+                return true;
+            }
+        }
+
+        if (isFileWritable(TURBO_CHARGING_BACKUP_PATH)) {
+            if (writeLine(TURBO_CHARGING_BACKUP_PATH, value)) {
+                return true;
+            }
+        }
+
+        Log.e(TAG, "Failed to write to charging control nodes");
+        return false;
+    }
+
+    public static boolean isTurboChargingSupported() {
+        return isFileWritable(TURBO_CHARGING_PATH) || isFileWritable(TURBO_CHARGING_BACKUP_PATH);
+    }
+
+    public static String readTurboChargingValue() {
+        if (isFileReadable(TURBO_CHARGING_PATH)) {
+            String value = readOneLine(TURBO_CHARGING_PATH);
+            if (value != null) {
+                return value;
+            }
+        }
+        
+        if (isFileReadable(TURBO_CHARGING_BACKUP_PATH)) {
+            return readOneLine(TURBO_CHARGING_BACKUP_PATH);
+        }
+        
+        return null;
     }
 }

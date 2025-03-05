@@ -84,4 +84,14 @@
     <string name="htsr_enable_title">Enable High Touch Polling Rate</string>
     <string name="htsr_enable_summary">Increases touch polling rate to decrease touch input latency for a smoother experience</string>
     <string name="touch_sampling_tile_label">Touch Boost</string>
+
+    <!-- Turbo Charging -->
+    <string name="turbo_charge_title">Turbo Charging</string>
+    <string name="turbo_enable_title">Enable Turbo Charging</string>
+    <string name="turbo_charge_summary">Enable Turbo Charging for fast charging up to 90W</string>
+    <string name="turbo_charge_current_pref_title">Charging wattage</string>
+    <string name="turbo_mode_one">33W</string>
+    <string name="turbo_mode_two">60W</string>
+    <string name="turbo_mode_three">90W</string>
+
 </resources>

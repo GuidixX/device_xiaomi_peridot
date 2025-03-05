@@ -411,6 +411,10 @@ on boot
     chown system system /sys/class/qcom-battery/sport_mode
     chmod 0660 /sys/class/qcom-battery/sport_mode
 
+    # Allow system to modify charging current
+    chown system system /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/power_supply/battery/constant_charge_current
+    chmod 0660 /sys/devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qcom,battery_charger/power_supply/battery/constant_charge_current
+
 on init && property:ro.boot.mode=charger
     wait_for_prop vendor.all.modules.ready 1
     mount_all /vendor/etc/charger_fw_fstab.qti --early

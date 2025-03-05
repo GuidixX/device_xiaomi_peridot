@@ -6,5 +6,12 @@ allow parts_app vendor_sysfs_thermal:dir search;
 allow parts_app vendor_sysfs_thermal:file rw_file_perms;
 allow parts_app vendor_hal_displayfeature_xiaomi_service:binder { call transfer };
 allow parts_app vendor_hal_displayfeature_xiaomi_default:binder { call transfer };
+allow parts_app sysfs_battery_supply:dir r_dir_perms;
+allow parts_app sysfs_battery_supply:file rw_file_perms;
+allow parts_app sysfs_power_supply:dir r_dir_perms;
+allow parts_app sysfs_power_supply:file rw_file_perms; 
+allow parts_app parts_app:netlink_kobject_uevent_socket { create read setopt bind };
+allow parts_app vendor_hal_qspmhal_default:binder { call };
+rw_dir_file(parts_app, sysfs_power_supply)
 dontaudit parts_app vendor_hal_displayfeature_xiaomi_service:service_manager find;
 dontaudit parts_app vendor_hal_displayfeature_xiaomi_default:service_manager find;

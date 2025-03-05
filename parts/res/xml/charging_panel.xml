@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<PreferenceScreen
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:settings="http://schemas.android.com/apk/res-auto"
+    android:title="@string/turbo_charge_title">
+
+    <com.android.settingslib.widget.TopIntroPreference
+        android:key="turbo_top_intro"
+        android:title="@string/turbo_charge_summary"/>
+
+    <SwitchPreferenceCompat
+        android:key="turbo_enable"
+        android:title="@string/turbo_enable_title"
+        android:defaultValue="true" />
+
+    <ListPreference
+        android:key="turbo_current"
+        android:title="@string/turbo_charge_current_pref_title"
+        android:entries="@array/turbo_modes_entries"
+        android:entryValues="@array/turbo_modes_values"
+        android:defaultValue="@integer/turbo_modes_default"
+        android:summary="%s" />
+
+</PreferenceScreen>
