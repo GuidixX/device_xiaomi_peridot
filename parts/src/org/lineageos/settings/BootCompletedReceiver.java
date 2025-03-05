@@ -37,6 +37,7 @@ import org.lineageos.settings.touchsampling.TouchSamplingUtils;
 import org.lineageos.settings.touchsampling.TouchSamplingService;
 import org.lineageos.settings.touchsampling.TouchSamplingTileService;
 import org.lineageos.settings.turbocharging.TurboChargingService;
+import org.lineageos.settings.turbocharging.TurboChargingTileService;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final String TAG = "XiaomiParts";
@@ -102,6 +103,9 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         // Start TurboChargingService
         Intent turboChargingIntent = new Intent(context, TurboChargingService.class);
         context.startService(turboChargingIntent);
+
+        // Start TurboChargingTileService
+        context.startServiceAsUser(new Intent(context, TurboChargingTileService.class), UserHandle.CURRENT);
     }
 
     private void overrideHdrTypes(Context context) {

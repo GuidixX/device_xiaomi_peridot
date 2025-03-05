@@ -93,5 +93,7 @@
     <string name="turbo_mode_one">33W</string>
     <string name="turbo_mode_two">60W</string>
     <string name="turbo_mode_three">90W</string>
+    <string name="turbo_charge_tile_label">Turbo Charging</string>
+    <string name="turbo_charge_tile_content_description">Toggle Turbo Charging</string>
 
 </resources>
