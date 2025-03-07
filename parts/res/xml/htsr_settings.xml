@@ -35,6 +35,13 @@
             android:title="@string/htsr_game_mode_auto_title"
             android:summary="@string/htsr_game_mode_auto_summary"
             android:showDefault="false" />
-            
+
+        <!-- SwitchPreference for Auto-enable High Touch Polling when launching games within your Gamespace-->
+        <SwitchPreference
+            android:defaultValue="false"
+            android:key="htsr_game_gamespace_auto"
+            android:title="@string/htsr_game_gamespace_auto_title"
+            android:summary="@string/htsr_game_gamespace_auto_summary"
+            android:showDefault="false" />
     </PreferenceCategory>
 </PreferenceScreen>

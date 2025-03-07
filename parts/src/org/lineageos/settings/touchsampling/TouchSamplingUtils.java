@@ -16,6 +16,7 @@
 
 package org.lineageos.settings.touchsampling;
 
+import android.app.ActivityManager;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -28,6 +29,7 @@ import androidx.preference.PreferenceManager;
 import org.lineageos.settings.touchsampling.TouchSamplingSettingsFragment;
 import org.lineageos.settings.utils.FileUtils;
 
+import java.util.List;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
@@ -50,5 +52,45 @@ public final class TouchSamplingUtils {
     public static boolean isGameModeActive() {
         String sconfig = FileUtils.readOneLine(SCONFIG_FILE);
         return "6".equals(sconfig);
+    }
+
+    /**
+     * Determines if a game from gamespace is currently active.
+     * Reads the system setting "gamespace_game_list".
+     * Returns true if the foreground app is listed.
+     */
+    public static boolean isGamespaceGameActive(Context context) {
+        String gameListStr = android.provider.Settings.System.getString(
+                context.getContentResolver(), "gamespace_game_list");
+        if (gameListStr == null || gameListStr.trim().isEmpty()) {
+            return false;
+        }
+        String foregroundPackage = getForegroundApp(context);
+        if (foregroundPackage == null) {
+            return false;
+        }
+        String[] gameList = gameListStr.split(";");
+        for (String data : gameList) {
+            String[] userGame = data.split("=");
+            String pkg = userGame.length == 2 ? userGame[0] : data;
+            if (pkg.equals(foregroundPackage)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * Returns the package name of the current foreground app.
+     */
+    private static String getForegroundApp(Context context) {
+        ActivityManager am = (ActivityManager) context.getSystemService(Context.ACTIVITY_SERVICE);
+        if (am != null) {
+            List<ActivityManager.RunningTaskInfo> tasks = am.getRunningTasks(1);
+            if (tasks != null && !tasks.isEmpty() && tasks.get(0).topActivity != null) {
+                return tasks.get(0).topActivity.getPackageName();
+            }
+        }
+        return null;
     }
 }
