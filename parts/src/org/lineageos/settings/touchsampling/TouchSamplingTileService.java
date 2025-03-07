@@ -105,14 +105,12 @@ public class TouchSamplingTileService extends TileService {
     }
 
     private boolean isTouchSamplingEnabled() {
-        SharedPreferences sharedPref = getSharedPreferences(
-                TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences(TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
         return sharedPref.getBoolean(TouchSamplingSettingsFragment.HTSR_STATE, false);
     }
 
     private void saveTouchSamplingState(boolean state) {
-        SharedPreferences sharedPref = getSharedPreferences(
-                TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences(TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
         sharedPref.edit().putBoolean(TouchSamplingSettingsFragment.HTSR_STATE, state).apply();
     }
 
@@ -133,8 +131,7 @@ public class TouchSamplingTileService extends TileService {
     }
 
     private void showTouchSamplingNotification() {
-        Intent intent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        Intent intent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
         PendingIntent pendingIntent = PendingIntent.getActivity(this, 0, intent, PendingIntent.FLAG_IMMUTABLE);
 
         Notification notification = new Notification.Builder(this, NOTIFICATION_CHANNEL_ID)
@@ -154,17 +151,23 @@ public class TouchSamplingTileService extends TileService {
     }
 
     /**
-     * Computes the effective touch sampling state based on the main toggle and game mode auto setting.
+     * Computes the effective touch sampling state state using all three controls.
      */
     private boolean isEffectiveTouchSamplingEnabled() {
-        SharedPreferences sharedPref = getSharedPreferences(
-                TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = getSharedPreferences(TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
         boolean mainEnabled = sharedPref.getBoolean(TouchSamplingSettingsFragment.HTSR_STATE, false);
         boolean gameModeAuto = sharedPref.getBoolean("htsr_game_mode_auto", false);
+        boolean gamespaceAuto = sharedPref.getBoolean("htsr_game_gamespace_auto", false);
         if (mainEnabled) {
             return true;
         }
-        return gameModeAuto && TouchSamplingUtils.isGameModeActive();
+        if (gameModeAuto && TouchSamplingUtils.isGameModeActive()) {
+            return true;
+        }
+        if (gamespaceAuto && TouchSamplingUtils.isGamespaceGameActive(this)) {
+            return true;
+        }
+        return false;
     }
 
     /**
@@ -174,10 +177,7 @@ public class TouchSamplingTileService extends TileService {
         @Override
         public void onReceive(Context context, Intent intent) {
             if (Intent.ACTION_BOOT_COMPLETED.equals(intent.getAction())) {
-                Log.d(TAG, "Boot completed - reinitializing tile state");
-
-                SharedPreferences sharedPref = context.getSharedPreferences(
-                        TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
+                SharedPreferences sharedPref = context.getSharedPreferences(TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
                 boolean htsrEnabled = sharedPref.getBoolean(TouchSamplingSettingsFragment.HTSR_STATE, false);
 
                 int state = htsrEnabled ? 1 : 0;
