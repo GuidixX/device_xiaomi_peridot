@@ -55,10 +55,10 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
         addPreferencesFromResource(R.xml.htsr_settings);
         getActivity().getActionBar().setDisplayHomeAsUpEnabled(true);
 
-        mHTSRPreference = (SwitchPreference) findPreference(HTSR_ENABLE_KEY);
         mPrefs = getActivity().getSharedPreferences(SHAREDHTSR, Context.MODE_PRIVATE);
 
         // Set the initial state of the main toggle
+        mHTSRPreference = (SwitchPreference) findPreference(HTSR_ENABLE_KEY);
         boolean htsrEnabled = mPrefs.getBoolean(HTSR_STATE, false);
         mHTSRPreference.setChecked(htsrEnabled);
         mHTSRPreference.setOnPreferenceChangeListener(this);
@@ -69,8 +69,14 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
         gameModePreference.setChecked(gameModeEnabled);
         gameModePreference.setOnPreferenceChangeListener(this);
 
-        // Start the service if the main toggle is enabled
-        if (htsrEnabled) {
+        // Setup "Automatically enable HTSR when games added in gamespace app" toggle
+        SwitchPreference gamespacePreference = (SwitchPreference) findPreference("htsr_game_gamespace_auto");
+        boolean gamespaceEnabled = mPrefs.getBoolean("htsr_game_gamespace_auto", false);
+        gamespacePreference.setChecked(gamespaceEnabled);
+        gamespacePreference.setOnPreferenceChangeListener(this);
+
+        // Start service if any auto condition might enable HTSR
+        if (htsrEnabled || gameModeEnabled || gamespaceEnabled) {
             startTouchSamplingService(true);
         }
 
@@ -100,9 +106,15 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
         } else if ("htsr_game_mode_auto".equals(preference.getKey())) {
             boolean isGameModeAuto = (Boolean) newValue;
             mPrefs.edit().putBoolean("htsr_game_mode_auto", isGameModeAuto).apply();
-            // Reapply the service state: if main toggle is off, effective state depends on game mode.
+            // Reapply the service state
             boolean mainEnabled = mPrefs.getBoolean(HTSR_STATE, false);
-            startTouchSamplingService(mainEnabled || (isGameModeAuto && TouchSamplingUtils.isGameModeActive()));
+            startTouchSamplingService(mainEnabled || isGameModeAuto || mPrefs.getBoolean("htsr_game_gamespace_auto", false));
+        } else if ("htsr_game_gamespace_auto".equals(preference.getKey())) {
+            boolean isGamespaceAuto = (Boolean) newValue;
+            mPrefs.edit().putBoolean("htsr_game_gamespace_auto", isGamespaceAuto).apply();
+            // Reapply the service state
+            boolean mainEnabled = mPrefs.getBoolean(HTSR_STATE, false);
+            startTouchSamplingService(mainEnabled || isGamespaceAuto || mPrefs.getBoolean("htsr_game_mode_auto", false));
         }
         return true;
     }
@@ -128,11 +140,8 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
     private void showTouchSamplingNotification() {
         NotificationManager notificationManager = (NotificationManager)
                 getActivity().getSystemService(Context.NOTIFICATION_SERVICE);
-        Intent intent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY)
-                .addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-        PendingIntent pendingIntent = PendingIntent.getActivity(
-                getActivity(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
-
+        Intent intent = new Intent(Intent.ACTION_POWER_USAGE_SUMMARY).addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        PendingIntent pendingIntent = PendingIntent.getActivity(getActivity(), 0, intent, PendingIntent.FLAG_IMMUTABLE);
         Notification notification = new Notification.Builder(getActivity(), NOTIFICATION_CHANNEL_ID)
                 .setContentTitle(getString(R.string.touch_sampling_mode_title))
                 .setContentText(getString(R.string.touch_sampling_mode_notification))
@@ -141,7 +150,6 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
                 .setOngoing(true)
                 .setFlag(Notification.FLAG_NO_CLEAR, true)
                 .build();
-
         notificationManager.notify(NOTIFICATION_ID, notification);
     }
 
