@@ -364,7 +364,8 @@ PRODUCT_PACKAGES += \
     libmm-omxcore
 
 PRODUCT_PACKAGES += \
-    android.hardware.media.bufferpool2-V1-ndk.vendor
+    android.hardware.media.bufferpool2-V1-ndk.vendor \
+    android.hardware.media.c2-V1-ndk.vendor
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/media/media_profiles_cliffs_v0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles_cliffs_v0.xml \
