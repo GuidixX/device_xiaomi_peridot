@@ -153,6 +153,11 @@ vendor.voice.path.for.pcm.voip=true
 suspend.short_suspend_threshold_millis=5000
 
 # Bluetooth
+bluetooth.device.class_of_device=90,2,12
+bluetooth.hfp.codec_aptx_voice.enabled=true
+bluetooth.leaudio.dual_bidirection_swb.supported=true
+bluetooth.profile.pbap.sim.enabled=true
+bluetooth.profile.sap.server.enabled=false
 bluetooth.profile.a2dp.source.enabled=true
 bluetooth.profile.asha.central.enabled=true
 bluetooth.profile.avrcp.controller.enabled=false
@@ -177,6 +182,10 @@ bluetooth.profile.pbap.server.enabled=true
 bluetooth.profile.sap.server.enabled=false
 bluetooth.profile.vcp.controller.enabled=false
 persist.bluetooth.a2dp_offload.disabled=false
+persist.bluetooth.leaudio.allow.multiple.context=false
+persist.bluetooth.leaudio.bypass_allow_list=true
+persist.bluetooth.leaudio.notify.idle.during.call=true
+persist.bluetooth.leaudio_offload.disabled=false
 persist.sys.fflag.override.settings_bluetooth_hearing_aid=true
 persist.vendor.bt.a2dp_offload_cap=sbc-aptx-aptxtws-aptxhd-aac-ldac-lhdc
 persist.vendor.bt.aac_frm_ctl.enabled=true
