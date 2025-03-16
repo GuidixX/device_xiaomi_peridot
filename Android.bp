@@ -56,3 +56,9 @@ cc_binary {
     defaults: ["android.hardware.boot-service.qti.recovery_defaults"],
     static_libs: ["libgptutils.peridot"],
 }
+
+mkdir {
+    name: "vendor_modem_firmware_mountpoint",
+    dir: "modem_firmware",
+    vendor: true,
+}
