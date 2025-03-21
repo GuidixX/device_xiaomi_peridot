@@ -14,6 +14,9 @@ media.stagefright.thumbnail.prefer_hw_codecs=true
 ro.media.recorder-max-base-layer-fps=60
 ro.media.xml_variant.profiles=_cliffs_v0
 
+# Feature flags
+persist.sys.fflag.override.settings_enable_monitor_phantom_procs=false
+
 # Radio VoNR Calling
 persist.radio.is_vonr_enabled_0=true
 persist.radio.is_vonr_enabled_1=true
