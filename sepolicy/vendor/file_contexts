@@ -110,6 +110,9 @@
 # Secure Element
 /vendor/bin/hw/android\.hardware\.secure_element-service\.nxp                                    u:object_r:hal_secure_element_default_exec:s0
 
+# NFC
+/(odm|vendor/odm|vendor|system/vendor)/bin/hw/android\.hardware\.nqnfc-service\.nxp u:object_r:hal_nfc_default_exec:s0
+
 # Sensors
 /(vendor|system/vendor)/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal               u:object_r:hal_sensors_default_exec:s0
 
