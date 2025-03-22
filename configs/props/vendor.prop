@@ -283,7 +283,7 @@ vendor.gralloc.enable_logs=0
 
 # HWUI
 debug.hwui.use_hint_manager=true
-debug.hwui.target_cpu_time_percent=30
+debug.hwui.target_cpu_time_percent=10
 ro.hwui.texture_cache_size=72 
 ro.hwui.layer_cache_size=48 
 ro.hwui.r_buffer_cache_size=8 
