@@ -60,3 +60,6 @@ media.stagefright.audio.deep=true
 # RKPD
 remote_provisioning.enable_rkpd=true
 remote_provisioning.hostname=remoteprovisioning.googleapis.com
+
+# Disable RescueParty due to high risk of data loss
+persist.sys.disable_rescue=true
