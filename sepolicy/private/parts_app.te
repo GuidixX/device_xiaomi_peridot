@@ -67,6 +67,9 @@ allow parts_app vendor_hal_displayfeature_xiaomi_default:binder { call transfer 
 dontaudit parts_app vendor_hal_displayfeature_xiaomi_service:service_manager find;
 dontaudit parts_app vendor_hal_displayfeature_xiaomi_default:service_manager find;
 
+# Allow XiaomiParts to get settingsdebug.instant.packages prop
+get_prop(parts_app, settingslib_prop)
+
 hal_client_domain(parts_app, hal_touchfeature_xiaomi)
 binder_call(parts_app, hal_touchfeature_xiaomi)
 binder_call(parts_app, default_android_hwservice)
