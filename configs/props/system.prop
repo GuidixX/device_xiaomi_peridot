@@ -31,6 +31,20 @@ persist.log.tag.CVP=S
 persist.log.tag.ResourcesCompat=S
 persist.log.tag.SYNX-UMD=S
 persist.log.tag.libsensor-parseRGB=S
+persist.log.tag.PowerUI=S
+persist.log.tag.BackgroundInstallControlService=S
+persist.log.tag.HWUI=S
+persist.log.tag.NetworkStack=S
+persist.log.tag.ConnectivityService=S
+persist.log.tag.Bluetooth=S
+persist.log.tag.btif=S
+persist.log.tag.bluetooth_sco=S
+persist.log.tag.SensorService=S
+persist.log.tag.SensorManager=S
+persist.log.tag.PowerManagerService=S
+persist.log.tag.BatteryService=S
+persist.log.tag.SystemServer=S
+persist.log.tag.AppOps=S
 
 # LMKD
 ro.config.low_ram=false
