@@ -336,6 +336,12 @@
     },
     {
       "PowerHint": "INTERACTION",
+      "Node": "UclampFGMin",
+      "Duration": 3000,
+      "Value": "20"
+    },
+    {
+      "PowerHint": "INTERACTION",
       "Node": "UclampTALatency",
       "Duration": 3000,
       "Value": "1"
