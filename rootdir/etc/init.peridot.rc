@@ -25,6 +25,10 @@ on boot
     chown system system /sys/class/power_supply/battery/temp
     chmod 0660 /sys/class/power_supply/battery/temp
 
+    # Allow system to modify charging current
+    chown system system /sys/class/power_supply/battery/constant_charge_current
+    chmod 0664 /sys/class/power_supply/battery/constant_charge_current
+ 
 # Migrate tasks again in case kernel threads are created during boot
 on property:sys.boot_completed=1
     copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
@@ -67,3 +71,7 @@ on property:vendor.post_boot.parsed=1
 
     # Disable multiple kswapd threads
     write /proc/sys/vm/kswapd_threads 1
+
+# Monitor and apply Turbo Charging value via system property persist.sys.turbo_charge_current
+on property:persist.sys.turbo_charge_current=*
+    write /sys/class/power_supply/battery/constant_charge_current ${persist.sys.turbo_charge_current}

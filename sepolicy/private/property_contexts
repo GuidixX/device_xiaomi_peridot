@@ -14,3 +14,6 @@ settingsdebug.instant.packages      u:object_r:settingslib_prop:s0
 
 ro.max.fling_velocity               u:object_r:exported_system_prop:s0
 ro.min.fling_velocity               u:object_r:exported_system_prop:s0
+
+# XiaomiParts
+persist.sys.turbo_charge_current    u:object_r:exported_system_prop:s0

@@ -455,7 +455,7 @@ on boot
     chmod 664 /sys/devices/platform/soc/1d84000.ufshc/ufscld/trigger
     # END Memory_CLD
 
-    # Allow system to manipulate Fast Charge node
+    # Allow system to manipulate Fast Charge node 
     chown system system /sys/class/qcom-battery/sport_mode
     chmod 0660 /sys/class/qcom-battery/sport_mode
 
