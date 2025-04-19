@@ -4,7 +4,11 @@ app_domain(parts_app)
 
 binder_use(parts_app)
 
-# Allow parts_app to find *_service
+hal_client_domain(parts_app, hal_touchfeature_xiaomi)
+
+binder_call(parts_app, hal_touchfeature_xiaomi)
+binder_call(parts_app, vendor_hal_displayfeature_xiaomi)
+
 allow parts_app {
   activity_service
   activity_task_service
@@ -12,14 +16,14 @@ allow parts_app {
   audioserver_service
   audio_service
   autofill_service
-  cameraserver_service
+  batteryproperties_service
+  batterystats_service
   cameraserver_service
   content_capture_service
   device_state_service
   drmserver_service
   game_service
   gpu_service
-  hal_touchfeature_xiaomi_service
   hint_service
   media_session_service
   mediaextractor_service
@@ -33,36 +37,33 @@ allow parts_app {
   thermal_service
   trust_service
   voiceinteraction_service
+  vendor_perf_service
+  vibrator_manager_service
 }:service_manager find;
 
-# Allow parts_app read and write /data/data subdirectory
-allow parts_app system_app_data_file:dir create_dir_perms;
-allow parts_app system_app_data_file:file create_file_perms;
-allow parts_app system_app_data_file:{ file lnk_file } create_file_perms;
-
-# Allow binder communication with gpuservice
-hal_client_domain(parts_app, hal_touchfeature_xiaomi)
-binder_call(parts_app, hal_touchfeature_xiaomi)
-binder_call(parts_app, gpuservice)
-
-# Allow parts_app to read and write to cgroup/sysfs_leds/sysfs_thermal
-allow parts_app sysfs_leds:dir search;
 allow parts_app {
-  cgroup
-  sysfs_leds
-  sysfs_thermal
-}:{ file lnk_file } rw_file_perms;
+  hal_touchfeature_xiaomi_hwservice
+  vendor_hal_displayfeature_xiaomi_hwservice
+}:hwservice_manager find;
 
-# Allow XiaomiParts to get settingsdebug.instant.packages prop
-get_prop(parts_app, settingslib_prop)
+allow parts_app system_app_data_file:dir create_dir_perms;
+allow parts_app system_app_data_file:{
+  file
+  lnk_file
+} create_file_perms;
 
-# Allow XiaomiParts to read/write to sysfs_htsr;
+allow parts_app sysfs_thermal:dir r_dir_perms;
+allow parts_app sysfs_thermal:file rw_file_perms;
 allow parts_app sysfs_htsr:file rw_file_perms;
+allow parts_app vendor_hal_displayfeature_xiaomi_hwservice:hwservice_manager find;
+
+allow parts_app vendor_hal_displayfeature_xiaomi_service:binder { call transfer };
+allow parts_app vendor_hal_displayfeature_xiaomi_default:binder { call transfer };
+dontaudit parts_app vendor_hal_displayfeature_xiaomi_service:service_manager find;
+dontaudit parts_app vendor_hal_displayfeature_xiaomi_default:service_manager find;
 
 hal_client_domain(parts_app, hal_touchfeature_xiaomi)
 binder_call(parts_app, hal_touchfeature_xiaomi)
-allow parts_app hal_touchfeature_xiaomi_service:service_manager find;
-
 binder_call(parts_app, default_android_hwservice)
 binder_call(parts_app, gpuservice)
 
