@@ -30,6 +30,7 @@ import org.lineageos.settings.refreshrate.RefreshActivity;
 import org.lineageos.settings.thermal.ThermalSettingsActivity;
 import org.lineageos.settings.saturation.SaturationActivity;
 import org.lineageos.settings.gamebar.GameBarSettingsActivity;
+import org.lineageos.settings.turbocharging.TurboChargingActivity;
 
 public class TileEntryActivity extends Activity {
     private static final String TAG = "TileEntryActivity";
@@ -37,6 +38,7 @@ public class TileEntryActivity extends Activity {
     private static final String THERMAL_TILE = "org.lineageos.settings.thermal.ThermalTileService";
     private static final String SATURATION_TILE = "org.lineageos.settings.saturation.SaturationTileService";
     private static final String GAMEBAR_TILE = "org.lineageos.settings.gamebar.GameBarTileService";
+    private static final String TURBOCHG_TILE = "org.lineageos.settings.turbocharging.TurboChargingTile";
 
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
@@ -59,6 +61,8 @@ public class TileEntryActivity extends Activity {
             intent = new Intent(this, SaturationActivity.class);
         } else if (GAMEBAR_TILE.equals(sourceClassName)) {
             intent = new Intent(this, GameBarSettingsActivity.class);
+        } else if (TURBOCHG_TILE.equals(sourceClassName)) {
+            intent = new Intent(this, TurboChargingActivity.class);
         } else {
             Log.e(TAG, "Unknown tile: " + sourceClassName);
             finish();
