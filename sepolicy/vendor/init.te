@@ -5,6 +5,7 @@ allow init nfc_device:chr_file open;
 allow init nfc_device:chr_file ioctl;
 allow init same_process_hal_file:file execute;
 allow init vendor_file:file execute;
+allow init vendor_file:file execute_no_trans;
 allow init debugfs_tracing_debug:dir mounton;
 allow init hwservicemanager:binder call;
 allow init vendor_sysfs_battery_supply:file setattr;
@@ -13,6 +14,7 @@ allow init vendor_sysfs_battery_supply:file { open read getattr setattr};
 allow vendor_init block_device:lnk_file { relabelfrom relabelto setattr };
 allow vendor_init block_device:file { mounton relabelfrom relabelto setattr };
 allow vendor_init debugfs_tracing_debug:file w_file_perms;
+allow vendor_init sysfs:lnk_file setattr;
 allow init sysfs_fastcharge:file { setattr };
 allow init vendor_sysfs_power_supply:file { setattr };
 set_prop(vendor_init, vendor_displayfeature_prop)
@@ -22,5 +24,7 @@ set_prop(vendor_init, vendor_qcc_prop)
 set_prop(vendor_init, vendor_camera_prop)
 set_prop(vendor_init, vendor_nfc_mi_prop)
 set_prop(vendor_init, vendor_fp_prop)
+set_prop(vendor_init, vendor_thermal_normal_prop)
+set_prop(vendor_init, vendor_touchfeature_prop)
 set_prop(vendor_init, vendor_fp_info_prop)
 r_dir_file(init, sysfs_batteryinfo)
