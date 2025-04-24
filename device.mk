@@ -227,7 +227,9 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.composer3-V2-ndk.vendor \
     android.hardware.graphics.composer@2.1.vendor \
     android.hardware.graphics.composer@2.2.vendor \
-    android.hardware.graphics.composer@2.3.vendor
+    android.hardware.graphics.composer@2.3.vendor \
+    vendor.qti.hardware.display.composer-service.rc \
+    vendor.qti.hardware.display.composer-service.xml
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.vulkan.compute-0.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.vulkan.compute-0.xml \
