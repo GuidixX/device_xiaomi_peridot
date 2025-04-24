@@ -378,7 +378,6 @@ include $(LOCAL_PATH)/configs/logging.mk
 # Media
 PRODUCT_PACKAGES += \
     android.hardware.media.c2@1.2.vendor \
-    libOmxCore \
     libavservices_minijail \
     libavservices_minijail_vendor \
     libcodec2_hidl@1.0.vendor \
@@ -387,8 +386,7 @@ PRODUCT_PACKAGES += \
     libcodec2_hidl_shim \
     libcodec2_soft_common.vendor \
     libcodec2_shim \
-    libcodec2_vndk.vendor \
-    libmm-omxcore
+    libcodec2_vndk.vendor
 
 PRODUCT_PACKAGES += \
     android.hardware.media.bufferpool2-V1-ndk.vendor \
