@@ -1926,6 +1926,7 @@ vendor/lib64/libesesbprovision.so
 vendor/lib64/vendor.xiaomi.hardware.mlipay-V1-ndk_platform.so
 
 # NFC
+system_ext/etc/permissions/com.nxp.nfc.nq.xml
 odm/etc/libnfc-nci.conf
 odm/etc/libnfc-nxp.conf
 odm/etc/libnfc-nxp_RF.conf
