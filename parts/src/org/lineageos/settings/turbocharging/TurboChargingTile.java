@@ -16,14 +16,13 @@
 
 package org.lineageos.settings.turbocharging;
 
-import android.content.Context;
-import android.content.Intent;
 import android.content.SharedPreferences;
-import android.os.UserHandle;
 import android.service.quicksettings.Tile;
 import android.service.quicksettings.TileService;
 import android.widget.Toast;
+
 import androidx.preference.PreferenceManager;
+
 import org.lineageos.settings.R;
 
 public class TurboChargingTile extends TileService {
@@ -37,12 +36,25 @@ public class TurboChargingTile extends TileService {
         boolean newState = !turboEnabled;
         prefs.edit().putBoolean(PREF_TURBO_ENABLED, newState).apply();
         TurboChargingUtil.applyTurboSetting(this);
-        Toast.makeText(this, newState ? getString(R.string.toast_turbo_on) : getString(R.string.toast_turbo_off),
+        updateTileState();
+        Toast.makeText(this,
+                newState ? getString(R.string.toast_turbo_on) : getString(R.string.toast_turbo_off),
                 Toast.LENGTH_SHORT).show();
+    }
+
+    @Override
+    public void onStartListening() {
+        super.onStartListening();
+        updateTileState();
+    }
+
+    private void updateTileState() {
         Tile tile = getQsTile();
-        if (tile != null) {
-            tile.setState(newState ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
-            tile.updateTile();
-        }
+        if (tile == null) return;
+        boolean turboEnabled = PreferenceManager
+                .getDefaultSharedPreferences(this)
+                .getBoolean(PREF_TURBO_ENABLED, false);
+        tile.setState(turboEnabled ? Tile.STATE_ACTIVE : Tile.STATE_INACTIVE);
+        tile.updateTile();
     }
 }
