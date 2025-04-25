@@ -19,14 +19,17 @@ package org.lineageos.settings.turbocharging;
 import android.os.Bundle;
 import android.util.Log;
 import android.widget.Toast;
+
 import androidx.preference.ListPreference;
 import androidx.preference.Preference;
 import androidx.preference.PreferenceFragment;
 import androidx.preference.PreferenceManager;
 import androidx.preference.SwitchPreferenceCompat;
-import com.android.settingslib.collapsingtoolbar.CollapsingToolbarBaseActivity;
+
 import com.android.settingslib.widget.MainSwitchPreference;
+
 import org.lineageos.settings.R;
+
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -59,7 +62,7 @@ public class TurboChargingFragment extends PreferenceFragment implements Prefere
 
         mSportsMode = (SwitchPreferenceCompat) findPreference(PREF_SPORTS_MODE);
         mSportsMode.setOnPreferenceChangeListener(this);
-        
+
         mSportsMode.setEnabled(mTurboEnabled.isChecked());
 
         mTurboCurrent = (ListPreference) findPreference(PREF_TURBO_CURRENT);
@@ -72,28 +75,47 @@ public class TurboChargingFragment extends PreferenceFragment implements Prefere
         if (preference == mTurboEnabled) {
             boolean turboEnabled = (boolean) newValue;
             mTurboCurrent.setEnabled(turboEnabled);
+            if (!turboEnabled) {
+                mSportsMode.setChecked(false);
+                updateSportsMode(false);
+            }
             mSportsMode.setEnabled(turboEnabled);
-            
+
             updateChargeCurrent();
-            Toast.makeText(getActivity(), turboEnabled ? 
-                getString(R.string.toast_turbo_on) : getString(R.string.toast_turbo_off),
-                Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),
+                    turboEnabled ? getString(R.string.toast_turbo_on) : getString(R.string.toast_turbo_off),
+                    Toast.LENGTH_SHORT).show();
             return true;
+
         } else if (preference == mSportsMode) {
             boolean sportsEnabled = (boolean) newValue;
             updateSportsMode(sportsEnabled);
-            Toast.makeText(getActivity(), sportsEnabled ? 
-                getString(R.string.toast_sports_on) : getString(R.string.toast_sports_off),
-                Toast.LENGTH_SHORT).show();
+            Toast.makeText(getActivity(),
+                    sportsEnabled ? getString(R.string.toast_sports_on) : getString(R.string.toast_sports_off),
+                    Toast.LENGTH_SHORT).show();
             return true;
+
         } else if (preference == mTurboCurrent) {
             String value = (String) newValue;
             PreferenceManager.getDefaultSharedPreferences(getActivity())
                     .edit()
                     .putString(PREF_TURBO_CURRENT, value)
                     .apply();
+
+            if ("1800000".equals(value)) {
+                mSportsMode.setChecked(false);
+                updateSportsMode(false);
+            }
+
             updateChargeCurrent();
-            Toast.makeText(getActivity(), String.format(getString(R.string.toast_wattage_set), value),
+
+            CharSequence entry = mTurboCurrent.getEntries()[mTurboCurrent.findIndexOfValue(value)];
+            String entryStr = entry.toString();
+            if (entryStr.endsWith("W")) {
+                entryStr = entryStr.substring(0, entryStr.length() - 1) + " watt";
+            }
+            Toast.makeText(getActivity(),
+                    String.format(getString(R.string.toast_wattage_set), entryStr),
                     Toast.LENGTH_SHORT).show();
             return true;
         }
@@ -103,8 +125,10 @@ public class TurboChargingFragment extends PreferenceFragment implements Prefere
     private void updateChargeCurrent() {
         boolean turboEnabled = PreferenceManager.getDefaultSharedPreferences(getActivity())
                 .getBoolean(PREF_TURBO_ENABLED, false);
-        String valueToSet = turboEnabled ? PreferenceManager.getDefaultSharedPreferences(getActivity())
-                .getString(PREF_TURBO_CURRENT, DEFAULT_ON_VALUE) : DEFAULT_OFF_VALUE;
+        String valueToSet = turboEnabled
+                ? PreferenceManager.getDefaultSharedPreferences(getActivity())
+                        .getString(PREF_TURBO_CURRENT, DEFAULT_ON_VALUE)
+                : DEFAULT_OFF_VALUE;
         Log.i(TAG, "Setting System property " + PROP_TURBO_CURRENT + " to: " + valueToSet);
         setChargingProperty(valueToSet);
     }
