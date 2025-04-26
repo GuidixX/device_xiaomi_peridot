@@ -86,4 +86,11 @@
     <string name="toast_sports_off">Режим быстрой зарядки выключен</string>
     <string name="toast_turbo_on">Турбо зарядка включена</string>
     <string name="toast_turbo_off">Турбо зарядка выключена</string>
+
+    <!-- Обход Зарядки -->
+    <string name="charge_bypass_title">Обход зарядки</string>
+    <string name="charge_bypass_summary">Включить прямую зарядку, минуя батарею</string>
+    <string name="charge_bypass_warning">Предупреждение: Обход зарядки может привести к повышению температуры устройства или повреждению батареи. Используйте с осторожностью.</string>
+    <string name="charge_bypass_unavailable">Обход зарядки не поддерживается на этом устройстве</string>
+
 </resources> 
