@@ -14,3 +14,5 @@ dontaudit parts_app vendor_hal_displayfeature_xiaomi_service:service_manager fin
 dontaudit parts_app vendor_hal_displayfeature_xiaomi_default:service_manager find;
 allow parts_app vendor_sysfs_kgsl_gpuclk:file { read open getattr };
 allow parts_app vendor_sysfs_power_supply:file w_file_perms;
+binder_call(parts_app, vendor_hal_displayfeature_xiaomi_default)
+binder_call(parts_app, vendor_hal_qspmhal_default)
