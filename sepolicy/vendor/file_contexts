@@ -79,10 +79,6 @@
 /(vendor|odm)/bin/hw/android\.hardware\.gnss-aidl-service-qti                                    u:object_r:vendor_hal_gnss_qti_exec:s0
 /data/vendor/ins(/.*)?                                                                           u:object_r:vendor_ins_vendor_data_file:s0
 
-# IR
-/dev/lirc[0-9]+                                                                                  u:object_r:lirc_device:s0
-/vendor/bin/hw/android\.hardware\.ir-service\.xiaomi                                             u:object_r:hal_ir_default_exec:s0
-
 # Kernel
 /sys/kernel/reserve_pool/pid                                                                     u:object_r:sysfs:s0
 
