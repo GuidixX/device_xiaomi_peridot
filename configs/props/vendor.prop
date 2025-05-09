@@ -209,6 +209,10 @@ ro.hardware.keystore_desede=true
 vendor.gatekeeper.disable_spu=true
 vendor.gatekeeper.is_security_level_spu=0
 
+# Logging
+persist.log.tag.QC2Buf=W
+persist.log.tag.QC2V4l2Codec=E
+
 # Media
 debug.stagefright.c2inputsurface=-1
 persist.mm.enable.prefetch=true
