@@ -304,6 +304,8 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_VENDOR_RAMDISK)/first_stage_ramdisk/fstab.qcom
 
+$(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):libinit_peridot)
+
 # Keymint
 PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0-service
