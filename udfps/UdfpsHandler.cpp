@@ -74,8 +74,15 @@ class XiaomiPeridotUdfpsHandler : public UdfpsHandler {
         if (result != FINGERPRINT_ACQUIRED_VENDOR) {
             // Set finger as up to disable HBM already, even if the finger is still pressed
             setFingerDown(false);
-            if (static_cast<AcquiredInfo>(result) == AcquiredInfo::GOOD)
-            setFodStatus(FOD_STATUS_OFF);
+            if (static_cast<AcquiredInfo>(result) == AcquiredInfo::GOOD) {
+                // Disable local‑HBM immediately on successful auth
+                set(DISP_PARAM_PATH,
+                    std::string(DISP_PARAM_LOCAL_HBM_MODE) + " " +
+                    DISP_PARAM_LOCAL_HBM_OFF);
+
+                // Notify fingerprint HAL that FOD is off
+                setFodStatus(FOD_STATUS_OFF);
+            }
         } else if (vendorCode == 21 || vendorCode == 23) {
             /*
              * vendorCode = 21 waiting for fingerprint authentication
