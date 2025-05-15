@@ -79,11 +79,6 @@
     <string name="image_preview_next_page_content_description">Next</string>
     <string name="image_preview_previous_page_content_description">Previous</string>
 
-    <!-- High Touch Polling -->
-    <string name="htsr_title">Touch Responsiveness</string>
-    <string name="htsr_enable_title">Increase Touch Responsiveness</string>
-    <string name="htsr_enable_summary">Increases touch polling rate to decrease latency</string>
-
     <!-- GameBar Overlay -->
     <string name="game_bar_title">GameBar</string>
     <string name="game_bar_summary">Enable the system overlay (FPS, Temp, etc.)</string>
