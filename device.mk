@@ -704,6 +704,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     android.media.audio.common.types-V3-cpp \
     libdisplayconfig.system.qti \
+    libwfdservice_shim.vendor \
     libgui_shim \
     libinput_shim.vendor \
     libbinder_shim.vendor \
