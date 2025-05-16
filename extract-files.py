@@ -68,6 +68,24 @@ blob_fixups: blob_fixups_user_type = {
        .regex_replace(r'/odm/bin/', r'/vendor/bin/'),
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .add_needed('libcodec2_shim.so'),
+    'vendor/bin/hw/vendor.dolby.media.c2@1.0-service': blob_fixup()
+        .add_needed('libcodec2_hidl_shim.so')
+        .add_needed('libstagefright_foundation-v33.so'),
+
+    ('vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service',
+     'vendor/lib64/hw/audio.primary.pineapple.so'): blob_fixup()
+        .add_needed('libstagefright_foundation-v33.so'),
+
+    ('vendor/lib64/soundfx/libdlbvol.so',
+     'vendor/lib64/soundfx/libhwdap.so',
+     'vendor/lib64/soundfx/libswspatializer.so',
+     'vendor/lib64/libcodec2_soft_ac4dec.so',
+     'vendor/lib64/libcodec2_soft_ddpdec.so',
+     'vendor/lib64/libswspatializer_ext.so'): blob_fixup()
+        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),    
+    ('vendor/bin/hw/vendor.qti.media.c2@1.0-service',
+     'vendor/bin/hw/vendor.qti.media.c2audio@1.0-service'): blob_fixup()
+        .add_needed('libcodec2_hidl_shim.so'),
     'vendor/lib64/libqcrilNr.so|vendor/lib64/libril-db.so': blob_fixup()
         .binary_regex_replace(rb'persist\.vendor\.radio\.poweron_opt', rb'persist.vendor.radio.poweron_ign'),
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
