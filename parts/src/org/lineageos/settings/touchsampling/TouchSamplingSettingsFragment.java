@@ -30,7 +30,7 @@ import android.view.MenuItem;
 import androidx.preference.Preference;
 import androidx.preference.Preference.OnPreferenceChangeListener;
 import androidx.preference.PreferenceFragment;
-import androidx.preference.SwitchPreference;
+import androidx.preference.SwitchPreferenceCompat;
 
 import org.lineageos.settings.R;
 import org.lineageos.settings.touchsampling.TouchSamplingUtils;
@@ -46,7 +46,7 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
     private static final int NOTIFICATION_ID = 3;
     private static final String NOTIFICATION_CHANNEL_ID = "touch_sampling_tile_service_channel";
 
-    private SwitchPreference mHTSRPreference;
+    private SwitchPreferenceCompat mHTSRPreference;
     private SharedPreferences mPrefs;
     private VideoPreference videoPreference;
 
@@ -58,19 +58,19 @@ public class TouchSamplingSettingsFragment extends PreferenceFragment implements
         mPrefs = getActivity().getSharedPreferences(SHAREDHTSR, Context.MODE_PRIVATE);
 
         // Set the initial state of the main toggle
-        mHTSRPreference = (SwitchPreference) findPreference(HTSR_ENABLE_KEY);
+        mHTSRPreference = (SwitchPreferenceCompat) findPreference(HTSR_ENABLE_KEY);
         boolean htsrEnabled = mPrefs.getBoolean(HTSR_STATE, false);
         mHTSRPreference.setChecked(htsrEnabled);
         mHTSRPreference.setOnPreferenceChangeListener(this);
 
         // Setup the "Automatically enable HTSR when game mode active" toggle
-        SwitchPreference gameModePreference = (SwitchPreference) findPreference("htsr_game_mode_auto");
+        SwitchPreferenceCompat gameModePreference = (SwitchPreferenceCompat) findPreference("htsr_game_mode_auto");
         boolean gameModeEnabled = mPrefs.getBoolean("htsr_game_mode_auto", false);
         gameModePreference.setChecked(gameModeEnabled);
         gameModePreference.setOnPreferenceChangeListener(this);
 
         // Setup "Automatically enable HTSR when games added in gamespace app" toggle
-        SwitchPreference gamespacePreference = (SwitchPreference) findPreference("htsr_game_gamespace_auto");
+        SwitchPreferenceCompat gamespacePreference = (SwitchPreferenceCompat) findPreference("htsr_game_gamespace_auto");
         boolean gamespaceEnabled = mPrefs.getBoolean("htsr_game_gamespace_auto", false);
         gamespacePreference.setChecked(gamespaceEnabled);
         gamespacePreference.setOnPreferenceChangeListener(this);
