@@ -109,11 +109,12 @@ class XiaomiPeridotUdfpsHandler : public UdfpsHandler {
 
         set(DISP_PARAM_PATH,
             std::string(DISP_PARAM_LOCAL_HBM_MODE) + " " +
-                    (pressed ? DISP_PARAM_LOCAL_HBM_ON : DISP_PARAM_LOCAL_HBM_OFF));
+            (pressed ? DISP_PARAM_LOCAL_HBM_ON : DISP_PARAM_LOCAL_HBM_OFF));
 
-        if (pressed) {
-            mDevice->extCmd(mDevice, COMMAND_FOD_PRESS_STATUS, PARAM_FOD_PRESSED);
-        }
+        // Notify HAL of both press and release events
+        mDevice->extCmd(mDevice,
+                        COMMAND_FOD_PRESS_STATUS,
+                        pressed ? PARAM_FOD_PRESSED : PARAM_FOD_RELEASED);
     }
 };
 
