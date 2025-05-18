@@ -42,6 +42,10 @@ allow platform_app vendor_hal_fingerprint_service_xiaomi:service_manager { find 
 
 # Touchfeature
 allow platform_app hal_touchfeature_xiaomi_service:service_manager find;
+allow platform_app vendor_file:file { read open getattr map execute watch };
+allow platform_app vendor_displayfeature_prop:file read;
+allow platform_app vendor_file:file { read open getattr map execute watch };
+binder_call(platform_app, hal_touchfeature_xiaomi_default)
 
 # we don't have google battery support, add dummy domain and let it return null by selinux denial
 dontaudit platform_app hal_dummy_googlebattery_service:service_manager find;
