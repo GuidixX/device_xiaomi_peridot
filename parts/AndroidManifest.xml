@@ -120,21 +120,7 @@
                 android:resource="@string/clear_speaker_summary" />
         </activity>
 
-        <activity
-            android:name=".refreshrate.RefreshActivity"
-            android:label="@string/refresh_title"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="com.android.settings.action.IA_SETTINGS" />
-            </intent-filter>
-            <meta-data
-                android:name="com.android.settings.category"
-                android:value="com.android.settings.category.ia.display" />
-            <meta-data
-                android:name="com.android.settings.summary"
-                android:resource="@string/refresh_summary" />
-        </activity>
-
+        <!-- RefrashRate -->
         <service
             android:name=".refreshrate.RefreshService"
             android:exported="true"
@@ -150,8 +136,6 @@
             <intent-filter>
                 <action android:name="android.service.quicksettings.action.QS_TILE"/>
             </intent-filter>
-            <meta-data android:name="android.service.quicksettings.TOGGLEABLE_TILE"
-                android:value="true" />
         </service>
 
         <!-- Display Saturation activity -->
