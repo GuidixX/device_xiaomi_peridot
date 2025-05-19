@@ -357,6 +357,7 @@ SPAMMY_LOG_TAGS := \
     sensors \
     vendor.qti.hardware.display.composer-service \
     vendor.xiaomi.sensor.citsensorservice-service.aidl \
+    vendor.xiaomi.sensor.citsensorservice.aidl \
     vendor.qti.camera.provider-service_64 \
     CamX \
     CAM_Thumbnail \
