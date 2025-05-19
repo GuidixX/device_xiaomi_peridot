@@ -28,10 +28,6 @@ android_app {
         "vendor.xiaomi.hw.touchfeature-V1-java"
     ],
 
-    optimize: {
-        proguard_flags_files: ["proguard.flags"],
-    },
-
     required: [
         "privapp_whitelist_org.lineageos.settings.xml",
     ],
