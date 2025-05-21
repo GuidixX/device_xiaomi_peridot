@@ -355,5 +355,9 @@
                 android:resource="@string/sound_control_title" />
         </activity>
 
+        <service 
+            android:name=".touch.DoubleTapService"
+            android:exported="false"/>
+
     </application>
 </manifest>
