@@ -459,6 +459,9 @@ on boot
     chown system system /sys/class/qcom-battery/sport_mode
     chmod 0660 /sys/class/qcom-battery/sport_mode
 
+    chown system system /sys/class/qcom-battery/night_charging
+    chmod 0660 /sys/class/qcom-battery/night_charging
+
 on init && property:ro.boot.mode=charger
     wait_for_prop vendor.all.modules.ready 1
     mount_all /vendor/etc/charger_fw_fstab.qti --early
