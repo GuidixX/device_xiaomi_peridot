@@ -15,33 +15,31 @@
 <PreferenceScreen xmlns:android="http://schemas.android.com/apk/res/android">
     <PreferenceCategory>
 
-        <!-- Custom VideoPreference for MP4 video -->
         <org.lineageos.settings.touchsampling.VideoPreference
             android:key="htsr_media"
             android:selectable="false" />
 
-        <!-- SwitchPreferenceCompat for High Touch Polling Rate -->
         <SwitchPreferenceCompat
             android:defaultValue="false"
             android:key="htsr_enable"
             android:summary="@string/htsr_enable_summary"
             android:title="@string/htsr_enable_title"
             android:showDefault="false" />
+    </PreferenceCategory>
 
-        <!-- SwitchPreferenceCompat for Auto-enable High Touch Polling in Game Mode -->
+    <PreferenceCategory
+        android:title="Auto Enable High Touch Polling Rate">
+
         <SwitchPreferenceCompat
-            android:defaultValue="false"
-            android:key="htsr_game_mode_auto"
-            android:title="@string/htsr_game_mode_auto_title"
-            android:summary="@string/htsr_game_mode_auto_summary"
+            android:defaultValue="true"
+            android:key="htsr_auto_enable_selected_apps"
+            android:title="Auto-enable High Touch Polling for Selected Apps"
+            android:summary="If turned on, selected apps will auto-enable High touch polling even if the main switch is off"
             android:showDefault="false" />
 
-        <!-- SwitchPreferenceCompat for Auto-enable High Touch Polling when launching games within your Gamespace-->
-        <SwitchPreferenceCompat
-            android:defaultValue="false"
-            android:key="htsr_game_gamespace_auto"
-            android:title="@string/htsr_game_gamespace_auto_title"
-            android:summary="@string/htsr_game_gamespace_auto_summary"
-            android:showDefault="false" />
+        <Preference
+            android:key="htsr_per_app_config"
+            android:title="Configure Apps"
+            android:summary="Choose which apps will auto-enable High Touch Polling" />
     </PreferenceCategory>
 </PreferenceScreen>

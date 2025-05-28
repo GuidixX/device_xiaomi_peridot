@@ -215,6 +215,12 @@
             android:permission="PocketService">
         </service>
 
+        <!-- Touch Sampling AppSelector -->
+        <activity
+            android:name=".touchsampling.TouchSamplingPerAppConfigActivity"
+            android:exported="false"
+            android:theme="@style/Theme.SubSettingsBase" />
+
         <!-- Tile Entry Activity -->
         <activity
             android:name=".TileEntryActivity"
