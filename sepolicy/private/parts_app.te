@@ -46,6 +46,12 @@ allow parts_app {
   vendor_hal_displayfeature_xiaomi_hwservice
 }:hwservice_manager find;
 
+allow parts_app {
+  cgroup
+  sysfs_leds
+  sysfs_thermal
+}:{ file lnk_file } rw_file_perms;
+
 allow parts_app system_app_data_file:dir create_dir_perms;
 allow parts_app system_app_data_file:{
   file
@@ -53,7 +59,6 @@ allow parts_app system_app_data_file:{
 } create_file_perms;
 
 allow parts_app sysfs_thermal:dir r_dir_perms;
-allow parts_app sysfs_thermal:file rw_file_perms;
 allow parts_app sysfs_htsr:file rw_file_perms;
 allow parts_app vendor_hal_displayfeature_xiaomi_hwservice:hwservice_manager find;
 
