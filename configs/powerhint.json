@@ -339,6 +339,15 @@
         "1"
       ],
       "DefaultIndex": 0
+    },
+    {
+      "Name": "ThermalProfile",
+      "Path": "/sys/devices/virtual/thermal/thermal_message/sconfig",
+      "Values": [
+        "19",
+        "0"
+      ],
+      "ResetOnInit": true
     }
   ],
   "Actions": [
@@ -353,6 +362,12 @@
       "Node": "SleepDisabled",
       "Duration": 0,
       "Value": "1"
+    },
+    {
+      "PowerHint": "INTERACTIVE",
+      "Node": "ThermalProfile",
+      "Duration": 0,
+      "Value": "19"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
