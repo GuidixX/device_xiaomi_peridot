@@ -34,9 +34,6 @@ on property:sys.boot_completed=1
     copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
 
 on property:vendor.post_boot.parsed=1
-    # Set default thermal profile
-    write /sys/class/thermal/thermal_message/sconfig 0
-    
     # Setup runtime cpus
     write /dev/cpuset/background/cpus 0-1
     write /dev/cpuset/restricted/cpus 0-3
