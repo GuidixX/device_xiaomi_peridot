@@ -29,7 +29,6 @@ import android.view.Display;
 import android.view.Display.HdrCapabilities;
 
 import org.lineageos.settings.display.ColorModeService;
-import org.lineageos.settings.doze.PocketService;
 import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.thermal.ThermalTileService;
 import org.lineageos.settings.refreshrate.RefreshUtils;
@@ -83,9 +82,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Start Refresh Rate Service
         RefreshUtils.startService(context);
-
-        // Start Pocket Mode Service
-        PocketService.startService(context);
 
         // Start TurboChargingService
         Intent turboChargingIntent = new Intent(context, TurboChargingService.class);

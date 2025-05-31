@@ -174,12 +174,6 @@
             android:permission="ColorModeService">
         </service>
 
-        <!-- Pocketservice service -->
-        <service
-            android:name=".doze.PocketService"
-            android:permission="PocketService">
-        </service>
-
         <!-- Tile Entry Activity -->
         <activity
             android:name=".TileEntryActivity"
