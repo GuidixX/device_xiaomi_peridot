@@ -33,6 +33,7 @@ import org.lineageos.settings.thermal.ThermalUtils;
 import org.lineageos.settings.thermal.ThermalTileService;
 import org.lineageos.settings.refreshrate.RefreshUtils;
 import org.lineageos.settings.turbocharging.TurboChargingService;
+import org.lineageos.settings.sensors.TapToWakeService;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final String TAG = "XiaomiParts";
@@ -86,6 +87,15 @@ public class BootCompletedReceiver extends BroadcastReceiver {
         // Start TurboChargingService
         Intent turboChargingIntent = new Intent(context, TurboChargingService.class);
         context.startService(turboChargingIntent);
+
+        // Start TapToWakeService
+        try {
+            Class<?> tapToWakeService = Class.forName("org.lineageos.settings.sensors.TapToWakeService");
+            Intent tapToWakeIntent = new Intent(context, tapToWakeService);
+            context.startServiceAsUser(tapToWakeIntent, UserHandle.CURRENT);
+        } catch (ClassNotFoundException e) {
+            Log.e(TAG, "TapToWakeService class not found", e);
+        }
     }
 
     private void overrideHdrTypes(Context context) {

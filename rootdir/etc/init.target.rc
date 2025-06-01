@@ -405,9 +405,22 @@ on property:debug.high_touch_rate=0
     # Double Tap Sensor
     chown system system /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed
     chmod 0660 /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed
+
+on property:vendor.sensors.xiaomi.double_tap=true
+    write /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed 1
+
+on property:vendor.sensors.xiaomi.double_tap=false
+    write /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed 0
+
     # Single Tap Sensor
     chown system system /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed
     chmod 0660 /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed
+
+on property:vendor.sensors.xiaomi.single_tap=true
+    write /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed 1
+
+on property:vendor.sensors.xiaomi.single_tap=false
+    write /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed 0
 
     # MIUI ADD:Thermal_NodeReq
     chmod 0664 /sys/class/thermal/thermal_message/sconfig
