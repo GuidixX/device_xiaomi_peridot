@@ -17,3 +17,6 @@ ro.min.fling_velocity               u:object_r:exported_system_prop:s0
 
 # XiaomiParts
 persist.sys.turbo_charge_current    u:object_r:exported_system_prop:s0
+ro.input.resampling                 u:object_r:exported_system_prop:s0
+viewroot.profile_rendering          u:object_r:exported_system_prop:s0
+sys.perf_mode_active                u:object_r:exported_system_prop:s0
