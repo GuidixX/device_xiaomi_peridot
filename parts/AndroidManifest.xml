@@ -288,5 +288,11 @@
                 <category android:name="android.intent.category.DEFAULT" />
              </intent-filter>
         </receiver>
+
+        <!-- Gestures Service -->
+        <service
+            android:name=".sensors.TapToWakeService"
+            android:exported="true">
+        </service>
     </application>
 </manifest>
