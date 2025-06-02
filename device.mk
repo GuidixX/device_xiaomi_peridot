@@ -242,42 +242,7 @@ $(call soong_config_set,lineage_health,fast_charge_value_none,0)
 $(call soong_config_set,lineage_health,fast_charge_value_fast_charge,1)
 
 # Logging
-SPAMMY_LOG_TAGS := \
-    MiClstc \
-    MiStcImpl \
-    SDM \
-    SRE \
-    libsensor-boledalgo \
-    libsensor-parseRGB \
-    libsensor-qshcalapi \
-    sensors \
-    vendor.qti.hardware.display.composer-service \
-    vendor.xiaomi.sensor.citsensorservice-service.aidl \
-    vendor.xiaomi.sensor.citsensorservice.aidl \
-    vendor.qti.camera.provider-service_64 \
-    CamX \
-    CAM_Thumbnail \
-    CAM_CaptureRequestBuilder \
-    CameraLatencyHistogram \
-    ChiX \
-    CHIIQUTILS \
-    CHISEG \
-    CHIUSECASE \
-    DEBUG-portrait_repair \
-    MAW \
-    MiAlgoEngine \
-    mialgo_rfs_api \
-    MiCamHAL\
-    MISV2 \
-    MISV3 \
-    MISV4 \
-    MIGME \
-    MISHisAdapter
-
-ifneq ($(TARGET_BUILD_VARIANT),eng)
-PRODUCT_VENDOR_PROPERTIES += \
-    $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=E)
-endif
+include $(LOCAL_PATH)/configs/logging.mk
 
 # Media
 PRODUCT_COPY_FILES += \
