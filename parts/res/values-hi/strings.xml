@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Xiaomi Settings -->
+    <string name="app_title">Xiaomi सेटिंग्स</string>
+    <string name="tile_add">टाइल जोड़ें</string>
+    <string name="tile_added">टाइल जोड़ दी गई</string>
+    <string name="tile_not_added">टाइल नहीं जोड़ी गई</string>
+    <string name="tile_already_added">टाइल पहले से जोड़ी गई है</string>
+    <string name="tile_on">चालू</string>
+    <string name="tile_off">बंद</string>
+
+    <!-- Thermal Profiles -->
+    <string name="thermal_title">थर्मल प्रोफाइल</string>
+    <string name="thermal_enable">थर्मल प्रोफाइल का उपयोग करें</string>
+    <string name="thermal_summary">प्रत्येक ऐप के लिए थर्मल प्रोफाइल कॉन्फ़िगरेशन</string>
+    <string name="thermal_default">डिफ़ॉल्ट</string>
+    <string name="thermal_benchmark">बेंचमार्क</string>
+    <string name="thermal_browser">ब्राउज़र</string>
+    <string name="thermal_camera">कैमरा</string>
+    <string name="thermal_dialer">फ़ोन</string>
+    <string name="thermal_gaming">गेमिंग</string>
+    <string name="thermal_navigation">नेविगेशन</string>
+    <string name="thermal_streaming">स्ट्रीमिंग</string>
+    <string name="thermal_video">वीडियो</string>
+
+    <!-- Thermal Tile Strings -->
+    <string name="thermal_tile_label">थर्मल प्रोफाइल</string>
+    <string name="thermal_mode_default">सामान्य मोड</string>
+    <string name="thermal_mode_performance">परफॉरमेंस मोड</string>
+    <string name="thermal_mode_battery_saver">बैटरी सेवर मोड</string>
+    <string name="thermal_mode_gaming">गेमिंग मोड</string>
+    <string name="thermal_mode_unknown">अज्ञात मोड</string>
+    <string name="thermal_tile_disabled_subtitle">अक्षम (ऐप-विशिष्ट थर्मल प्रोफाइल सक्षम)</string>
+    <string name="perf_mode_title">उच्च प्रदर्शन मोड</string>
+    <string name="perf_mode_notification">बेहतर प्रदर्शन के लिए उच्च प्रदर्शन मोड सक्षम किया गया है।</string>
+
+    <!-- Refresh rate -->
+    <string name="refresh_title">रिफ्रेश रेट</string>
+    <string name="refresh_default">डिफ़ॉल्ट</string>
+    <string name="refresh_standard">60Hz</string>
+    <string name="refresh_extreme">120Hz</string>
+
+    <!-- Clear Speaker -->
+    <string name="clear_speaker_title">स्पीकर साफ़ करें</string>
+    <string name="clear_speaker_summary">स्पीकर साफ़ करने के लिए 30 सेकंड का ऑडियो चलाएं</string>
+    <string name="clear_speaker_description">यदि आप देखते हैं कि आपका स्पीकर धूल से थोड़ा बंद है तो इस फ़ंक्शन को एक या दो बार चलाएं। मीडिया वॉल्यूम को अधिकतम पर सेट करें।\n\nयदि स्पीकर बहुत बंद है, तो स्पीकर को नीचे करके डिवाइस को हिलाते हुए इस फ़ंक्शन को 2-5 बार चलाएं।</string>
+
+    <!-- Saturation -->
+    <string name="saturation_title">स्क्रीन संतृप्ति</string>
+    <string name="saturation_summary">स्क्रीन संतृप्ति स्तर नियंत्रित करें</string>
+    <string name="saturation_footer_summary">डिस्प्ले सेटिंग्स में कलर मोड बदलने से संतृप्ति स्तर ओवरराइड हो जाएगा, इसे फिर से लागू करने की आवश्यकता होगी।</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">मान: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">डिफ़ॉल्ट</string>
+    <string name="custom_seekbar_default_value_to_set">डिफ़ॉल्ट मान: <xliff:g id="v">%s</xliff:g>\nसेट करने के लिए लंबे समय तक दबाएं</string>
+    <string name="custom_seekbar_default_value_is_set">डिफ़ॉल्ट मान सेट किया गया</string>
+
+    <!-- Image preview -->
+    <string name="image_preview_content_description">पूर्वावलोकन</string>
+    <string name="image_preview_next_page_content_description">अगला</string>
+    <string name="image_preview_previous_page_content_description">पिछला</string>
+
+    <!-- GameBar Overlay -->
+    <string name="game_bar_title">गेम बार</string>
+    <string name="game_bar_summary">सिस्टम ओवरले सक्षम करें (FPS, तापमान आदि)</string>
+    <string name="overlay_permission_required">ओवरले अनुमति आवश्यक है</string>
+    <string name="overlay_permission_granted">ओवरले अनुमति दी गई</string>
+    <string name="overlay_permission_denied">ओवरले अनुमति अस्वीकृत</string>
+    <string name="game_bar_tile_label">गेम बार</string>
+    <string name="game_bar_tile_description">गेम ओवरले टॉगल करें</string>
+
+    <!-- Turbo Charging -->
+    <string name="turbo_charge_title">टर्बो चार्जिंग</string>
+    <string name="turbo_enable_title">टर्बो चार्जिंग सक्षम करें</string>
+    <string name="turbo_charge_summary">90W तक टर्बो चार्जिंग सक्षम करें</string>
+    <string name="turbo_charge_current_pref_title">चार्जिंग पावर</string>
+
+    <!-- FastCharge Mode -->
+    <string name="sports_mode_title">फास्ट चार्जिंग</string>
+    <string name="sports_mode_summary">मानक नोड का उपयोग करके 90W फास्ट चार्जिंग सक्षम करें</string>
+    
+    <!-- Toast messages -->
+    <string name="toast_wattage_set">चार्जिंग पावर %1$s पर सेट की गई</string>
+    <string name="toast_sports_on">फास्ट चार्जिंग मोड चालू</string>
+    <string name="toast_sports_off">फास्ट चार्जिंग मोड बंद</string>
+    <string name="toast_turbo_on">टर्बो चार्जिंग चालू</string>
+    <string name="toast_turbo_off">टर्बो चार्जिंग बंद</string>
+</resources> 

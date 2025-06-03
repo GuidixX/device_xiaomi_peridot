@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Xiaomi Settings -->
+    <string name="app_title">Paramètres Xiaomi</string>
+    <string name="tile_add">Ajouter une tuile</string>
+    <string name="tile_added">Tuile ajoutée</string>
+    <string name="tile_not_added">Tuile non ajoutée</string>
+    <string name="tile_already_added">Tuile déjà ajoutée</string>
+    <string name="tile_on">Activé</string>
+    <string name="tile_off">Désactivé</string>
+
+    <!-- Thermal Profiles -->
+    <string name="thermal_title">Profils thermiques</string>
+    <string name="thermal_enable">Utiliser les profils thermiques</string>
+    <string name="thermal_summary">Configuration du profil thermique par application</string>
+    <string name="thermal_default">Par défaut</string>
+    <string name="thermal_benchmark">Test de performance</string>
+    <string name="thermal_browser">Navigateur</string>
+    <string name="thermal_camera">Appareil photo</string>
+    <string name="thermal_dialer">Téléphone</string>
+    <string name="thermal_gaming">Jeux</string>
+    <string name="thermal_navigation">Navigation</string>
+    <string name="thermal_streaming">Streaming</string>
+    <string name="thermal_video">Vidéo</string>
+
+    <!-- Thermal Tile Strings -->
+    <string name="thermal_tile_label">Profil thermique</string>
+    <string name="thermal_mode_default">Mode normal</string>
+    <string name="thermal_mode_performance">Mode performance</string>
+    <string name="thermal_mode_battery_saver">Mode économie d\'énergie</string>
+    <string name="thermal_mode_gaming">Mode jeu</string>
+    <string name="thermal_mode_unknown">Mode inconnu</string>
+    <string name="thermal_tile_disabled_subtitle">Désactivé (Profils thermiques par app activés)</string>
+    <string name="perf_mode_title">Mode haute performance</string>
+    <string name="perf_mode_notification">Le mode haute performance est maintenant activé pour améliorer les performances.</string>
+
+    <!-- Refresh rate -->
+    <string name="refresh_title">Taux de rafraîchissement</string>
+    <string name="refresh_default">Par défaut</string>
+    <string name="refresh_standard">60Hz</string>
+    <string name="refresh_extreme">120Hz</string>
+
+    <!-- Clear Speaker -->
+    <string name="clear_speaker_title">Nettoyer le haut-parleur</string>
+    <string name="clear_speaker_summary">Lire un son de 30 secondes pour nettoyer le haut-parleur</string>
+    <string name="clear_speaker_description">Exécutez cette fonction une ou deux fois si vous remarquez que votre haut-parleur est légèrement obstrué par la poussière. Réglez le volume multimédia au maximum.\n\nSi le haut-parleur est fortement obstrué, exécutez cette fonction 2 à 5 fois en secouant l\'appareil avec le haut-parleur vers le bas.</string>
+
+    <!-- Saturation -->
+    <string name="saturation_title">Saturation de l\'écran</string>
+    <string name="saturation_summary">Contrôler le niveau de saturation de l\'écran</string>
+    <string name="saturation_footer_summary">Le changement du mode de couleur dans les paramètres d\'affichage annulera le niveau de saturation, nécessitant sa réapplication.</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Valeur : <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">par défaut</string>
+    <string name="custom_seekbar_default_value_to_set">Valeur par défaut : <xliff:g id="v">%s</xliff:g>\nAppuyez longuement pour définir</string>
+    <string name="custom_seekbar_default_value_is_set">Valeur par défaut définie</string>
+
+    <!-- Image preview -->
+    <string name="image_preview_content_description">Aperçu</string>
+    <string name="image_preview_next_page_content_description">Suivant</string>
+    <string name="image_preview_previous_page_content_description">Précédent</string>
+
+    <!-- GameBar Overlay -->
+    <string name="game_bar_title">Barre de jeu</string>
+    <string name="game_bar_summary">Activer la superposition système (FPS, température, etc.)</string>
+    <string name="overlay_permission_required">Permission de superposition requise</string>
+    <string name="overlay_permission_granted">Permission de superposition accordée</string>
+    <string name="overlay_permission_denied">Permission de superposition refusée</string>
+    <string name="game_bar_tile_label">Barre de jeu</string>
+    <string name="game_bar_tile_description">Basculer la superposition de jeu</string>
+
+    <!-- Turbo Charging -->
+    <string name="turbo_charge_title">Charge turbo</string>
+    <string name="turbo_enable_title">Activer la charge turbo</string>
+    <string name="turbo_charge_summary">Activer la charge turbo jusqu\'à 90W</string>
+    <string name="turbo_charge_current_pref_title">Puissance de charge</string>
+
+    <!-- FastCharge Mode -->
+    <string name="sports_mode_title">Charge rapide</string>
+    <string name="sports_mode_summary">Activer la charge rapide de 90W en utilisant le nœud standard</string>
+    
+    <!-- Toast messages -->
+    <string name="toast_wattage_set">Puissance de charge définie sur %1$s</string>
+    <string name="toast_sports_on">Mode charge rapide activé</string>
+    <string name="toast_sports_off">Mode charge rapide désactivé</string>
+    <string name="toast_turbo_on">Charge turbo activée</string>
+    <string name="toast_turbo_off">Charge turbo désactivée</string>
+</resources> 
