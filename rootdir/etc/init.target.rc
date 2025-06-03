@@ -396,27 +396,6 @@ on boot
     chown system system /sys/class/mi_display/disp-DSI-1/max_brightness_clone
     chmod 0664 /sys/class/mi_display/disp-DSI-1/max_brightness_clone
 
-    # MIUI ADD:Thermal_NodeReq
-    chmod 0664 /sys/class/thermal/thermal_message/sconfig
-    chown system system /sys/class/thermal/thermal_message/sconfig
-    chmod 0664 /sys/class/thermal/thermal_message/balance_mode
-    chown system system /sys/class/thermal/thermal_message/balance_mode
-    chmod 0664 /sys/class/thermal/thermal_message/torch_real_level
-    chown cameraserver cameraserver /sys/class/thermal/thermal_message/torch_real_level
-    chmod 0664 /sys/class/thermal/thermal_message/flash_state
-    chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
-    chmod 0664 /sys/class/thermal/thermal_message/charger_temp
-    chown system system /sys/class/thermal/thermal_message/charger_temp
-    chmod 0664 /sys/class/thermal/power_save/powersave_mode
-    chown system system /sys/class/thermal/power_save/powersave_mode
-    chmod 0664 /sys/class/thermal/power_save/power_level
-    chown system system /sys/class/thermal/power_save/power_level
-    chmod 0664 /sys/class/thermal/thermal_message/board_sensor_temp_comp
-    chown system system /sys/class/thermal/thermal_message/board_sensor_temp_comp
-    chmod 0664 /sys/class/thermal/thermal_message/cpu_nolimit_temp
-    chown system system /sys/class/thermal/thermal_message/cpu_nolimit_temp
-    # END Thermal_NodeReq
-
     # Default country code
     setprop ro.boot.wificountrycode 00
 
@@ -462,6 +441,28 @@ on boot
     chown system system /sys/class/qcom-battery/night_charging
     chmod 0660 /sys/class/qcom-battery/night_charging
 
+on property:sys.boot_completed=1
+    exec -- /system/bin/sleep 7
+    # MIUI ADD:Thermal_NodeReq
+    chmod 0664 /sys/class/thermal/thermal_message/sconfig
+    chown system system /sys/class/thermal/thermal_message/sconfig
+    chmod 0664 /sys/class/thermal/thermal_message/balance_mode
+    chown system system /sys/class/thermal/thermal_message/balance_mode
+    chmod 0664 /sys/class/thermal/thermal_message/torch_real_level
+    chown cameraserver cameraserver /sys/class/thermal/thermal_message/torch_real_level
+    chmod 0664 /sys/class/thermal/thermal_message/flash_state
+    chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
+    chmod 0664 /sys/class/thermal/thermal_message/charger_temp
+    chown system system /sys/class/thermal/thermal_message/charger_temp
+    chmod 0664 /sys/class/thermal/power_save/powersave_mode
+    chown system system /sys/class/thermal/power_save/powersave_mode
+    chmod 0664 /sys/class/thermal/power_save/power_level
+    chown system system /sys/class/thermal/power_save/power_level
+    chmod 0664 /sys/class/thermal/thermal_message/board_sensor_temp_comp
+    chown system system /sys/class/thermal/thermal_message/board_sensor_temp_comp
+    chmod 0664 /sys/class/thermal/thermal_message/cpu_nolimit_temp
+    chown system system /sys/class/thermal/thermal_message/cpu_nolimit_temp
+
 on init && property:ro.boot.mode=charger
     wait_for_prop vendor.all.modules.ready 1
     mount_all /vendor/etc/charger_fw_fstab.qti --early
@@ -478,7 +479,6 @@ on charger
     write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 1
     write /sys/bus/platform/devices/1d84000.ufshc/auto_hibern8 5000
     write /sys/bus/platform/devices/1d84000.ufshc/clkgate_enable 1
-
 
 # PD-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
