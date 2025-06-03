@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Xiaomi Settings -->
+    <string name="app_title">Налаштування Xiaomi</string>
+    <string name="tile_add">Додати плитку</string>
+    <string name="tile_added">Плитку додано</string>
+    <string name="tile_not_added">Плитку не додано</string>
+    <string name="tile_already_added">Плитку вже додано</string>
+    <string name="tile_on">Увімкнено</string>
+    <string name="tile_off">Вимкнено</string>
+
+    <!-- Thermal Profiles -->
+    <string name="thermal_title">Термальні профілі</string>
+    <string name="thermal_enable">Використовувати термальні профілі</string>
+    <string name="thermal_summary">Налаштування термального профілю для кожного додатку</string>
+    <string name="thermal_default">За замовчуванням</string>
+    <string name="thermal_benchmark">Тест продуктивності</string>
+    <string name="thermal_browser">Браузер</string>
+    <string name="thermal_camera">Камера</string>
+    <string name="thermal_dialer">Телефон</string>
+    <string name="thermal_gaming">Ігри</string>
+    <string name="thermal_navigation">Навігація</string>
+    <string name="thermal_streaming">Стрімінг</string>
+    <string name="thermal_video">Відео</string>
+
+    <!-- Thermal Tile Strings -->
+    <string name="thermal_tile_label">Термальний профіль</string>
+    <string name="thermal_mode_default">Звичайний режим</string>
+    <string name="thermal_mode_performance">Режим продуктивності</string>
+    <string name="thermal_mode_battery_saver">Режим енергозбереження</string>
+    <string name="thermal_mode_gaming">Ігровий режим</string>
+    <string name="thermal_mode_unknown">Невідомий режим</string>
+    <string name="thermal_tile_disabled_subtitle">Вимкнено (Увімкнено термальні профілі для додатків)</string>
+    <string name="perf_mode_title">Режим високої продуктивності</string>
+    <string name="perf_mode_notification">Режим високої продуктивності активовано для покращення роботи.</string>
+
+    <!-- Refresh rate -->
+    <string name="refresh_title">Частота оновлення</string>
+    <string name="refresh_default">За замовчуванням</string>
+    <string name="refresh_standard">60Гц</string>
+    <string name="refresh_extreme">120Гц</string>
+
+    <!-- Clear Speaker -->
+    <string name="clear_speaker_title">Очищення динаміка</string>
+    <string name="clear_speaker_summary">Відтворити 30-секундний звук для очищення динаміка</string>
+    <string name="clear_speaker_description">Запустіть цю функцію один або два рази, якщо ви помітили, що динамік трохи забитий пилом. Встановіть гучність медіа на максимум.\n\nЯкщо динамік сильно забитий, запустіть цю функцію 2-5 разів, струшуючи пристрій динаміком вниз.</string>
+
+    <!-- Saturation -->
+    <string name="saturation_title">Насиченість екрану</string>
+    <string name="saturation_summary">Керування рівнем насиченості екрану</string>
+    <string name="saturation_footer_summary">Зміна кольорового режиму в налаштуваннях екрану перевизначить рівень насиченості, потрібно буде його повторно застосувати.</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">Значення: <xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">за замовчуванням</string>
+    <string name="custom_seekbar_default_value_to_set">Значення за замовчуванням: <xliff:g id="v">%s</xliff:g>\nДовге натискання для встановлення</string>
+    <string name="custom_seekbar_default_value_is_set">Значення за замовчуванням встановлено</string>
+
+    <!-- Image preview -->
+    <string name="image_preview_content_description">Попередній перегляд</string>
+    <string name="image_preview_next_page_content_description">Наступна</string>
+    <string name="image_preview_previous_page_content_description">Попередня</string>
+
+    <!-- GameBar Overlay -->
+    <string name="game_bar_title">Ігрова панель</string>
+    <string name="game_bar_summary">Увімкнути системний оверлей (FPS, температура тощо)</string>
+    <string name="overlay_permission_required">Потрібен дозвіл на оверлей</string>
+    <string name="overlay_permission_granted">Дозвіл на оверлей надано</string>
+    <string name="overlay_permission_denied">Дозвіл на оверлей відхилено</string>
+    <string name="game_bar_tile_label">Ігрова панель</string>
+    <string name="game_bar_tile_description">Перемкнути ігровий оверлей</string>
+
+    <!-- Turbo Charging -->
+    <string name="turbo_charge_title">Турбо зарядка</string>
+    <string name="turbo_enable_title">Увімкнути турбо зарядку</string>
+    <string name="turbo_charge_summary">Увімкнути турбо зарядку до 90Вт</string>
+    <string name="turbo_charge_current_pref_title">Потужність зарядки</string>
+
+    <!-- FastCharge Mode -->
+    <string name="sports_mode_title">Швидка зарядка</string>
+    <string name="sports_mode_summary">Увімкнути швидку зарядку 90Вт використовуючи стандартний вузол</string>
+    
+    <!-- Toast messages -->
+    <string name="toast_wattage_set">Потужність зарядки встановлено на %1$s</string>
+    <string name="toast_sports_on">Режим швидкої зарядки увімкнено</string>
+    <string name="toast_sports_off">Режим швидкої зарядки вимкнено</string>
+    <string name="toast_turbo_on">Турбо зарядку увімкнено</string>
+    <string name="toast_turbo_off">Турбо зарядку вимкнено</string>
+</resources> 

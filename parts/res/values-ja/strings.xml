@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+    <!-- Xiaomi Settings -->
+    <string name="app_title">Xiaomi設定</string>
+    <string name="tile_add">タイルを追加</string>
+    <string name="tile_added">タイルを追加しました</string>
+    <string name="tile_not_added">タイルが追加されませんでした</string>
+    <string name="tile_already_added">タイルは既に追加されています</string>
+    <string name="tile_on">オン</string>
+    <string name="tile_off">オフ</string>
+
+    <!-- Thermal Profiles -->
+    <string name="thermal_title">温度プロファイル</string>
+    <string name="thermal_enable">温度プロファイルを使用</string>
+    <string name="thermal_summary">アプリごとの温度プロファイル設定</string>
+    <string name="thermal_default">デフォルト</string>
+    <string name="thermal_benchmark">ベンチマーク</string>
+    <string name="thermal_browser">ブラウザ</string>
+    <string name="thermal_camera">カメラ</string>
+    <string name="thermal_dialer">電話</string>
+    <string name="thermal_gaming">ゲーム</string>
+    <string name="thermal_navigation">ナビゲーション</string>
+    <string name="thermal_streaming">ストリーミング</string>
+    <string name="thermal_video">ビデオ</string>
+
+    <!-- Thermal Tile Strings -->
+    <string name="thermal_tile_label">温度プロファイル</string>
+    <string name="thermal_mode_default">通常モード</string>
+    <string name="thermal_mode_performance">パフォーマンスモード</string>
+    <string name="thermal_mode_battery_saver">バッテリー節約モード</string>
+    <string name="thermal_mode_gaming">ゲームモード</string>
+    <string name="thermal_mode_unknown">不明なモード</string>
+    <string name="thermal_tile_disabled_subtitle">無効（アプリごとの温度プロファイルが有効）</string>
+    <string name="perf_mode_title">高パフォーマンスモード</string>
+    <string name="perf_mode_notification">パフォーマンス向上のため高パフォーマンスモードが有効になりました。</string>
+
+    <!-- Refresh rate -->
+    <string name="refresh_title">リフレッシュレート</string>
+    <string name="refresh_default">デフォルト</string>
+    <string name="refresh_standard">60Hz</string>
+    <string name="refresh_extreme">120Hz</string>
+
+    <!-- Clear Speaker -->
+    <string name="clear_speaker_title">スピーカー清掃</string>
+    <string name="clear_speaker_summary">30秒の音声を再生してスピーカーを清掃</string>
+    <string name="clear_speaker_description">スピーカーが軽く埃で詰まっている場合は、この機能を1〜2回実行してください。メディア音量を最大に設定してください。\n\nスピーカーがひどく詰まっている場合は、スピーカーを下に向けてデバイスを振りながら、この機能を2〜5回実行してください。</string>
+
+    <!-- Saturation -->
+    <string name="saturation_title">画面彩度</string>
+    <string name="saturation_summary">画面の彩度レベルを制御</string>
+    <string name="saturation_footer_summary">画面設定でカラーモードを変更すると彩度レベルが上書きされ、再適用が必要になります。</string>
+
+    <!-- Custom seekbar -->
+    <string name="custom_seekbar_value">値：<xliff:g id="v">%s</xliff:g></string>
+    <string name="custom_seekbar_default_value">デフォルト</string>
+    <string name="custom_seekbar_default_value_to_set">デフォルト値：<xliff:g id="v">%s</xliff:g>\n長押しで設定</string>
+    <string name="custom_seekbar_default_value_is_set">デフォルト値を設定しました</string>
+
+    <!-- Image preview -->
+    <string name="image_preview_content_description">プレビュー</string>
+    <string name="image_preview_next_page_content_description">次へ</string>
+    <string name="image_preview_previous_page_content_description">前へ</string>
+
+    <!-- GameBar Overlay -->
+    <string name="game_bar_title">ゲームバー</string>
+    <string name="game_bar_summary">システムオーバーレイを有効化（FPS、温度など）</string>
+    <string name="overlay_permission_required">オーバーレイ権限が必要です</string>
+    <string name="overlay_permission_granted">オーバーレイ権限が付与されました</string>
+    <string name="overlay_permission_denied">オーバーレイ権限が拒否されました</string>
+    <string name="game_bar_tile_label">ゲームバー</string>
+    <string name="game_bar_tile_description">ゲームオーバーレイを切り替え</string>
+
+    <!-- Turbo Charging -->
+    <string name="turbo_charge_title">ターボ充電</string>
+    <string name="turbo_enable_title">ターボ充電を有効化</string>
+    <string name="turbo_charge_summary">最大90Wのターボ充電を有効化</string>
+    <string name="turbo_charge_current_pref_title">充電電力</string>
+
+    <!-- FastCharge Mode -->
+    <string name="sports_mode_title">急速充電</string>
+    <string name="sports_mode_summary">標準ノードを使用して90W急速充電を有効化</string>
+    
+    <!-- Toast messages -->
+    <string name="toast_wattage_set">充電電力が%1$sに設定されました</string>
+    <string name="toast_sports_on">急速充電モードがオンになりました</string>
+    <string name="toast_sports_off">急速充電モードがオフになりました</string>
+    <string name="toast_turbo_on">ターボ充電がオンになりました</string>
+    <string name="toast_turbo_off">ターボ充電がオフになりました</string>
+</resources> 
