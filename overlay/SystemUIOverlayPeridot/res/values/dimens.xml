@@ -20,8 +20,8 @@
     <dimen name="nowbar_margin_bottom">120dp</dimen>
 
     <!-- Status Bar Paddings -->
-    <dimen name="status_bar_padding_top">1dp</dimen>
-    <dimen name="status_bar_padding_start">-3dp</dimen>
-    <dimen name="status_bar_padding_end">-3dp</dimen>
+    <dimen name="status_bar_padding_top">0dp</dimen>
+    <dimen name="status_bar_padding_start">-1dp</dimen>
+    <dimen name="status_bar_padding_end">-1dp</dimen>
 
 </resources>
