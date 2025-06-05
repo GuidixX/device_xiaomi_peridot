@@ -119,7 +119,7 @@ echo 1350000 > /proc/sys/kernel/sched_rt_period_us
 echo 1250000 > /proc/sys/kernel/sched_rt_runtime_us
 
 # Configure maximum frequency when CPUs are partially halted
-echo 1190400 > /proc/sys/walt/sched_max_freq_partial_halt
+echo 902400 > /proc/sys/walt/sched_max_freq_partial_halt
 
 # Core Control Paramters for Silvers
 echo 0xFF > /sys/devices/system/cpu/cpu0/core_ctl/nrrun_cpu_mask
@@ -156,20 +156,20 @@ echo 1 > /sys/devices/system/cpu/cpu3/core_ctl/enable
 echo 1 > /sys/devices/system/cpu/cpu7/core_ctl/enable
 
 # Setting b.L scheduler parameters
-echo 71 95 > /proc/sys/walt/sched_upmigrate
-echo 65 85 > /proc/sys/walt/sched_downmigrate
-echo 85 > /proc/sys/walt/sched_group_downmigrate
-echo 100 > /proc/sys/walt/sched_group_upmigrate
+echo 65 85 > /proc/sys/walt/sched_upmigrate
+echo 55 75 > /proc/sys/walt/sched_downmigrate
+echo 75 > /proc/sys/walt/sched_group_downmigrate
+echo 90 > /proc/sys/walt/sched_group_upmigrate
 echo 1 > /proc/sys/walt/sched_walt_rotate_big_tasks
-echo 51 > /proc/sys/walt/sched_min_task_util_for_boost
-echo 35 > /proc/sys/walt/sched_min_task_util_for_colocation
+echo 35 > /proc/sys/walt/sched_min_task_util_for_boost
+echo 25 > /proc/sys/walt/sched_min_task_util_for_colocation
 echo 20000000 > /proc/sys/walt/sched_coloc_downmigrate_ns
 echo 0 > /proc/sys/walt/sched_coloc_busy_hysteresis_enable_cpus
 echo 8500000 8500000 8500000 5000000 5000000 5000000 5000000 2000000 > /proc/sys/walt/sched_util_busy_hyst_cpu_ns
 echo 255 > /proc/sys/walt/sched_util_busy_hysteresis_enable_cpus
 echo 1 1 1 15 15 15 15 15 > /proc/sys/walt/sched_util_busy_hyst_cpu_util
-echo 40 > /proc/sys/walt/sched_cluster_util_thres_pct
-echo 30 > /proc/sys/walt/sched_idle_enough
+echo 35 > /proc/sys/walt/sched_cluster_util_thres_pct
+echo 25 > /proc/sys/walt/sched_idle_enough
 echo 10 > /proc/sys/walt/sched_ed_boost
 
 # Set early upmigrate tunables
@@ -185,17 +185,17 @@ echo 325 > /proc/sys/walt/walt_low_latency_task_threshold
 
 # Configure maximum frequency of silver cluster when load is not detected and ensure that
 # other clusters' fmax remains uncapped by setting the frequency to S32_MAX
-echo 1708800 2707200 2147483647 > /proc/sys/walt/sched_fmax_cap
+echo 1017600 787200 960000 > /proc/sys/walt/sched_fmax_cap
 
 # Turn off scheduler boost at the end
 echo 0 > /proc/sys/walt/sched_boost
 
 # Configure input boost settings
-echo 1113600 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
+echo 902400 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
 echo 120 > /proc/sys/walt/input_boost/input_boost_ms
 
 # Configure powerkey input boost settings
-echo 1804800 0  0 2572800 0 0 0 2457600 > /proc/sys/walt/input_boost/powerkey_input_boost_freq
+echo 1344000 0 0 2073600 0 0 0 1900800 > /proc/sys/walt/input_boost/powerkey_input_boost_freq
 echo 400 > /proc/sys/walt/input_boost/powerkey_input_boost_ms
 
 echo "walt" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
@@ -216,17 +216,17 @@ echo 1 > /proc/sys/walt/sched_conservative_pl
 
 echo 595200 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
 
-echo 1113600 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
-echo 1190400 > /sys/devices/system/cpu/cpufreq/policy3/walt/hispeed_freq
-echo 1459200 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
+echo 902400 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
+echo 940800 > /sys/devices/system/cpu/cpufreq/policy3/walt/hispeed_freq
+echo 960000 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
 
 echo 85 > /sys/devices/system/cpu/cpufreq/policy3/walt/hispeed_load
 echo 85 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_load
 
-echo 595200 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-echo 633600 > /sys/devices/system/cpu/cpufreq/policy3/scaling_min_freq
-echo 633600 > /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
-echo "0:595200 3:633600 7:633600" > /data/vendor/perfd/default_scaling_min_freq
+echo 364800 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+echo 480000 > /sys/devices/system/cpu/cpufreq/policy3/scaling_min_freq
+echo 480000 > /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
+echo "0:364800 3:480000 7:480000" > /data/vendor/perfd/default_scaling_min_freq
 
 # Reset the RT boost, which is 1024 (max) by default.
 echo 0 > /proc/sys/kernel/sched_util_clamp_min_rt_default
