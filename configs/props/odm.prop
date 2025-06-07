@@ -75,7 +75,7 @@ vendor.display.force_tonemapping=1
 vendor.display.idle_time=80
 vendor.display.multi_display_boost_cpu=1
 vendor.display.support_function_timer=0
-vendor.display.support_video_mode_30hz_aod=1
+vendor.display.support_video_mode_30hz_aod=0
 
 # Media
 ro.odm.build.media_performance_class=0
