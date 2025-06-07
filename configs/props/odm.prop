@@ -71,7 +71,6 @@ vendor.display.boost_cpu_layer_number_threshold=10
 vendor.display.disable_3d_adaptive_tm=1
 vendor.display.disable_cwb_idle_fallback=1
 vendor.display.disable_llcc_during_aod=1
-vendor.display.disable_sdr_dimming=0
 vendor.display.disable_stc_dimming=1
 vendor.display.force_tonemapping=1
 vendor.display.idle_time=80
