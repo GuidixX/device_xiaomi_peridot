@@ -448,7 +448,7 @@ on property:debug.high_touch_rate=0
     write /sys/devices/platform/goodix_ts.0/goodix_ts_report_rate 0
 
 on property:sys.boot_completed=1
-    exec -- /system/bin/sleep 5
+    exec -- /system/bin/sleep 7
     # Double Tap Sensor
     chown system system /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed
     chmod 0664 /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed
