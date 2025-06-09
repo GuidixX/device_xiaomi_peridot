@@ -24,6 +24,31 @@ vendor.audio.use.sw.ape.decoder=true
 vendor.audio_hal.period_size=192
 vendor.voice.path.for.pcm.voip=true
 
+# Low Memory Killer Daemon
+ro.lmk.log_stats=false
+ro.lmk.debug=false
+ro.lmk.use_psi=true
+ro.lmk.use_minfree_levels=false
+ro.lmk.use_new_strategy=true
+ro.lmk.low=900
+ro.lmk.medium=700
+ro.lmk.critical=200
+ro.lmk.critical_upgrade=true
+ro.lmk.upgrade_pressure=70
+ro.lmk.downgrade_pressure=50
+ro.lmk.kill_heaviest_task=false
+ro.lmk.kill_timeout_ms=0
+ro.lmk.psi_partial_stall_ms=300
+ro.lmk.psi_complete_stall_ms=800
+ro.lmk.thrashing_limit=95
+ro.lmk.thrashing_limit_decay=30
+ro.lmk.swap_util_max=85
+ro.lmk.swap_free_low_percentage=15
+ro.lmk.filecache_min_kb=131072
+ro.lmk.stall_limit_critical=4
+ro.config.low_ram=false
+ro.config.per_app_memcg=true
+
 # RKPD
 remote_provisioning.enable_rkpd=true
 remote_provisioning.hostname=remoteprovisioning.googleapis.com
