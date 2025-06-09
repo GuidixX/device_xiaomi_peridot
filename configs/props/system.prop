@@ -24,8 +24,9 @@ persist.log.tag.CVP=S
 persist.log.tag.ResourcesCompat=S
 persist.log.tag.SYNX-UMD=S
 
-# LMK
+# LMKD
 ro.config.low_ram=false
+ro.lmk.swap_compression_ratio=2
 
 # Radio Options
 persist.radio.volte.dan_support=true
