@@ -196,6 +196,11 @@ PRODUCT_PACKAGES += \
     init.qti.display_boot.rc \
     init.qti.display_boot.sh
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/displayconfig/display_id_4630946545580055171.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630946545580055171.xml \
+    $(LOCAL_PATH)/configs/displayconfig/display_id_4630947033261136259.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630947033261136259.xml \
+    $(LOCAL_PATH)/configs/displayconfig/display_id_4630947195234848131.xml:$(TARGET_COPY_OUT_VENDOR)/etc/displayconfig/display_id_4630947195234848131.xml
+
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
