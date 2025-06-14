@@ -55,7 +55,6 @@ ro.vendor.qti.va_odm.support=1
 debug.sf.set_idle_timer_ms=1100
 persist.vendor.dc_backlight.enable=false
 ro.vendor.display.adaptive_hdr.enable=true
-ro.vendor.display.ai_disp.enable=false
 ro.vendor.display.bl_lut_calib.enable=false
 ro.vendor.display.darkmode_dither.enable=true
 ro.vendor.display.dobly_dpu.enable=true
