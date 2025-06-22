@@ -422,8 +422,8 @@ on boot
     chmod 0664 /sys/module/unionpower/parameters/VSYNC_GAP
     # END Power_UnionPowerCore
 
-    #MIUI ADD: Memory_CLD
-    #ufscld functions permission
+    # MIUI ADD: Memory_CLD
+    # ufscld functions permission
     chown root system /sys/devices/platform/soc/1d84000.ufshc/ufscld/auto_hibern8_enable
     chown root system /sys/devices/platform/soc/1d84000.ufshc/ufscld/block_suspend
     chown root system /sys/devices/platform/soc/1d84000.ufshc/ufscld/cld_operation_status
@@ -498,6 +498,15 @@ service vendor.per_proxy /vendor/bin/pm-proxy
     user system
     group system
     disabled
+
+#service vendor.mdm_helper /vendor/bin/mdm_helper
+#    class core
+#    group system wakelock
+#    disabled
+
+service vendor.mdm_launcher /vendor/bin/sh /vendor/bin/init.mdm.sh
+    class core
+    oneshot
 
 on property:init.svc.vendor.per_mgr=running
     start vendor.per_proxy
