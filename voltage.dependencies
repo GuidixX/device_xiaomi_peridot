@@ -1,0 +1,20 @@
+[
+  {
+    "remote": "VoltageOS-Devices",
+    "repository"  : "vendor_xiaomi_peridot",
+    "target_path" : "vendor/xiaomi/peridot",
+    "branch": "15"
+  },
+  {
+    "remote": "yaap-extended",
+    "repository"  : "hardware_xiaomi",
+    "target_path" : "hardware/xiaomi",
+    "branch": "fifteen"
+  },
+  {
+    "remote": "VoltageOS-Devices",
+    "repository"  : "device_xiaomi_perodot-kernel",
+    "target_path" : "device/xiaomi/peridot-kernel",
+    "branch": "15"
+  }
+]
