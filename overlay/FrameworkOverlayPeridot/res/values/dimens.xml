@@ -24,9 +24,6 @@
         orientation. If zero, the value of rounded_corner_radius is used. -->
     <dimen name="rounded_corner_radius_bottom">108.0px</dimen>
 
-    <!-- Default paddings for content around the corners. -->
-    <dimen name="rounded_corner_content_padding">50.0px</dimen>
-
     <!-- 20 * 2 (margins) + 24 * 2 (2 lines) = 88 (notification) -->
     <dimen name="notification_min_height">106.0dip</dimen>
 
