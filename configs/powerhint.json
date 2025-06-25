@@ -5,7 +5,7 @@
       "Path": "/sys/devices/system/cpu/cpufreq/policy0/scaling_max_freq",
       "Values": [
         "1228800",
-        "2000000",
+        "2016000",
         "9999999"
       ],
       "ResetOnInit": true
@@ -46,7 +46,7 @@
       "Values": [
         "1113600",
         "2572800",
-        "2800000",
+        "2803200",
         "9999999"
       ],
       "ResetOnInit": true
@@ -56,9 +56,9 @@
       "Path": "/sys/devices/system/cpu/cpufreq/policy3/scaling_min_freq",
       "Values": [
         "9999999",
-        "1478400",
+        "1401600",
         "633600",
-        "441600"
+        "480000"
       ],
       "ResetOnInit": true
     },
@@ -85,7 +85,7 @@
       "Path": "/sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq",
       "Values": [
         "2668800",
-        "3000000",
+        "3014000",
         "9999999"
       ],
       "ResetOnInit": true
@@ -95,7 +95,7 @@
       "Path": "/sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq",
       "Values": [
         "9999999",
-        "2572800",
+        "2457000",
         "633600",
         "480000"
       ],
@@ -210,6 +210,7 @@
       "Path": "/sys/devices/platform/soc/3d00000.qcom,kgsl-3d0/devfreq/3d00000.qcom,kgsl-3d0/min_freq",
       "Values": [
         "500000000",
+        "353000000",
         "255000000"
       ],
       "ResetOnInit": true
@@ -302,7 +303,7 @@
       "Path": "/sys/devices/system/cpu/bus_dcvs/L3/boost_freq",
       "Values": [
         "1843200",
-        "1132800",
+        "1209600",
         "364800"
       ],
       "ResetOnInit": true
@@ -382,19 +383,19 @@
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPULittleClusterMaxFreq",
       "Duration": 0,
-      "Value": "2000000"
+      "Value": "2016000"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPUBigClusterMaxFreq",
       "Duration": 0,
-      "Value": "2800000"
+      "Value": "2803200"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
       "Node": "CPUBigPlusClusterMaxFreq",
       "Duration": 0,
-      "Value": "3000000"
+      "Value": "3014000"
     },
     {
       "PowerHint": "SUSTAINED_PERFORMANCE",
