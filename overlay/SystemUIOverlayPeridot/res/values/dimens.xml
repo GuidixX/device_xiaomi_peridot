@@ -21,8 +21,8 @@
 
     <!-- Status Bar Paddings -->
     <dimen name="status_bar_padding_top">0dp</dimen>
-    <dimen name="status_bar_padding_start">-1dp</dimen>
-    <dimen name="status_bar_padding_end">-1dp</dimen>
+    <dimen name="status_bar_padding_start">0dp</dimen>
+    <dimen name="status_bar_padding_end">0dp</dimen>
 
     <!-- Status Bar Height -->
     <dimen name="status_bar_height_default">22dp</dimen>
@@ -30,12 +30,12 @@
     <dimen name="status_bar_height_portrait">48px</dimen>
 
     <!-- rounded corner content padding -->
-    <dimen name="rounded_corner_content_padding">47.0px</dimen>
-    <dimen name="rounded_corner_radius">106.0px</dimen>
+    <dimen name="rounded_corner_content_padding">52.0px</dimen>
+    <dimen name="rounded_corner_radius">80.0px</dimen>
     <dimen name="rounded_corner_radius_adjustment">5px</dimen>
     <dimen name="rounded_corner_radius_bottom">106.0px</dimen>
     <dimen name="rounded_corner_radius_bottom_adjustment">4px</dimen>
-    <dimen name="rounded_corner_radius_top">106.0px</dimen>
-    <dimen name="rounded_corner_radius_top_adjustment">5px</dimen>
+    <dimen name="rounded_corner_radius_top">80.0px</dimen>
+    <dimen name="rounded_corner_radius_top_adjustment">3px</dimen>
 
 </resources>
