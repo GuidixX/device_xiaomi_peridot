@@ -187,7 +187,7 @@ TARGET_USERIMAGES_USE_F2FS := true
 
 # RIL
 ENABLE_VENDOR_RIL_SERVICE := true
-SOONG_CONFIG_rfs_mpss_firmware_symlink_target := modem_firmware
+$(call soong_config_set,rfs,mpss_firmware_symlink_target,modem_firmware)
 
 # Sepolicy
 include device/voltage/sepolicy/libperfmgr/sepolicy.mk
