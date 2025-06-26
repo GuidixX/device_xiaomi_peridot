@@ -36,6 +36,7 @@ SPAMMY_LOG_TAGS := \
     android.hardware.power-service.lineage-libperfmgr \
     libperfmgr \
     android.hardware.audio.service \
+    android.hardware.light-V2-ndk.vendor \
     vibratorfeature-wrapper \
     android.hardware.vibrator-V1-ndk_platform.vendor \
     libqti-perfd-client \
