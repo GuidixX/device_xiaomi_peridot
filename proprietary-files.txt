@@ -1779,7 +1779,6 @@ vendor/lib64/gpu++.so
 vendor/lib64/libadreno_compiler_cl.so
 vendor/lib64/libgpumemtracer.so
 vendor/lib64/libgpuservice.so
-vendor/lib64/libq3dtools_adreno.so
 vendor/lib64/libCB.so
 vendor/lib64/libOpenCL.so
 vendor/lib64/libOpenCL_adreno.so
@@ -1801,7 +1800,6 @@ vendor/lib64/vkbllvm-qgl.so
 # Graphics firmware
 odm/firmware/gen70900_zap.mbn
 odm/firmware/gen71100_zap.mbn
-vendor/firmware/a740v3_sqe.fw
 vendor/firmware/gen70900_aqe.fw
 vendor/firmware/gen70900_sqe.fw
 vendor/firmware/gen71100_gmu.bin
