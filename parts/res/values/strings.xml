@@ -146,4 +146,17 @@
     <string name="hp_right_gain">Right headphone gain</string>
     <string name="sound_control_enable">Enable sound control</string>
 
+    <!-- Charging control -->
+    <string name="charge_control_title">Charging control</string>
+    <string name="charge_control_summary">Control when the device stops charging</string>
+    <string name="charge_control_main_switch_title">Enable charging control</string>
+    <string name="stop_charging_title">Stop charging level</string>
+    <string name="stop_charging_summary">Stop charging when the set percentage is reached</string>
+    <string name="charge_control_footer_summary">Charging control may interfere with adaptive charging.</string>
+    <string name="kernel_node_access_error">Kernel node not accessible</string>
+    <string name="stop_charging_set_to">Charging will stop at %1$d%%.</string>
+    <string name="charge_control_tile_label">Charge Control</string>
+    <string name="charge_control_tile_enabled">Enabled</string>
+    <string name="charge_control_tile_disabled">Disabled</string>
+    <string name="charge_control_tile_subtitle">Stop at %1$d%%</string>
 </resources>

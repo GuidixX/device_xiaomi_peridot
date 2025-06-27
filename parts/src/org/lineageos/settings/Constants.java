@@ -21,4 +21,10 @@ public class Constants {
     // Saturation
     public static final String KEY_SATURATION = "saturation";
     public static final String KEY_SATURATION_PREVIEW = "saturation_preview";
+    
+    // Charge control
+    public static final String KEY_CHARGE_CONTROL = "charge_control";
+    public static final String KEY_STOP_CHARGING = "stop_charging";
+    public static final String NODE_STOP_CHARGING = "/sys/class/qcom-battery/input_suspend";
+    public static final String DEFAULT_STOP_CHARGING = "100";
 }
