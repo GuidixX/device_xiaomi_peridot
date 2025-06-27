@@ -471,6 +471,10 @@ on property:sys.boot_completed=1
     chown system system /sys/kernel/sound_control/headphone_gain
     chmod 0664 /sys/kernel/sound_control/headphone_gain
 
+    # Allow system to modify input_suspend
+    chown system system /sys/class/qcom-battery/input_suspend
+    chmod 0664 /sys/class/qcom-battery/input_suspend
+
 on init && property:ro.boot.mode=charger
     wait_for_prop vendor.all.modules.ready 1
     mount_all /vendor/etc/charger_fw_fstab.qti --early

@@ -604,6 +604,7 @@ subsystem mem_buf_vm
 # Battery
 /sys/class/qcom-battery                                 night_charging                  0660    system  system
 /sys/class/qcom-battery                                 sport_mode                      0660    system  system
+/sys/class/qcom-battery                                 input_suspend                   0660    system  system
 
 # Camera
 /sys/devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,spmi:qcom,pmxr2230@1:qcom,flash_led@ee00/leds/led:torch_0  brightness 0660 cameraserver camera
