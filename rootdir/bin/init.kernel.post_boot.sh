@@ -37,11 +37,10 @@ MemTotal=${MemTotalStr:16:8}
 let RamSizeGB="( $MemTotal / 1048576 ) + 1"
 diskSizeUnit=M
 
-# Zram disk - 75%
-let zRamSizeMB="( $RamSizeGB * 1024 ) * 3 / 4"
-
-# Use MB avoid 32 bit overflow
-if [ $zRamSizeMB -gt 8192 ]; then
+# Zram disk
+if [ $RamSizeGB = 8 ]; then
+    let zRamSizeMB=6144
+else
     let zRamSizeMB=8192
 fi
 
@@ -223,10 +222,9 @@ echo 1459200 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
 echo 85 > /sys/devices/system/cpu/cpufreq/policy3/walt/hispeed_load
 echo 85 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_load
 
-echo 595200 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-echo 633600 > /sys/devices/system/cpu/cpufreq/policy3/scaling_min_freq
-echo 633600 > /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
-echo "0:595200 3:633600 7:633600" > /data/vendor/perfd/default_scaling_min_freq
+echo 364800 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+echo 480000 > /sys/devices/system/cpu/cpufreq/policy3/scaling_min_freq
+echo 480000 > /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
 
 # Reset the RT boost, which is 1024 (max) by default.
 echo 0 > /proc/sys/kernel/sched_util_clamp_min_rt_default
