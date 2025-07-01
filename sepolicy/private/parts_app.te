@@ -59,9 +59,10 @@ allow parts_app system_app_data_file:{
 } create_file_perms;
 
 allow parts_app sysfs_thermal:dir r_dir_perms;
-allow parts_app sysfs_htsr:file rw_file_perms;
+allow parts_app sysfs:file { open read getattr setattr };
+allow parts_app proc_filesystems:file read;
+allow parts_app user_profile_data_file:dir read;
 allow parts_app vendor_hal_displayfeature_xiaomi_hwservice:hwservice_manager find;
-
 allow parts_app vendor_hal_displayfeature_xiaomi_service:binder { call transfer };
 allow parts_app vendor_hal_displayfeature_xiaomi_default:binder { call transfer };
 dontaudit parts_app vendor_hal_displayfeature_xiaomi_service:service_manager find;

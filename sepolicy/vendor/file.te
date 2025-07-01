@@ -33,6 +33,9 @@ type proc_tp_lockdown, file_type;
 # GNSS
 type vendor_ins_vendor_data_file, data_file_type, file_type;
 
+# HTSR
+type sysfs_htsr, sysfs_type, fs_type;
+
 # MediaCodec
 type vendor_media_comp, file_type;
 
