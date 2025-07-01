@@ -255,6 +255,10 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libbinder_shim.so')
         .add_needed('libhidlbase_shim.so'),
+
+     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
+        .regex_replace(r'.+DOLBY.+\n', '')
+        .regex_replace(r'.+<!-- DOLBY.+\n', ''),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
