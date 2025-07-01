@@ -371,7 +371,6 @@ PRODUCT_PACKAGES += \
     libcodec2_hidl@1.1.vendor \
     libcodec2_hidl@1.2.vendor \
     libcodec2_hidl_shim \
-    libcodec2_soft_common.vendor \
     libcodec2_shim \
     libcodec2_vndk.vendor \
     libmm-omxcore

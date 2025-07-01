@@ -1646,19 +1646,6 @@ vendor/lib64/vendor.xiaomi.hardware.display.mihwcextension-V1-ndk.so
 vendor/lib64/vendor.xiaomi.hardware.displayfeature@1.0.so
 vendor/lib64/vendor.xiaomi.hardware.displayfeature_aidl-V2-ndk.so
 
-# Dolby music
-odm/etc/dolby/dax-default-spatializer.xml
-odm/etc/dolby/dax-default.xml
-vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
-vendor/etc/dolby/dax-default-spatializer.xml
-vendor/etc/dolby/dax-default.xml
-vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
-vendor/etc/vintf/manifest/vendor.dolby.hardware.dms.xml
-vendor/lib64/libdlbdsservice.so
-vendor/lib64/libdlbpreg.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0.so
-
 # Fingerprint
 odm/app/JVFactoryTest/JVFactoryTest.apk
 odm/app/goodix_sz/goodix_sz.apk
@@ -1917,7 +1904,6 @@ vendor/etc/media_cliffs_v0/video_system_specs.json
 vendor/etc/media_codecs.xml
 vendor/etc/media_codecs_c2_audio.xml
 vendor/etc/media_codecs_cliffs_v0.xml
-vendor/etc/media_codecs_dolby_audio.xml
 vendor/etc/media_codecs_performance_cliffs_v0.xml
 vendor/etc/media_profiles.xml
 vendor/etc/media_profiles_V1_0.xml
