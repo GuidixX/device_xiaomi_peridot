@@ -50,6 +50,7 @@ allow parts_app {
   cgroup
   sysfs_leds
   sysfs_thermal
+  sysfs_htsr
 }:{ file lnk_file } rw_file_perms;
 
 allow parts_app system_app_data_file:dir create_dir_perms;
@@ -60,7 +61,6 @@ allow parts_app system_app_data_file:{
 
 allow parts_app sysfs_thermal:dir r_dir_perms;
 allow parts_app vendor_hal_displayfeature_xiaomi_hwservice:hwservice_manager find;
-
 allow parts_app vendor_hal_displayfeature_xiaomi_service:binder { call transfer };
 allow parts_app vendor_hal_displayfeature_xiaomi_default:binder { call transfer };
 dontaudit parts_app vendor_hal_displayfeature_xiaomi_service:service_manager find;

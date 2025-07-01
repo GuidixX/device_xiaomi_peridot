@@ -39,7 +39,7 @@ import java.io.FileReader;
 
 public final class TouchSamplingUtils {
     private static final String TAG = "TouchSamplingUtils";
-    public static final String HTSR_FILE = "/sys/devices/platform/goodix_ts.0/switch_report_rate";
+    public static final String HTSR_FILE = "/sys/devices/platform/goodix_ts.0/goodix_ts_report_rate";
     public static final String SCONFIG_FILE = "/sys/class/thermal/thermal_message/sconfig";
 
     public static void restoreSamplingValue(Context context) {
