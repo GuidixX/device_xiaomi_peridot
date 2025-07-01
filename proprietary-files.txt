@@ -2000,8 +2000,6 @@ vendor/lib64/libdsd2pcm.so
 
 # Perf
 odm/etc/thermalbreakboostconfig.xml
-vendor/bin/hw/vendor.qti.hardware.perf2-hal-service
-vendor/etc/init/vendor.qti.hardware.perf2-hal-service.rc
 vendor/etc/perf/avcsysnodesconfigs.xml
 vendor/etc/perf/commonresourceconfigs.xml
 vendor/etc/perf/commonsysnodesconfigs.xml
@@ -2017,7 +2015,6 @@ vendor/etc/perf/testcommonresourceconfigs.xml
 vendor/etc/perf/testtargetresourceconfigs.xml
 vendor/etc/perf/thermal-boost.conf
 vendor/etc/perf/thermalbreakboostconfig.xml
-vendor/etc/vintf/manifest/vendor.qti.hardware.perf2.xml
 vendor/lib64/liblearningmodule.so
 vendor/lib64/liblmthermallistner.so
 vendor/lib64/liblmutils-ns.so
@@ -2027,7 +2024,6 @@ vendor/lib64/libperfconfig.so
 vendor/lib64/libperfgluelayer.so
 vendor/lib64/libperfioctl.so
 vendor/lib64/libq-perflog.so
-vendor/lib64/libqti-perfd-client.so
 vendor/lib64/libqti-perfd.so
 vendor/lib64/libqti-util.so
 vendor/lib64/libqti-utils.so
