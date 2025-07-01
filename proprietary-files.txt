@@ -1775,10 +1775,6 @@ vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
 vendor/lib64/libllvm-qgl.so
 vendor/lib64/libopencl_loader.so
-vendor/lib64/vkbadreno_utils.so
-vendor/lib64/vkbgsl.so
-vendor/lib64/vkbllvm-glnext.so
-vendor/lib64/vkbllvm-qgl.so
 
 # Graphics firmware
 odm/firmware/gen70900_zap.mbn
