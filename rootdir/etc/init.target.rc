@@ -386,10 +386,6 @@ on boot
     chown system system /sys/class/mi_display/disp-DSI-0/max_brightness_clone
     chmod 0664 /sys/class/mi_display/disp-DSI-0/max_brightness_clone
 
-    # Touch
-    chown system system /sys/devices/platform/goodix_ts.0/switch_report_rate
-    chmod 0664 /sys/devices/platform/goodix_ts.0/switch_report_rate
-
     # Display feature sysfs node for panel1
     chown system system /sys/class/mi_display/disp-DSI-1/brightness_clone
     chmod 0664 /sys/class/mi_display/disp-DSI-1/brightness_clone
@@ -441,16 +437,6 @@ on boot
     chown system system /sys/class/qcom-battery/night_charging
     chmod 0660 /sys/class/qcom-battery/night_charging
 
-    # Touch
-    chown system system /sys/devices/platform/goodix_ts.0/goodix_ts_report_rate
-    chmod 0664 /sys/devices/platform/goodix_ts.0/goodix_ts_report_rate
-
-on property:debug.high_touch_rate=1
-    write /sys/devices/platform/goodix_ts.0/goodix_ts_report_rate 1
-
-on property:debug.high_touch_rate=0
-    write /sys/devices/platform/goodix_ts.0/goodix_ts_report_rate 0
-
 on property:sys.boot_completed=1
     exec -- /system/bin/sleep 7
     # Double Tap Sensor
@@ -480,6 +466,10 @@ on property:sys.boot_completed=1
     chown system system /sys/class/thermal/thermal_message/board_sensor_temp_comp
     chmod 0664 /sys/class/thermal/thermal_message/cpu_nolimit_temp
     chown system system /sys/class/thermal/thermal_message/cpu_nolimit_temp
+
+    # Touch
+    chown system system /sys/devices/platform/goodix_ts.0/switch_report_rate
+    chmod 0664 /sys/devices/platform/goodix_ts.0/switch_report_rate
 
 on property:vendor.sensors.xiaomi.double_tap=true
     write /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed 1

@@ -42,3 +42,6 @@ genfscon sysfs /devices/platform/goodix_ts.0/gesture/double_tap_pressed         
 
 # Single Tap Sensor
 genfscon sysfs /devices/platform/goodix_ts.0/gesture/single_tap_pressed                                      u:object_r:sysfs_touchpanel:s0
+
+# Touch Sampling
+genfscon sysfs /devices/platform/goodix_ts.0/switch_report_rate                                              u:object_r:sysfs_htsr:s0

@@ -121,4 +121,4 @@ public class TouchSamplingPerAppConfigFragment extends PreferenceFragmentCompat 
             mCategory.addPreference(pref);
         }
     }
-} 
+}
