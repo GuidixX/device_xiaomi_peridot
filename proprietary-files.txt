@@ -75,7 +75,6 @@ odm/etc/backend_conf.xml
 odm/etc/backend_conf_fs.xml
 odm/etc/usecaseKvManager.xml
 vendor/etc/audio/sku_cliffs/audio_effects.conf
-vendor/etc/audio/sku_cliffs/audio_effects.xml
 vendor/etc/audio/sku_cliffs/mixer_paths_cliffs_cdp.xml
 vendor/etc/audio/sku_cliffs/mixer_paths_cliffs_mtp_wcd9395.xml
 vendor/etc/audio/sku_cliffs/mixer_paths_cliffs_mtp_wsa883x.xml
@@ -179,7 +178,6 @@ vendor/lib64/libpalclient.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libqtigefar.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libresampler.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libspatializerparamstorage.so
-vendor/lib64/libswspatializer_ext.so
 vendor/lib64/libtensorflowlite_c.so
 vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/vendor.qti.hardware.pal@1.0.so;MAKE_COPY_RULE_ONLY
@@ -187,13 +185,7 @@ vendor/lib64/vendor.qti.voiceprint@1.0.so;MAKE_COPY_RULE_ONLY
 
 # Audio soundfx
 vendor/lib64/soundfx/libasphere.so
-vendor/lib64/soundfx/libdlbvol.so
-vendor/lib64/soundfx/libhwdap.so
 vendor/lib64/soundfx/libquasar.so
-vendor/lib64/soundfx/libspatializer.so
-vendor/lib64/soundfx/libswgamedap.so
-vendor/lib64/soundfx/libswspatializer.so
-vendor/lib64/soundfx/libswvqe.so
 
 # Audio FX modules - from qssi-user-14-UKQ1.230924.001-1702916091049-release-keys
 vendor/lib64/soundfx/libqcbassboost.so|e655270002aef6e9eb79774b16d2cda408fc3be8
@@ -1548,19 +1540,6 @@ vendor/lib64/libqservice.so
 vendor/lib64/vendor.xiaomi.hardware.display.mihwcextension-V1-ndk.so
 vendor/lib64/vendor.xiaomi.hardware.displayfeature_aidl-V2-ndk.so
 
-# Dolby music
-odm/etc/dolby/dax-default-spatializer.xml
-odm/etc/dolby/dax-default.xml
-vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service
-vendor/etc/dolby/dax-default-spatializer.xml
-vendor/etc/dolby/dax-default.xml
-vendor/etc/init/vendor.dolby.hardware.dms@2.0-service.rc
-vendor/etc/vintf/manifest/vendor.dolby.hardware.dms.xml
-vendor/lib64/libdlbdsservice.so
-vendor/lib64/libdlbpreg.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0-impl.so
-vendor/lib64/vendor.dolby.hardware.dms@2.0.so
-
 # Fingerprint
 odm/lib64/hw/fingerprint.goodix_fod.so:odm/lib64/hw/fingerprint.goodix_fod.default.so;FIX_SONAME
 odm/lib64/hw/fingerprint.jiiov.so:odm/lib64/hw/fingerprint.jiiov.default.so;FIX_SONAME
@@ -1769,14 +1748,6 @@ vendor/etc/vintf/manifest/c2_manifest_vendor.xml
 vendor/etc/vintf/manifest/c2_manifest_vendor_audio.xml
 vendor/lib64/libEvrcSwCodec.so
 vendor/lib64/libQcelp13SwCodec.so
-vendor/lib64/libcodec2_soft_ac4dec.so
-vendor/lib64/libcodec2_soft_ddpdec.so
-vendor/lib64/libcodec2_store_dolby.so
-vendor/lib64/libdeccfg.so
-vendor/lib64/libdolbyclstc.so
-vendor/lib64/libdolbydecoderprocessor.so
-vendor/lib64/libdolbyeglcore.so
-vendor/lib64/libdolbyottcameracontrol.so
 vendor/lib64/libmilut.so
 vendor/lib64/libmisr.so
 vendor/lib64/libqc2audio_base.so
@@ -1811,7 +1782,6 @@ vendor/etc/media_cliffs_v0/video_system_specs.json
 vendor/etc/media_codecs.xml
 vendor/etc/media_codecs_c2_audio.xml
 vendor/etc/media_codecs_cliffs_v0.xml
-vendor/etc/media_codecs_dolby_audio.xml
 vendor/etc/media_codecs_performance_cliffs_v0.xml
 vendor/etc/media_profiles.xml
 vendor/etc/media_profiles_V1_0.xml

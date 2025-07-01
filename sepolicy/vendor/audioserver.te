@@ -1,6 +1,3 @@
-# Dolby
-hal_client_domain(audioserver, hal_dms)
-
 # Viper
 get_prop(audioserver, vendor_audio_prop)
 allow audioserver sound_device:chr_file rw_file_perms;

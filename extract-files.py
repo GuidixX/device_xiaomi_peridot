@@ -231,8 +231,7 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/bin/init.qcom.usb.sh': blob_fixup()
         .regex_replace('ro.product.marketname', 'ro.product.odm.marketname'),
 
-    ('vendor/bin/hw/vendor.dolby.media.c2@1.0-service',
-     'vendor/bin/hw/vendor.qti.media.c2@1.0-service',
+     ('vendor/bin/hw/vendor.qti.media.c2@1.0-service',
      'vendor/bin/hw/vendor.qti.media.c2audio@1.0-service'
      ): blob_fixup()
         .add_needed('libcodec2_hidl_shim.so'),
@@ -245,28 +244,16 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/libqcodec2_core.so': blob_fixup()
         .add_needed('libcodec2_shim.so'),
 
-    'vendor/bin/hw/vendor.dolby.media.c2@1.0-service': blob_fixup()
-        .add_needed('libcodec2_hidl_shim.so')
-        .add_needed('libstagefright_foundation-v33.so'),
-
-    'vendor/bin/hw/vendor.dolby.hardware.dms@2.0-service': blob_fixup()
-        .add_needed('libstagefright_foundation-v33.so'),
-
     'vendor/lib64/hw/audio.primary.pineapple.so': blob_fixup()
-        .add_needed('libstagefright_foundation-v33.so')
         .add_needed('libaudioroute-v34.so'),
-
-    ('vendor/lib64/soundfx/libdlbvol.so',
-     'vendor/lib64/soundfx/libhwdap.so',
-     'vendor/lib64/soundfx/libswspatializer.so',
-     'vendor/lib64/libcodec2_soft_ac4dec.so',
-     'vendor/lib64/libcodec2_soft_ddpdec.so',
-     'vendor/lib64/libswspatializer_ext.so'): blob_fixup()
-        .replace_needed('libstagefright_foundation.so', 'libstagefright_foundation-v33.so'),    
 
     ('vendor/bin/hw/vendor.qti.media.c2@1.0-service',
      'vendor/bin/hw/vendor.qti.media.c2audio@1.0-service'): blob_fixup()
         .add_needed('libcodec2_hidl_shim.so'),
+
+     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
+        .regex_replace('.+DOLBY.+\n', '')
+        .regex_replace('.+<!-- DOLBY.+\n', ''),
 
     'vendor/lib64/libqcrilNr.so|vendor/lib64/libril-db.so': blob_fixup()
         .binary_regex_replace(rb'persist\.vendor\.radio\.poweron_opt', rb'persist.vendor.radio.poweron_ign'),
@@ -292,7 +279,7 @@ blob_fixups: blob_fixups_user_type = {
      'vendor/etc/media_codecs_cliffs_v0.xml',
      'vendor/etc/media_codecs_performance_cliffs_v0.xml'): blob_fixup()
         .regex_replace(
-            '.+media_codecs_(google_audio|google_c2|google_telephony|vendor_audio).+\n',
+            '.+media_codecs_(google_audio|google_c2|google_telephony|google_video|vendor_audio|dolby_audio).+\n',
             ''
         ),
 
