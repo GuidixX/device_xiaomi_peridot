@@ -36,6 +36,11 @@ SPAMMY_LOG_TAGS := \
     android.hardware.power-service.lineage-libperfmgr \
     libperfmgr \
     android.hardware.audio.service \
+    android.hardware.media.c2@1.0 \
+    vendor.qti.media.c2audio@1.0-service \
+    vendor.dolby.hardware.dms@2.0-impl \
+    vendor.dolby.hardware.dms@2.0-service \
+    vendor.dolby.media.c2@1.0-service \
     android.hardware.light-V2-ndk.vendor \
     vibratorfeature-wrapper \
     android.hardware.vibrator-V1-ndk_platform.vendor \
