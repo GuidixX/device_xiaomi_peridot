@@ -38,6 +38,7 @@ public class ThermalTileService extends TileService {
     private static final String TAG = "ThermalTileService";
     private static final String THERMAL_SCONFIG = "/sys/class/thermal/thermal_message/sconfig";
     private static final String THERMAL_ENABLED_KEY = "thermal_enabled";
+    private static final String THERMAL_LAST_MODE_KEY = "thermal_tile_last_mode";
 
     private String[] modes;
     private int currentMode = 0; // Default mode index
@@ -72,7 +73,14 @@ public class ThermalTileService extends TileService {
         if (isMasterEnabled) {
             updateTileDisabled();
         } else {
-            currentMode = getCurrentThermalMode();
+            int savedMode = mSharedPrefs.getInt(THERMAL_LAST_MODE_KEY, -1);
+            int actualMode = getCurrentThermalMode();
+            if (savedMode != -1 && savedMode != actualMode && savedMode >= 0 && savedMode <= 2) {
+                currentMode = savedMode;
+                setThermalMode(currentMode);
+            } else {
+                currentMode = actualMode;
+            }
             if (currentMode == 3) {
                 currentMode = 0;
                 setThermalMode(currentMode);
@@ -128,6 +136,8 @@ public class ThermalTileService extends TileService {
         }
         boolean success = FileUtils.writeLine(THERMAL_SCONFIG, String.valueOf(thermalValue));
         Log.d(TAG, "Thermal mode changed to " + modes[mode] + ": " + success);
+
+        mSharedPrefs.edit().putInt(THERMAL_LAST_MODE_KEY, mode).apply();
 
         if (mode == 2) { // If Battery Saver mode is selected
             enableBatterySaver(true);
