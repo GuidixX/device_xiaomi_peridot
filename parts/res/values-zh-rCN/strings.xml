@@ -22,6 +22,18 @@
     <string name="thermal_navigation">导航</string>
     <string name="thermal_streaming">流媒体</string>
     <string name="thermal_video">视频</string>
+    <string name="thermal_nolimits">无限制</string>
+    <string name="thermal_class0">0级</string>
+    <string name="thermal_youtube">YouTube</string>
+    <string name="thermal_arvr">AR/VR</string>
+    <string name="thermal_videochat">视频通话</string>
+    <string name="thermal_4k">4K</string>
+    <string name="thermal_tgame">T游戏</string>
+    <string name="thermal_mgame">M游戏</string>
+    <string name="thermal_yuanshen">原神</string>
+    <string name="thermal_highfps">高帧率</string>
+    <string name="thermal_charge">充电</string>
+    <string name="thermal_per_class0">Per-0级</string>
 
     <!-- Thermal Tile Strings -->
     <string name="thermal_tile_label">温度配置</string>

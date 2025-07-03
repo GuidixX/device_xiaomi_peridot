@@ -22,6 +22,18 @@
     <string name="thermal_navigation">Навигация</string>
     <string name="thermal_streaming">Стриминг</string>
     <string name="thermal_video">Видео</string>
+    <string name="thermal_nolimits">Без ограничений</string>
+    <string name="thermal_class0">Класс 0</string>
+    <string name="thermal_youtube">YouTube</string>
+    <string name="thermal_arvr">AR/VR</string>
+    <string name="thermal_videochat">Видеозвонки</string>
+    <string name="thermal_4k">4K</string>
+    <string name="thermal_tgame">T-Игра</string>
+    <string name="thermal_mgame">M-Игра</string>
+    <string name="thermal_yuanshen">Yuanshen</string>
+    <string name="thermal_highfps">Высокий FPS</string>
+    <string name="thermal_charge">Зарядка</string>
+    <string name="thermal_per_class0">Per-Класс 0</string>
 
     <!-- Thermal Tile Strings -->
     <string name="thermal_tile_label">Термальный профиль</string>
