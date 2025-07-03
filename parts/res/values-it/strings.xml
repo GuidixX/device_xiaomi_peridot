@@ -98,4 +98,16 @@
     <string name="toast_sports_off">Modalità ricarica rapida disattivata</string>
     <string name="toast_turbo_on">Ricarica turbo attivata</string>
     <string name="toast_turbo_off">Ricarica turbo disattivata</string>
+
+    <!-- Alta frequenza di campionamento touch -->
+    <string name="htsr_title">Alta frequenza di campionamento touch</string>
+    <string name="htsr_enable_title">Reattività touch migliorata</string>
+    <string name="htsr_enable_summary">Aumenta la frequenza di campionamento touch per diminuire la latenza di input touch per un\'esperienza più fluida</string>
+    <string name="touch_sampling_mode_title">Modalità alta frequenza di campionamento touch</string>
+    <string name="touch_sampling_mode_notification">L\'alta frequenza di campionamento touch è ora attiva. Questo riduce la latenza di input touch ma può aumentare il consumo della batteria</string>
+    <string name="touch_sampling_tile_label">Boost touch</string>
+    <string name="htsr_app_added">%1$s aggiunto alla lista di auto-attivazione.</string>
+    <string name="htsr_app_removed">%1$s rimosso dalla lista di auto-attivazione.</string>
+    <string name="htsr_app_selector_activity_title">Seleziona app per alta frequenza di campionamento touch</string>
+    <string name="htsr_app_remover_activity_title">Rimuovi app di auto-attivazione</string>
 </resources> 

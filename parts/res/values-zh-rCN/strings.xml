@@ -98,4 +98,16 @@
     <string name="toast_sports_off">快速充电模式已关闭</string>
     <string name="toast_turbo_on">涡轮充电已开启</string>
     <string name="toast_turbo_off">涡轮充电已关闭</string>
+
+    <!-- 高触摸采样率 -->
+    <string name="htsr_title">高触摸采样率</string>
+    <string name="htsr_enable_title">增强触摸响应</string>
+    <string name="htsr_enable_summary">提高触摸采样率以减少触摸输入延迟，获得更流畅的体验</string>
+    <string name="touch_sampling_mode_title">高触摸采样率模式</string>
+    <string name="touch_sampling_mode_notification">高触摸采样率现已激活。这减少了触摸输入延迟，但可能会增加电池消耗</string>
+    <string name="touch_sampling_tile_label">触摸加速</string>
+    <string name="htsr_app_added">%1$s已添加到自动启用列表。</string>
+    <string name="htsr_app_removed">%1$s已从自动启用列表中移除。</string>
+    <string name="htsr_app_selector_activity_title">选择高触摸采样率应用</string>
+    <string name="htsr_app_remover_activity_title">移除自动启用应用</string>
 </resources> 

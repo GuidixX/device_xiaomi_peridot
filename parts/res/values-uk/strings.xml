@@ -22,6 +22,18 @@
     <string name="thermal_navigation">Навігація</string>
     <string name="thermal_streaming">Стрімінг</string>
     <string name="thermal_video">Відео</string>
+    <string name="thermal_nolimits">Без обмежень</string>
+    <string name="thermal_class0">Клас 0</string>
+    <string name="thermal_youtube">YouTube</string>
+    <string name="thermal_arvr">AR/VR</string>
+    <string name="thermal_videochat">Відеодзвінки</string>
+    <string name="thermal_4k">4K</string>
+    <string name="thermal_tgame">T-Гра</string>
+    <string name="thermal_mgame">M-Гра</string>
+    <string name="thermal_yuanshen">Yuanshen</string>
+    <string name="thermal_highfps">Високий FPS</string>
+    <string name="thermal_charge">Зарядка</string>
+    <string name="thermal_per_class0">Per-Клас 0</string>
 
     <!-- Thermal Tile Strings -->
     <string name="thermal_tile_label">Термальний профіль</string>
@@ -86,4 +98,17 @@
     <string name="toast_sports_off">Режим швидкої зарядки вимкнено</string>
     <string name="toast_turbo_on">Турбо зарядку увімкнено</string>
     <string name="toast_turbo_off">Турбо зарядку вимкнено</string>
+
+    <!-- Висока частота опитування дотиків -->
+    <string name="htsr_title">Висока частота опитування дотиків</string>
+    <string name="htsr_enable_title">Покращена відгук дотиків</string>
+    <string name="htsr_enable_summary">Збільшує частоту опитування дотиків для зменшення затримки введення та більш плавної взаємодії</string>
+    <string name="touch_sampling_mode_title">Режим високої частоти опитування дотиків</string>
+    <string name="touch_sampling_mode_notification">Висока частота опитування дотиків тепер активна. Це зменшує затримку введення, але може збільшити споживання батареї</string>
+    <string name="touch_sampling_tile_label">Прискорення дотиків</string>
+    <string name="htsr_app_added">%1$s додано до списку авто-увімкнення.</string>
+    <string name="htsr_app_removed">%1$s видалено зі списку авто-увімкнення.</string>
+    <string name="htsr_app_selector_activity_title">Виберіть додатки для високої частоти опитування дотиків</string>
+    <string name="htsr_app_remover_activity_title">Видалити додатки авто-увімкнення</string>
+
 </resources> 

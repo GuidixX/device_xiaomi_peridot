@@ -98,4 +98,16 @@
     <string name="toast_sports_off">फास्ट चार्जिंग मोड बंद</string>
     <string name="toast_turbo_on">टर्बो चार्जिंग चालू</string>
     <string name="toast_turbo_off">टर्बो चार्जिंग बंद</string>
+
+    <!-- उच्च टच पोलिंग दर -->
+    <string name="htsr_title">उच्च टच पोलिंग दर</string>
+    <string name="htsr_enable_title">बेहतर टच प्रतिक्रिया</string>
+    <string name="htsr_enable_summary">अधिक सहज अनुभव के लिए टच इनपुट विलंबता को कम करने के लिए टच पोलिंग दर बढ़ाता है</string>
+    <string name="touch_sampling_mode_title">उच्च टच पोलिंग मोड</string>
+    <string name="touch_sampling_mode_notification">उच्च टच पोलिंग दर अब सक्रिय है। यह टच इनपुट विलंबता को कम करता है लेकिन बैटरी खपत बढ़ा सकता है</string>
+    <string name="touch_sampling_tile_label">टच बूस्ट</string>
+    <string name="htsr_app_added">%1$s को ऑटो-एनेबल सूची में जोड़ा गया।</string>
+    <string name="htsr_app_removed">%1$s को ऑटो-एनेबल सूची से हटा दिया गया।</string>
+    <string name="htsr_app_selector_activity_title">उच्च टच पोलिंग के लिए ऐप चुनें</string>
+    <string name="htsr_app_remover_activity_title">ऑटो-एनेबल ऐप हटाएं</string>
 </resources> 
