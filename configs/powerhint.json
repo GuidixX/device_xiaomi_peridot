@@ -158,6 +158,7 @@
         "5",
         "6",
         "7",
+        "8",
         "9",
         "10",
         "11",
@@ -168,6 +169,7 @@
         "19",
         "20",
         "26",
+        "27",
         "57"
       ],
       "ResetOnInit": true,
@@ -178,6 +180,7 @@
         "thermal-phone",
         "thermal-nolimits",
         "thermal-class0",
+        "thermal-youtube",
         "thermal-arvr",
         "thermal-navigation",
         "thermal-video",
@@ -188,6 +191,7 @@
         "thermal-mgame",
         "thermal-yuanshen",
         "thermal-highfps",
+        "thermal-charge",
         "thermal-per-class0"
       ]
     },
