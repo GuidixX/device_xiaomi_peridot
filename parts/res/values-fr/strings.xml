@@ -22,6 +22,18 @@
     <string name="thermal_navigation">Navigation</string>
     <string name="thermal_streaming">Streaming</string>
     <string name="thermal_video">Vidéo</string>
+    <string name="thermal_nolimits">Sans limites</string>
+    <string name="thermal_class0">Classe 0</string>
+    <string name="thermal_youtube">YouTube</string>
+    <string name="thermal_arvr">AR/VR</string>
+    <string name="thermal_videochat">Visioconférence</string>
+    <string name="thermal_4k">4K</string>
+    <string name="thermal_tgame">T-Jeu</string>
+    <string name="thermal_mgame">M-Jeu</string>
+    <string name="thermal_yuanshen">Yuanshen</string>
+    <string name="thermal_highfps">FPS élevé</string>
+    <string name="thermal_charge">Charge</string>
+    <string name="thermal_per_class0">Per-Classe 0</string>
 
     <!-- Thermal Tile Strings -->
     <string name="thermal_tile_label">Profil thermique</string>

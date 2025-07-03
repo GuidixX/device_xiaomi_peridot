@@ -76,6 +76,22 @@ public class ThermalSettingsFragment extends PreferenceFragment
         mMainSwitch.addOnSwitchChangeListener((switchView, isChecked) -> {
             mThermalUtils.setEnabled(isChecked);
             mAppsRecyclerView.setVisibility(isChecked ? View.VISIBLE : View.GONE);
+
+            if (isChecked) {
+                try {
+                    android.app.ActivityManager am = (android.app.ActivityManager) getActivity().getSystemService(Context.ACTIVITY_SERVICE);
+                    if (am != null) {
+                        List<android.app.ActivityManager.RunningAppProcessInfo> processes = am.getRunningAppProcesses();
+                        if (processes != null && !processes.isEmpty()) {
+                            String topPackage = processes.get(0).processName;
+                            mThermalUtils.setThermalProfile(topPackage);
+                        }
+                    }
+                } catch (Exception e) {
+                }
+            } else {
+                mThermalUtils.setDefaultThermalProfile();
+            }
         });
         mMainSwitch.setChecked(mThermalUtils.isEnabled());
     }
@@ -106,6 +122,20 @@ public class ThermalSettingsFragment extends PreferenceFragment
         super.onResume();
         getActivity().setTitle(getResources().getString(R.string.thermal_title));
         rebuild();
+
+        if (mThermalUtils.isEnabled()) {
+            try {
+                android.app.ActivityManager am = (android.app.ActivityManager) getActivity().getSystemService(Context.ACTIVITY_SERVICE);
+                if (am != null) {
+                    List<android.app.ActivityManager.RunningAppProcessInfo> processes = am.getRunningAppProcesses();
+                    if (processes != null && !processes.isEmpty()) {
+                        String topPackage = processes.get(0).processName;
+                        mThermalUtils.setThermalProfile(topPackage);
+                    }
+                }
+            } catch (Exception e) {
+            }
+        }
     }
 
     @Override
@@ -214,6 +244,30 @@ public class ThermalSettingsFragment extends PreferenceFragment
                 return R.drawable.ic_thermal_streaming;
             case ThermalUtils.STATE_VIDEO:
                 return R.drawable.ic_thermal_video;
+            case ThermalUtils.STATE_NOLIMITS:
+                return R.drawable.ic_thermal_benchmark;
+            case ThermalUtils.STATE_CLASS0:
+                return R.drawable.ic_thermal_gaming;
+            case ThermalUtils.STATE_YOUTUBE:
+                return R.drawable.ic_thermal_video;
+            case ThermalUtils.STATE_ARVR:
+                return R.drawable.ic_thermal_gaming;
+            case ThermalUtils.STATE_VIDEOCHAT:
+                return R.drawable.ic_thermal_streaming;
+            case ThermalUtils.STATE_4K:
+                return R.drawable.ic_thermal_video;
+            case ThermalUtils.STATE_TGAME:
+                return R.drawable.ic_thermal_gaming;
+            case ThermalUtils.STATE_MGAME:
+                return R.drawable.ic_thermal_gaming;
+            case ThermalUtils.STATE_YUANSHEN:
+                return R.drawable.ic_thermal_gaming;
+            case ThermalUtils.STATE_HIGHFPS:
+                return R.drawable.ic_thermal_benchmark;
+            case ThermalUtils.STATE_CHARGE:
+                return R.drawable.ic_thermal_default;
+            case ThermalUtils.STATE_PER_CLASS0:
+                return R.drawable.ic_thermal_gaming;
             case ThermalUtils.STATE_DEFAULT:
             default:
                 return R.drawable.ic_thermal_default;
@@ -251,7 +305,19 @@ public class ThermalSettingsFragment extends PreferenceFragment
                 R.string.thermal_gaming,
                 R.string.thermal_navigation,
                 R.string.thermal_streaming,
-                R.string.thermal_video
+                R.string.thermal_video,
+                R.string.thermal_nolimits,
+                R.string.thermal_class0,
+                R.string.thermal_youtube,
+                R.string.thermal_arvr,
+                R.string.thermal_videochat,
+                R.string.thermal_4k,
+                R.string.thermal_tgame,
+                R.string.thermal_mgame,
+                R.string.thermal_yuanshen,
+                R.string.thermal_highfps,
+                R.string.thermal_charge,
+                R.string.thermal_per_class0
         };
 
         private ModeAdapter(Context context) {
@@ -338,6 +404,7 @@ public class ThermalSettingsFragment extends PreferenceFragment
             holder.mode.setSelection(packageState, false);
             holder.mode.setTag(entry);
             holder.stateIcon.setImageResource(getStateDrawable(packageState));
+            holder.itemView.setTag(holder);
         }
 
         private void setEntries(List<ApplicationsState.AppEntry> entries,
@@ -355,10 +422,18 @@ public class ThermalSettingsFragment extends PreferenceFragment
         @Override
         public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
             final ApplicationsState.AppEntry entry = (ApplicationsState.AppEntry) parent.getTag();
+            if (entry == null) return;
+            
             int currentState = mThermalUtils.getStateForPackage(entry.info.packageName);
             if (currentState != position) {
                 mThermalUtils.writePackage(entry.info.packageName, position);
-                notifyDataSetChanged();
+
+                View itemView = (View) parent.getParent();
+                ViewHolder holder = (ViewHolder) itemView.getTag();
+                if (holder != null && holder.stateIcon != null) {
+                    holder.stateIcon.setImageResource(getStateDrawable(position));
+                }
+                mThermalUtils.setThermalProfile(entry.info.packageName);
             }
         }
 
