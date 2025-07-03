@@ -98,4 +98,17 @@
     <string name="toast_sports_off">Режим быстрой зарядки выключен</string>
     <string name="toast_turbo_on">Турбо зарядка включена</string>
     <string name="toast_turbo_off">Турбо зарядка выключена</string>
+
+    <!-- Высокая частота опроса касаний -->
+    <string name="htsr_title">Высокая частота опроса касаний</string>
+    <string name="htsr_enable_title">Улучшенная отзывчивость касаний</string>
+    <string name="htsr_enable_summary">Увеличивает частоту опроса касаний для уменьшения задержки ввода и более плавного взаимодействия</string>
+    <string name="touch_sampling_mode_title">Режим высокой частоты опроса касаний</string>
+    <string name="touch_sampling_mode_notification">Высокая частота опроса касаний теперь активна. Это уменьшает задержку ввода, но может увеличить потребление батареи</string>
+    <string name="touch_sampling_tile_label">Ускорение касаний</string>
+    <string name="htsr_app_added">%1$s добавлено в список авто-включения.</string>
+    <string name="htsr_app_removed">%1$s удалено из списка авто-включения.</string>
+    <string name="htsr_app_selector_activity_title">Выберите приложения для высокой частоты опроса касаний</string>
+    <string name="htsr_app_remover_activity_title">Удалить приложения авто-включения</string>
+
 </resources> 

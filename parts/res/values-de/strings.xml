@@ -98,4 +98,16 @@
     <string name="toast_sports_off">Schnelllademodus deaktiviert</string>
     <string name="toast_turbo_on">Turbo-Laden aktiviert</string>
     <string name="toast_turbo_off">Turbo-Laden deaktiviert</string>
+
+    <!-- Hohe Touch-Abtastrate -->
+    <string name="htsr_title">Hohe Touch-Abtastrate</string>
+    <string name="htsr_enable_title">Verbesserte Touch-Reaktivität</string>
+    <string name="htsr_enable_summary">Erhöht die Touch-Abtastrate, um die Touch-Eingabelatenz für ein flüssigeres Erlebnis zu verringern</string>
+    <string name="touch_sampling_mode_title">Hohe Touch-Abtastrate-Modus</string>
+    <string name="touch_sampling_mode_notification">Hohe Touch-Abtastrate ist jetzt aktiv. Dies reduziert die Touch-Eingabelatenz, kann aber den Batterieverbrauch erhöhen</string>
+    <string name="touch_sampling_tile_label">Touch-Boost</string>
+    <string name="htsr_app_added">%1$s zur Auto-Aktivierungsliste hinzugefügt.</string>
+    <string name="htsr_app_removed">%1$s aus der Auto-Aktivierungsliste entfernt.</string>
+    <string name="htsr_app_selector_activity_title">Apps für hohe Touch-Abtastrate auswählen</string>
+    <string name="htsr_app_remover_activity_title">Auto-Aktivierungs-Apps entfernen</string>
 </resources> 

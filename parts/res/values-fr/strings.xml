@@ -98,4 +98,16 @@
     <string name="toast_sports_off">Mode charge rapide désactivé</string>
     <string name="toast_turbo_on">Charge turbo activée</string>
     <string name="toast_turbo_off">Charge turbo désactivée</string>
+
+    <!-- Taux d\'échantillonnage tactile élevé -->
+    <string name="htsr_title">Taux d\'échantillonnage tactile élevé</string>
+    <string name="htsr_enable_title">Réactivité tactile améliorée</string>
+    <string name="htsr_enable_summary">Augmente le taux d\'échantillonnage tactile pour diminuer la latence d\'entrée tactile pour une expérience plus fluide</string>
+    <string name="touch_sampling_mode_title">Mode d\'échantillonnage tactile élevé</string>
+    <string name="touch_sampling_mode_notification">Le taux d\'échantillonnage tactile élevé est maintenant actif. Cela réduit la latence d\'entrée tactile mais peut augmenter la consommation de batterie</string>
+    <string name="touch_sampling_tile_label">Boost tactile</string>
+    <string name="htsr_app_added">%1$s ajouté à la liste d\'activation automatique.</string>
+    <string name="htsr_app_removed">%1$s supprimé de la liste d\'activation automatique.</string>
+    <string name="htsr_app_selector_activity_title">Sélectionner les applications pour l\'échantillonnage tactile élevé</string>
+    <string name="htsr_app_remover_activity_title">Supprimer les applications d\'activation automatique</string>
 </resources> 

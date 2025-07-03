@@ -98,4 +98,16 @@
     <string name="toast_sports_off">Modo de carga rápida desactivado</string>
     <string name="toast_turbo_on">Carga turbo activada</string>
     <string name="toast_turbo_off">Carga turbo desactivada</string>
+
+    <!-- Alta frecuencia de muestreo táctil -->
+    <string name="htsr_title">Alta frecuencia de muestreo táctil</string>
+    <string name="htsr_enable_title">Mejorada la respuesta táctil</string>
+    <string name="htsr_enable_summary">Aumenta la frecuencia de muestreo táctil para disminuir la latencia de entrada táctil para una experiencia más fluida</string>
+    <string name="touch_sampling_mode_title">Modo de alta frecuencia de muestreo táctil</string>
+    <string name="touch_sampling_mode_notification">La alta frecuencia de muestreo táctil está ahora activa. Esto reduce la latencia de entrada táctil pero puede aumentar el consumo de batería</string>
+    <string name="touch_sampling_tile_label">Impulso táctil</string>
+    <string name="htsr_app_added">%1$s añadido a la lista de auto-activación.</string>
+    <string name="htsr_app_removed">%1$s eliminado de la lista de auto-activación.</string>
+    <string name="htsr_app_selector_activity_title">Seleccionar aplicaciones para alta frecuencia de muestreo táctil</string>
+    <string name="htsr_app_remover_activity_title">Eliminar aplicaciones de auto-activación</string>
 </resources> 
