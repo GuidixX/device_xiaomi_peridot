@@ -33,6 +33,11 @@ on boot
 on property:sys.boot_completed=1
     copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
 
+# Reset CPU boost state on wake up to prevent frequency stuck at 1113 MHz
+on property:sys.powerctl=*
+    # Wait a bit for system to fully wake up
+    exec - root -- /system/bin/sh -c "sleep 2 && echo 0 > /proc/sys/walt/input_boost/input_boost_ms && echo 364800 > /sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq"
+
 on property:vendor.post_boot.parsed=1
     # Setup runtime cpus
     write /dev/cpuset/background/cpus 0-1
