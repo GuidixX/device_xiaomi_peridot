@@ -35,6 +35,9 @@ $(call inherit-product-if-exists, device/xiaomi/peridot-miuicamera/device.mk)
 # Reduce system server verbosity
 PRODUCT_SYSTEM_SERVER_DEBUG_INFO := false
 
+# ART
+PRODUCT_ENABLE_UFFD_GC := true
+
 # A/B
 AB_OTA_POSTINSTALL_CONFIG += \
     RUN_POSTINSTALL_system=true \
