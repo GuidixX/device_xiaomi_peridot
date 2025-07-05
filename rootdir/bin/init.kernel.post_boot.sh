@@ -190,7 +190,7 @@ echo 1708800 2707200 2147483647 > /proc/sys/walt/sched_fmax_cap
 echo 0 > /proc/sys/walt/sched_boost
 
 # Configure input boost settings
-echo 1113600 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
+echo 902400 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
 echo 120 > /proc/sys/walt/input_boost/input_boost_ms
 
 # Configure powerkey input boost settings
@@ -201,7 +201,7 @@ echo "walt" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 echo "walt" > /sys/devices/system/cpu/cpufreq/policy3/scaling_governor
 echo "walt" > /sys/devices/system/cpu/cpufreq/policy7/scaling_governor
 
-echo 20000 > /sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us
+echo 10000 > /sys/devices/system/cpu/cpufreq/policy0/walt/down_rate_limit_us
 echo 500 > /sys/devices/system/cpu/cpufreq/policy0/walt/up_rate_limit_us
 echo 10000 > /sys/devices/system/cpu/cpufreq/policy3/walt/down_rate_limit_us
 echo 500 > /sys/devices/system/cpu/cpufreq/policy3/walt/up_rate_limit_us
@@ -215,7 +215,7 @@ echo 1 > /proc/sys/walt/sched_conservative_pl
 
 echo 595200 > /sys/devices/system/cpu/cpufreq/policy0/walt/rtg_boost_freq
 
-echo 1113600 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
+echo 902400 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
 echo 1190400 > /sys/devices/system/cpu/cpufreq/policy3/walt/hispeed_freq
 echo 1459200 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
 
@@ -312,5 +312,8 @@ done
 echo s2idle > /sys/power/mem_sleep
 echo N > /sys/devices/system/cpu/qcom_lpm/parameters/sleep_disabled
 echo 0 > /proc/sys/vm/page-cluster
+
+# Reset boost state and force frequency scaling for little cluster
+echo 364800 > /sys/devices/system/cpu/cpufreq/policy0/scaling_cur_freq
 
 setprop vendor.post_boot.parsed 1
