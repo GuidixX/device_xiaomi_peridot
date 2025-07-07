@@ -10087,6 +10087,9 @@
     <!--摩尔多瓦 MD Orange-->
     <carrier_config mcc="259" mnc="01">
         <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <!--摩尔多瓦 MD Moldcell-->
     <carrier_config mcc="259" mnc="02">
