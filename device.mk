@@ -616,7 +616,7 @@ PRODUCT_COPY_FILES += \
 $(call soong_config_set,qti_thermal,netlink,true)
 PRODUCT_PACKAGES += \
     android.hardware.thermal-service.qti \
-    android.hardware.thermal@1.0.vendor \
+    android.hardware.thermal-V1-ndk.vendor \
     android.hardware.thermal@2.0.vendor
 
 # Touchscreen
