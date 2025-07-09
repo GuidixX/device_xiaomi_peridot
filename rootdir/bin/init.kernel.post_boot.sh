@@ -37,12 +37,8 @@ MemTotal=${MemTotalStr:16:8}
 let RamSizeGB="( $MemTotal / 1048576 ) + 1"
 diskSizeUnit=M
 
-# Zram disk
-if [ $RamSizeGB = 8 ]; then
-    let zRamSizeMB=6144
-else
-    let zRamSizeMB=8192
-fi
+# Zram disk - 75%
+let zRamSizeMB="( $RamSizeGB * 1024 ) * 3 / 4"
 
 echo "$zRamSizeMB""$diskSizeUnit" > /sys/block/zram0/disksize
 
@@ -189,10 +185,6 @@ echo 1708800 2707200 2147483647 > /proc/sys/walt/sched_fmax_cap
 # Turn off scheduler boost at the end
 echo 0 > /proc/sys/walt/sched_boost
 
-# Configure input boost settings
-echo 902400 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
-echo 120 > /proc/sys/walt/input_boost/input_boost_ms
-
 # Configure powerkey input boost settings
 echo 1804800 0  0 2572800 0 0 0 2457600 > /proc/sys/walt/input_boost/powerkey_input_boost_freq
 echo 400 > /proc/sys/walt/input_boost/powerkey_input_boost_ms
@@ -228,15 +220,6 @@ echo 480000 > /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
 
 # Reset the RT boost, which is 1024 (max) by default.
 echo 0 > /proc/sys/kernel/sched_util_clamp_min_rt_default
-
-# Cpuset parameters
-echo 0-1 > /dev/cpuset/background/cpus
-echo 0-3 > /dev/cpuset/system-background/cpus
-echo 0-7 > /dev/cpuset/top-app/cpus
-echo 1-2 > /dev/cpuset/audio-app/cpus
-
-# Set restricted cpuset to the same CPUs as system-background
-cat /dev/cpuset/system-background/cpus > /dev/cpuset/restricted/cpus
 
 # Configure bus-dcvs
 bus_dcvs="/sys/devices/system/cpu/bus_dcvs"
