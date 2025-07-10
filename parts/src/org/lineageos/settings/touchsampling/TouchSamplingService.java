@@ -78,13 +78,15 @@ public class TouchSamplingService extends Service {
         };
         mSconfigObserver.startWatching();
 
-        // Periodically check for auto-enabled apps every 2 seconds
+        // Periodically check for auto-enabled apps with adaptive interval
         mAutoAppsHandler = new Handler();
         mAutoAppsRunnable = new Runnable() {
             @Override
             public void run() {
                 updateEffectiveStateAndApply();
-                mAutoAppsHandler.postDelayed(this, 2000);
+                // Use longer interval to reduce resource consumption
+                long interval = isScreenOn() ? 5000 : 15000; // 5s when screen on, 15s when off
+                mAutoAppsHandler.postDelayed(this, interval);
             }
         };
         mAutoAppsHandler.post(mAutoAppsRunnable);
@@ -229,6 +231,15 @@ public class TouchSamplingService extends Service {
             showTouchSamplingNotification();
         } else {
             cancelTouchSamplingNotification();
+        }
+    }
+    
+    private boolean isScreenOn() {
+        try {
+            android.os.PowerManager powerManager = (android.os.PowerManager) getSystemService(Context.POWER_SERVICE);
+            return powerManager != null && powerManager.isInteractive();
+        } catch (Exception e) {
+            return true; // Default to screen on if we can't determine
         }
     }
 
