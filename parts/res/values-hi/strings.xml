@@ -110,4 +110,11 @@
     <string name="htsr_app_removed">%1$s को ऑटो-एनेबल सूची से हटा दिया गया।</string>
     <string name="htsr_app_selector_activity_title">उच्च टच पोलिंग के लिए ऐप चुनें</string>
     <string name="htsr_app_remover_activity_title">ऑटो-एनेबल ऐप हटाएं</string>
+
+    <!-- Sound Control -->
+    <string name="sound_control_title">साउंड कंट्रोल</string>
+    <string name="sound_control_enable">साउंड कंट्रोल सक्षम करें</string>
+    <string name="mic_gain">माइक्रोफोन गेन (dB)</string>
+    <string name="hp_left_gain">बाएं हेडफोन गेन</string>
+    <string name="hp_right_gain">दाएं हेडफोन गेन</string>
 </resources> 

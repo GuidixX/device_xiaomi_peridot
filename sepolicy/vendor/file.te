@@ -2,6 +2,7 @@
 type adsprpcd, domain;
 type audio_socket, file_type;
 type smartpa_type, file_type, vendor_file_type;
+type sysfs_sndctrl, sysfs_type, fs_type;
 
 # Authsecret
 type vendor_hal_authsecret_exec, file_type, exec_type;

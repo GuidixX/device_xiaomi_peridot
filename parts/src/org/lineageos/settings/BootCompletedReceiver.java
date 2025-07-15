@@ -37,6 +37,7 @@ import org.lineageos.settings.turbocharging.TurboChargingService;
 import org.lineageos.settings.touchsampling.TouchSamplingUtils;
 import org.lineageos.settings.touchsampling.TouchSamplingService;
 import org.lineageos.settings.touchsampling.TouchSamplingTileService;
+import org.lineageos.settings.soundcontrol.SoundControlUtils;
 
 public class BootCompletedReceiver extends BroadcastReceiver {
     private static final String TAG = "XiaomiParts";
@@ -71,6 +72,7 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
     private void handleBootCompleted(Context context) {
         if (DEBUG) Log.i(TAG, "Handling boot completed.");
+        SoundControlUtils.applyAll(context);
         // Add additional boot-completed actions if needed
     }
 

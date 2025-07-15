@@ -110,4 +110,11 @@
     <string name="htsr_app_removed">%1$s supprimé de la liste d\'activation automatique.</string>
     <string name="htsr_app_selector_activity_title">Sélectionner les applications pour l\'échantillonnage tactile élevé</string>
     <string name="htsr_app_remover_activity_title">Supprimer les applications d\'activation automatique</string>
+
+    <!-- Sound Control -->
+    <string name="sound_control_title">Contrôle du son</string>
+    <string name="sound_control_enable">Activer le contrôle du son</string>
+    <string name="mic_gain">Gain du microphone (dB)</string>
+    <string name="hp_left_gain">Gain écouteur gauche</string>
+    <string name="hp_right_gain">Gain écouteur droit</string>
 </resources> 

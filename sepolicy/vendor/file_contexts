@@ -111,6 +111,10 @@
 # Secure Element
 /vendor/bin/hw/android\.hardware\.secure_element-service\.nxp                                    u:object_r:hal_secure_element_default_exec:s0
 
+# Sound Control
+/sys/kernel/sound_control/mic_gain                                                               u:object_r:sysfs_sndctrl:s0
+/sys/kernel/sound_control/headphone_gain                                                         u:object_r:sysfs_sndctrl:s0
+
 # NFC
 /(odm|vendor/odm|vendor|system/vendor)/bin/hw/android\.hardware\.nqnfc-service\.nxp              u:object_r:hal_nfc_default_exec:s0
 

@@ -465,6 +465,12 @@ on property:sys.boot_completed=1
     chown system system /sys/devices/platform/goodix_ts.0/switch_report_rate
     chmod 0664 /sys/devices/platform/goodix_ts.0/switch_report_rate
 
+    # Sound Control
+    chown system system /sys/kernel/sound_control/mic_gain
+    chmod 0664 /sys/kernel/sound_control/mic_gain
+    chown system system /sys/kernel/sound_control/headphone_gain
+    chmod 0664 /sys/kernel/sound_control/headphone_gain
+
 on init && property:ro.boot.mode=charger
     wait_for_prop vendor.all.modules.ready 1
     mount_all /vendor/etc/charger_fw_fstab.qti --early

@@ -139,4 +139,11 @@
     <string name="touch_resistant_title">Touch-resistant area</string>
     <string name="touch_resistant_summary">Reduce touch sensitivity near the edges to avoid triggering touch controls</string>
 
+    <!-- Sound Control -->
+    <string name="sound_control_title">Sound Control</string>
+    <string name="mic_gain">Microphone gain (dB)</string>
+    <string name="hp_left_gain">Left headphone gain</string>
+    <string name="hp_right_gain">Right headphone gain</string>
+    <string name="sound_control_enable">Enable sound control</string>
+
 </resources>

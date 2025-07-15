@@ -110,4 +110,11 @@
     <string name="htsr_app_removed">%1$s aus der Auto-Aktivierungsliste entfernt.</string>
     <string name="htsr_app_selector_activity_title">Apps für hohe Touch-Abtastrate auswählen</string>
     <string name="htsr_app_remover_activity_title">Auto-Aktivierungs-Apps entfernen</string>
+
+    <!-- Sound Control -->
+    <string name="sound_control_title">Soundsteuerung</string>
+    <string name="sound_control_enable">Soundsteuerung aktivieren</string>
+    <string name="mic_gain">Mikrofonverstärkung (dB)</string>
+    <string name="hp_left_gain">Linker Kopfhörerverstärker</string>
+    <string name="hp_right_gain">Rechter Kopfhörerverstärker</string>
 </resources> 

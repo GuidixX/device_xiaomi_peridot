@@ -86,4 +86,11 @@
     <string name="toast_sports_off">急速充電モードがオフになりました</string>
     <string name="toast_turbo_on">ターボ充電がオンになりました</string>
     <string name="toast_turbo_off">ターボ充電がオフになりました</string>
+
+    <!-- Sound Control -->
+    <string name="sound_control_title">サウンドコントロール</string>
+    <string name="sound_control_enable">サウンドコントロールを有効にする</string>
+    <string name="mic_gain">マイクゲイン (dB)</string>
+    <string name="hp_left_gain">左ヘッドフォンゲイン</string>
+    <string name="hp_right_gain">右ヘッドフォンゲイン</string>
 </resources> 

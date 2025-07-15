@@ -111,4 +111,11 @@
     <string name="htsr_app_selector_activity_title">Виберіть додатки для високої частоти опитування дотиків</string>
     <string name="htsr_app_remover_activity_title">Видалити додатки авто-увімкнення</string>
 
+    <!-- Sound Control -->
+    <string name="sound_control_title">Керування звуком</string>
+    <string name="sound_control_enable">Увімкнути керування звуком</string>
+    <string name="mic_gain">Підсилення мікрофона (дБ)</string>
+    <string name="hp_left_gain">Підсилення лівого навушника</string>
+    <string name="hp_right_gain">Підсилення правого навушника</string>
+
 </resources> 

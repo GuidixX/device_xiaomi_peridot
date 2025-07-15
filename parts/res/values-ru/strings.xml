@@ -111,4 +111,11 @@
     <string name="htsr_app_selector_activity_title">Выберите приложения для высокой частоты опроса касаний</string>
     <string name="htsr_app_remover_activity_title">Удалить приложения авто-включения</string>
 
+    <!-- Sound Control -->
+    <string name="sound_control_title">Управление звуком</string>
+    <string name="sound_control_enable">Включить управление звуком</string>
+    <string name="mic_gain">Усиление микрофона (дБ)</string>
+    <string name="hp_left_gain">Усиление левого наушника</string>
+    <string name="hp_right_gain">Усиление правого наушника</string>
+
 </resources> 
