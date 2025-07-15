@@ -86,4 +86,11 @@
     <string name="toast_sports_off">고속 충전 모드 꺼짐</string>
     <string name="toast_turbo_on">터보 충전 켜짐</string>
     <string name="toast_turbo_off">터보 충전 꺼짐</string>
+
+    <!-- Sound Control -->
+    <string name="sound_control_title">사운드 제어</string>
+    <string name="sound_control_enable">사운드 제어 활성화</string>
+    <string name="mic_gain">마이크 증폭 (dB)</string>
+    <string name="hp_left_gain">왼쪽 헤드폰 증폭</string>
+    <string name="hp_right_gain">오른쪽 헤드폰 증폭</string>
 </resources> 

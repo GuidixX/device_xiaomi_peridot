@@ -128,4 +128,11 @@
     <string name="htsr_app_selector_activity_title">Select Apps for High Touch Polling</string>
     <string name="htsr_app_remover_activity_title">Remove Auto-Enable Apps</string>
 
+    <!-- Sound Control -->
+    <string name="sound_control_title">Sound Control</string>
+    <string name="mic_gain">Microphone gain (dB)</string>
+    <string name="hp_left_gain">Left headphone gain</string>
+    <string name="hp_right_gain">Right headphone gain</string>
+    <string name="sound_control_enable">Enable sound control</string>
+
 </resources>
