@@ -1,0 +1,48 @@
+# Memory optimization init script for Xiaomi Peridot
+# Copyright (C) 2025 The LineageOS Project
+
+on boot
+    # Optimize memory management
+    write /proc/sys/vm/dirty_ratio 20
+    write /proc/sys/vm/dirty_background_ratio 5
+    write /proc/sys/vm/vfs_cache_pressure 100
+    # Skip swappiness - managed by PowerTools dynamically
+    write /proc/sys/vm/page-cluster 0
+    
+    # Memory compaction
+    write /proc/sys/vm/compact_memory 1
+    # Skip compaction_proactiveness - set in kernel post_boot
+    
+    # OOM killer optimization
+    write /proc/sys/vm/oom_kill_allocating_task 1
+    write /proc/sys/vm/panic_on_oom 0
+    
+    # Reduce memory fragmentation
+    write /proc/sys/vm/watermark_scale_factor 200
+    write /proc/sys/vm/watermark_boost_factor 0
+    
+    # Reduce background app memory usage
+    write /proc/sys/kernel/sched_migration_cost_ns 5000000
+    write /proc/sys/kernel/sched_autogroup_enabled 0
+    
+    # TCP memory optimization
+    write /proc/sys/net/core/rmem_default 262144
+    write /proc/sys/net/core/rmem_max 16777216
+    write /proc/sys/net/core/wmem_default 262144
+    write /proc/sys/net/core/wmem_max 16777216
+
+on property:sys.boot_completed=1
+    # Cleanup after boot
+    write /proc/sys/vm/drop_caches 3
+    
+    # Enable memory management optimizations
+    write /proc/sys/vm/extra_free_kbytes 24300
+    write /proc/sys/vm/min_free_kbytes 8192
+    
+on property:dev.bootcomplete=1
+    # Final memory optimization after all services are loaded
+    write /proc/sys/vm/drop_caches 1
+    
+    # Memory defragmentation (ZRAM settings handled by PowerTools)
+    write /proc/sys/vm/compact_unevictable_allowed 1
+    write /proc/sys/vm/extfrag_threshold 750
