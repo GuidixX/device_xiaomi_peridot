@@ -64,6 +64,7 @@ import /vendor/etc/init/hw/init.qti.kernel.rc
 import /vendor/etc/init/hw/init.batterysecret.rc
 import /vendor/etc/init/hw/init.mi_thermald.rc
 import /vendor/etc/init/init.peridot.rc
+import /vendor/etc/init/init.memory_opt.rc
 
 on early-init
     write /proc/sys/kernel/printk_devkmsg ratelimited

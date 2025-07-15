@@ -312,7 +312,8 @@ PRODUCT_PACKAGES += \
     init.qti.kernel.rc \
     init.recovery.qcom.rc \
     init.target.rc \
-    init.fingerprint.rc
+    init.fingerprint.rc \
+    init.memory_opt.rc
 
 PRODUCT_PACKAGES += \
     ueventd-odm.rc \
