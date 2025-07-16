@@ -314,12 +314,6 @@
              </intent-filter>
         </receiver>
 
-        <!-- Gestures Service -->
-        <service
-            android:name=".sensors.TapToWakeService"
-            android:exported="true">
-        </service>
-
         <!-- Hightouch Sampling Service -->
         <service
             android:name=".touchsampling.TouchSamplingService"

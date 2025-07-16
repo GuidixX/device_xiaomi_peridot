@@ -1,6 +1,4 @@
 allow parts_app sysfs_fastcharge:file rw_file_perms;
-allow parts_app sysfs_touchpanel:dir search;
-allow parts_app sysfs_touchpanel:file rw_file_perms;
 allow parts_app sysfs_htsr:file rw_file_perms;
 allow parts_app sysfs_sndctrl:file rw_file_perms;
 allow parts_app vendor_sysfs_graphics:dir search;
@@ -19,11 +17,5 @@ dontaudit parts_app vendor_hal_displayfeature_xiaomi_service:service_manager fin
 dontaudit parts_app vendor_hal_displayfeature_xiaomi_default:service_manager find;
 allow parts_app vendor_sysfs_kgsl_gpuclk:file { read open getattr };
 allow parts_app vendor_sysfs_power_supply:file w_file_perms;
-allow parts_app vendor_sensors_prop:property_service set;
 binder_call(parts_app, vendor_hal_displayfeature_xiaomi_default)
 binder_call(parts_app, vendor_hal_qspmhal_default)
-binder_call(parts_app, vendor_sensors_prop)
-set_prop(parts_app, vendor_sensors_prop)
-get_prop(parts_app, vendor_sensors_prop)
-get_prop(parts_app, settingslib_prop)
-set_prop(parts_app, settingslib_prop)

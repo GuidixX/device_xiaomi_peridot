@@ -394,6 +394,13 @@ on boot
     chown system system /sys/class/mi_display/disp-DSI-1/max_brightness_clone
     chmod 0664 /sys/class/mi_display/disp-DSI-1/max_brightness_clone
 
+    # Double Tap Sensor
+    chown system system /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed
+    chmod 0660 /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed
+    # Single Tap Sensor
+    chown system system /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed
+    chmod 0660 /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed
+
     # Default country code
     setprop ro.boot.wificountrycode 00
 
@@ -441,14 +448,6 @@ on boot
 
 on property:sys.boot_completed=1
     exec -- /system/bin/sleep 7
-    # Double Tap Sensor
-    chown system system /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed
-    chmod 0664 /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed
-
-    # Single Tap Sensor
-    chown system system /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed
-    chmod 0664 /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed
-
     # MIUI ADD:Thermal_NodeReq
     chmod 0664 /sys/class/thermal/thermal_message/sconfig
     chown system system /sys/class/thermal/thermal_message/sconfig
@@ -472,18 +471,6 @@ on property:sys.boot_completed=1
     # Touch
     chown system system /sys/devices/platform/goodix_ts.0/switch_report_rate
     chmod 0664 /sys/devices/platform/goodix_ts.0/switch_report_rate
-
-on property:vendor.sensors.xiaomi.double_tap=true
-    write /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed 1
-
-on property:vendor.sensors.xiaomi.double_tap=false
-    write /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed 0
-
-on property:vendor.sensors.xiaomi.single_tap=true
-    write /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed 1
-
-on property:vendor.sensors.xiaomi.single_tap=false
-    write /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed 0
 
 on init && property:ro.boot.mode=charger
     wait_for_prop vendor.all.modules.ready 1
