@@ -128,8 +128,10 @@
 /sys/devices/virtual/touch/touch_dev/palm_sensor                                                 u:object_r:sysfs_tp_virtual_prox:s0
 /sys/devices/platform/goodix_ts.0/gesture/fod_en                                                 u:object_r:sysfs_touchpanel:s0
 /sys/devices/virtual/touch/touch_dev/fod_press_status                                            u:object_r:sysfs_touchpanel:s0
-/sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed                                     u:object_r:sysfs_touchpanel:s0
-/sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed                                     u:object_r:sysfs_touchpanel:s0
+/sys/class/touch/touch_dev/gesture_single_tap_enabled                                            u:object_r:sysfs_touchpanel:s0
+/sys/class/touch/touch_dev/gesture_double_tap_enabled                                            u:object_r:sysfs_touchpanel:s0
+/sys/class/touch/touch_dev/gesture_single_tap_state                                              u:object_r:sysfs_touchpanel:s0
+/sys/class/touch/touch_dev/gesture_double_tap_state                                              u:object_r:sysfs_touchpanel:s0
 
 # Vibrator
 /(odm|vendor/odm)/bin/hw/vibratorfeature-wrapper                                                 u:object_r:hal_vibrator_default_exec:s0

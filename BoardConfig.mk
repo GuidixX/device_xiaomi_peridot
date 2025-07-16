@@ -203,9 +203,9 @@ SOONG_CONFIG_NAMESPACES += XIAOMI_SENSORS
 SOONG_CONFIG_XIAOMI_SENSORS += UDFPS_PATH
 SOONG_CONFIG_XIAOMI_SENSORS_UDFPS_PATH := /sys/class/touch/touch_dev/fod_press_status,/sys/devices/platform/goodix_ts.0/gesture/fod_en
 SOONG_CONFIG_XIAOMI_SENSORS += DOUBLE_TAP_PATH
-SOONG_CONFIG_XIAOMI_SENSORS_DOUBLE_TAP_PATH := /sys/devices/platform/goodix_ts.0/gesture/double_tap_pressed
+SOONG_CONFIG_XIAOMI_SENSORS_DOUBLE_TAP_PATH := /sys/class/touch/touch_dev/gesture_double_tap_state,/sys/class/touch/touch_dev/gesture_double_tap_enabled
 SOONG_CONFIG_XIAOMI_SENSORS += SINGLE_TAP_PATH
-SOONG_CONFIG_XIAOMI_SENSORS_SINGLE_TAP_PATH := /sys/devices/platform/goodix_ts.0/gesture/single_tap_pressed
+SOONG_CONFIG_XIAOMI_SENSORS_SINGLE_TAP_PATH := /sys/class/touch/touch_dev/gesture_single_tap_state,/sys/class/touch/touch_dev/gesture_single_tap_enabled
 
 # Vendor security patch
 VENDOR_SECURITY_PATCH := 2025-05-01

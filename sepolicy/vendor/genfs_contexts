@@ -38,12 +38,12 @@ genfscon sysfs /devices/platform/goodix_ts.0/gesture/fod_en                     
 genfscon sysfs /devices/virtual/touch/touch_dev/fod_press_status                                             u:object_r:sysfs_touchpanel:s0
 
 # Double Tap Sensor
-genfscon sysfs /devices/platform/goodix_ts.0/gesture/double_tap_pressed                                      u:object_r:sysfs_touchpanel:s0
-genfscon sysfs /devices/virtual/touch/touch_dev/gesture_double_tap_state                                     u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /class/touch/touch_dev/gesture_double_tap_enabled                                             u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /class/touch/touch_dev/gesture_double_tap_state                                               u:object_r:sysfs_touchpanel:s0
 
 # Single Tap Sensor
-genfscon sysfs /devices/platform/goodix_ts.0/gesture/single_tap_pressed                                      u:object_r:sysfs_touchpanel:s0
-genfscon sysfs /devices/virtual/touch/touch_dev/gesture_single_tap_state                                     u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /class/touch/touch_dev/gesture_single_tap_enabled                                             u:object_r:sysfs_touchpanel:s0
+genfscon sysfs /class/touch/touch_dev/gesture_single_tap_state                                               u:object_r:sysfs_touchpanel:s0
 
 # Touch Sampling
 genfscon sysfs /devices/platform/goodix_ts.0/switch_report_rate                                              u:object_r:sysfs_htsr:s0
