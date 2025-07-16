@@ -45,12 +45,14 @@ public class ThermalService extends Service {
                 case Intent.ACTION_SCREEN_OFF:
                     mScreenOn = false;
                     mPreviousApp = "";
+                    saveCurrentAppProfile();
                     mThermalUtils.setDefaultThermalProfile();
                     mThermalUtils.resetTouchModes();
                     setThermalProfile();
                     break;
                 case Intent.ACTION_SCREEN_ON:
                     mScreenOn = true;
+                    restoreLastAppProfile();
                     setThermalProfile();
                     break;
             }
@@ -110,6 +112,22 @@ public class ThermalService extends Service {
             mThermalUtils.setThermalProfile(mCurrentApp);
         } else {
             mThermalUtils.setDefaultThermalProfile();
+        }
+    }
+
+    private void saveCurrentAppProfile() {
+        if (mCurrentApp != null && !mCurrentApp.isEmpty()) {
+            int state = mThermalUtils.getStateForPackage(mCurrentApp);
+            mThermalUtils.saveLastAppProfile(mCurrentApp, state);
+        }
+    }
+
+    private void restoreLastAppProfile() {
+        String lastApp = mThermalUtils.getLastApp();
+        int lastProfile = mThermalUtils.getLastProfile();
+        if (lastApp != null && !lastApp.isEmpty()) {
+            mThermalUtils.writePackage(lastApp, lastProfile);
+            mThermalUtils.setThermalProfile(lastApp);
         }
     }
 

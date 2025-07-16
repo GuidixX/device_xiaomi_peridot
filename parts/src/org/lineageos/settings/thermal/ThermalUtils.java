@@ -136,6 +136,9 @@ public final class ThermalUtils {
 
     private static ThermalUtils sInstance;
 
+    private static final String LAST_APP_KEY = "thermal_last_app";
+    private static final String LAST_PROFILE_KEY = "thermal_last_profile";
+
     private ThermalUtils(Context context) {
         mContext = context.getApplicationContext();
         mSharedPrefs = PreferenceManager.getDefaultSharedPreferences(mContext);
@@ -517,5 +520,20 @@ public final class ThermalUtils {
         } catch (RemoteException e) {
             // Do nothing
         }
+    }
+
+    public void saveLastAppProfile(String packageName, int profile) {
+        mSharedPrefs.edit()
+            .putString(LAST_APP_KEY, packageName)
+            .putInt(LAST_PROFILE_KEY, profile)
+            .apply();
+    }
+
+    public String getLastApp() {
+        return mSharedPrefs.getString(LAST_APP_KEY, null);
+    }
+
+    public int getLastProfile() {
+        return mSharedPrefs.getInt(LAST_PROFILE_KEY, STATE_DEFAULT);
     }
 }
