@@ -423,9 +423,12 @@ public class ThermalSettingsFragment extends PreferenceFragment
             holder.mode.setTag(entry);
 
             holder.stateIcon.setOnClickListener(v -> holder.mode.performClick());
-            int stateIconDrawable = getStateDrawable(mThermalUtils.getStateForPackage(entry.info.packageName));
-            if (stateIconDrawable == R.drawable.ic_thermal_gaming ||
-                    stateIconDrawable == R.drawable.ic_thermal_benchmark) {
+            int stateIconDrawable = getStateDrawable(packageState);
+            if (packageState == ThermalUtils.STATE_GAMING ||
+                packageState == ThermalUtils.STATE_BENCHMARK ||
+                packageState == ThermalUtils.STATE_NOLIMITS ||
+                packageState == ThermalUtils.STATE_TGAME ||
+                packageState == ThermalUtils.STATE_MGAME) {
                 holder.touchIcon.setVisibility(View.VISIBLE);
             } else {
                 holder.touchIcon.setVisibility(View.GONE);
