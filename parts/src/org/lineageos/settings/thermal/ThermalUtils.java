@@ -373,6 +373,10 @@ public final class ThermalUtils {
     protected void setThermalProfile(String packageName) {
         final int state = getStateForPackage(packageName);
         FileUtils.writeLine(THERMAL_SCONFIG, THERMAL_STATE_MAP.get(state));
+        if (state == STATE_GAMING || state == STATE_BENCHMARK ||
+            state == STATE_NOLIMITS || state == STATE_TGAME || state == STATE_MGAME) {
+            updateTouchModes(packageName);
+        }
     }
 
     private int getDefaultStateForPackage(String packageName) {
