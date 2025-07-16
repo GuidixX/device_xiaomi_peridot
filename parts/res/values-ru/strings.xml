@@ -118,4 +118,9 @@
     <string name="hp_left_gain">Усиление левого наушника</string>
     <string name="hp_right_gain">Усиление правого наушника</string>
 
+    <!-- Vulkan -->
+    <string name="vulkan_enable_title">Включить Vulkan</string>
+    <string name="vulkan_enable_summary">Использовать Vulkan для отрисовки интерфейса (требуется перезагрузка). Внимание! Отключение Vulkan может вызвать проблемы с HDR!</string>
+    <string name="vulkan_reboot_required">Для применения изменений требуется перезагрузка устройства</string>
+
 </resources> 

@@ -38,4 +38,7 @@
         <item name="preferenceTheme">@style/PreferenceTheme.SettingsLib.Thermal</item>
     </style>
 
+    <style name="Theme.SettingsBase_v31" parent="Theme.MaterialComponents.DayNight">
+    </style>
+
 </resources>

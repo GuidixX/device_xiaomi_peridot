@@ -117,4 +117,9 @@
     <string name="mic_gain">Gain du microphone (dB)</string>
     <string name="hp_left_gain">Gain écouteur gauche</string>
     <string name="hp_right_gain">Gain écouteur droit</string>
+
+    <!-- Vulkan -->
+    <string name="vulkan_enable_title">Activer Vulkan</string>
+    <string name="vulkan_enable_summary">Utiliser Vulkan pour le rendu de l\'interface (redémarrage requis). Attention! Désactiver Vulkan peut causer des problèmes HDR!</string>
+    <string name="vulkan_reboot_required">Un redémarrage est nécessaire pour appliquer les modifications</string>
 </resources> 

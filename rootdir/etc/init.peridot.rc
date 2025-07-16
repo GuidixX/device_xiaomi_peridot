@@ -77,3 +77,7 @@ on property:vendor.post_boot.parsed=1
 # Monitor and apply Turbo Charging value via system property persist.sys.turbo_charge_current
 on property:persist.sys.turbo_charge_current=*
     write /sys/class/power_supply/battery/constant_charge_current ${persist.sys.turbo_charge_current}
+
+# Vulkan
+on property:persist.sys.vulkan=*
+    setprop ro.hwui.use_vulkan ${persist.sys.vulkan}

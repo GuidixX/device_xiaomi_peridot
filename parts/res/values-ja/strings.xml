@@ -93,4 +93,9 @@
     <string name="mic_gain">マイクゲイン (dB)</string>
     <string name="hp_left_gain">左ヘッドフォンゲイン</string>
     <string name="hp_right_gain">右ヘッドフォンゲイン</string>
+
+    <!-- Vulkan -->
+    <string name="vulkan_enable_title">Vulkanを有効にする</string>
+    <string name="vulkan_enable_summary">UIレンダリングにVulkanを使用（再起動が必要）。警告！Vulkanを無効にするとHDRの問題が発生する可能性があります！</string>
+    <string name="vulkan_reboot_required">変更を適用するには再起動が必要です</string>
 </resources> 

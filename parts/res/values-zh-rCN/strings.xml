@@ -110,4 +110,9 @@
     <string name="htsr_app_removed">%1$s已从自动启用列表中移除。</string>
     <string name="htsr_app_selector_activity_title">选择高触摸采样率应用</string>
     <string name="htsr_app_remover_activity_title">移除自动启用应用</string>
+
+    <!-- Vulkan -->
+    <string name="vulkan_enable_title">启用Vulkan</string>
+    <string name="vulkan_enable_summary">使用Vulkan进行界面渲染（需要重启）。警告！禁用Vulkan可能会导致HDR问题！</string>
+    <string name="vulkan_reboot_required">需要重启设备以应用更改</string>
 </resources> 

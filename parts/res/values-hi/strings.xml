@@ -117,4 +117,9 @@
     <string name="mic_gain">माइक्रोफोन गेन (dB)</string>
     <string name="hp_left_gain">बाएं हेडफोन गेन</string>
     <string name="hp_right_gain">दाएं हेडफोन गेन</string>
+
+    <!-- Vulkan -->
+    <string name="vulkan_enable_title">Vulkan सक्षम करें</string>
+    <string name="vulkan_enable_summary">UI रेंडरिंग के लिए Vulkan का उपयोग करें (रीबूट आवश्यक)। चेतावनी! Vulkan को अक्षम करने से HDR समस्याएँ हो सकती हैं!</string>
+    <string name="vulkan_reboot_required">परिवर्तनों को लागू करने के लिए डिवाइस को रीबूट करें</string>
 </resources> 

@@ -146,4 +146,8 @@
     <string name="touch_resistant_title">Touch-resistant area</string>
     <string name="touch_resistant_summary">Reduce touch sensitivity near the edges to avoid triggering touch controls</string>
 
+    <string name="vulkan_enable_title">Enable Vulkan</string>
+    <string name="vulkan_enable_summary">Use Vulkan for UI rendering (requires reboot). Warning! Disabling Vulkan may cause HDR Issues!</string>
+    <string name="vulkan_reboot_required">A reboot is required to apply changes</string>
+
 </resources>

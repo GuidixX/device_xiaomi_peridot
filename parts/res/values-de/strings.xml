@@ -117,4 +117,9 @@
     <string name="mic_gain">Mikrofonverstärkung (dB)</string>
     <string name="hp_left_gain">Linker Kopfhörerverstärker</string>
     <string name="hp_right_gain">Rechter Kopfhörerverstärker</string>
+
+    <!-- Vulkan -->
+    <string name="vulkan_enable_title">Vulkan aktivieren</string>
+    <string name="vulkan_enable_summary">Vulkan für die UI-Darstellung verwenden (Neustart erforderlich). Warnung! Das Deaktivieren von Vulkan kann zu HDR-Problemen führen!</string>
+    <string name="vulkan_reboot_required">Ein Neustart ist erforderlich, um die Änderungen anzuwenden</string>
 </resources> 
