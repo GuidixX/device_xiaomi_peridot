@@ -2663,6 +2663,7 @@ odm/etc/thermal-tgame.conf
 odm/etc/thermal-video.conf
 odm/etc/thermal-videochat.conf
 odm/etc/thermal-yuanshen.conf
+vendor/etc/thermal-engine.conf
 vendor/etc/thermal-map.conf
 vendor/etc/thermald-devices.conf
 
