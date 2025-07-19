@@ -51,6 +51,9 @@ type hal_nxpnfc_hwservice, hwservice_manager_type;
 type vendor_sys_perf_comp, file_type;
 type sysfs_msm_subsys, fs_type, sysfs_type;
 
+# Sensors
+type sysfs_touchpanel, fs_type, sysfs_type;
+
 # Thermal
 type sys_thermal_wifi_limit, fs_type, sysfs_type;
 type sys_thermal_flash_state, fs_type, sysfs_type;
