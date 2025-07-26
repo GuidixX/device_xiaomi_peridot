@@ -86,6 +86,7 @@
 
 # Sensors
 /vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal                                                   u:object_r:hal_sensors_default_exec:s0
+/(vendor|system/vendor)/bin/nonui-notifier u:object_r:vendor_nonui_notifier_exec:s0
 
 # Storage
 /dev/[0-9]+:[0-9]+:[0-9]+:[0-9]+                                                                                     u:object_r:vendor_ufs_bsg_device:s0
