@@ -636,9 +636,15 @@ PRODUCT_COPY_FILES += \
 
 # Thermal
 PRODUCT_PACKAGES += \
+    android.hardware.thermal-service.pixel \
     android.hardware.thermal-V1-ndk.vendor \
     android.hardware.thermal@2.0.vendor \
-    android.hardware.thermal@1.0.vendor
+    android.hardware.thermal@1.0.vendor \
+    thermal_symlinks
+
+## TODO: Conditionally install this file to vendor.
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/thermal_info_config.json:$(TARGET_COPY_OUT_VENDOR)/etc/thermal_info_config.json
 
 # Touchscreen
 PRODUCT_COPY_FILES += \

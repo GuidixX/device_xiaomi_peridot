@@ -14,3 +14,8 @@ allow vendor_init sysfs:lnk_file setattr;
 
 # Allow vendor_init to write to drop_caches and extfrag_threshold
 allow vendor_init proc_drop_caches:file { open write };
+
+# Thermal
+allow vendor_init thermal_link_device:dir r_dir_perms;
+allow vendor_init thermal_link_device:lnk_file r_file_perms;
+set_prop(vendor_init, vendor_thermal_prop)
