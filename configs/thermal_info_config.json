@@ -1,0 +1,178 @@
+{
+    "Sensors": [
+        {
+            "Name": "CPU0",
+            "Type": "CPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "CPU1",
+            "Type": "CPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "CPU2",
+            "Type": "CPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "CPU3",
+            "Type": "CPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "CPU4",
+            "Type": "CPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "CPU5",
+            "Type": "CPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "CPU6",
+            "Type": "CPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "CPU7",
+            "Type": "CPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "GPU0",
+            "Type": "GPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "GPU1",
+            "Type": "GPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "GPU2",
+            "Type": "GPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "GPU3",
+            "Type": "GPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 95.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "battery",
+            "Type": "BATTERY",
+            "HotThreshold": ["NAN", "NAN", "NAN", 80.0, "NAN", "NAN", 90.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "vbat",
+            "Type": "BCL_VOLTAGE",
+            "ColdThreshold": ["NAN", "NAN", "NAN", 3.2, "NAN", "NAN", 3.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "socd",
+            "Type": "BCL_PERCENTAGE",
+            "HotThreshold": ["NAN", "NAN", "NAN", 90.0, "NAN", "NAN", 99.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "nsp0",
+            "Type": "NPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 100.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "nsp1",
+            "Type": "NPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 100.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "nsp2",
+            "Type": "NPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 100.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "nsp3",
+            "Type": "NPU",
+            "HotThreshold": ["NAN", "NAN", "NAN", 100.0, "NAN", "NAN", 115.0],
+            "Multiplier": 0.001
+        },
+        {
+            "Name": "skin",
+            "Type": "SKIN",
+            "HotThreshold": ["NAN", "NAN", "NAN", 60.0, "NAN", "NAN", 95.0],
+            "Multiplier": 0.001
+        }
+    ],
+    "CoolingDevices": [
+        {
+            "Name": "thermal-pause-1",
+            "Type": "THERMAL_PAUSE"
+        },
+        {
+            "Name": "thermal-pause-2",
+            "Type": "THERMAL_PAUSE"
+        },
+        {
+            "Name": "thermal-pause-4",
+            "Type": "THERMAL_PAUSE"
+        },
+        {
+            "Name": "thermal-pause-8",
+            "Type": "THERMAL_PAUSE"
+        },
+        {
+            "Name": "thermal-pause-10",
+            "Type": "THERMAL_PAUSE"
+        },
+        {
+            "Name": "thermal-pause-20",
+            "Type": "THERMAL_PAUSE"
+        },
+        {
+            "Name": "thermal-pause-40",
+            "Type": "THERMAL_PAUSE"
+        },
+        {
+            "Name": "thermal-pause-80",
+            "Type": "THERMAL_PAUSE"
+        },
+        {
+            "Name": "gpu",
+            "Type": "GPU"
+        },
+        {
+            "Name": "cpufreq-cpu0",
+            "Type": "CPU"
+        },
+        {
+            "Name": "cpufreq-cpu3",
+            "Type": "CPU"
+        },
+        {
+            "Name": "cpufreq-cpu7",
+            "Type": "CPU"
+        },
+        {
+            "Name": "devfreq-3d00000.qcom,kgsl-3d0",
+            "Type": "GPU"
+        }
+    ]
+}
