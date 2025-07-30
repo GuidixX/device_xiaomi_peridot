@@ -1,5 +1,9 @@
 # Logging
 SPAMMY_LOG_TAGS := \
+    Diag_Lib \
+    KernelSU \
+    artd \
+    ArtService \
     MiClstc \
     MiEvent \
     MiStcImpl \
