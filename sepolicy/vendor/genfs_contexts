@@ -12,6 +12,9 @@ genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.i2c/i2c-
 genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.i2c/i2c-2/2-005a/index                                                                                            u:object_r:sysfs_haptics:s0
 genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.i2c/i2c-2/2-005a/effect_id                                                                                        u:object_r:sysfs_haptics:s0
 
+# Graphics
+genfscon sysfs /devices/platform/soc/3d00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpu_available_frequencies                                                                                        u:object_r:vendor_sysfs_kgsl:s0
+
 # Sensors
 genfscon sysfs /devices/virtual/touch/touch_dev/fod_longpress_gesture_enabled                                                                                                             u:object_r:vendor_sysfs_sensors:s0
 genfscon sysfs /devices/virtual/touch/touch_dev/fod_press_status                                                                                                                          u:object_r:vendor_sysfs_sensors:s0
