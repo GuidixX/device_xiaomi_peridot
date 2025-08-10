@@ -103,7 +103,7 @@ vendor/bin/agmvoiceui
 -vendor/lib64/libagm.so
 vendor/lib64/libagmmixer.so
 vendor/lib64/libmisight.so
--vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so
 
 # Audio libraries
 odm/etc/audio/mis_head.bin
@@ -166,7 +166,7 @@ vendor/lib64/libresampler.so
 vendor/lib64/libspatializerparamstorage.so
 vendor/lib64/libswspatializer_ext.so
 vendor/lib64/libtensorflowlite_c.so
--vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
+vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
 vendor/lib64/vendor.qti.voiceprint@1.0.so
 
 # Audio soundfx
@@ -1807,6 +1807,8 @@ vendor/lib64/libqtiidentitycredential.so
 vendor/lib64/libqtikeymint.so
 
 # Listen
+vendor/etc/vintf/manifest/manifest_non_qmaa.xml
+vendor/etc/vintf/manifest/manifest_non_qmaa_extn.xml
 vendor/lib64/hw/sound_trigger.primary.pineapple.so
 vendor/lib64/libeai_fixed.so
 vendor/lib64/libeai_float.so
