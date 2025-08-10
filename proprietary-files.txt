@@ -1407,7 +1407,6 @@ vendor/etc/init/vendor.qti.hardware.display.demura-service.rc
 vendor/etc/snapdragon_color_libs_config.xml
 vendor/etc/vintf/manifest/android.hardware.graphics.mapper-impl-qti-display.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.display.allocator-service.xml
-vendor/etc/vintf/manifest/vendor.qti.hardware.display.composer-service.xml
 vendor/etc/vintf/manifest/vendor.qti.hardware.display.demura-service.xml
 vendor/lib64/hw/gralloc.default.so
 vendor/lib64/libbacklight-calib.so
