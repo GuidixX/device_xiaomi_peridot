@@ -347,15 +347,13 @@ $(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 # Media
 PRODUCT_PACKAGES += \
     android.hardware.media.c2@1.2.vendor \
-    libOmxCore \
     libavservices_minijail \
     libavservices_minijail_vendor \
     libcodec2_hidl@1.0.vendor \
     libcodec2_hidl@1.1.vendor \
     libcodec2_hidl@1.2.vendor \
     libcodec2_soft_common.vendor \
-    libcodec2_vndk.vendor \
-    libmm-omxcore
+    libcodec2_vndk.vendor
 
 PRODUCT_PACKAGES += \
     libcodec2_shim
