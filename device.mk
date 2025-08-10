@@ -20,6 +20,7 @@ $(call inherit-product, frameworks/native/build/phone-xhdpi-6144-dalvik-heap.mk)
 $(call inherit-product, packages/modules/Virtualization/apex/product_packages.mk)
 
 # Qualcomm
+$(call soong_config_set,rfs,mpss_firmware_symlink_target,modem_firmware)
 $(call inherit-product, hardware/qcom-caf/common/common.mk)
 
 # A/B
@@ -481,8 +482,7 @@ PRODUCT_PACKAGES += \
     librmnetctl
 
 PRODUCT_PACKAGES += \
-    rfs_msm_mpss_readonly_mbnconfig_symlink \
-    rfs_msm_mpss_readonly_modem_firmware_symlink
+    rfs_msm_mpss_readonly_mbnconfig_symlink
 
 # RenderScript
 PRODUCT_PACKAGES += \
