@@ -94,12 +94,6 @@ vendor/etc/usecaseKvManager.xml
 odm/firmware/aw882xx_acf.bin
 
 # Audio graph manager
-vendor/bin/agmcap
-vendor/bin/agmcompresscap
-vendor/bin/agmcompressplay
-vendor/bin/agmhostless
-vendor/bin/agmplay
-vendor/bin/agmvoiceui
 -vendor/lib64/libagm.so
 vendor/lib64/libagmmixer.so
 vendor/lib64/libmisight.so
