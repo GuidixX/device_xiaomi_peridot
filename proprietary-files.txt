@@ -1453,9 +1453,7 @@ odm/etc/mdss_dsi_n16t_42_0a_0c_dsc_vid_mi.xml
 product/etc/displayconfig/display_id_4630947195234848131.xml
 vendor/etc/displayconfig/display_id_4630946416293825923.xml
 vendor/etc/displayconfig/display_id_4630946545580055171.xml
-vendor/etc/displayconfig/display_id_4630947039571902851.xml
 vendor/etc/displayconfig/display_id_4630947082089526659.xml
-vendor/etc/displayconfig/display_id_4630947256895775107.xml
 
 # Display Postprocessing
 vendor/bin/hw/vendor.qti.hardware.display.color-service
