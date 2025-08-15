@@ -28,12 +28,6 @@ sh_binary {
     vendor: true,
 }
 
-sh_binary {
-    name: "init.qti.media.sh",
-    src: "bin/init.qti.media.sh",
-    vendor: true,
-}
-
 prebuilt_etc {
     name: "charger_fw_fstab.qti",
     src: "etc/charger_fw_fstab.qti",
