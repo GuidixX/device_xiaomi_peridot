@@ -25,8 +25,6 @@ blob_fixups: blob_fixups_user_type = {
         'odm/etc/camera/night_motiontuning.xml'
     ): blob_fixup()
         .regex_replace('xml=version', 'xml version'),
-    'vendor/bin/init.qcom.usb.sh': blob_fixup()
-        .regex_replace('ro.product.marketname', 'ro.product.odm.marketname'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
