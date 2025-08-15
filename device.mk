@@ -440,6 +440,7 @@ PRODUCT_PACKAGES += \
     libcurl.vendor \
     libjson \
     libjsoncpp.vendor \
+    libprocessgroup.vendor \
     libqti_vndfwk_detect.vendor \
     libqti_vndfwk_detect_vendor \
     libsqlite.vendor \
