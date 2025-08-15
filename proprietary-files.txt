@@ -96,12 +96,6 @@ odm/firmware/aw882xx_acf.bin
 odm/firmware/fs19xx.fsm
 
 # Audio graph manager
-vendor/bin/agmcap;MAKE_COPY_RULE_ONLY
-vendor/bin/agmcompresscap;MAKE_COPY_RULE_ONLY
-vendor/bin/agmcompressplay;MAKE_COPY_RULE_ONLY
-vendor/bin/agmhostless;MAKE_COPY_RULE_ONLY
-vendor/bin/agmplay;MAKE_COPY_RULE_ONLY
-vendor/bin/agmvoiceui;MAKE_COPY_RULE_ONLY
 vendor/lib64/libagm.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libagm_compress_plugin.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libagm_mixer_plugin.so;MAKE_COPY_RULE_ONLY
