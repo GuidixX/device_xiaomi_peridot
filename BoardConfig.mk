@@ -60,7 +60,7 @@ ART_BUILD_HOST_DEBUG := false
 endif
 
 # Bootloader
-TARGET_BOOTLOADER_BOARD_NAME := pineapple
+TARGET_BOOTLOADER_BOARD_NAME := peridot
 TARGET_NO_BOOTLOADER := true
 
 # Bluetooth
