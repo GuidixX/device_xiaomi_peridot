@@ -1,8 +1,8 @@
 # All unpinned blobs below are extracted from peridot 15 AQ3A.240912.001 OS2.0.204.0.VNPMIXM release-keys
 
 # ACDB
-odm/etc/acdbdata/Fluence/foursemi/Fluence_acdb_cal_fs.acdb:odm/etc/acdbdata/cliffs_mtp/foursemi/Fluence_acdb_cal_fs.acdb
-odm/etc/acdbdata/Fluence/Fluence_acdb_cal.acdb:odm/etc/acdbdata/cliffs_mtp/Fluence_acdb_cal.acdb
+odm/etc/acdbdata/Fluence/foursemi/Fluence_acdb_cal_fs.acdb
+odm/etc/acdbdata/Fluence/Fluence_acdb_cal.acdb
 vendor/etc/acdbdata/nn_ns_models/fai__2.0.0_0.1__3.0.0_0.0__eai_1.36_enpu2.pmd
 vendor/etc/acdbdata/nn_ns_models/fai__2.3.0_0.1__3.0.0_0.0__eai_1.10.pmd
 vendor/etc/acdbdata/nn_ns_models/fai__2.3.0_0.1__3.0.0_0.0__eai_1.36_enpu2_comp.pmd
