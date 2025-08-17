@@ -348,7 +348,6 @@ PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0.vendor \
     android.hardware.gatekeeper-V1-ndk.vendor \
     android.hardware.gatekeeper@1.0.vendor \
-    android.hardware.hardware_keystore.xml \
     android.hardware.keymaster-V3-ndk.vendor \
     android.hardware.keymaster-V4-ndk.vendor \
     android.hardware.keymaster@3.0.vendor \
