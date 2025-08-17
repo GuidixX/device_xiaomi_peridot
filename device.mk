@@ -128,7 +128,8 @@ PRODUCT_PACKAGES += \
     libcamera_metadata.vendor \
     libexif.vendor \
     libutilscallstack.vendor \
-    libyuv.vendor
+    libyuv.vendor \
+    libprocessgroup_shim
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.camera.flash-autofocus.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.camera.flash-autofocus.xml \

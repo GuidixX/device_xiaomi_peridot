@@ -25,6 +25,16 @@ blob_fixups: blob_fixups_user_type = {
         'odm/etc/camera/night_motiontuning.xml'
     ): blob_fixup()
         .regex_replace('xml=version', 'xml version'),
+    (
+        'vendor/lib64/hw/com.qti.chi.override.so',
+        'vendor/lib64/hw/camera.xiaomi.so',
+        'vendor/lib64/hw/camera.qcom.so',
+        'vendor/lib64/libcameraopt.so',
+        'vendor/lib64/libcamxcommonutils.so',
+        'vendor/lib64/libchifeature2.so',
+        'vendor/lib64/libmialgoengine.so'
+    ): blob_fixup()
+        .add_needed('libprocessgroup_shim.so'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
