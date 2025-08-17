@@ -27,6 +27,7 @@ persist.log.tag.ACDB-LOADER=S
 persist.log.tag.CVP=S
 persist.log.tag.ResourcesCompat=S
 persist.log.tag.SYNX-UMD=S
+persist.log.tag.libsensor-parseRGB=S
 
 # LMKD
 ro.config.low_ram=false
