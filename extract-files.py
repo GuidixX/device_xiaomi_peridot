@@ -256,9 +256,33 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libbinder_shim.so')
         .add_needed('libhidlbase_shim.so'),
 
-     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
+    'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
         .regex_replace(r'.+DOLBY.+\n', '')
-        .regex_replace(r'.+<!-- DOLBY.+\n', ''),
+        .regex_replace(r'.+<!-- DOLBY.+\n', '')
+        .regex_replace(r'.+<hal.*name=".*dv.*".*>\n', '')
+        .regex_replace(r'.+<hal.*name=".*dolby.*".*>\n', ''),
+
+    'vendor/etc/clstc_config_library.xml': blob_fixup()
+        .regex_replace(
+            r'(<library>\s*<name>libdolbyclstc\.so</name>\s*<priority>1</priority>\s*)<enable>1</enable>',
+            r'\1<enable>0</enable>'
+        ),
+
+    'vendor/etc/kvh2xml.xml': blob_fixup()
+        .regex_replace(
+            r'.+<TAG id="0xc000033" name="dolby_effect_param_tag"/>.*\n',
+            ''
+        ),
+
+    'product/etc/device_features/peridot.xml': blob_fixup()
+        .regex_replace(
+            r'<bool name="support_dolby_version_brighten">true</bool>',
+            '<bool name="support_dolby_version_brighten">false</bool>'
+        )
+        .regex_replace(
+            r'<bool name="gallery_support_dolby">true</bool>',
+            '<bool name="gallery_support_dolby">false</bool>'
+        )
 }  # fmt: skip
 
 module = ExtractUtilsModule(
