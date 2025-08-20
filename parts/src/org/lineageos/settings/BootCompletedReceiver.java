@@ -123,7 +123,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
             final DisplayManager dm = context.getSystemService(DisplayManager.class);
             if (dm != null) {
                 dm.overrideHdrTypes(Display.DEFAULT_DISPLAY, new int[]{
-                        HdrCapabilities.HDR_TYPE_DOLBY_VISION,
                         HdrCapabilities.HDR_TYPE_HDR10,
                         HdrCapabilities.HDR_TYPE_HLG,
                         HdrCapabilities.HDR_TYPE_HDR10_PLUS
