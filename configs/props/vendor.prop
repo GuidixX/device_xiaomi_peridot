@@ -160,6 +160,7 @@ ro.vendor.displayfeature.dump=true
 ro.vendor.display.ai_disp.enable=true
 ro.vendor.hbm_backlight.enable=true
 ro.surface_flinger.support_kernel_idle_timer=true
+ro.surface_flinger.uclamp.min=30
 vendor.display.comp_mask=0
 vendor.display.use_layer_ext=0
 vendor.display.use_smooth_motion=0
