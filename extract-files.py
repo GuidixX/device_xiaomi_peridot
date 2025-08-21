@@ -247,10 +247,10 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libcodec2_hidl_shim.so'),
 
      'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
-        .regex_replace('.+DOLBY.+\n', '')
-        .regex_replace('.+<!-- DOLBY.+\n', '')
-        .regex_replace('.+<hal.*name=".*dv.*".*>\n', '')
-        .regex_replace('.+<hal.*name=".*dolby.*".*>\n', ''),
+        .regex_replace(r'.+DOLBY.+\n', '')
+        .regex_replace(r'.+<!-- DOLBY.+\n', '')
+        .regex_replace(r'.+<hal.*name=".*dv.*".*>\n', '')
+        .regex_replace(r'.+<hal.*name=".*dolby.*".*>\n', ''),
 
     'vendor/lib64/libqcrilNr.so|vendor/lib64/libril-db.so': blob_fixup()
         .binary_regex_replace(rb'persist\.vendor\.radio\.poweron_opt', rb'persist.vendor.radio.poweron_ign'),
@@ -276,17 +276,17 @@ blob_fixups: blob_fixups_user_type = {
      'vendor/etc/media_codecs_cliffs_v0.xml',
      'vendor/etc/media_codecs_performance_cliffs_v0.xml'): blob_fixup()
         .regex_replace(
-            '.+media_codecs_(google_audio|google_c2|google_telephony|google_video|vendor_audio|dolby_audio).+\n',
+            r'.+media_codecs_(google_audio|google_c2|google_telephony|google_video|vendor_audio|dolby_audio).+\n',
             ''
         )
         .regex_replace(
-            ' type="video/dolby-vision"',
+            r' type="video/dolby-vision"',
             ''
         ),
 
     'vendor/etc/kvh2xml.xml': blob_fixup()
         .regex_replace(
-            '.+<TAG id="0xc000033" name="dolby_effect_param_tag"/>.*\n',
+            r'.+<TAG id="0xc000033" name="dolby_effect_param_tag"/>.*\n',
             ''
         ),
 
@@ -308,15 +308,15 @@ blob_fixups: blob_fixups_user_type = {
 
     'vendor/etc/media_cliffs_v0/video_system_specs.json': blob_fixup()
         .regex_replace(
-            '        "DolbyVision": \{\s*"profiles": \[4, 5, 8\],\s*"max_main_tier_level": 12,\s*"max_high_tier_level": 12\s*\},',
+            r'        "DolbyVision": \{\s*"profiles": \[4, 5, 8\],\s*"max_main_tier_level": 12,\s*"max_high_tier_level": 12\s*\},',
             ''
         )
         .regex_replace(
-            '.+//dolby post process.*\n',
+            r'.+//dolby post process.*\n',
             ''
         )
         .regex_replace(
-            '.+"libqcodec2_dolbydecoderfilter\.so",.*\n',
+            r'.+"libqcodec2_dolbydecoderfilter\.so",.*\n',
             ''
         ),
 
