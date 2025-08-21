@@ -114,19 +114,6 @@ vendor/lib64/vendor.qti.hardware.AGMIPC@1.0-impl.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/vendor.qti.hardware.AGMIPC@1.0.so;MAKE_COPY_RULE_ONLY
 
 # Audio libraries
-odm/etc/audio/mis_head.bin
-odm/etc/audio/mis_head_spatial.bin
-odm/etc/audio/mis_spk.bin
-odm/etc/audio/mis_spk_spatial.bin
-odm/etc/audio/misound_karaoke_res.bin
-odm/etc/audio/misound_karaokemix_res.bin
-odm/etc/audio/misound_res_spk_power_game.bin
-odm/etc/audio/misound_res_spk_power_game_powersave.bin
-odm/etc/audio/misound_res_spk_power_sva.bin
-odm/etc/audio/misound_res_spk_power_sva_powersave.bin
-odm/etc/audio/misound_res_spk_power_video.bin
-odm/etc/audio/misound_res_spk_power_video_powersave.bin
-odm/etc/audio/misoundsa_spk_config.bin
 odm/etc/init/init.cirrus.rc
 odm/lib64/libaudioroute_ext.so;MAKE_COPY_RULE_ONLY
 odm/lib64/libawcal.so;MAKE_COPY_RULE_ONLY
@@ -145,7 +132,6 @@ vendor/lib64/hw/gyro_fusion_interface.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libPeripheralStateUtils.so
 vendor/lib64/libVoiceSdk.so
 vendor/lib64/lib_bt_lhdc.so;MAKE_COPY_RULE_ONLY
-vendor/lib64/lib_misound_asc.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libadm.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libadsprpc.so
 vendor/lib64/libar-acdb.so;MAKE_COPY_RULE_ONLY
@@ -171,7 +157,6 @@ vendor/lib64/libmcs.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libmis6.so
 vendor/lib64/libmisfpsop.so
 vendor/lib64/libmisops.so
-vendor/lib64/libmisoundsa.so
 vendor/lib64/libpal_net_if.so
 vendor/lib64/libpalclient.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/libqtigefar.so;MAKE_COPY_RULE_ONLY
