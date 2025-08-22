@@ -2529,18 +2529,7 @@ vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
 # Trusted User Interface
-vendor/bin/hw/vendor.qti.hardware.trustedui-aidl-service-qti
-vendor/etc/init/vendor.qti.hardware.trustedui-aidl-service-qti.rc
-vendor/etc/vintf/manifest/vendor.qti.hardware.trustedui-aidl-service.xml
-vendor/lib64/libTrustedInputAIDL.so
-vendor/lib64/libTrustedInputUtils.so
-vendor/lib64/libTrustedUIAIDL.so
-vendor/lib64/libTxPwrJni.so
-vendor/lib64/libloadtrusteduiapp.so
 vendor/lib64/libminksocket_vendor.so
-vendor/lib64/libsi.so
-vendor/lib64/libtaautoload.so
-vendor/lib64/vendor.qti.hardware.trustedui-V1-ndk.so
 
 # VPP
 vendor/bin/hw/qconfigservice
