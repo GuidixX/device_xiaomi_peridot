@@ -1694,11 +1694,8 @@ vendor/lib64/libqtikeymaster4.so
 vendor/bin/hw/android.hardware.security.keymint-service-qti
 vendor/etc/hal_uuid_map_peridot.xml
 vendor/etc/hal_uuid_map_config.xml
-vendor/etc/init/android.hardware.identity-service-qti.rc
 vendor/etc/init/android.hardware.security.keymint-service-qti.rc
 vendor/etc/vintf/manifest/android.hardware.security.keymint-service-qti.xml
-vendor/etc/vintf/manifest/manifest_identity_credential.xml
-vendor/lib64/libqtiidentitycredential.so
 vendor/lib64/libqtikeymint.so
 
 # Listen
