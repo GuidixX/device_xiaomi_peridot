@@ -61,7 +61,8 @@ PRODUCT_PACKAGES += \
     android.hardware.audio.effect@7.0-impl \
     android.hardware.audio@7.1-impl \
     android.hardware.audio.sounddose-vendor-impl \
-    android.hardware.soundtrigger@2.3-impl
+    android.hardware.soundtrigger@2.3-impl \
+    sound_trigger.primary.pineapple
 
 PRODUCT_PACKAGES += \
     audioadsprpcd \
