@@ -578,6 +578,24 @@
       "Value": "500000000"
     },
     {
+      "PowerHint": "GAME_LOADING",
+      "Node": "CPUBigClusterMinFreq",
+      "Duration": 0,
+      "Value": "9999999"
+    },
+    {
+      "PowerHint": "GAME_LOADING",
+      "Node": "CPULittleClusterMinFreq",
+      "Duration": 0,
+      "Value": "2016000"
+    },
+    {
+      "PowerHint": "GAME_LOADING",
+      "Node": "CPUBigPlusClusterMinFreq",
+      "Duration": 0,
+      "Value": "9999999"
+    },
+    {
       "PowerHint": "FP_BOOST",
       "Node": "CPUBigPlusClusterMaxFreq",
       "Duration": 5000,
