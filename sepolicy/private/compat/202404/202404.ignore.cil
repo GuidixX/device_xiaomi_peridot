@@ -5,10 +5,6 @@
 (typeattribute new_objects)
 (typeattributeset new_objects
   ( new_objects
-    hal_touchfeature_xiaomi_default
-    hal_touchfeature_xiaomi_default_exec
-    hal_touchfeature_xiaomi_hwservice
-    hal_touchfeature_xiaomi_service
     parts_app
     settingslib_prop
     touchfeature_device
