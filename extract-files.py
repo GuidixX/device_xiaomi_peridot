@@ -61,7 +61,6 @@ lib_fixups: lib_fixups_user_type = {
         'vendor.qti.qesdhal@1.2',
         'vendor.qti.qesdhalaidl-V2-ndk',
         'vendor.xiaomi.hardware.fingerprintextension-V1-ndk',
-        'vendor.xiaomi.hw.touchfeature-V1-ndk',
     ): lib_fixup_vendor_suffix,
     (
         'libar-pal',
