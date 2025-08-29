@@ -7999,19 +7999,10 @@
         <boolean name="carrier_disable_5g_switch_bool" value="true" />
         <boolean name="use_only_dialed_sim_ecc_list_bool" value="true" />
     </carrier_config>
-    <carrier_config mcc="470" mnc="07">
-        <boolean name="carrier_disable_5g_switch_bool" value="true" />
-    </carrier_config>
     <carrier_config mcc="470" mnc="04">
         <boolean name="carrier_disable_5g_switch_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="470" mnc="03">
-        <boolean name="carrier_disable_5g_switch_bool" value="true" />
-    </carrier_config>
-    <carrier_config mcc="470" mnc="02">
-        <boolean name="carrier_disable_5g_switch_bool" value="true" />
-    </carrier_config>
-    <carrier_config mcc="470" mnc="01">
         <boolean name="carrier_disable_5g_switch_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="440" mnc="10">
@@ -10117,16 +10108,31 @@
         <boolean name="carrier_volte_available_bool" value="true" />
     </carrier_config>
     <!--孟加拉 Bangladesh Airtel-->
-    <!--孟加拉 Bangladesh Grameenphone-->
     <carrier_config mcc="470" mnc="01">
         <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_disable_5g_switch_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="config_cota_carrier_customize_for_ussd_mode_feature" value="true" />
+        <boolean name="config_allow_ussd_over_ims" value="true" />
     </carrier_config>
+    <!--孟加拉 Bangladesh Grameenphone-->
     <!--孟加拉 Bangladesh Robi-->
     <carrier_config mcc="470" mnc="02">
         <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_disable_5g_switch_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="config_cota_carrier_customize_for_ussd_mode_feature" value="true" />
+        <boolean name="config_allow_ussd_over_ims" value="true" />
     </carrier_config>
     <carrier_config mcc="470" mnc="07">
         <boolean name="carrier_volte_available_bool" value="true" />
+        <boolean name="carrier_disable_5g_switch_bool" value="true" />
+        <boolean name="carrier_wfc_ims_available_bool" value="true" />
+        <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="config_cota_carrier_customize_for_ussd_mode_feature" value="true" />
+        <boolean name="config_allow_ussd_over_ims" value="true" />
     </carrier_config>
     <!--菲律宾 PH Globe-->
     <carrier_config mcc="515" mnc="02">
