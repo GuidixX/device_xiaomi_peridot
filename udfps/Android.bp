@@ -1,5 +1,5 @@
 //
-// Copyright (C) 2022 The LineageOS Project
+// Copyright (C) 2022-2025 The LineageOS Project
 //
 // SPDX-License-Identifier: Apache-2.0
 //
@@ -8,7 +8,6 @@ cc_library {
     name: "libudfpshandler",
     vendor: true,
     srcs: ["UdfpsHandler.cpp"],
-    compile_multilib: "64",
     shared_libs: [
         "libbase",
     ],
@@ -16,7 +15,7 @@ cc_library {
         "android.hardware.biometrics.fingerprint-V4-ndk",
     ],
     header_libs: [
+        "generated_kernel_headers",
         "//hardware/xiaomi:xiaomifingerprint_headers",
     ],
-    defaults: ["xiaomi_hardware_biometrics_config_default"],
 }
