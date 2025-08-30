@@ -117,9 +117,6 @@
 /sys/kernel/sound_control/mic_gain                                                               u:object_r:sysfs_sndctrl:s0
 /sys/kernel/sound_control/headphone_gain                                                         u:object_r:sysfs_sndctrl:s0
 
-# NFC
-/(odm|vendor/odm|vendor|system/vendor)/bin/hw/android\.hardware\.nqnfc-service\.nxp              u:object_r:hal_nfc_default_exec:s0
-
 # Sensors
 /(vendor|system/vendor)/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal               u:object_r:hal_sensors_default_exec:s0
 /sys/devices/virtual/touch/touch_dev/gesture_single_tap_enabled                                  u:object_r:vendor_sysfs_sensors:s0

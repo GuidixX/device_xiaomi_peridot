@@ -42,9 +42,6 @@ type vendor_mac_vendor_data_file, data_file_type, file_type, mlstrustedobject;
 type vendor_modem_data_file, data_file_type, file_type;
 type diag_device, data_file_type, file_type;
 
-# NFC
-type hal_nxpnfc_hwservice, hwservice_manager_type;
-
 # Perf
 type vendor_sys_perf_comp, file_type;
 type sysfs_msm_subsys, fs_type, sysfs_type;
