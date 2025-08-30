@@ -430,15 +430,10 @@ PRODUCT_COPY_FILES += \
 
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc-V1-ndk.vendor \
-    android.hardware.nfc@1.2.vendor \
+    android.hardware.nfc-service.nxp \
+    com.android.nfc_extras \
     android.hardware.secure_element-V1-ndk.vendor \
     android.hardware.secure_element@1.2.vendor
-
-PRODUCT_PACKAGES += \
-    nqnfcinfo \
-    vendor.nxp.nxpese@1.0.vendor \
-    vendor.nxp.nxpnfc_aidl-V1-ndk.vendor
 
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.nfc.ese.xml:$(TARGET_COPY_OUT_ODM)/etc/permissions/android.hardware.nfc.ese.xml \
