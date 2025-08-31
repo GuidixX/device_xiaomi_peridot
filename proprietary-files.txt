@@ -223,7 +223,7 @@ vendor/lib64/libmdsprpc.so
 vendor/lib64/libsdsprpc.so
 
 # CIT Sensor
-odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl
+odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl;DISABLE_DEPS
 odm/etc/init/vendor.xiaomi.sensor.citsensorservice.aidl.rc
 odm/etc/vintf/manifest/vendor.xiaomi.sensor.citsensorservice.aidl.xml
 vendor/lib64/vendor.xiaomi.sensor.citsensorservice-V1-ndk.so
@@ -1380,7 +1380,7 @@ vendor/lib64/libhdrvivid.so
 
 # Display HWC
 vendor/bin/hw/vendor.qti.hardware.display.allocator-service
-vendor/bin/hw/vendor.qti.hardware.display.composer-service
+vendor/bin/hw/vendor.qti.hardware.display.composer-service;DISABLE_DEPS
 vendor/bin/hw/vendor.qti.hardware.display.demura-service
 vendor/bin/qdcmss
 vendor/etc/init/qdcmss.rc
@@ -1428,7 +1428,7 @@ vendor/lib64/libclstc_gcp_adapter.so
 vendor/lib64/libclstc_tm.so
 vendor/lib64/libdigital-dimming.so
 vendor/lib64/libdisplayconfig.qti.so
-vendor/lib64/libdisplaydebug.so
+vendor/lib64/libdisplaydebug.so;DISABLE_DEPS
 vendor/lib64/libdisplayqos.so
 vendor/lib64/libdisplayskuutils.so
 vendor/lib64/libfeutils.so
