@@ -1,11 +1,15 @@
+# Allow hal_power_default to access various sysfs and proc nodes
 allow hal_power_default sysfs:file rw_file_perms;
 allow hal_power_default sysfs:file open;
+
 allow hal_power_default sysfs_gpu:file { read write open };
 allow hal_power_default sysfs_gpu:dir { search };
 allow hal_power_default sysfs_touchpanel:dir search;
 
+# Read input device files
 r_dir_file(hal_power_default, input_device)
 
+# Allow directory search for specific sysfs paths
 allow hal_power_default {
   vendor_sysfs_devfreq
   sysfs_msm_subsys
@@ -13,6 +17,7 @@ allow hal_power_default {
   sysfs_thermal
 }:dir search;
 
+# Allow read/write to specific files and links in sysfs and proc
 allow hal_power_default {
   proc
   vendor_sysfs_devfreq
@@ -21,17 +26,26 @@ allow hal_power_default {
   vendor_sysfs_scsi_host
   sysfs_touchpanel
   sysfs_thermal
-}:{
+} : {
   file
   lnk_file
 } rw_file_perms;
 
+# Additional rule for sysfs CPU nodes
+allow hal_power_default sysfs_devices_system_cpu:file rw_file_perms;
+
+# Allow access to latency device for CPU DMA latency
 allow hal_power_default vendor_latency_device:chr_file rw_file_perms;
+allow hal_power_default vendor_latency_device:chr_file ioctl;
+
+# Capability rules
 allow hal_power_default self:capability sys_admin;
 
-# Rule for hal_power_default to access graphics composer process
-unix_socket_connect(hal_power_default, vendor_pps, hal_graphics_composer_default);
-
+# Do not audit dac_override capability
 dontaudit hal_power_default self:capability dac_override;
 
+# Rule for hal_power_default to access graphics composer process via socket
+unix_socket_connect(hal_power_default, vendor_pps, hal_graphics_composer_default);
+
+# Allow directory and file R/W for sysfs thermal
 rw_dir_file(hal_power_default, sysfs_thermal)
