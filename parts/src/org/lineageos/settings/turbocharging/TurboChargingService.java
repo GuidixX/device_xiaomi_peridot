@@ -36,13 +36,14 @@ package org.lineageos.settings.turbocharging;
  
  public class TurboChargingService extends Service {
      private static final String TAG = "TurboChargingService";
-     private static final String CHARGE_CURRENT_FILE = "/sys/class/power_supply/battery/constant_charge_current";
-     private static final String USB_ONLINE_FILE = "/sys/class/power_supply/usb/online";
- 
-     private static final String PROP_TURBO_CURRENT = "persist.sys.turbo_charge_current";
- 
-     private static final String DEFAULT_OFF_VALUE = "6000000";
-     private static final String DEFAULT_ON_VALUE = "9750000";
+    private static final String CHARGE_CURRENT_FILE = "/sys/class/power_supply/battery/constant_charge_current";
+    private static final String USB_ONLINE_FILE = "/sys/class/power_supply/usb/online";
+    private static final String SPORTS_MODE_NODE = "/sys/class/qcom-battery/smart_chg";
+
+    private static final String PROP_TURBO_CURRENT = "persist.sys.turbo_charge_current";
+
+    private static final String DEFAULT_OFF_VALUE = "6000000";
+    private static final String DEFAULT_ON_VALUE = "9750000";
  
      private UEventObserver mObserver;
      private Handler mHandler = new Handler();
@@ -67,16 +68,19 @@ package org.lineageos.settings.turbocharging;
          startMonitoring();
      }
  
-     private void updateChargeCurrent() {
-         boolean turboEnabled = PreferenceManager.getDefaultSharedPreferences(this)
-                 .getBoolean("turbo_enable", false);
-         String desiredValue = turboEnabled ?
-                 PreferenceManager.getDefaultSharedPreferences(this)
-                         .getString("turbo_current", DEFAULT_ON_VALUE)
-                 : DEFAULT_OFF_VALUE;
-         Log.i(TAG, "Updating charge current with value: " + desiredValue);
-         setChargingProperty(desiredValue);
-     }
+    private void updateChargeCurrent() {
+        boolean turboEnabled = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("turbo_enable", false);
+        boolean sportsEnabled = PreferenceManager.getDefaultSharedPreferences(this)
+                .getBoolean("sports_mode", false);
+        String desiredValue = turboEnabled ?
+                PreferenceManager.getDefaultSharedPreferences(this)
+                        .getString("turbo_current", DEFAULT_ON_VALUE)
+                : DEFAULT_OFF_VALUE;
+        Log.i(TAG, "Updating charge current with value: " + desiredValue);
+        setChargingProperty(desiredValue);
+        updateSportsMode(sportsEnabled);
+    }
  
      private void setChargingProperty(String value) {
          try {
@@ -128,16 +132,31 @@ package org.lineageos.settings.turbocharging;
          mHandler.post(mMonitorRunnable);
      }
  
-     private String getSystemProperty(String key, String def) {
-         try {
-             Class<?> sp = Class.forName("android.os.SystemProperties");
-             Method getProp = sp.getMethod("get", String.class, String.class);
-             return (String) getProp.invoke(null, key, def);
-         } catch (Exception e) {
-             Log.e(TAG, "Failed to get system property " + key, e);
-             return def;
-         }
-     }
+    private void updateSportsMode(boolean enabled) {
+        String value = enabled ? "9" : "8";
+        Log.i(TAG, "Updating Sports Mode node " + SPORTS_MODE_NODE + " to: " + value);
+        writeSportsMode(value);
+    }
+
+    private void writeSportsMode(String value) {
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(SPORTS_MODE_NODE))) {
+            writer.write(value);
+            Log.i(TAG, "Sports Mode node updated to " + value);
+        } catch (IOException e) {
+            Log.e(TAG, "Failed to update Sports Mode node", e);
+        }
+    }
+
+    private String getSystemProperty(String key, String def) {
+        try {
+            Class<?> sp = Class.forName("android.os.SystemProperties");
+            Method getProp = sp.getMethod("get", String.class, String.class);
+            return (String) getProp.invoke(null, key, def);
+        } catch (Exception e) {
+            Log.e(TAG, "Failed to get system property " + key, e);
+            return def;
+        }
+    }
  
      @Override
      public int onStartCommand(Intent intent, int flags, int startId) {

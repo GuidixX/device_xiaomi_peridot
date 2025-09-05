@@ -19,19 +19,25 @@ package org.lineageos.settings.turbocharging;
 import android.content.Context;
 import android.content.SharedPreferences;
 import androidx.preference.PreferenceManager;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.lang.reflect.Method;
 
 public class TurboChargingUtil {
 
     private static final String PREF_TURBO_ENABLED = "turbo_enable";
     private static final String PREF_TURBO_CURRENT = "turbo_current";
+    private static final String PREF_SPORTS_MODE = "sports_mode";
     private static final String PROP_TURBO_CURRENT = "persist.sys.turbo_charge_current";
+    private static final String SPORTS_MODE_NODE = "/sys/class/qcom-battery/smart_chg";
     private static final String DEFAULT_OFF_VALUE = "6000000";
     private static final String DEFAULT_ON_VALUE = "9750000";
 
     public static void applyTurboSetting(Context context) {
         SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(context);
         boolean turboEnabled = prefs.getBoolean(PREF_TURBO_ENABLED, false);
+        boolean sportsEnabled = prefs.getBoolean(PREF_SPORTS_MODE, false);
         String turboValue = turboEnabled ? prefs.getString(PREF_TURBO_CURRENT, DEFAULT_ON_VALUE)
                 : DEFAULT_OFF_VALUE;
 
@@ -40,6 +46,14 @@ public class TurboChargingUtil {
             Method setProp = sp.getMethod("set", String.class, String.class);
             setProp.invoke(null, PROP_TURBO_CURRENT, turboValue);
         } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        // Update Sports Mode
+        String sportsValue = sportsEnabled ? "9" : "8";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(SPORTS_MODE_NODE))) {
+            writer.write(sportsValue);
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }

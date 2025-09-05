@@ -38,7 +38,7 @@ public class TurboChargingBootReceiver extends BroadcastReceiver {
     private static final String DEFAULT_OFF_VALUE = "6000000";
     private static final String DEFAULT_ON_VALUE = "9750000";
 
-    private static final String SPORTS_MODE_NODE = "/sys/class/qcom-battery/sport_mode";
+    private static final String SPORTS_MODE_NODE = "/sys/class/qcom-battery/smart_chg";
 
     @Override
     public void onReceive(Context context, Intent intent) {
@@ -57,7 +57,7 @@ public class TurboChargingBootReceiver extends BroadcastReceiver {
             Log.e(TAG, "Boot: Failed to set property " + PROP_TURBO_CURRENT, e);
         }
 
-        String sportsValue = sportsEnabled ? "1" : "0";
+        String sportsValue = sportsEnabled ? "9" : "8";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(SPORTS_MODE_NODE))) {
             writer.write(sportsValue);
             Log.i(TAG, "Boot: Sports Mode node set to " + sportsValue);

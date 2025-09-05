@@ -60,6 +60,10 @@
 /dev/mi_display/disp_feature                                                                     u:object_r:vendor_displayfeature_device:s0
 /sys/devices/virtual/mi_display/disp_feature/disp-DSI-+[0-1](/.*)?                               u:object_r:vendor_sysfs_displayfeature:s0
 
+# FastCharge
+/sys/class/qcom-battery/sport_mode                                                               u:object_r:sysfs_fastcharge:s0
+/sys/class/qcom-battery/smart_chg                                                                u:object_r:sysfs_fastcharge:s0
+
 # Fingerprint
 /(vendor|system/vendor)/bin/hw/android\.hardware\.biometrics\.fingerprint-service\.xiaomi        u:object_r:hal_fingerprint_default_exec:s0
 /data/vendor/misc/mi_fp(/.*)?                                                                    u:object_r:vendor_fingerprint_data_file:s0

@@ -47,7 +47,7 @@ public class TurboChargingFragment extends PreferenceFragment implements Prefere
     private static final String PREF_SPORTS_MODE = "sports_mode";
     private static final String PREF_TURBO_CURRENT = "turbo_current";
 
-    private static final String SPORTS_MODE_NODE = "/sys/class/qcom-battery/sport_mode";
+    private static final String SPORTS_MODE_NODE = "/sys/class/qcom-battery/smart_chg";
 
     private MainSwitchPreference mTurboEnabled;
     private SwitchPreferenceCompat mSportsMode;
@@ -145,7 +145,7 @@ public class TurboChargingFragment extends PreferenceFragment implements Prefere
     }
 
     private void updateSportsMode(boolean enabled) {
-        String value = enabled ? "1" : "0";
+        String value = enabled ? "9" : "8";
         Log.i(TAG, "Updating Sports Mode node " + SPORTS_MODE_NODE + " to: " + value);
         writeSportsMode(value);
     }
