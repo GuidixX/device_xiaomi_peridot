@@ -47,23 +47,6 @@
     <string name="image_preview_next_page_content_description">Next</string>
     <string name="image_preview_previous_page_content_description">Previous</string>
 
-    <!-- Turbo Charging -->
-    <string name="turbo_charge_title">Turbo Charging</string>
-    <string name="turbo_enable_title">Enable Turbo Charging</string>
-    <string name="turbo_charge_summary">Enable Turbo Charging for fast charging up to 90W</string>
-    <string name="turbo_charge_current_pref_title">Charging Wattage</string>
-
-    <!-- FastCharge Mode -->
-    <string name="sports_mode_title">FastCharge</string>
-    <string name="sports_mode_summary">Enable FastCharge with 90w by using stock node</string>
-    
-    <!-- Toast messages -->
-    <string name="toast_wattage_set">Charging wattage set to %1$s</string>
-    <string name="toast_sports_on">FastCharge Mode turned ON</string>
-    <string name="toast_sports_off">FastCharge Mode turned OFF</string>
-    <string name="toast_turbo_on">Turbo Charging turned ON</string>
-    <string name="toast_turbo_off">Turbo Charging turned OFF</string>
-
     <!-- High Touch Polling -->
     <string name="htsr_title">High Touch Polling Rate</string>
     <string name="htsr_enable_title">Enhanced Touch Responsiveness</string>

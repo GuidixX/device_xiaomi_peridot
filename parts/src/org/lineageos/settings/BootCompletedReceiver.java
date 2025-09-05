@@ -30,7 +30,6 @@ import android.view.Display.HdrCapabilities;
 
 import org.lineageos.settings.display.ColorModeService;
 import org.lineageos.settings.doze.PocketService;
-import org.lineageos.settings.turbocharging.TurboChargingService;
 import org.lineageos.settings.touchsampling.TouchSamplingUtils;
 import org.lineageos.settings.touchsampling.TouchSamplingService;
 import org.lineageos.settings.touchsampling.TouchSamplingTileService;
@@ -88,10 +87,6 @@ public class BootCompletedReceiver extends BroadcastReceiver {
 
         // Start Pocket Mode Service
         PocketService.startService(context);
-
-        // Start TurboChargingService
-        Intent turboChargingIntent = new Intent(context, TurboChargingService.class);
-        context.startService(turboChargingIntent);
 
         // Start Touch Sampling Tile Service
         context.startServiceAsUser(new Intent(context, TouchSamplingTileService.class), UserHandle.CURRENT);

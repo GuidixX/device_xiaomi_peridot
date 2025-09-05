@@ -22,9 +22,6 @@ genfscon sysfs /class/power_supply/battery/constant_charge_current              
 # Powercap
 genfscon sysfs /class/powercap                                                                               u:object_r:sysfs_thermal:s0
 
-# FastCharge
-genfscon sysfs /class/qcom-battery/sport_mode                                                                u:object_r:sysfs_fastcharge:s0
-
 # Graphics
 genfscon sysfs /devices/platform/soc/3d00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpu_available_frequencies           u:object_r:vendor_sysfs_kgsl:s0
 

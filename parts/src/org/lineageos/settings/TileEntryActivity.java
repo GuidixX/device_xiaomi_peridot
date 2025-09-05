@@ -27,14 +27,12 @@ import android.util.Log;
 import androidx.annotation.Nullable;
 
 import org.lineageos.settings.saturation.SaturationActivity;
-import org.lineageos.settings.turbocharging.TurboChargingActivity;
 import org.lineageos.settings.touchsampling.TouchSamplingSettingsActivity;
 import org.lineageos.settings.chargecontrol.ChargeControlActivity;
 
 public class TileEntryActivity extends Activity {
     private static final String TAG = "TileEntryActivity";
     private static final String SATURATION_TILE = "org.lineageos.settings.saturation.SaturationTileService";
-    private static final String TURBOCHG_TILE = "org.lineageos.settings.turbocharging.TurboChargingTile";
     private static final String HTSR_TILE = "org.lineageos.settings.touchsampling.TouchSamplingTileService";
     private static final String CHGCTRL_TILE = "org.lineageos.settings.chargecontrol.ChargeControlTileService";
 
@@ -53,8 +51,6 @@ public class TileEntryActivity extends Activity {
 
         if (SATURATION_TILE.equals(sourceClassName)) {
             intent = new Intent(this, SaturationActivity.class);
-        } else if (TURBOCHG_TILE.equals(sourceClassName)) {
-            intent = new Intent(this, TurboChargingActivity.class);
         } else if (HTSR_TILE.equals(sourceClassName)) {
             intent = new Intent(this, TouchSamplingSettingsActivity.class);
         } else if (CHGCTRL_TILE.equals(sourceClassName)) {
