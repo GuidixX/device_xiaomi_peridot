@@ -1,2 +1,2 @@
-allow hal_camera_default system_data_file:dir { search };
+allow hal_camera_default system_data_file:dir search;
 binder_call(hal_camera_default, platform_app)

@@ -15,8 +15,9 @@ allow platform_app hal_camera_mivi_hwservice:hwservice_manager find;
 allow platform_app app_data_file:file execute;
 allow platform_app hal_aidlbgservice_service:service_manager find;
 allow platform_app vendor_audio_prop:file { open read getattr };
-allow platform_app vendor_camera_p3enable_prop:file { read };
+allow platform_app vendor_camera_p3enable_prop:file { read map };
 allow platform_app vendor_audio_prop:file { getattr };
+allow platform_app vendor_displayfeature_prop:file map;
 
 binder_call(platform_app, hal_camera_default)
 

@@ -1,3 +1,6 @@
+# Allow access to vendor NFC data directory
+allow nfc vendor_nfc_vendor_data_file:dir search;
+
 get_prop(nfc, vendor_nfc_mi_prop)
 get_prop(nfc, vendor_fp_prop)
 get_prop(nfc, vendor_audio_prop)
