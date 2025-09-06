@@ -19,6 +19,9 @@ genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,
 # Charger
 genfscon sysfs /class/power_supply/battery/constant_charge_current                                           u:object_r:vendor_sysfs_power_supply:s0
 
+# Powercap
+genfscon sysfs /class/powercap                                                                               u:object_r:sysfs_thermal:s0
+
 # FastCharge
 genfscon sysfs /class/qcom-battery/sport_mode                                                                u:object_r:sysfs_fastcharge:s0
 
