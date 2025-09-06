@@ -1,1 +1,29 @@
 binder_call(system_server, vendor_hal_displayfeature_xiaomi_default)
+
+allow platform_app hal_aidlbgservice_service:service_manager find;
+
+allow system_server zygote_tmpfs:file write;
+
+# Extcon access for audio codec and HDMI state
+allow system_server sysfs_extcon:dir search;
+allow system_server sysfs_extcon:file { getattr open read write };
+
+# Proc
+allow system_server proc:file getattr;
+allow system_server proc_bootconfig:file getattr;
+allow system_server proc_buddyinfo:file getattr;
+allow system_server proc_cgroups:file getattr;
+allow system_server proc_diskstats:file getattr;
+allow system_server proc_interrupts:file getattr;
+allow system_server proc_iomem:file getattr;
+allow system_server proc_keys:file getattr;
+allow system_server proc_kmsg:file getattr;
+allow system_server proc_kpageflags:file getattr;
+allow system_server proc_misc:file getattr;
+allow system_server proc_modules:file getattr;
+allow system_server proc_mtd:file getattr;
+allow system_server proc_slabinfo:file getattr;
+allow system_server proc_swaps:file getattr;
+allow system_server proc_timer:file getattr;
+allow system_server proc_uptime:file getattr;
+allow system_server proc_zoneinfo:file getattr;

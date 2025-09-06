@@ -50,7 +50,7 @@ allow mi_thermald vendor_sysfs_kgsl:lnk_file r_file_perms;
 
 # Allow mi_thermald to access battery supply sysfs
 allow mi_thermald vendor_sysfs_battery_supply:dir r_dir_perms;
-allow mi_thermald vendor_sysfs_battery_supply:file r_file_perms;
+allow mi_thermald vendor_sysfs_battery_supply:file rw_file_perms;
 allow mi_thermald vendor_sysfs_battery_supply:lnk_file r_file_perms;
 
 # Allow mi_thermald to create wakelock

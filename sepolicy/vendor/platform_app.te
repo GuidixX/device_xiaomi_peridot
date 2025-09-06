@@ -1,4 +1,5 @@
 allow platform_app app_data_file:file execute;
+allow platform_app vendor_file:file { read open getattr map execute watch };
 
 binder_call(platform_app, hal_camera_default)
 
@@ -10,6 +11,13 @@ get_prop(platform_app, vendor_panel_info_prop)
 # Camera
 allow platform_app app_data_file:file execute;
 allow platform_app hal_aidlbgservice_service:service_manager find;
+allow platform_app hal_camera_mivi_hwservice:hwservice_manager find;
+allow platform_app app_data_file:file execute;
+allow platform_app hal_aidlbgservice_service:service_manager find;
+allow platform_app vendor_audio_prop:file { open read getattr };
+allow platform_app vendor_camera_p3enable_prop:file { read map };
+allow platform_app vendor_audio_prop:file { getattr };
+allow platform_app vendor_displayfeature_prop:file map;
 
 binder_call(platform_app, hal_camera_default)
 
@@ -22,10 +30,15 @@ get_prop(platform_app, vendor_panel_info_prop)
 
 allow platform_app vendor_hal_camerapostproc_xiaomi_hwservice:hwservice_manager find;
 binder_call(platform_app, vendor_hal_camerapostproc_xiaomi)
-
 typeattribute platform_app system_executes_vendor_violators;
-allow platform_app vendor_displayfeature_prop:file { read open };
-allow platform_app vendor_camera_p3enable_prop:file { read open };
+allow platform_app vendor_displayfeature_prop:file { read open getattr };
+allow platform_app vendor_camera_p3enable_prop:file { read open getattr };
+
+# Fingerprint
+allow platform_app vendor_hal_fingerprint_service_xiaomi:service_manager { find };
+allow platform_app vendor_file:file { read open getattr map execute watch };
+allow platform_app vendor_displayfeature_prop:file read;
+allow platform_app vendor_file:file { read open getattr map execute watch };
 
 # we don't have google battery support, add dummy domain and let it return null by selinux denial
 dontaudit platform_app hal_dummy_googlebattery_service:service_manager find;

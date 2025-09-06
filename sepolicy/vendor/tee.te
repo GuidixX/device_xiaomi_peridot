@@ -2,4 +2,8 @@ allow tee mnt_vendor_file:dir { create_dir_perms relabelto };
 allow tee mnt_vendor_file:file { create_file_perms relabelto };
 allow tee vendor_gunyah_dev:chr_file { create rw_file_perms setattr unlink };
 allow tee vendor_gunyah_chr_device:chr_file { create rw_file_perms setattr unlink };
+allow tee vendor_gpt_block_device:blk_file { read write open };
+allow tee vendor_xbl_block_device:blk_file { read open };
+allow tee boot_block_device:blk_file { read open };
+
 hal_client_domain(tee, vendor_hal_qvirtservice)

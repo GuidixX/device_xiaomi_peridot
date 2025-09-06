@@ -1,0 +1,5 @@
+# Allow vendor_modprobe to use sys_nice capability
+allow vendor_modprobe vendor_modprobe:capability sys_nice;
+allow vendor_modprobe kernel:process setsched;
+allow vendor_modprobe block_device:dir search;
+allow vendor_modprobe self:key write;

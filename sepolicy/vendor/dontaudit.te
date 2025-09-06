@@ -1,0 +1,22 @@
+# Only apps targetting < Q are allowed to open /dev/ashmem directly.
+# Apps must use ASharedMemory NDK API. Native code must use libcutils API.
+dontaudit untrusted_app ashmem_device:chr_file open;
+
+# Camera hal
+dontaudit {
+  hal_camera_default
+} default_prop:file r_file_perms;
+
+# SurfaceFlinger
+dontaudit surfaceflinger vendor_file:file read;
+
+# BootAnimation
+dontaudit bootanim vendor_file:file read;
+
+# qti services reading default_prop noise
+dontaudit vendor_qtidataservices_app default_prop:file { read open getattr };
+dontaudit vendor_timeservice_app default_prop:file { read open getattr };
+
+dontaudit system_server proc_kallsyms:file getattr;
+dontaudit hal_camera_default shell_data_file:dir { read getattr search };
+dontaudit hal_camera_default system_data_file:dir { read getattr search };

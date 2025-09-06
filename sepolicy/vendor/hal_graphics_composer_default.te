@@ -1,1 +1,2 @@
 allow hal_graphics_composer_default diag_device:chr_file rw_file_perms;
+dontaudit hal_graphics_composer_default system_prop:file { read getattr open };

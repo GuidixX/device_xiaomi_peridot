@@ -3,3 +3,10 @@ allow vendor_qti_init_shell vendor_firmware_data_file:dir rw_dir_perms;
 allow vendor_qti_init_shell vendor_firmware_data_file:file rw_file_perms;
 allow vendor_qti_init_shell vendor_data_file:file { read open getattr };
 allow vendor_qti_init_shell vendor_data_file:dir { read open getattr };
+allow vendor_qti_init_shell proc_watermark_boost_factor:file w_file_perms;
+
+# Allow access to cgroup files
+allow vendor_qti_init_shell cgroup:file { getattr read };
+
+# Allow access to proc page-cluster
+allow vendor_qti_init_shell proc_page_cluster:file { read open write };

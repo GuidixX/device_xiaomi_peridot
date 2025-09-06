@@ -19,4 +19,6 @@ allow vendor_diag-router vendor_mhi_diag_device:chr_file rw_file_perms;
 
 allow vendor_diag-router self:netlink_kobject_uevent_socket create_socket_perms_no_ioctl;
 
+allow vendor_diag-router vendor_modem_data_file:dir { search write };
+
 allow { domain -coredomain -hal_configstore -vendor_init} vendor_diag-router:unix_stream_socket connectto;
