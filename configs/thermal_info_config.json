@@ -4,84 +4,98 @@
             "Name": "CPU0",
             "Type": "CPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "CPU1",
             "Type": "CPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "CPU2",
             "Type": "CPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "CPU3",
             "Type": "CPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "CPU4",
             "Type": "CPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "CPU5",
             "Type": "CPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "CPU6",
             "Type": "CPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "CPU7",
             "Type": "CPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "GPU0",
             "Type": "GPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "GPU1",
             "Type": "GPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "GPU2",
             "Type": "GPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "GPU3",
             "Type": "GPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 95.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "battery",
             "Type": "BATTERY",
             "HotThreshold": ["NaN", "NaN", "NaN", 80.0, "NaN", "NaN", 90.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "vbat",
             "Type": "BCL_VOLTAGE",
             "ColdThreshold": ["NaN", "NaN", "NaN", 3.2, "NaN", "NaN", 3.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
@@ -94,31 +108,37 @@
             "Name": "nsp0",
             "Type": "NPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 100.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "nsp1",
             "Type": "NPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 100.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "nsp2",
             "Type": "NPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 100.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "nsp3",
             "Type": "NPU",
             "HotThreshold": ["NaN", "NaN", "NaN", 100.0, "NaN", "NaN", 115.0],
+            "VrThreshold": 50.0,
             "Multiplier": 0.001
         },
         {
             "Name": "skin",
             "Type": "SKIN",
             "HotThreshold": ["NaN", "NaN", "NaN", 60.0, "NaN", "NaN", 95.0],
-            "Multiplier": 1.0
+            "VrThreshold": 50.0,
+            "Multiplier": 1.0,
+            "Monitor": true
         }
     ],
     "CoolingDevices": [
