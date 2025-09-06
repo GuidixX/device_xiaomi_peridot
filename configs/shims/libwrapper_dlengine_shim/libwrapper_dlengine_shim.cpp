@@ -11,4 +11,6 @@ extern "C" {
     void _ZN3zdl4SNPE11SNPEBuilderC1EPNS_11DlContainer12IDlContainerE(void*) {}
     void _ZN3zdl4SNPE11SNPEFactory16getTensorFactoryEv(void*) {}
     void _ZN3zdl4SNPE11SNPEBuilder19setRuntimeProcessorENS_8DlSystem9Runtime_tE(void*) {}
+    void _ZN3zdl4SNPE11SNPEBuilderD1Ev(void*) {}
+    void _ZN3zdl4SNPE11SNPEBuilder25setUseUserSuppliedBuffersEb(void*) {}
 }
