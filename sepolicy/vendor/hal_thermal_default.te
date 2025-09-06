@@ -10,6 +10,10 @@ allow hal_thermal_default self:netlink_kobject_uevent_socket create_socket_perms
 allow hal_thermal_default sysfs_gpu:file r_file_perms;
 allow hal_thermal_default vendor_sysfs_kgsl:file r_file_perms;
 
+# Allow access to powercap directory
+allow hal_thermal_default sysfs_thermal:dir { read open getattr search };
+allow hal_thermal_default sysfs_thermal:file { read open getattr };
+
 hal_client_domain(hal_thermal_default, hal_power);
 
 # read thermal_config
