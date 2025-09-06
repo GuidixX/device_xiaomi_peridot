@@ -118,41 +118,41 @@
             "Name": "skin",
             "Type": "SKIN",
             "HotThreshold": ["NaN", "NaN", "NaN", 60.0, "NaN", "NaN", 95.0],
-            "Multiplier": 0.001
+            "Multiplier": 1.0
         }
     ],
     "CoolingDevices": [
         {
             "Name": "thermal-pause-1",
-            "Type": "THERMAL_PAUSE"
+            "Type": "CPU"
         },
         {
             "Name": "thermal-pause-2",
-            "Type": "THERMAL_PAUSE"
+            "Type": "CPU"
         },
         {
             "Name": "thermal-pause-4",
-            "Type": "THERMAL_PAUSE"
+            "Type": "CPU"
         },
         {
             "Name": "thermal-pause-8",
-            "Type": "THERMAL_PAUSE"
+            "Type": "CPU"
         },
         {
             "Name": "thermal-pause-10",
-            "Type": "THERMAL_PAUSE"
+            "Type": "CPU"
         },
         {
             "Name": "thermal-pause-20",
-            "Type": "THERMAL_PAUSE"
+            "Type": "CPU"
         },
         {
             "Name": "thermal-pause-40",
-            "Type": "THERMAL_PAUSE"
+            "Type": "CPU"
         },
         {
             "Name": "thermal-pause-80",
-            "Type": "THERMAL_PAUSE"
+            "Type": "CPU"
         },
         {
             "Name": "gpu",
