@@ -1,0 +1,2 @@
+# Allow vendor_qti_media to set media variant properties
+get_prop(vendor_qti_media, media_variant_prop)

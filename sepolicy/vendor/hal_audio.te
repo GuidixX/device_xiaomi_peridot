@@ -23,3 +23,6 @@ get_prop(hal_audio, vendor_audio_prop)
 # Extcon access for audio codec and HDMI state
 allow hal_audio_default sysfs_extcon:dir search;
 allow hal_audio_default sysfs_extcon:file { getattr open read write };
+
+# Debugfs access
+allow hal_audio_default debugfs:dir read;
