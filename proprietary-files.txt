@@ -2337,62 +2337,7 @@ vendor/lib64/hw/vendor.qti.hardware.soter-impl.so
 vendor/lib64/vendor.qti.hardware.soter-V1-ndk.so
 
 # Thermal
-vendor/bin/mi_thermald
-vendor/etc/init/hw/init.mi_thermald.rc
 vendor/lib64/libthermalclient.so
-
-# Thermal configs
-odm/etc/thermal-4k.conf
-odm/etc/thermal-arvr.conf
-odm/etc/thermal-boost.conf
-odm/etc/thermal-camera.conf
-odm/etc/thermal-cclassvideo.conf
-odm/etc/thermal-cgame.conf
-odm/etc/thermal-chg-only.conf
-odm/etc/thermal-class0.conf
-odm/etc/thermal-highfps.conf
-odm/etc/thermal-hp-mgame.conf
-odm/etc/thermal-hp-normal.conf
-odm/etc/thermal-huanji.conf
-odm/etc/thermal-india-4k.conf
-odm/etc/thermal-india-arvr.conf
-odm/etc/thermal-india-camera.conf
-odm/etc/thermal-india-cclassvideo.conf
-odm/etc/thermal-india-cgame.conf
-odm/etc/thermal-india-class0.conf
-odm/etc/thermal-india-highfps.conf
-odm/etc/thermal-india-hp-mgame.conf
-odm/etc/thermal-india-hp-normal.conf
-odm/etc/thermal-india-huanji.conf
-odm/etc/thermal-india-mgame.conf
-odm/etc/thermal-india-navigation.conf
-odm/etc/thermal-india-nolimits.conf
-odm/etc/thermal-india-normal.conf
-odm/etc/thermal-india-per-class0.conf
-odm/etc/thermal-india-per-normal.conf
-odm/etc/thermal-india-per-video.conf
-odm/etc/thermal-india-phone.conf
-odm/etc/thermal-india-tgame.conf
-odm/etc/thermal-india-video.conf
-odm/etc/thermal-india-videochat.conf
-odm/etc/thermal-india-yuanshen.conf
-odm/etc/thermal-map-india.conf
-odm/etc/thermal-mgame.conf
-odm/etc/thermal-navigation.conf
-odm/etc/thermal-nolimits.conf
-odm/etc/thermal-normal.conf
-odm/etc/thermal-per-class0.conf
-odm/etc/thermal-per-normal.conf
-odm/etc/thermal-per-video.conf
-odm/etc/thermal-phone.conf
-odm/etc/thermal-region-map.conf
-odm/etc/thermal-tgame.conf
-odm/etc/thermal-video.conf
-odm/etc/thermal-videochat.conf
-odm/etc/thermal-yuanshen.conf
-vendor/etc/thermal-engine.conf
-vendor/etc/thermal-map.conf
-vendor/etc/thermald-devices.conf
 
 # Time services
 vendor/app/TimeService/TimeService.apk

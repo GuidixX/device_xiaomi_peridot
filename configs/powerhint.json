@@ -311,52 +311,6 @@
       "ResetOnInit": true
     },
     {
-      "Name": "ThermalMessage",
-      "Path": "/sys/devices/virtual/thermal/thermal_message/sconfig",
-      "Values": [
-        "0",
-        "1",
-        "5",
-        "6",
-        "7",
-        "8",
-        "9",
-        "10",
-        "11",
-        "14",
-        "15",
-        "16",
-        "18",
-        "19",
-        "20",
-        "26",
-        "27",
-        "57"
-      ],
-      "ResetOnInit": true,
-      "DefaultIndex": 0,
-      "Comments": [
-        "thermal-normal",
-        "thermal-huanji",
-        "thermal-phone",
-        "thermal-nolimits",
-        "thermal-class0",
-        "thermal-youtube",
-        "thermal-arvr",
-        "thermal-navigation",
-        "thermal-video",
-        "thermal-videochat",
-        "thermal-camera",
-        "thermal-4k",
-        "thermal-tgame",
-        "thermal-mgame",
-        "thermal-yuanshen",
-        "thermal-highfps",
-        "thermal-charge",
-        "thermal-per-class0"
-      ]
-    },
-    {
       "Name": "CPUBWMinFreq",
       "Path": "/sys/devices/system/cpu/bus_dcvs/DDR/boost_freq",
       "Values": [
@@ -646,12 +600,6 @@
     },
     {
       "PowerHint": "FIXED_PERFORMANCE",
-      "Node": "ThermalMessage",
-      "Duration": 0,
-      "Value": "19"
-    },
-    {
-      "PowerHint": "FIXED_PERFORMANCE",
       "Node": "CPUBigClusterMinFreq",
       "Duration": 0,
       "Value": "2073600"
@@ -679,12 +627,6 @@
       "Node": "GPUMinFreq",
       "Duration": 0,
       "Value": "500000000"
-    },
-    {
-      "PowerHint": "GAME",
-      "Node": "ThermalMessage",
-      "Duration": 0,
-      "Value": "6"
     },
     {
       "PowerHint": "GAME_LOADING",
