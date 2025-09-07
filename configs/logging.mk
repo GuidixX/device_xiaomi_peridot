@@ -40,9 +40,13 @@ SPAMMY_LOG_TAGS := \
     android.hardware.power-service.lineage-libperfmgr \
     libperfmgr \
     android.hardware.audio.service \
+    android.hardware.thermal-service.pixel \
+    thermal_symlinks \
     vibratorfeature-wrapper \
     android.hardware.vibrator-V1-ndk_platform.vendor \
     libqti-perfd-client \
+    pixel-thermal \
+    ThermalEngine \
     BATTERY_CHG \
     BackgroundInstallControlService \
     BackupTransportManager \
