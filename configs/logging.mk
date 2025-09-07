@@ -41,16 +41,19 @@ SPAMMY_LOG_TAGS := \
     libperfmgr \
     android.hardware.audio.service \
     android.hardware.light-V2-ndk.vendor \
+    android.hardware.thermal-service.pixel \
+    thermal_symlinks \
     vibratorfeature-wrapper \
     android.hardware.vibrator-V1-ndk_platform.vendor \
     libqti-perfd-client \
+    pixel-thermal \
     BATTERY_CHG \
     BackgroundInstallControlService \
     BackupTransportManager \
     ActivityManager \
     qcrilNrd
 
-ifneq ($(TARGET_BUILD_VARIANT),eng)
+ifneq ($(TARGET_BUILD_VARIANT),userdebug,eng)
 PRODUCT_VENDOR_PROPERTIES += \
-    $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=E)
+    $(foreach tag,$(SPAMMY_LOG_TAGS),log.tag.$(tag)=S)
 endif
