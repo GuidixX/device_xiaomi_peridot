@@ -33,6 +33,11 @@ settingsdebug.instant.packages      u:object_r:settingslib_prop:s0
 # Sensors
 persist.sensor.sardisable           u:object_r:vendor_sensors_prop:s0
 
+# Thermal
+ro.oplus.image.my_engineering.type  u:object_r:exported_system_prop:s0
+persist.sys.thermal.                u:object_r:vendor_thermal_engine_prop:s0
+vendor.sys.thermal.                 u:object_r:vendor_thermal_normal_prop:s0
+
 # Fling
 ro.max.fling_velocity               u:object_r:exported_system_prop:s0
 ro.min.fling_velocity               u:object_r:exported_system_prop:s0

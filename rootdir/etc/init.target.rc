@@ -490,6 +490,18 @@ on charger
     write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 1
     write /sys/bus/platform/devices/1d84000.ufshc/auto_hibern8 5000
     write /sys/bus/platform/devices/1d84000.ufshc/clkgate_enable 1
+    # Thermal in charger mode
+    start vendor.thermal.symlinks
+    start vendor.thermal-engine-v2
+    trigger enable-thermal-hal
+
+# Thermal HAL needed
+on enable-thermal-hal
+    # Permission for battery cooling device state if present
+    chown root system /dev/thermal/cdev-by-name/battery/cur_state
+    chmod 660 /dev/thermal/cdev-by-name/battery/cur_state
+    # Enable State of Charge (SOC) thermal zone if present
+    write /dev/thermal/tz-by-name/soc/mode "enabled"
 
 # PD-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
@@ -509,6 +521,11 @@ service vendor.per_proxy /vendor/bin/pm-proxy
     user system
     group system
     disabled
+
+service vendor.thermal-engine-v2 /vendor/bin/thermal-engine-v2 -c /vendor/etc/thermal-engine.conf
+    class main
+    user root
+    group root
 
 #service vendor.mdm_helper /vendor/bin/mdm_helper
 #    class core
