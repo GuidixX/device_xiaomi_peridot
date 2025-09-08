@@ -41,7 +41,6 @@ public final class TouchSamplingUtils {
     private static final String TAG = "TouchSamplingUtils";
     public static final String HTSR_FILE = "/sys/devices/platform/goodix_ts.0/switch_report_rate";
     private static final String HTSR_FOCALTECH_FILE = "/sys/bus/spi/drivers/focaltech_ts/spi1.0/switch_report_rate";
-    public static final String SCONFIG_FILE = "/sys/class/thermal/thermal_message/sconfig";
 
     /**
      * Writes HTSR value to both Goodix and Focaltech nodes if they exist and are writable

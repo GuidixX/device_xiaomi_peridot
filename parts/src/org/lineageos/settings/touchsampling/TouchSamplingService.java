@@ -24,7 +24,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.SharedPreferences;
-import android.os.FileObserver;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
@@ -41,7 +40,6 @@ public class TouchSamplingService extends Service {
 
     private BroadcastReceiver mScreenUnlockReceiver;
     private SharedPreferences.OnSharedPreferenceChangeListener mPreferenceChangeListener;
-    private FileObserver mSconfigObserver;
     private Handler mAutoAppsHandler;
     private Runnable mAutoAppsRunnable;
     private NotificationManager mNotificationManager;
@@ -66,17 +64,6 @@ public class TouchSamplingService extends Service {
         // Apply the touch sampling rate initially
         updateEffectiveStateAndApply();
 
-        // Start a FileObserver to watch the sconfig file changes
-        mSconfigObserver = new FileObserver(TouchSamplingUtils.SCONFIG_FILE, FileObserver.MODIFY) {
-            @Override
-            public void onEvent(int event, String path) {
-                if ((event & FileObserver.MODIFY) != 0) {
-                    Log.d(TAG, "sconfig file modified. Reapplying touch sampling rate.");
-                    updateEffectiveStateAndApply();
-                }
-            }
-        };
-        mSconfigObserver.startWatching();
 
         // Periodically check for auto-enabled apps with adaptive interval
         mAutoAppsHandler = new Handler();
@@ -111,10 +98,6 @@ public class TouchSamplingService extends Service {
         SharedPreferences sharedPref = getSharedPreferences(TouchSamplingSettingsFragment.SHAREDHTSR, Context.MODE_PRIVATE);
         sharedPref.unregisterOnSharedPreferenceChangeListener(mPreferenceChangeListener);
 
-        // Stop watching sconfig file changes
-        if (mSconfigObserver != null) {
-            mSconfigObserver.stopWatching();
-        }
         if (mAutoAppsHandler != null) {
             mAutoAppsHandler.removeCallbacks(mAutoAppsRunnable);
         }
