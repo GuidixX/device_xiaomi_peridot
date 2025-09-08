@@ -2425,6 +2425,9 @@ vendor/etc/vintf/manifest/vendor.qti.hardware.soter-service.xml
 vendor/lib64/hw/vendor.qti.hardware.soter-impl.so
 vendor/lib64/vendor.qti.hardware.soter-V1-ndk.so
 
+# Thermal from waffle OOS 11.C.69
+vendor/bin/thermal-engine-v2|0604595d9cc43fb992516bb322d1e2d28a52be51
+
 # Thermal
 vendor/bin/mi_thermald
 vendor/etc/init/hw/init.mi_thermald.rc
@@ -2478,7 +2481,6 @@ odm/etc/thermal-tgame.conf
 odm/etc/thermal-video.conf
 odm/etc/thermal-videochat.conf
 odm/etc/thermal-yuanshen.conf
-vendor/etc/thermal-engine.conf
 vendor/etc/thermal-map.conf
 vendor/etc/thermald-devices.conf
 

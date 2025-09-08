@@ -82,6 +82,7 @@
 /dev/thermal(/.*)?                                                                                                   u:object_r:thermal_link_device:s0
 /vendor/bin/hw/android\.hardware\.thermal-service\.pixel                                                             u:object_r:hal_thermal_default_exec:s0
 /vendor/bin/thermal_symlinks                                                                                         u:object_r:init-thermal-symlinks-sh_exec:s0
+/(dev|mnt/vendor)/socket/thermal-send-client                                                                         u:object_r:socket_device:s0
 
 # Sensors
 /vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal                                                   u:object_r:hal_sensors_default_exec:s0
