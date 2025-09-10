@@ -198,3 +198,5 @@ vendor.touchfeature.                          u:object_r:vendor_touchfeature_pro
 # Thermal
 vendor.sys.thermal.data.path                  u:object_r:vendor_thermal_normal_prop:s0
 vendor.thermal.                               u:object_r:vendor_thermal_prop:s0
+persist.vendor.turbo_charge_current           u:object_r:vendor_thermal_prop:s0
+persist.vendor.fast_charge                    u:object_r:vendor_thermal_prop:s0

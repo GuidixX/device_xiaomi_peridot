@@ -642,13 +642,14 @@
             "Name": "charger_therm0",
             "Type": "SKIN",
             "HotThreshold": [
-                "NaN",
-                "NaN",
-                "NaN",
+                35.0,
+                38.0,
+                40.0,
+                42.0,
+                43.0,
                 45.0,
-                50.0,
-                60.0,
-                80.0
+                47.0,
+                50.0
             ],
             "VrThreshold": 40.0,
             "Multiplier": 0.001,
@@ -674,13 +675,14 @@
             "Name": "battery",
             "Type": "BATTERY",
             "HotThreshold": [
-                "NaN",
-                "NaN",
-                "NaN",
+                35.0,
+                38.0,
+                40.0,
+                42.0,
+                43.0,
                 45.0,
-                50.0,
-                60.0,
-                80.0
+                47.0,
+                50.0
             ],
             "VrThreshold": 40.0,
             "Multiplier": 0.001,

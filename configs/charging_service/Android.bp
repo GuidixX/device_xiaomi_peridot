@@ -1,0 +1,24 @@
+cc_binary {
+    name: "thermal_charging_service",
+    
+    srcs: [
+        "thermal_charging_service.cpp",
+    ],
+    
+    cflags: [
+        "-Wall",
+        "-Wextra",
+        "-Werror",
+        "-std=c++17",
+    ],
+    
+    shared_libs: [
+        "liblog",
+    ],
+    
+    vendor: true,
+    
+    init_rc: [
+        "thermal_charging_service.rc",
+    ],
+}
