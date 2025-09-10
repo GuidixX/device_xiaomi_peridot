@@ -17,7 +17,7 @@ genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,
 genfscon sysfs /devices/platform/soc/c42d000.qcom,spmi/spmi-0/0-01/c42d000.qcom,spmi:qcom,pmxr2230@1:qcom,flash_led@ee00/leds/led:switch_2/brightness         u:object_r:sysfs_torch:s0
 
 # Charger
-genfscon sysfs /class/power_supply/battery/constant_charge_current                                           u:object_r:vendor_sysfs_power_supply:s0
+genfscon sysfs /class/power_supply/battery                                                                   u:object_r:vendor_sysfs_power_supply:s0
 
 # Powercap
 genfscon sysfs /class/powercap                                                                               u:object_r:sysfs_thermal:s0

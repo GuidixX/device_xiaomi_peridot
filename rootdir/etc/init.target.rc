@@ -64,6 +64,7 @@ import /vendor/etc/init/hw/init.qti.kernel.rc
 import /vendor/etc/init/hw/init.batterysecret.rc
 import /vendor/etc/init/init.peridot.rc
 import /vendor/etc/init/init.memory_opt.rc
+import /vendor/etc/init/thermal_charging_service.rc
 
 on early-init
     write /proc/sys/kernel/printk_devkmsg ratelimited
@@ -434,6 +435,9 @@ on boot
     chown system system /sys/class/qcom-battery/night_charging
     chmod 0660 /sys/class/qcom-battery/night_charging
 
+    # Start thermal charging service for normal operation
+    start thermal_charging_service
+
     write /sys/block/sda/queue/wbt_lat_usec 75000
 
 on property:sys.boot_completed=1
@@ -457,6 +461,15 @@ on property:sys.boot_completed=1
     chown system system /sys/class/thermal/thermal_message/board_sensor_temp_comp
     chmod 0664 /sys/class/thermal/thermal_message/cpu_nolimit_temp
     chown system system /sys/class/thermal/thermal_message/cpu_nolimit_temp
+    # Battery power supply sysfs permissions for thermal service
+    chown system system /sys/class/power_supply/battery/status
+    chmod 0664 /sys/class/power_supply/battery/status
+    chown system system /sys/class/power_supply/battery/temp
+    chmod 0664 /sys/class/power_supply/battery/temp
+    chown system system /sys/class/power_supply/battery/capacity
+    chmod 0664 /sys/class/power_supply/battery/capacity
+    chown system system /sys/class/power_supply/battery/constant_charge_current
+    chmod 0664 /sys/class/power_supply/battery/constant_charge_current
 
     # Touch
     chown system system /sys/devices/platform/goodix_ts.0/switch_report_rate
@@ -490,6 +503,10 @@ on charger
     write /sys/bus/platform/devices/1d84000.ufshc/clkscale_enable 1
     write /sys/bus/platform/devices/1d84000.ufshc/auto_hibern8 5000
     write /sys/bus/platform/devices/1d84000.ufshc/clkgate_enable 1
+    # Make thermal service executable
+    chmod 0755 /vendor/bin/thermal_charging_service
+    # Start thermal charging service
+    start thermal_charging_service
     # Thermal in charger mode
     start vendor.thermal.symlinks
     start vendor.thermal-engine-v2

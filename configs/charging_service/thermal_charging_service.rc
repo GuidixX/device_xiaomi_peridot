@@ -1,0 +1,19 @@
+service thermal_charging_service /vendor/bin/thermal_charging_service -d
+    class main
+    user root
+    group root
+    capabilities SYS_NICE
+    oneshot
+    disabled
+
+# Start on charger connection (works for both powered on and off states)
+on charger
+    start thermal_charging_service
+
+# Also start after boot completion for normal operation
+on property:sys.boot_completed=1
+    start thermal_charging_service
+
+# Start on early-init to ensure it's available early
+on early-init
+    start thermal_charging_service

@@ -1,0 +1,12 @@
+type thermal_charging_service, domain;
+type thermal_charging_service_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(thermal_charging_service)
+
+# Allow access to battery power supply sysfs
+allow thermal_charging_service vendor_sysfs_power_supply:dir r_dir_perms;
+allow thermal_charging_service vendor_sysfs_power_supply:file rw_file_perms;
+allow thermal_charging_service vendor_sysfs_battery_supply:dir search;
+
+# Allow access to kernel message buffer for logging
+allow thermal_charging_service kmsg_device:chr_file write;
