@@ -640,7 +640,8 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal-V1-ndk.vendor \
     android.hardware.thermal@2.0.vendor \
     android.hardware.thermal@1.0.vendor \
-    thermal_symlinks
+    thermal_symlinks \
+    thermal_charging_service
 
 ## TODO: Conditionally install this file to vendor.
 PRODUCT_COPY_FILES += \
