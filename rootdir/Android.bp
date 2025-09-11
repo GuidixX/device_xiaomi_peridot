@@ -40,6 +40,12 @@ sh_binary {
     vendor: true,
 }
 
+sh_binary {
+    name: "init.thermal_symlinks.sh",
+    src: "bin/init.thermal_symlinks.sh",
+    vendor: true,
+}
+
 prebuilt_etc {
     name: "init.fingerprint.rc",
     src: "etc/init.fingerprint.rc",

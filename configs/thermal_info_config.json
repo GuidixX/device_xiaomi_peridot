@@ -1047,6 +1047,22 @@
             ],
             "VrThreshold": 50.0,
             "Multiplier": 0.001
+        },
+        {
+            "Name": "capacity",
+            "Type": "CAPACITY",
+            "HotThreshold": [
+                "NaN",
+                "NaN",
+                "NaN",
+                5.0,
+                10.0,
+                15.0,
+                20.0
+            ],
+            "VrThreshold": 3.0,
+            "Multiplier": 1.0,
+            "Monitor": true
         }
     ],
     "CoolingDevices": [

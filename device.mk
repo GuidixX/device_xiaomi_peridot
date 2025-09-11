@@ -330,7 +330,8 @@ PRODUCT_PACKAGES += \
     init.qcom.post_boot.sh \
     init.qcom.sh \
     init.qti.media.sh \
-    init.foursemi.sh
+    init.foursemi.sh \
+    init.thermal_symlinks.sh
 
 PRODUCT_PACKAGES += \
     init.qcom.rc \
@@ -640,7 +641,6 @@ PRODUCT_PACKAGES += \
     android.hardware.thermal-V1-ndk.vendor \
     android.hardware.thermal@2.0.vendor \
     android.hardware.thermal@1.0.vendor \
-    thermal_symlinks \
     thermal_charging_service
 
 ## TODO: Conditionally install this file to vendor.

@@ -365,6 +365,13 @@ on boot
     chown system /sys/devices/system/cpu/hyp_core_ctl/enable
     chown system /sys/devices/system/cpu/hyp_core_ctl/hcc_min_freq
 
+    # Create thermal symlink directories
+    mkdir /dev/thermal 0750 system system
+    mkdir /dev/thermal/tz-by-name 0750 system system
+    mkdir /dev/thermal/tz-by-name/capacity 0750 system system
+    mkdir /dev/thermal/cdev-by-name 0750 system system
+    start vendor.thermal.symlinks
+
     # Create persist for camera calibration data
     mkdir /mnt/vendor/persist/camera 0755 system cameraserver
 
@@ -508,7 +515,6 @@ on charger
     # Start thermal charging service
     start thermal_charging_service
     # Thermal in charger mode
-    start vendor.thermal.symlinks
     start vendor.thermal-engine-v2
     trigger enable-thermal-hal
 
@@ -519,6 +525,12 @@ on enable-thermal-hal
     chmod 660 /dev/thermal/cdev-by-name/battery/cur_state
     # Enable State of Charge (SOC) thermal zone if present
     write /dev/thermal/tz-by-name/soc/mode "enabled"
+
+service vendor.thermal.symlinks /vendor/bin/init.thermal_symlinks.sh
+    user system
+    group system
+    oneshot
+    disabled
 
 # PD-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
