@@ -124,6 +124,8 @@ BOARD_BOOTCONFIG := \
     androidboot.hypervisor.protected_vm.supported=false
 
 TARGET_KERNEL_ADDITIONAL_FLAGS := TARGET_PRODUCT=peridot
+TARGET_KERNEL_CLANG_VERSION := prelude
+TARGET_KERNEL_CLANG_PATH := $(shell pwd)/prebuilts/clang/host/linux-x86/clang-prelude
 TARGET_KERNEL_SOURCE := kernel/xiaomi/sm8635
 TARGET_KERNEL_CONFIG := \
     gki_defconfig \
