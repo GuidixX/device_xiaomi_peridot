@@ -330,9 +330,9 @@ on post-fs-data
     chmod 0664 /sys/class/leds/led:switch_2/trigger
     chmod 0664 /sys/class/leds/led:switch_3/trigger
     chmod 0664 /sys/class/leds/flashlight/brightness
-    
+
     # QCC mode configuration
-    setprop vendor.qti.qcc.oper.mode 4 
+    setprop vendor.qti.qcc.oper.mode 4
 
     chmod 0662 /dev/miev
     restorecon /dev/miev
@@ -512,13 +512,9 @@ on charger
     start vendor.thermal-engine-v2
     trigger enable-thermal-hal
 
-# Thermal HAL needed
+# Thermal engine needed
 on enable-thermal-hal
-    # Permission for battery cooling device state if present
-    chown root system /dev/thermal/cdev-by-name/battery/cur_state
-    chmod 660 /dev/thermal/cdev-by-name/battery/cur_state
-    # Enable State of Charge (SOC) thermal zone if present
-    write /dev/thermal/tz-by-name/soc/mode "enabled"
+    write /dev/class/thermal/thermal_zone60/mode "enabled"
 
 # PD-mapper
 service vendor.pd_mapper /vendor/bin/pd-mapper
