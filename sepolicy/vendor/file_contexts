@@ -50,9 +50,6 @@
 /(vendor|odm)/lib(64)?/libSnpeHtpV69Stub\.so                                                     u:object_r:same_process_hal_file:s0
 /(vendor|odm)/lib(64)?/libomp\.so                                                                u:object_r:same_process_hal_file:s0
 
-# CIT Sensors
-/(odm|vendor/odm|vendor|system/vendor)/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl         u:object_r:vendor_hal_citsensorservice_xiaomi_default_exec:s0
-
 # Diag
 /data/vendor/modem(/.*)?                                                                         u:object_r:vendor_modem_data_file:s0
 

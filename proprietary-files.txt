@@ -222,12 +222,6 @@ vendor/lib64/libcdsprpc.so
 vendor/lib64/libmdsprpc.so
 vendor/lib64/libsdsprpc.so
 
-# CIT Sensor
-odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl
-odm/etc/init/vendor.xiaomi.sensor.citsensorservice.aidl.rc
-odm/etc/vintf/manifest/vendor.xiaomi.sensor.citsensorservice.aidl.xml
-vendor/lib64/vendor.xiaomi.sensor.citsensorservice-V1-ndk.so
-
 # CNE
 vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_vendor_symlink
 vendor/bin/cnd
@@ -1430,9 +1424,6 @@ vendor/lib64/libsdedrm.so
 vendor/lib64/libsdm-color.so
 vendor/lib64/libsdm-colormgr-algo.so
 vendor/lib64/libsdm-disp-vndapis.so
-vendor/lib64/libsdmcore.so
-vendor/lib64/libsdmdal.so
-vendor/lib64/libsdmextension.so
 vendor/lib64/libsdmutils.so
 vendor/lib64/libtestutils.so
 vendor/lib64/libtinyxml2_1.so
@@ -1472,7 +1463,6 @@ odm/etc/df_default.xml
 odm/lib64/hw/displayfeature.default.so
 odm/lib64/libMiDispDevManager.so
 odm/lib64/libadaptivehdr.so
-odm/lib64/libclient2slpi.notifier.so
 odm/lib64/libcolortempmode.so
 odm/lib64/libdisplaycount.so
 odm/lib64/libdisplaylog.so

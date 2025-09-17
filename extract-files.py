@@ -72,8 +72,7 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
-    ('odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl',
-     'vendor/bin/hw/vendor.qti.hardware.display.composer-service',
+    ('vendor/bin/hw/vendor.qti.hardware.display.composer-service',
      'vendor/lib64/libdisplaydebug.so'
     ): blob_fixup()
         .replace_needed('android.hardware.graphics.composer3-V2-ndk.so', 'android.hardware.graphics.composer3-V3-ndk.so'),
