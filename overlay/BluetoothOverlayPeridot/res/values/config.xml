@@ -71,4 +71,8 @@
          Value of a2dp_source_codec_priority_max should be set to
          1000 + priority of codec with highest priority-->
     <integer name="a2dp_source_codec_priority_max">10003</integer>
+
+    <!-- Boolean indicating if current platform supports HFP inband ringing -->
+    <bool name="config_bluetooth_hfp_inband_ringing_support">false</bool>
+
 </resources>
