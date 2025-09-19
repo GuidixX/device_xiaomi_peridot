@@ -124,9 +124,6 @@ PRODUCT_PACKAGES += \
     init.qti.display_boot.rc \
     init.qti.display_boot.sh
 
-PRODUCT_PACKAGES += \
-    vendor.qti.hardware.display.composer-service.xml
-
 # DRM
 PRODUCT_PACKAGES += \
     android.hardware.drm-service.clearkey
