@@ -34,12 +34,6 @@ sh_binary {
     vendor: true,
 }
 
-sh_binary {
-    name: "init.foursemi.sh",
-    src: "bin/init.foursemi.sh",
-    vendor: true,
-}
-
 prebuilt_etc {
     name: "init.fingerprint.rc",
     src: "etc/init.fingerprint.rc",

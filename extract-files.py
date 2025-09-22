@@ -5,7 +5,6 @@
 #
 
 import extract_utils.tools
-extract_utils.tools.DEFAULT_PATCHELF_VERSION = '0_18'
 
 from extract_utils.fixups_blob import (
     BlobFixupCtx,

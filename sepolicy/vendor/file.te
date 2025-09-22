@@ -31,9 +31,6 @@ type proc_tp_lockdown, file_type;
 # GNSS
 type vendor_ins_vendor_data_file, data_file_type, file_type;
 
-# HTSR
-type sysfs_htsr, sysfs_type, fs_type;
-
 # MiCharge
 type vendor_sysfs_qcom_battery, fs_type, sysfs_type;
 
