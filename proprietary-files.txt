@@ -1604,8 +1604,6 @@ vendor/lib64/hw/libqtigatekeeper.so
 
 # Graphics v819.02
 vendor/app/com.qualcomm.qti.gpudrivers.pineapple.api34/com.qualcomm.qti.gpudrivers.pineapple.api34.apk|ebbca05956b11846d103b5803f704dd83e138c4b
-vendor/bin/init.qti.graphics.sh|5ddd2dcf5d181f7332f3f4ebaf3d72f5a3ff5def
-vendor/etc/init/init.qti.graphics.rc|12ac6285511be84c583855e04a188fec9ea4ec51
 vendor/gpu/kbc/sequence_manifest.bin|ec14c65fc1c9a06c8e08859b23e2a13f89a742cb
 vendor/gpu/kbc/unified_kbcs_32.bin|8a4fb3c259b8a91c176539a3310359a4c3898b00
 vendor/gpu/kbc/unified_kbcs_64.bin|c7818d10f8f27725a9e5403bdfe7d1acca5c7815
