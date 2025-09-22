@@ -1,15 +1,4 @@
 <compatibility-matrix version="7.0" type="framework">
-    <hal format="aidl" optional="true">
-        <name>com.fingerprints.extension3</name>
-        <interface>
-            <name>IFingerprintNavigation</name>
-            <instance>default</instance>
-        </interface>
-        <interface>
-            <name>IFingerprintSensorTest</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
     <hal format="hidl" optional="true">
         <name>vendor.dolby.hardware.dms</name>
         <version>2.0</version>
@@ -52,20 +41,6 @@
         <name>vendor.xiaomi.hardware.dtool1</name>
         <interface>
             <name>IDtool</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-        <name>vendor.xiaomi.hardware.fingerprintextension</name>
-        <interface>
-            <name>IXiaomiFingerprint</name>
-            <instance>default</instance>
-        </interface>
-    </hal>
-    <hal format="aidl" optional="true">
-        <name>vendor.xiaomi.hardware.fx.tunnel</name>
-        <interface>
-            <name>IMiFxTunnel</name>
             <instance>default</instance>
         </interface>
     </hal>

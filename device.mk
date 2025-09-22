@@ -218,15 +218,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.fastcharge@1.0-service.xiaomi
 
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.common.thread \
-    android.hardware.biometrics.common.util \
-    android.hardware.biometrics.fingerprint-V3-ndk.vendor
-
-PRODUCT_COPY_FILES += \
-    frameworks/native/data/etc/android.hardware.fingerprint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/permissions/android.hardware.fingerprint.xml
-
 # Graphics
 PRODUCT_PACKAGES += \
     android.hardware.graphics.allocator-V1-ndk.vendor \
