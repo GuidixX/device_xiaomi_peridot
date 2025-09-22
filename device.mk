@@ -317,8 +317,7 @@ PRODUCT_PACKAGES += \
     init.qcom.early_boot.sh \
     init.qcom.post_boot.sh \
     init.qcom.sh \
-    init.qti.media.sh \
-    init.foursemi.sh
+    init.qti.media.sh
 
 PRODUCT_PACKAGES += \
     init.qcom.rc \
@@ -489,9 +488,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/powerhint.json:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.json
 
 TARGET_PROVIDES_POWERHAL := true
-
-# Platform
-TARGET_BOARD_PLATFORM := pineapple
 
 # Privapp permissions
 PRODUCT_PROPERTY_OVERRIDES += ro.control_privapp_permissions=log

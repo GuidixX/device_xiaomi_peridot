@@ -27,10 +27,8 @@ PRODUCT_MODEL := 24069PC21G
 PRODUCT_BUILD_PROP_OVERRIDES += \
     BuildDesc="peridot_global-user 15 AQ3A.240912.001 OS2.0.204.0.VNPMIXM release-keys" \
     BuildFingerprint=POCO/peridot_global/peridot:15/AQ3A.240912.001/OS2.0.204.0.VNPMIXM:user/release-keys \
-    DeviceName=peridot \
-    DeviceProduct=peridot_global \
-    SystemName=peridot_global \
-    SystemDevice=peridot
+    DeviceName=$(PRODUCT_SYSTEM_DEVICE) \
+    DeviceProduct=$(PRODUCT_SYSTEM_NAME)
 
 # GMS
 PRODUCT_GMS_CLIENTID_BASE := android-xiaomi
