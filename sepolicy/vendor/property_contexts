@@ -1,3 +1,7 @@
+# Audio
+persist.vendor.audio.pa.smartpa_type          u:object_r:vendor_audio_prop:s0
+vendor.audio.voice.receiver.status            u:object_r:vendor_audio_prop:s0
+
 # Camera
 vendor.camera.sensor.                         u:object_r:vendor_camera_sensor_prop:s0
 vendor.panel.display                          u:object_r:vendor_camera_prop:s0
