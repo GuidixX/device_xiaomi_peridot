@@ -105,3 +105,4 @@ icc-test.ko
 dump_display.ko
 qrtr.ko
 qrtr-gunyah.ko
+dcvs_boost.ko
