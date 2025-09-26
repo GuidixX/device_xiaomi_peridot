@@ -167,6 +167,7 @@ TARGET_KERNEL_EXT_MODULES := \
     qcom/opensource/display-drivers/msm \
     qcom/opensource/dsp-kernel \
     qcom/opensource/eva-kernel \
+    qcom/opensource/fingerprint \
     qcom/opensource/video-driver \
     qcom/opensource/graphics-kernel \
     qcom/opensource/wlan/platform \
