@@ -171,4 +171,12 @@
             <instance>default</instance>
         </interface>
     </hal>
+    <hal format="aidl" optional="true">
+        <name>vendor.xiaomi.hardware.display.mihwcextension</name>
+        <version>1</version>
+        <interface>
+            <name>IMiHwcExtension</name>
+            <instance>default</instance>
+        </interface>
+    </hal>
 </compatibility-matrix>
