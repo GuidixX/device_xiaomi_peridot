@@ -224,9 +224,13 @@ blob_fixups: blob_fixups_user_type = {
      'odm/lib64/libmmcamera_pdpc.so',
      'odm/lib64/libopestriping.so',
      'odm/lib64/libtfestriping.so',
-     'vendor/bin/hw/vendor.qti.hardware.display.allocator-service'
+     'vendor/bin/hw/vendor.qti.hardware.display.allocator-service',
+     'vendor/lib64/libui-v34.so'
     ): blob_fixup()
        .replace_needed('android.hardware.graphics.allocator-V1-ndk.so', 'android.hardware.graphics.allocator-V2-ndk.so'),
+
+    ('vendor/lib64/libui-v34.so'): blob_fixup()
+       .replace_needed('android.hardware.graphics.common-V3-ndk.so', 'android.hardware.graphics.common-V6-ndk.so'),
 
     ('odm/lib64/libaudioroute_ext.so',
      'vendor/lib64/libar-pal.so',

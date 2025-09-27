@@ -192,7 +192,7 @@ PRODUCT_COPY_FILES += \
 
 # Graphics
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator-V1-ndk.vendor \
+    android.hardware.graphics.allocator-V2-ndk.vendor \
     android.hardware.graphics.common-V3-ndk.vendor \
     android.hardware.graphics.common-V4-ndk.vendor \
     android.hardware.graphics.composer3-V2-ndk.vendor \
