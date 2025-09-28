@@ -199,9 +199,12 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.display.config@1.11.vendor \
     vendor.qti.hardware.display.allocator@4.0.vendor \
+    vendor.qti.hardware.display.composer3-V1-ndk.vendor \
+    vendor.qti.hardware.display.composer3-V2-ndk.vendor \
     vendor.qti.hardware.display.config-V2-ndk.vendor \
     vendor.qti.hardware.display.config-V5-ndk.vendor \
     vendor.qti.hardware.display.config-V7-ndk.vendor \
+    vendor.qti.hardware.display.config-V11-ndk.vendor \
     vendor.qti.hardware.display.mapper@2.0.vendor \
     vendor.qti.hardware.display.mapper@3.0.vendor \
     vendor.qti.hardware.display.mapper@4.0.vendor \
@@ -252,6 +255,7 @@ PRODUCT_PACKAGES += \
     android.hardware.graphics.common-V3-ndk.vendor \
     android.hardware.graphics.common-V4-ndk.vendor \
     android.hardware.graphics.composer3-V2-ndk.vendor \
+    android.hardware.graphics.composer3-V4-ndk.vendor \
     android.hardware.graphics.composer@2.1.vendor \
     android.hardware.graphics.composer@2.2.vendor \
     android.hardware.graphics.composer@2.3.vendor \
