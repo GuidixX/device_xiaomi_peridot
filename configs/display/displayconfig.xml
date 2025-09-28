@@ -1,5 +1,4 @@
 <?xml version='1.0' encoding='utf-8' standalone='yes' ?>
-
 <displayConfiguration>
     <!-- Global Brightness-Nit mapping -->
     <screenBrightnessMap>
@@ -12,20 +11,12 @@
             <nits>500.0</nits>
         </point>
         <point>
-            <value>0.699914540</value>
-            <nits>700.0</nits>
-        </point>
-        <point>
-            <value>0.808082041</value>
-            <nits>1000.0</nits>
-        </point>
-        <point>
-            <value>0.952386766</value>
-            <nits>1400.0</nits>
+            <value>0.999816872</value>
+            <nits>1200.0</nits>
         </point>
         <point>
             <value>1.0</value>
-            <nits>3000.0</nits>
+            <nits>2400.0</nits>
         </point>
     </screenBrightnessMap>
     <!-- root node for HBM-->
@@ -53,43 +44,11 @@
         <sdrHdrRatioMap>
             <point>
                 <sdrNits>2.0</sdrNits>
-                <hdrRatio>5.0</hdrRatio>
-            </point>
-            <point>
-                <sdrNits>200.0</sdrNits>
-                <hdrRatio>4.6</hdrRatio>
-            </point>
-            <point>
-                <sdrNits>300.0</sdrNits>
-                <hdrRatio>4.5</hdrRatio>
-            </point>
-            <point>
-                <sdrNits>400.0</sdrNits>
-                <hdrRatio>4.4</hdrRatio>
-            </point>
-            <point>
-                <sdrNits>500.0</sdrNits>
-                <hdrRatio>4.3</hdrRatio>
-            </point>
-            <point>
-                <sdrNits>600.0</sdrNits>
-                <hdrRatio>4.1</hdrRatio>
-            </point>
-            <point>
-                <sdrNits>800.0</sdrNits>
-                <hdrRatio>3.4</hdrRatio>
-            </point>
-            <point>
-                <sdrNits>1000.0</sdrNits>
-                <hdrRatio>2.75</hdrRatio>
+                <hdrRatio>8.0</hdrRatio>
             </point>
             <point>
                 <sdrNits>1200.0</sdrNits>
-                <hdrRatio>2.3</hdrRatio>
-            </point>
-            <point>
-                <sdrNits>1400.0</sdrNits>
-                <hdrRatio>2.0</hdrRatio>
+                <hdrRatio>8.0</hdrRatio>
             </point>
         </sdrHdrRatioMap>
     </highBrightnessMode>
