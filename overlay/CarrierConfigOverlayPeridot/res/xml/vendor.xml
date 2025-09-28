@@ -2895,7 +2895,7 @@
         <boolean name="carrier_allow_transfer_gsm_call_bool" value="false" />
         <boolean name="config_call_forwarding_CFNRc_visibility_bool" value="true" />
         <boolean name="config_wfc_disable_sa" value="false" />
-        <boolean name="config_vonr_on_by_defalut_bool" value="false" />
+        <boolean name="vonr_enabled_bool" value="false" />
         <boolean name="config_update_service_status" value="false" />
         <boolean name="config_update_multiparty_state" value="true" />
         <boolean name="config_support_callbarring_cancel_all_by_sequence" value="true" />
@@ -5238,7 +5238,7 @@
         <string name="default_vm_number_string">5500
         </string>
         <boolean name="voicemail_notification_persistent_bool" value="true" />
-        <boolean name="config_vonr_on_by_defalut_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="hide_enhanced_4g_lte_bool" value="true" />
         <boolean name="editable_enhanced_4g_lte_bool" value="false" />
         <boolean name="enhanced_4g_lte_on_by_default_bool" value="true" />
@@ -5271,7 +5271,7 @@
         <string name="default_vm_number_string">5500
         </string>
         <boolean name="voicemail_notification_persistent_bool" value="true" />
-        <boolean name="config_vonr_on_by_defalut_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
         <boolean name="hide_enhanced_4g_lte_bool" value="true" />
         <boolean name="editable_enhanced_4g_lte_bool" value="false" />
         <boolean name="enhanced_4g_lte_on_by_default_bool" value="true" />
@@ -10301,19 +10301,19 @@
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <boolean name="carrier_sa_mode_available_bool" value="true" />
-        <boolean name="config_vonr_on_by_defalut_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="262" mnc="07">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <boolean name="carrier_sa_mode_available_bool" value="true" />
-        <boolean name="config_vonr_on_by_defalut_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="262" mnc="11">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <boolean name="carrier_sa_mode_available_bool" value="true" />
-        <boolean name="config_vonr_on_by_defalut_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <!--德国 DE Vodafone-->
     <carrier_config mcc="262" mnc="02">
@@ -10669,21 +10669,21 @@
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
-        <boolean name="config_vonr_on_by_defalut_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="232" mnc="10">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
-        <boolean name="config_vonr_on_by_defalut_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <carrier_config mcc="232" mnc="14">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_wfc_ims_available_bool" value="true" />
         <boolean name="carrier_vt_available_bool" value="true" />
         <boolean name="carrier_disable_sa_mode_bool" value="false" />
-        <boolean name="config_vonr_on_by_defalut_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
     </carrier_config>
     <!--奥地利 AT DT-->
     <carrier_config mcc="232" mnc="03">
