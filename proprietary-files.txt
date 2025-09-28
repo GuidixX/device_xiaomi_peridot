@@ -1741,6 +1741,13 @@ vendor/lib64/libhdcp2p2prov.so
 vendor/lib64/libhdcpsrm.so
 vendor/lib64/libmm-hdcpmgr.so
 
+# Hotword enrollment
+product/etc/permissions/privapp-permissions-google-audio-system.xml:product/etc/permissions/privapp-permissions-hotword.xml
+product/priv-app/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND/HotwordEnrollmentXGoogleHEXAGON_WIDEBAND.apk
+product/priv-app/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND/HotwordEnrollmentYGoogleHEXAGON_WIDEBAND.apk
+system_ext/etc/permissions/com.android.hotwordenrollment.common.util.xml
+system_ext/framework/com.android.hotwordenrollment.common.util.jar
+
 # Kernel
 vendor/bin/init.qti.write.sh
 vendor/bin/system_dlkm_modprobe.sh
