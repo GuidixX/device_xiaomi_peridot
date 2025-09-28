@@ -1012,7 +1012,6 @@ vendor/lib64/libthreadutils.so
 vendor/lib64/libubwcp.so
 vendor/lib64/libvideodiedobserver_vendor.so
 vendor/lib64/libvideooptfeature.so
-vendor/lib64/libui-v34.so;MAKE_COPY_RULE_ONLY|e0c7952773032493c32eff7bd419667b5e219b4d
 vendor/lib64/vendor.xiaomi.hardware.aon-V1-ndk.so
 vendor/lib64/vendor.xiaomi.hardware.quickcamera-V1-ndk.so
 
