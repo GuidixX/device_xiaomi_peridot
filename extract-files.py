@@ -226,7 +226,10 @@ blob_fixups: blob_fixups_user_type = {
         'odm/lib64/libmorpho_ubwc.so'
     ): blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
+        .clear_symbol_version('AHardwareBuffer_createFromHandle')
         .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_isSupported')
+        .clear_symbol_version('AHardwareBuffer_getNativeHandle')
         .clear_symbol_version('AHardwareBuffer_lock')
         .clear_symbol_version('AHardwareBuffer_lockPlanes')
         .clear_symbol_version('AHardwareBuffer_release')
@@ -256,6 +259,18 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/lib64/vendor.libdpmframework.so': blob_fixup()
         .add_needed('libbinder_shim.so')
         .add_needed('libhidlbase_shim.so'),
+
+    'odm/lib64/libmibokeh_845_video.so': blob_fixup()
+        .add_needed('libwrapper_dlengine.so'),
+
+    (
+        'odm/lib64/camera/components/com.mi.node.mawsaliency.so',
+        'odm/lib64/camera/components/com.mi.node.dlengine.so',
+        'odm/lib64/libwrapper_dlengine.so',
+    ): blob_fixup()
+        .add_needed(
+            'libwrapper_dlengine_shim.so'
+    ),
 
     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
         .regex_replace(r'.+DOLBY.+\n', '')
