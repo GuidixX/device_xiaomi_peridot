@@ -2755,10 +2755,8 @@ odm/firmware/haptic_rtp_silk.bin
 
 # WiFi
 vendor/bin/cnss-daemon
-vendor/bin/mbnota
 vendor/etc/init/init.vendor.wlan.rc
 vendor/etc/init/libxiaomi_qcril.rc
-vendor/etc/init/vendor.mbnota.rc
 vendor/lib64/libcert_parse.wpa_s.so
 vendor/lib64/vendor.qti.hardware.wigig.netperftuner@1.0.so
 

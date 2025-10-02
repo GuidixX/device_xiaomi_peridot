@@ -355,10 +355,6 @@ PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/props/odm_GL.prop:$(TARGET_COPY_OUT_ODM)/etc/odm_GL.prop \
     $(LOCAL_PATH)/configs/props/odm_IN.prop:$(TARGET_COPY_OUT_ODM)/etc/odm_IN.prop
 
-# Radio
-PRODUCT_PACKAGES += \
-    rfs_msm_mpss_readonly_mbnconfig_symlink
-
 # Soong namespaces
 PRODUCT_SOONG_NAMESPACES += \
     $(LOCAL_PATH) \
