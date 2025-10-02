@@ -20,7 +20,9 @@
     </hal>
     <hal format="aidl">
         <name>android.hardware.secure_element</name>
+        <fqname>ISecureElement/SIM3</fqname>
         <fqname>ISecureElement/eSE1</fqname>
+        <fqname>ISecureElement/eSE2</fqname>
     </hal>
     <hal format="hidl">
         <name>com.qualcomm.qti.dpm.api</name>
