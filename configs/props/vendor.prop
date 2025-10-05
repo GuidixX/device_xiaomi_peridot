@@ -127,7 +127,6 @@ graphics.gpu.profiler.support=true
 dev.pm.dyn_samplingrate=1
 persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
-persist.sys.sf.native_mode=258
 ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.pineapple.api34
 ro.egl.blobcache.multifile=true
 ro.egl.blobcache.multifile_limit=33554432
