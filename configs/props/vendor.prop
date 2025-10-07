@@ -263,6 +263,7 @@ ro.boot.product.vendor.sku=cliffs
 
 # USB
 ro.usb.uvc.enabled=true
+ro.usb.uvc.disable_video_encode_flag=true
 ro.recovery.usb.adb.pid=D001
 ro.recovery.usb.fastboot.pid=4EE0
 ro.recovery.usb.vid=18D1
