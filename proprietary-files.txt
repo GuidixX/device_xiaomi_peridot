@@ -2469,7 +2469,6 @@ odm/etc/thermal-map-india.conf
 odm/etc/thermal-mgame.conf
 odm/etc/thermal-navigation.conf
 odm/etc/thermal-nolimits.conf
-odm/etc/thermal-normal.conf
 odm/etc/thermal-per-class0.conf
 odm/etc/thermal-per-normal.conf
 odm/etc/thermal-per-video.conf
