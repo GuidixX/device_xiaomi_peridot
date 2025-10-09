@@ -1839,7 +1839,7 @@ vendor/lib64/vendor.xiaomi.hardware.mlipay-V1-ndk_platform.so
 odm/etc/libnfc-nci.conf:vendor/etc/libnfc-nci.conf
 odm/etc/libnfc-nxp.conf:vendor/etc/libnfc-nxp.conf
 odm/etc/libnfc-nxp_RF.conf:vendor/libnfc-nxp_RF.conf
-vendor/lib64/libsn100u_fw.so
+vendor/lib64/libsn220u_fw.so
 
 # Native public libraries
 vendor/etc/public.libraries.txt
