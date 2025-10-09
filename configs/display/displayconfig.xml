@@ -40,17 +40,6 @@
         <thermalStatusLimit>critical</thermalStatusLimit>
         <!-- Low power mode limitation for HBM -->
         <allowInLowPowerMode>true</allowInLowPowerMode>
-        <minimumHdrPercentOfScreen>0</minimumHdrPercentOfScreen>
-        <sdrHdrRatioMap>
-            <point>
-                <sdrNits>2.0</sdrNits>
-                <hdrRatio>8.0</hdrRatio>
-            </point>
-            <point>
-                <sdrNits>1200.0</sdrNits>
-                <hdrRatio>8.0</hdrRatio>
-            </point>
-        </sdrHdrRatioMap>
     </highBrightnessMode>
     <screenBrightnessRampFastDecrease>0.41590282</screenBrightnessRampFastDecrease>
     <screenBrightnessRampFastIncrease>0.41590282</screenBrightnessRampFastIncrease>
