@@ -22,6 +22,9 @@ on early-init
     chown system graphics /sys/class/drm/card0/device/power/control
 
 on boot
+    # Disable FB scaling // xiaomi disables it in qti_display_boot scripts
+    setprop vendor.display.enable_fb_scaling 1
+
     # Create persist for camera calibration data
     mkdir /mnt/vendor/persist/camera 0755 system cameraserver
 
