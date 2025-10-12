@@ -5,13 +5,6 @@ genfscon sysfs /devices/platform/soc/soc:qcom,pmic_glink/soc:qcom,pmic_glink:qco
 # Extcon sysfs
 genfscon sysfs /devices/platform/soc/soc:spf_core_platform/soc:spf_core_platform:lpass-cdc/wcd937x-codec/extcon                                                                           u:object_r:sysfs_extcon:s0
 
-# Haptics
-genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.i2c/i2c-2/2-005a/activate                                                                                         u:object_r:sysfs_haptics:s0
-genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.i2c/i2c-2/2-005a/activate_mode                                                                                    u:object_r:sysfs_haptics:s0
-genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.i2c/i2c-2/2-005a/duration                                                                                         u:object_r:sysfs_haptics:s0
-genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.i2c/i2c-2/2-005a/index                                                                                            u:object_r:sysfs_haptics:s0
-genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.i2c/i2c-2/2-005a/effect_id                                                                                        u:object_r:sysfs_haptics:s0
-
 # Graphics
 genfscon sysfs /devices/platform/soc/3d00000.qcom,kgsl-3d0/kgsl/kgsl-3d0/gpu_available_frequencies                                                                                        u:object_r:vendor_sysfs_kgsl:s0
 
