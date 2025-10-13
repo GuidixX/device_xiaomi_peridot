@@ -1883,8 +1883,10 @@ vendor/bin/pm-service
 vendor/lib64/libperipheral_client.so
 vendor/lib64/libspcom.so
 
+# Power-off alarm - pinned from LA.QSSI.16.0.r1-06700-qssi.0
+system_ext/app/PowerOffAlarm/PowerOffAlarm.apk|c727851212a69630a4633bd1cf6c27ebde519a10
+
 # Power-off alarm
-system_ext/app/PowerOffAlarm/PowerOffAlarm.apk
 system_ext/framework/vendor.qti.hardware.alarm-V1.0-java.jar
 vendor/bin/hw/vendor.qti.hardware.alarm-service
 vendor/bin/power_off_alarm
