@@ -307,7 +307,6 @@ PRODUCT_PACKAGES += \
     ApertureOverlayPeridot \
     DeviceAsWebcamOverlayPeridot \
     DialerOverlayPeridot \
-    BluetoothOverlayPeridot \
     CarrierConfigOverlayPeridot \
     FrameworkOverlayPeridot \
     LineageSDKOverlayPeridot \
