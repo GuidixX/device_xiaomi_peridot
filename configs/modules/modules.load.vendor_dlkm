@@ -55,7 +55,6 @@ cpufreq_stats_scmi_v2.ko
 dynpf_scmi.ko
 cpucp_log.ko
 sys_pm_vx.ko
-msm_performance.ko
 wcd_usbss_i2c.ko
 sysmon_subsystem_stats.ko
 cdsprm.ko

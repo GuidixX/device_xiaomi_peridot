@@ -4454,8 +4454,6 @@ case "$target" in
         echo 0 > /sys/devices/system/cpu/cpu7/online
         # in case CPU4 is online, limit its frequency
         echo 960000 > /sys/devices/system/cpu/cpu4/cpufreq/scaling_max_freq
-        # Limit A57 max freq from msm_perf module in case CPU 4 is offline
-        echo "4:960000 5:960000 6:960000 7:960000" > /sys/module/msm_performance/parameters/cpu_max_freq
         # disable thermal bcl hotplug to switch governor
         echo 0 > /sys/module/msm_thermal/core_control/enabled
         for mode in /sys/devices/soc.0/qcom,bcl.*/mode
@@ -4531,8 +4529,6 @@ case "$target" in
         echo 1 > /sys/devices/system/cpu/cpu6/online
         echo 1 > /sys/devices/system/cpu/cpu7/online
         echo 0 > /sys/module/lpm_levels/parameters/sleep_disabled
-        # Restore CPU 4 max freq from msm_performance
-        echo "4:4294967295 5:4294967295 6:4294967295 7:4294967295" > /sys/module/msm_performance/parameters/cpu_max_freq
         # input boost configuration
         echo 0:1344000 > /sys/module/cpu_boost/parameters/input_boost_freq
         echo 40 > /sys/module/cpu_boost/parameters/input_boost_ms
