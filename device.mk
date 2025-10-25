@@ -264,6 +264,7 @@ $(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
 $(call soong_config_set,lineage_health,fast_charge_node,/sys/class/qcom-battery/fastcharge_enable)
 $(call soong_config_set,lineage_health,fast_charge_value_none,0)
 $(call soong_config_set,lineage_health,fast_charge_value_fast_charge,1)
+$(call soong_config_set,lineage_health,fast_charge_value_super_fast_charge,2)
 
 # Logging
 include $(LOCAL_PATH)/configs/logging.mk
