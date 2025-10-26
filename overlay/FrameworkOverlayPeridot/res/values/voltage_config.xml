@@ -34,4 +34,7 @@
     <!-- media controls -->
     <bool name="config_mediaControlsTurbulenceByDefault">true</bool>
 
+    <!-- The CPU temperature sensor path, defaults to empty -->
+    <string name="config_cpuTempSensor" translatable="false">/sys/class/thermal/thermal_zone10/temp</string>
+
 </resources>
