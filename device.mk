@@ -365,7 +365,8 @@ PRODUCT_PACKAGES += \
 
 # QSPA
 PRODUCT_PACKAGES += \
-    vendor.qti.qspa-service
+    vendor.qti.qspa-service \
+    qspa_vendor.rc
 
 # SKU
 PRODUCT_COPY_FILES += \
