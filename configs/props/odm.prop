@@ -1,7 +1,7 @@
 # Audio
+audio.spatializer.pose_predictor_type=2
+audio.spatializer.prediction_duration_ms=50
 persist.vendor.audio.effectimplenter=dolby
-persist.vendor.audio.fpsop.game.effect.speaker=true
-persist.vendor.audio.fpsop.game.effect=true
 persist.vendor.audio.spatializer.enable=false
 persist.vendor.audio.spf_restart=true
 ro.vendor.audio.aw.monitor=true
