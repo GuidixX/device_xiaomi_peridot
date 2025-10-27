@@ -75,9 +75,7 @@ odm/etc/backend_conf.xml
 odm/etc/backend_conf_fs.xml
 odm/etc/usecaseKvManager.xml
 vendor/etc/audio_diag.cfg
-vendor/etc/audio_policy_volumes.xml
 vendor/etc/card-defs.xml
-vendor/etc/default_volume_tables.xml
 vendor/etc/kvh2xml.xml
 vendor/etc/microphone_characteristics.xml
 vendor/etc/usecaseKvManager.xml
