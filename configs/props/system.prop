@@ -61,6 +61,14 @@ persist.radio.data_con_rprt=1
 persist.radio.calls.on.ims=1
 persist.radio.VT_ENABLE=1
 
+# RIL Powersaving
+persist.radio.add_power_save=1 
+pm.sleep_mode=1 
+ro.ril.disable.power.collapse=0
+ro.ril.fast.dormancy.rule=1 
+ro.ril.fast.dormancy.timeout=5
+ro.mot.eri.losalert.delay=1000
+
 # Other Options
 persist.sys.cust.lte_config=true
 persist.rcs.supported=1
