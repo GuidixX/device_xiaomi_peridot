@@ -1,11 +1,11 @@
 /*
- * Copyright (C) 2021 The LineageOS Project
+ * Copyright (C) 2021-2025 The LineageOS Project
  *
  * SPDX-License-Identifier: Apache-2.0
  */
 
-#include <sys/sysinfo.h>
 #include <libinit_utils.h>
+#include <sys/sysinfo.h>
 
 #include <libinit_dalvik_heap.h>
 
@@ -19,26 +19,26 @@
 #define GB(b) (b * 1024ull * 1024 * 1024)
 
 static const dalvik_heap_info_t dalvik_heap_info_12288 = {
-    .heapstartsize = "24m",
-    .heapgrowthlimit = "384m",
-    .heapsize = "512m",
-    .heaptargetutilization = "0.42",
-    .heapminfree = "8m",
-    .heapmaxfree = "56m",
+        .heapstartsize = "24m",
+        .heapgrowthlimit = "384m",
+        .heapsize = "512m",
+        .heaptargetutilization = "0.42",
+        .heapminfree = "8m",
+        .heapmaxfree = "56m",
 };
 
 static const dalvik_heap_info_t dalvik_heap_info_8192 = {
-    .heapstartsize = "24m",
-    .heapgrowthlimit = "256m",
-    .heapsize = "512m",
-    .heaptargetutilization = "0.46",
-    .heapminfree = "8m",
-    .heapmaxfree = "48m",
+        .heapstartsize = "24m",
+        .heapgrowthlimit = "256m",
+        .heapsize = "512m",
+        .heaptargetutilization = "0.46",
+        .heapminfree = "8m",
+        .heapmaxfree = "48m",
 };
 
 void set_dalvik_heap() {
     struct sysinfo sys;
-    const dalvik_heap_info_t *dhi;
+    const dalvik_heap_info_t* dhi;
 
     sysinfo(&sys);
 
