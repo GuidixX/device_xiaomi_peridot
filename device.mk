@@ -336,6 +336,7 @@ include packages/apps/XiaomiParts/parts.mk
 TARGET_USE_CLEARSPEAKER := true
 TARGET_USE_SATURATIONSLIDER := true
 TARGET_USE_DCDIMMING := true
+TARGET_SUPPORTS_HTSR := true
 
 # Partitions
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
