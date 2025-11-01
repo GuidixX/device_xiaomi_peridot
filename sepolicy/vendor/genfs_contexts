@@ -24,6 +24,7 @@ genfscon sysfs /devices/virtual/touch/touch_dev/gesture_single_tap_state        
 genfscon sysfs /devices/virtual/touch/touch_dev/bump_sample_rate                                                                                                                          u:object_r:vendor_sysfs_touch:s0
 
 # Wakeup
+genfscon sysfs /class/wakeup/wakeup84                                                                                                                                                     u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/soc:xiaomi_fingerprint/wakeup                                                                                                                        u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a80000.i2c/i2c-2/2-005a/wakeup                                                                                           u:object_r:sysfs_wakeup:s0
 genfscon sysfs /devices/platform/soc/ac0000.qcom,qupv3_0_geni_se/a90000.spi/spi_master/spi0/spi0.0/wakeup                                                                                 u:object_r:sysfs_wakeup:s0
