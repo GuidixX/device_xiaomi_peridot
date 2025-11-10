@@ -4,6 +4,7 @@ hal_client_domain(hal_fingerprint_default, vendor_hal_perf)
 add_service(hal_fingerprint_default, vendor_hal_fingerprint_service_xiaomi)
 
 get_prop(hal_fingerprint_default, vendor_panel_info_prop)
+get_prop(hal_fingerprint_default, vendor_camera_prop)
 set_prop(hal_fingerprint_default, vendor_fp_prop)
 set_prop(hal_fingerprint_default, vendor_fp_info_prop)
 

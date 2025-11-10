@@ -1,0 +1,3 @@
+# QMS (Qualcomm Modem Services)
+get_prop(vendor_qms_2, vendor_qms_prop)
+set_prop(vendor_qms_2, vendor_qms_prop)

@@ -87,6 +87,9 @@
 # Sensors
 /vendor/bin/hw/android\.hardware\.sensors-service\.xiaomi-multihal                                                   u:object_r:hal_sensors_default_exec:s0
 
+# Storage
+/dev/[0-9]+:[0-9]+:[0-9]+:[0-9]+                                                                                     u:object_r:vendor_ufs_bsg_device:s0
+
 # Touch
 /dev/xiaomi-touch                                                                                                    u:object_r:touchfeature_device:s0
 /sys/devices/virtual/touch/touch_dev/ear_sensor                                                                      u:object_r:sysfs_tp_virtual_prox:s0
