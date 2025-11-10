@@ -183,6 +183,10 @@ ro.vendor.oem.meid                                          u:object_r:vendor_de
 ro.vendor.oem.serialno                                      u:object_r:vendor_deviceid_prop:s0
 ro.vendor.oem.boot_completed                                u:object_r:vendor_deviceid_prop:s0
 persist.vendor.radio.imei                                   u:object_r:vendor_deviceid_prop:s0
+ro.vendor.radio.manufacturer_id                             u:object_r:vendor_radio_prop:s0
+ro.vendor.radio.hal_chip_id                                 u:object_r:vendor_radio_prop:s0
+ro.vendor.ril.svlte1x                                       u:object_r:vendor_radio_prop:s0
+ro.vendor.ril.svdo                                          u:object_r:vendor_radio_prop:s0
 
 # Thermal
 vendor.sys.thermal.data.path                                u:object_r:vendor_thermal_normal_prop:s0
