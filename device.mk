@@ -56,7 +56,7 @@ BOARD_SHIPPING_API_LEVEL := 34
 PRODUCT_SHIPPING_API_LEVEL := $(BOARD_SHIPPING_API_LEVEL)
 
 # Audio
-$(call soong_config_set, android_hardware_audio, skip_speaker_layout_channel_mask_field, true)
+$(call soong_config_set_bool, android_hardware_audio, skip_speaker_layout_channel_mask_field, true)
 
 PRODUCT_PACKAGES += \
     android.hardware.audio.service
@@ -272,7 +272,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_PACKAGES += \
     vendor.lineage.health-service.default
 
-$(call soong_config_set,lineage_health,charging_control_supports_bypass,false)
+$(call soong_config_set_bool,lineage_health,charging_control_supports_bypass,false)
 $(call soong_config_set,lineage_health,fast_charge_node,/sys/class/qcom-battery/fastcharge_enable)
 $(call soong_config_set,lineage_health,fast_charge_value_none,0)
 $(call soong_config_set,lineage_health,fast_charge_value_fast_charge,1)
