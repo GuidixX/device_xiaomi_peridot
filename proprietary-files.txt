@@ -109,7 +109,6 @@ vendor/etc/models/acd/music.eai
 vendor/etc/models/acd/speech.eai
 vendor/etc/models/vui/sm8_gr1UsPdk6XsMfcn220819Enpu4FloateAIv34.uim
 vendor/etc/models/vui/sm8_gr3UsMFCN230612eAIv34ENPUv4Float.uim
-vendor/lib64/android.hardware.audio.common@7.1-util.so;MAKE_COPY_RULE_ONLY
 vendor/lib64/hw/audio.primary.pineapple.so
 vendor/lib64/hw/gyro_fusion_interface.so
 vendor/lib64/libPeripheralStateUtils.so
