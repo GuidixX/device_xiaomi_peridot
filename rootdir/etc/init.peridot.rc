@@ -150,7 +150,7 @@ on init
     copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
 
     # Report max frequency to unity tasks.
-    write /proc/sys/walt/sched_lib_name "UnityMain,libunity.so,libil2cpp.so,com.miHoYo.,com.pubg.imobile,com.pubg.,com.activision."
+    write /proc/sys/walt/sched_lib_name "UnityMain,libunity.so,libil2cpp.so,com.miHoYo.,com.pubg.imobile,com.pubg.,com.activision.,com.mobilechess.gp,com.mobile.legends"
     write /proc/sys/walt/sched_lib_mask_force 255
 
 on fs
