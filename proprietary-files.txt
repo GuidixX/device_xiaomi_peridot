@@ -2495,6 +2495,9 @@ vendor/lib64/libsi.so
 vendor/lib64/libtaautoload.so
 vendor/lib64/vendor.qti.hardware.trustedui-V1-ndk.so
 
+# TinyXML2
+system/lib64/libtinyxml2.so:vendor/lib64/libtinyxml2_bp4a.so;FIX_SONAME
+
 # VPP
 vendor/bin/hw/qconfigservice
 vendor/bin/qconfigfunctest
