@@ -138,7 +138,6 @@ vendor/lib64/libqtigefar.so
 vendor/lib64/libresampler.so
 vendor/lib64/libspatializerparamstorage.so
 vendor/lib64/libtensorflowlite_c.so:vendor/lib64/libtensorflowlite_c_vendor.so;FIX_SONAME
-vendor/lib64/libvui_intf.so
 vendor/lib64/libxlog.so
 vendor/lib64/vendor.qti.hardware.pal@1.0-impl.so
 vendor/lib64/vendor.qti.voiceprint@1.0.so
