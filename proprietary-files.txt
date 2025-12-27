@@ -440,9 +440,6 @@ odm/etc/camera/resources/render/BuildIn/binShaders64/shader_YUV2RGBAUtils_SWAP_U
 odm/etc/camera/resources/render/BuildIn/binShaders64/shader_YUV2YUVUtils.bin
 odm/etc/camera/resources/render/BuildIn/binShaders64/shader_YUV2YUVUtils_SWAP_UV.bin
 odm/etc/camera/resources/render/BuildIn/binShaders64/shader_YUVP010ToYUVP010.bin
-odm/etc/camera/resources/render/Config/config_mode_all.json
-odm/etc/camera/resources/render/Config/config_mode_front.json
-odm/etc/camera/resources/render/Config/config_mode_rear.json
 odm/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/0_Spotless/FaceMask.bin
 odm/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/0_Spotless/effect.json
 odm/etc/camera/resources/render/Effect/20_FaceRetouch/Effects/1_SkinSmoothClassical/BeautyMap.bin
