@@ -22,7 +22,7 @@ namespace_imports = [
     'hardware/qcom-caf/sm8650',
     'hardware/qcom-caf/wlan',
     'hardware/xiaomi',
-    'hardware/lineage/interfaces/power-libperfmgr',
+    'hardware/voltage/interfaces/power-libperfmgr',
     'hardware/qcom-caf/common/libqti-perfd-client',
     'hardware/google/interfaces',
     'hardware/google/pixel',
