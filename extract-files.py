@@ -77,7 +77,6 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace('xml=version', 'xml version'),
     (
         'odm/lib64/hw/camera.qcom.so',
-        'odm/lib64/hw/camera.xiaomi.so',
         'odm/lib64/hw/com.qti.chi.override.so',
         'odm/lib64/libchifeature2.so',
     ): blob_fixup()
@@ -85,7 +84,14 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed(
             'android.hardware.graphics.allocator-V1-ndk.so',
             'android.hardware.graphics.allocator-V2-ndk.so'
-        ),
+    ),
+    'odm/lib64/hw/camera.xiaomi.so': blob_fixup()
+        .replace_needed('libui.so', 'libui-v34.so')
+        .add_needed('libprocessgroup_shim.so')
+        .replace_needed(
+            'android.hardware.graphics.allocator-V1-ndk.so',
+            'android.hardware.graphics.allocator-V2-ndk.so'
+    ),
     (
         'odm/lib64/camera/com.qti.actuator.peridot_aac_imx882_gt9764ber_wide_i_actuator.so',
         'odm/lib64/camera/com.qti.actuator.peridot_ofilm_imx882_aw86016csr_wide_ii_actuator.so',
@@ -216,10 +222,7 @@ blob_fixups: blob_fixups_user_type = {
         'odm/lib64/libmorpho_ubwc.so'
     ): blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
-        .clear_symbol_version('AHardwareBuffer_createFromHandle')
         .clear_symbol_version('AHardwareBuffer_describe')
-        .clear_symbol_version('AHardwareBuffer_isSupported')
-        .clear_symbol_version('AHardwareBuffer_getNativeHandle')
         .clear_symbol_version('AHardwareBuffer_lock')
         .clear_symbol_version('AHardwareBuffer_lockPlanes')
         .clear_symbol_version('AHardwareBuffer_release')
@@ -250,29 +253,14 @@ blob_fixups: blob_fixups_user_type = {
         .add_needed('libbinder_shim.so')
         .add_needed('libhidlbase_shim.so'),
 
+    'odm/lib64/libwrapper_dlengine.so': blob_fixup()
+        .add_needed('libwrapper_dlengine_shim.so'),
+
     'odm/lib64/libmibokeh_845_video.so': blob_fixup()
-        .add_needed('libwrapper_dlengine.so'),
+        .add_needed('libwrapper_dlengine_shim.so'),
 
-    'odm/lib64/hw/camera.xiaomi.so': blob_fixup()
-        .add_needed('libprocessgroup_shim.so')
-        .replace_needed('libui.so', 'libui-v34.so')
-        .replace_needed(
-            'android.hardware.graphics.allocator-V1-ndk.so',
-            'android.hardware.graphics.allocator-V2-ndk.so'
-        ),
-
-    (
-        'odm/lib64/camera/components/com.mi.node.mawsaliency.so',
-        'odm/lib64/camera/components/com.mi.node.dlengine.so',
-        'odm/lib64/libwrapper_dlengine.so',
-    ): blob_fixup()
-        .add_needed(
-            'libwrapper_dlengine_shim.so'
-    )
-        .replace_needed(
-            'android.hardware.graphics.allocator-V1-ndk.so',
-            'android.hardware.graphics.allocator-V2-ndk.so'
-        ),
+    'odm/lib64/camera/components/com.mi.node.mawsaliency.so': blob_fixup()
+        .add_needed('libwrapper_dlengine_shim.so'),
 
     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
         .regex_replace(r'.+DOLBY.+\n', '')
