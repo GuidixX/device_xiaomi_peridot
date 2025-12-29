@@ -20,3 +20,4 @@ dontaudit vendor_timeservice_app default_prop:file { read open getattr };
 dontaudit system_server proc_kallsyms:file getattr;
 dontaudit hal_camera_default shell_data_file:dir { read getattr search };
 dontaudit hal_camera_default system_data_file:dir { read getattr search };
+dontaudit hal_camera_default system_prop:file read;

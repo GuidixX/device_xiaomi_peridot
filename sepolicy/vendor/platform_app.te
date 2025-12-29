@@ -42,3 +42,6 @@ allow platform_app vendor_file:file { read open getattr map execute watch };
 
 # we don't have google battery support, add dummy domain and let it return null by selinux denial
 dontaudit platform_app hal_dummy_googlebattery_service:service_manager find;
+
+# Allow camera app to access DSP
+allow platform_app adsprpcd_file:dir { search getattr };
