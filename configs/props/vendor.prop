@@ -128,6 +128,7 @@ debug.sf.defer_refresh_rate_when_off=1
 debug.sf.use_phase_offsets_as_durations=0
 graphics.gpu.profiler.support=true
 dev.pm.dyn_samplingrate=1
+persist.sys.sf.native_mode=0
 persist.sys.sf.color_mode=0
 persist.sys.sf.color_saturation=1.0
 ro.gfx.driver.1=com.qualcomm.qti.gpudrivers.pineapple.api34
