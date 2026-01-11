@@ -10770,6 +10770,9 @@
     <carrier_config mcc="259" mnc="02">
         <boolean name="carrier_volte_available_bool" value="true" />
         <boolean name="carrier_vt_available_bool" value="true" />
+        <boolean name="vonr_enabled_bool" value="true" />
+        <boolean name="carrier_5g_switch_available_bool" value="true" />
+        <boolean name="carrier_disable_5g_switch_bool" value="false" />
     </carrier_config>
     <!--马其顿 MK DT-->
     <carrier_config mcc="294" mnc="01">
