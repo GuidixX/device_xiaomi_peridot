@@ -267,6 +267,7 @@ blob_fixups: blob_fixups_user_type = {
         'vendor/bin/qcc-vendor',
         'vendor/bin/qms',
         'vendor/bin/xtra-daemon',
+        'vendor/bin/cnd',
         'vendor/lib64/libcne.so',
         'vendor/lib64/libqcc_sdk.so',
     ): blob_fixup()
