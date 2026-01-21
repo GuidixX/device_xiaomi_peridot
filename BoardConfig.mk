@@ -6,8 +6,6 @@
 
 DEVICE_PATH := device/xiaomi/peridot
 
-BUILD_BROKEN_DUP_RULES := true
-
 # Inherit from proprietary files for miuicamera
 -include device/xiaomi/peridot-miuicamera/BoardConfig.mk
 
