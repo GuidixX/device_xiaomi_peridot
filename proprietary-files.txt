@@ -2346,9 +2346,6 @@ vendor/lib64/libGPMTEEC_vendor.so
 vendor/lib64/libGPTEE_vendor.so
 vendor/lib64/vendor.qti.hardware.qteeconnector@1.0.so
 
-# TinyXML2
-system/lib64/libtinyxml2.so:vendor/lib64/libtinyxml2_bp4a.so;FIX_SONAME
-
 # VPP
 vendor/bin/hw/qconfigservice
 vendor/bin/qconfigfunctest
