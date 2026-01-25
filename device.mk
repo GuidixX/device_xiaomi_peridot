@@ -361,7 +361,6 @@ PRODUCT_PACKAGES += \
     NcmTetheringOverlay
 
 # Parts
-include packages/apps/XiaomiParts/parts.mk
 TARGET_USE_CLEARSPEAKER := true
 TARGET_USE_SATURATIONSLIDER := true
 TARGET_SUPPORTS_HTSR := true
