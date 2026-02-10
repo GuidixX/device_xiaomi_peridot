@@ -14,4 +14,5 @@ type sysfs_msm_subsys, fs_type, sysfs_type;
 type diag_device, data_file_type, file_type;
 type proc_mtd, data_file_type, file_type;
 type sysfs_torch, fs_type, sysfs_type;
+type sysfs_haptics, fs_type, sysfs_type;
 type proc_walt, fs_type, proc_type;
