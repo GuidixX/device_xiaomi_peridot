@@ -47,7 +47,8 @@ SPAMMY_LOG_TAGS := \
     BackgroundInstallControlService \
     BackupTransportManager \
     ActivityManager \
-    qcrilNrd
+    qcrilNrd \
+    vendor.lineage.health-service.default
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 PRODUCT_VENDOR_PROPERTIES += \
