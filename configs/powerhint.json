@@ -383,19 +383,19 @@
       "PowerHint": "LAUNCH",
       "Node": "_proc_sys_walt_sched_boost",
       "Value": "1",
-      "Duration": 2000
+      "Duration": 5000
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "MSMPerfMaxFreq",
       "Value": "0:9999999 1:9999999 2:9999999 3:9999999 4:9999999 5:9999999 6:9999999 7:9999999",
-      "Duration": 2000
+      "Duration": 5000
     },
     {
       "PowerHint": "LAUNCH",
       "Node": "MSMPerfMinFreq",
       "Value": "0:9999999 1:9999999 2:9999999 3:9999999 4:9999999 5:9999999 6:9999999 7:9999999",
-      "Duration": 2000
+      "Duration": 5000
     },
     {
       "PowerHint": "INTERACTION",
