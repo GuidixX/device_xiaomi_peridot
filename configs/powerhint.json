@@ -326,6 +326,56 @@
       ],
       "DefaultIndex": 0,
       "ResetOnInit": true
+    },
+    {
+      "Name": "GPUMinFreq",
+      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/min_freq",
+      "Values": [
+        "150000000",
+        "255000000",
+        "500000000",
+        "684000000",
+        "900000000",
+        "1100000000"
+      ],
+      "DefaultIndex": 0
+    },
+    {
+      "Name": "GPUMaxFreq",
+      "Path": "/sys/class/kgsl/kgsl-3d0/devfreq/max_freq",
+      "Values": [
+        "1100000000",
+        "900000000"
+      ],
+      "DefaultIndex": 0
+    },
+    {
+      "Name": "GPUIdleTimer",
+      "Path": "/sys/class/kgsl/kgsl-3d0/idle_timer",
+      "Values": [
+        "80",
+        "58"
+      ],
+      "DefaultIndex": 0,
+      "ResetOnInit": true
+    },
+    {
+      "Name": "PowerHALMainState",
+      "Path": "vendor.powerhal.state",
+      "Values": [
+        "SUSTAINED_PERFORMANCE",
+        ""
+      ],
+      "Type": "Property"
+    },
+    {
+      "Name": "PowerHALRenderingState",
+      "Path": "vendor.powerhal.rendering",
+      "Values": [
+        "EXPENSIVE_RENDERING",
+        ""
+      ],
+      "Type": "Property"
     }
   ],
   "Actions": [
@@ -808,6 +858,54 @@
       "Node": "MSMPerfMinFreq",
       "Value": "0:1593600 1:1593600 2:1593600 3:1286400 4:1286400 5:1286400 6:1286400 7:2150400",
       "Duration": 1000
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "PowerHALRenderingState",
+      "Value": "EXPENSIVE_RENDERING",
+      "Duration": 0
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "GPUMinFreq",
+      "Value": "500000000",
+      "Duration": 0
+    },
+    {
+      "PowerHint": "EXPENSIVE_RENDERING",
+      "Node": "GPUIdleTimer",
+      "Value": "58",
+      "Duration": 0
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "PowerHALMainState",
+      "Value": "SUSTAINED_PERFORMANCE",
+      "Duration": 0
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "GPUMinFreq",
+      "Value": "1100000000",
+      "Duration": 0
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "GPUMaxFreq",
+      "Value": "1100000000",
+      "Duration": 0
+    },
+    {
+      "PowerHint": "SUSTAINED_PERFORMANCE",
+      "Node": "GPUIdleTimer",
+      "Value": "58",
+      "Duration": 0
+    },
+    {
+      "PowerHint": "GAME_LOADING",
+      "Node": "GPUMinFreq",
+      "Value": "684000000",
+      "Duration": 0
     }
   ]
 }
