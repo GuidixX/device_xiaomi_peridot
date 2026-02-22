@@ -1612,6 +1612,7 @@ vendor/lib64/hw/vulkan.adreno.so
 vendor/lib64/libCB.so
 vendor/lib64/libOpenCL.so
 vendor/lib64/libOpenCL_adreno.so
+vendor/lib64/libadreno_app_profiles.so
 vendor/lib64/libadreno_utils.so
 vendor/lib64/libgsl.so
 vendor/lib64/libkcl.so
