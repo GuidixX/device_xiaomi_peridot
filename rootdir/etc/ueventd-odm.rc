@@ -71,3 +71,10 @@ subsystem mi_display
 
 # xiaomi display feature
 /dev/mi_display/*         0666   root       graphics
+
+# xiaomi ntag
+/dev/fm-ntag              0660   nfc        nfc
+/dev/nxp-ntag             0660   nfc        nfc
+
+#launch boost
+/dev/iorap_dev 0660 system system

@@ -27,6 +27,7 @@ vendor.audio.ultrasound.usync=100
 
 # Camera
 ro.camerax.extensions.enabled=true
+ro.camera.disableHeicUltraHDR=true
 
 # DRM
 vendor.wv.oemcrypto.debug.enable_prov40=true
@@ -41,6 +42,7 @@ ro.vendor.display.adaptive_hdr.enable=true
 ro.vendor.display.bl_lut_calib.enable=false
 ro.vendor.display.darkmode_dither.enable=true
 ro.vendor.display.dobly_dpu.enable=true
+ro.vendor.display.enable_unlock_insert_black_frame=true
 ro.vendor.display.kernel_recoder_enable=false
 ro.vendor.display.mi_calib.enable=true
 ro.vendor.display.nature_mode.enable=false
@@ -57,7 +59,7 @@ vendor.display.disable_stc_dimming=1
 vendor.display.force_tonemapping=1
 vendor.display.idle_time=80
 vendor.display.multi_display_boost_cpu=1
-vendor.display.support_function_timer=0
+vendor.display.support_function_timer=1
 vendor.display.support_video_mode_30hz_aod=0
 
 # Media

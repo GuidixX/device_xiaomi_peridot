@@ -1,4 +1,4 @@
-# All unpinned firmware below are extracted from peridot OS2.0.208.0.VNPMIXM - peridot_global-ota_full-OS2.0.204.0.VNPMIXM
+# All unpinned firmware below are extracted from peridot OS3.0.4.0.WNPMIXM - peridot_global-ota_full-OS3.0.4.0.WNPMIXM
 
 abl.img;AB|185e5a6a7c8c2b51e2ee76af2d9c84a01fc29174
 aop.img;AB|767b86256dba9b5c27a2b96b3ebe9a5ba577e981

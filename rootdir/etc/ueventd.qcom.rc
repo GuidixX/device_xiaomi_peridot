@@ -413,9 +413,6 @@ subsystem mem_buf_vm
 # Ultrasound device
 /dev/usf1                 0660   system     system
 
-# xlog device
-/dev/xlog                 0660   system     audio
-
 # Ramdump devices
 /dev/ramdump*             0640   system     system
 
@@ -493,6 +490,7 @@ subsystem mem_buf_vm
 /sys/bus/usb/devices/usb*   authorized                 0660  system  usb
 
 #USB mode setting
+/sys/bus/platform/devices/a400000.ssusb    mode        0660  system  usb
 /sys/bus/platform/devices/a600000.ssusb    mode        0660  system  usb
 /sys/bus/platform/devices/4e00000.ssusb    mode        0660  system  usb
 
