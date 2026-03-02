@@ -242,12 +242,13 @@ blob_fixups: blob_fixups_user_type = {
     (
         'odm/lib64/libAncHumanVideoBokehV4.so',
         'odm/lib64/libTrueSight.so',
-        'odm/lib64/libMiVideoFilter.so',
+        'odm/lib64/libMiPhotoFilter.so',
         'odm/lib64/libwa_widelens_undistort.so',
         'odm/lib64/libmorpho_ubwc.so'
     ): blob_fixup()
         .clear_symbol_version('AHardwareBuffer_allocate')
         .clear_symbol_version('AHardwareBuffer_describe')
+        .clear_symbol_version('AHardwareBuffer_isSupported')
         .clear_symbol_version('AHardwareBuffer_lock')
         .clear_symbol_version('AHardwareBuffer_lockPlanes')
         .clear_symbol_version('AHardwareBuffer_release')

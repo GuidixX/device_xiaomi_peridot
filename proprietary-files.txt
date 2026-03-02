@@ -1,16 +1,10 @@
-# All unpinned blobs below are extracted from peridot OS2.0.208.0.VNPMIXM - peridot_global-ota_full-OS2.0.208.0.VNPMIXM
+# All unpinned blobs below are extracted from peridot OS3.0.4.0.WNPMIXM - peridot_global-ota_full-OS3.0.4.0.WNPMIXM
 
 # ACDB
 odm/etc/acdbdata/Fluence/Fluence_acdb_cal.acdb
 odm/etc/acdbdata/Fluence/foursemi/Fluence_acdb_cal_fs.acdb
 vendor/etc/acdbdata/ffv_models/ffv__5.0.1_0.1__3.0.0_0.0__eai_2.10_enpu3.pmd
-vendor/etc/acdbdata/nn_ns_models/fai__2.6.5_0.0__3.0.0_0.0__3.1.0_0.0__3.2.0_0.0__eai_2.10_enpuv3.pmd
-vendor/etc/acdbdata/nn_ns_models/fai__2.7.2_0.0__3.0.0_0.0__3.1.1_0.0__3.2.0_0.1__eai_3.4_enpuv4.pmd
-vendor/etc/acdbdata/nn_ns_models/fai__2.7.8_0.0__3.0.0_0.0__3.1.0_0.0__3.2.0_0.0__eai_2.10_enpuv3.pmd
-vendor/etc/acdbdata/nn_ns_models/fai__2.7.8_0.0__3.0.0_0.0__3.1.1_0.0__3.2.0_0.1__eai_3.0_enpuv4.pmd
 vendor/etc/acdbdata/nn_ns_models/fai__4.8.14_1.0__3.0.0_0.0__3.1.1_0.0__3.2.0_0.1__eai_3.4_enpuv4.pmd
-vendor/etc/acdbdata/nn_ns_models/fai__4.8.3_0.0__3.0.0_0.0__3.1.0_0.0__3.2.0_0.0__eai_2.10_enpuv3.pmd
-vendor/etc/acdbdata/nn_ns_models/fai__4.8.4_0.0__3.0.0_0.0__3.1.1_0.0__3.2.0_0.1__eai_3.0_enpuv4.pmd
 vendor/etc/acdbdata/nn_vad_models/fai__3.0.0_0.0__eai_2.10_enpuv3.pmd
 vendor/etc/acdbdata/nn_vad_models/fai__3.0.0_0.0__eai_3.4_enpuv4.pmd
 
@@ -89,6 +83,7 @@ odm/lib64/libawcal.so
 odm/lib64/libcrussp.so
 odm/lib64/libfsalgocal.so
 odm/lib64/libvoipspacespeech.so
+odm/lib64/vendor.xiaomi.hardware.mediaeventgatherservice-V1-ndk.so
 vendor/etc/audio_cloud_control_white_list.xml
 vendor/etc/models/acd/environment.eai
 vendor/etc/models/acd/event.eai
@@ -180,6 +175,7 @@ odm/etc/init/vendor.xiaomi.sensor.citsensorservice.aidl.rc
 odm/etc/vintf/manifest/vendor.xiaomi.sensor.citsensorservice.aidl.xml
 odm/lib64/libclient2slpi.notifier.so
 vendor/lib64/vendor.xiaomi.sensor.citsensorservice-V1-ndk.so
+vendor/lib64/xiaomi.system.hypsys.common-V1-ndk.so
 
 # CNE
 vendor/app/CneApp/CneApp.apk;REQUIRED=CneApp.libvndfwk_detect_jni.qti_vendor_symlink
@@ -301,7 +297,6 @@ odm/etc/camera/beauty_config_cn_8g.json
 odm/etc/camera/beauty_config_gl.json
 odm/etc/camera/beauty_config_gl_8g.json
 odm/etc/camera/beauty_style_nude.cng
-odm/etc/camera/cameraopt.json
 odm/etc/camera/camerascene.json
 odm/etc/camera/camxoverridesettings.txt
 odm/etc/camera/com.xiaomi.dcal.wu.golden
@@ -735,6 +730,7 @@ odm/lib64/com.qualcomm.mcx.linearmapper.so
 odm/lib64/com.qualcomm.mcx.nonlinearmapper.so
 odm/lib64/com.qualcomm.mcx.policy.mfl.so
 odm/lib64/com.qualcomm.qti.mcx.usecase.extension.so
+odm/lib64/com.xiaomi.camdfx.so
 odm/lib64/com.xiaomi.camhal.overlap.so
 odm/lib64/com.xiaomi.camhal.submodel.camxfrag.so
 odm/lib64/com.xiaomi.camhal.submodel.chifrag.so
@@ -755,8 +751,8 @@ odm/lib64/libHISCppAlgos.so
 odm/lib64/libIMTCppAlgos.so
 odm/lib64/libITT.so
 odm/lib64/libMiMotion.so
+odm/lib64/libMiPhotoFilter.so
 odm/lib64/libMiStereoFactoryCalibAnalyzeBin_qual.so
-odm/lib64/libMiVideoFilter.so
 odm/lib64/libPlatformValidatorShared.so
 odm/lib64/libSNPE.so;SYMLINK=vendor/lib64/libSNPE.so
 odm/lib64/libSnpeDspV66Stub.so;FIX_SONAME
@@ -929,6 +925,8 @@ vendor/lib64/libsynx.so
 vendor/lib64/libthreadutils.so
 vendor/lib64/libubwcp.so
 vendor/lib64/vendor.xiaomi.hardware.aon-V1-ndk.so
+vendor/lib64/vendor.xiaomi.hardware.camera.synthetic-V1-ndk.so
+vendor/lib64/vendor.xiaomi.hardware.camera.synthetic-impl.so
 vendor/lib64/vendor.xiaomi.hardware.quickcamera-V1-ndk.so
 vendor/lib64/vendor.xiaomi.hardware.seccam-V1-ndk.so
 vendor/lib64/vendor.xiaomi.sensor.camera-V1-ndk.so
@@ -1502,17 +1500,17 @@ odm/etc/disp0/mdss_dsi_n16t_42_0a_0c_dsc_vid/mi_gc_0.txt
 odm/etc/disp0/mdss_dsi_n16t_42_0a_0c_dsc_vid/mi_gc_1.txt
 odm/etc/disp0/mdss_dsi_n16t_42_0a_0c_dsc_vid/mi_gc_2.txt
 odm/etc/disp0/mdss_dsi_n16t_42_0a_0c_dsc_vid/mi_gc_3.txt
-vendor/etc/display/3dlut-pt-onnx-ptq-htp-fp16.dlc
-vendor/etc/display/8635_sr_2x_y1280x720.dlc
-vendor/etc/display/8635_sr_2x_y540x960.dlc
-vendor/etc/display/8635_sr_2x_y720x1280.dlc
-vendor/etc/display/8635_sr_2x_y960x540.dlc
-vendor/etc/display/8635_sr_3x_y368x640.dlc
-vendor/etc/display/8635_sr_3x_y640x368.dlc
-vendor/etc/display/LUT.txt
-vendor/etc/display/LUT0.txt
-vendor/etc/display/LUT1.txt
-vendor/etc/display/LUT2.txt
+odm/etc/display/3dlut-pt-onnx-ptq-htp-fp16.dlc
+odm/etc/display/8635_sr_2x_y1280x720.dlc
+odm/etc/display/8635_sr_2x_y540x960.dlc
+odm/etc/display/8635_sr_2x_y720x1280.dlc
+odm/etc/display/8635_sr_2x_y960x540.dlc
+odm/etc/display/8635_sr_3x_y368x640.dlc
+odm/etc/display/8635_sr_3x_y640x368.dlc
+odm/etc/display/LUT.txt
+odm/etc/display/LUT0.txt
+odm/etc/display/LUT1.txt
+odm/etc/display/LUT2.txt
 
 # Fingerprint
 odm/lib64/anc.hal.so
@@ -1525,7 +1523,7 @@ vendor/lib64/vendor.xiaomi.hardware.fx.tunnel-V1-ndk.so
 odm/bin/hw/android.hardware.gnss-aidl-service-qti
 odm/etc/init/android.hardware.gnss-aidl-service-qti.rc
 odm/etc/izat_device.conf
-odm/etc/vintf/manifest/android.hardware.gnss-aidl-service-qti.xml
+odm/etc/vintf/manifest/gnss-default.xml:odm/etc/vintf/manifest/gnss-peridot.xml
 odm/etc/vintf/manifest/vendor.qti.gnss-service.xml
 odm/lib64/android.hardware.gnss-aidl-impl-qti.so
 odm/lib64/sqlite3.so;MODULE_SUFFIX=_odm
@@ -1839,6 +1837,10 @@ vendor/lib64/libqmiservices.so
 vendor/lib64/libsmemlog.so
 vendor/lib64/libsubsystem_control.so
 
+# QSPA
+system_ext/etc/init/qspa_system.rc
+system_ext/etc/qspa/qspa_default.rc
+
 # QSPM
 vendor/bin/vendor.qti.qspmhal-service
 vendor/etc/init/vendor.qti.qspmhal-service.rc
@@ -1864,7 +1866,6 @@ product/framework/uimgbamanagerlibrary.jar
 product/framework/uimservicelibrary.jar
 system/etc/sysconfig/qti_whitelist.xml
 system_ext/app/AtFwd2/AtFwd2.apk
-system_ext/app/ImsRcsService/ImsRcsService.apk
 system_ext/app/QtiTelephonyService/QtiTelephonyService.apk
 system_ext/etc/permissions/qcrilhook.xml
 system_ext/etc/permissions/qti_permissions.xml
@@ -1894,6 +1895,7 @@ system_ext/lib64/lib-imsvtutils.so
 system_ext/lib64/libimscamera_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libimscamera_jni.so
 system_ext/lib64/libimsmedia_jni.so;SYMLINK=system_ext/priv-app/ims/lib/arm64/libimsmedia_jni.so
 system_ext/lib64/vendor.qti.ImsRtpService-V1-ndk.so
+system_ext/lib64/vendor.qti.ImsRtpService-V2-ndk.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.0.so
 system_ext/lib64/vendor.qti.imsrtpservice@3.1.so
 system_ext/priv-app/QtiTelephony/QtiTelephony.apk;REQUIRED=QtiTelephonyCompat
