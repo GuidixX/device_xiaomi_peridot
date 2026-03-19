@@ -265,16 +265,6 @@
             "ResetOnInit": true
         },
         {
-            "Name": "sysDevicesSystemCpuCpu3CpufreqWaltHispeedFreq",
-            "Path": "/sys/devices/system/cpu/cpu3/cpufreq/walt/hispeed_freq",
-            "Values": [
-                "1190400",
-                "787"
-            ],
-            "DefaultIndex": 0,
-            "ResetOnInit": true
-        },
-        {
             "Name": "sysDevicesSystemCpuCpu3CpufreqWaltRtgBoostFreq",
             "Path": "/sys/devices/system/cpu/cpu3/cpufreq/walt/rtg_boost_freq",
             "Values": [
@@ -578,12 +568,6 @@
         },
         {
             "PowerHint": "CAMERA_STREAMING_LOW",
-            "Node": "sysDevicesSystemCpuCpu3CpufreqWaltHispeedFreq",
-            "Value": "787",
-            "Duration": 0
-        },
-        {
-            "PowerHint": "CAMERA_STREAMING_LOW",
             "Node": "sysDevicesSystemCpuCpu3CpufreqWaltRtgBoostFreq",
             "Value": "595200",
             "Duration": 0
@@ -728,12 +712,6 @@
         },
         {
             "PowerHint": "CAMERA_STREAMING_MID",
-            "Node": "sysDevicesSystemCpuCpu3CpufreqWaltHispeedFreq",
-            "Value": "787",
-            "Duration": 0
-        },
-        {
-            "PowerHint": "CAMERA_STREAMING_MID",
             "Node": "sysDevicesSystemCpuDynpfEnableDynpf",
             "Value": "1",
             "Duration": 0
@@ -862,12 +840,6 @@
             "PowerHint": "CAMERA_STREAMING_HIGH",
             "Node": "procSysWaltSchedIdleEnough",
             "Value": "0",
-            "Duration": 0
-        },
-        {
-            "PowerHint": "CAMERA_STREAMING_HIGH",
-            "Node": "sysDevicesSystemCpuCpu3CpufreqWaltHispeedFreq",
-            "Value": "787",
             "Duration": 0
         },
         {
