@@ -263,6 +263,8 @@ blob_fixups: blob_fixups_user_type = {
         .clear_symbol_version('AHardwareBuffer_lockPlanes')
         .clear_symbol_version('AHardwareBuffer_release')
         .clear_symbol_version('AHardwareBuffer_unlock'),
+    'odm/lib64/libsnpe_config.so': blob_fixup()
+        .add_needed('liblog.so'),
     (
         'odm/lib64/libaudioroute_ext.so',
         'vendor/lib64/libagm.so',
