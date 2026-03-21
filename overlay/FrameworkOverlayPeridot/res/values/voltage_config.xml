@@ -25,8 +25,8 @@
     <bool name="config_proximityCheckOnFpsUnlock">true</bool>
 
     <!-- Pocket Lock -->
-    <bool name="config_pocketModeSupported">false</bool>
-    <bool name="config_pocketUseLightSensor">false</bool>
+    <bool name="config_pocketModeSupported">true</bool>
+    <bool name="config_pocketUseLightSensor">true</bool>
 
     <!-- PowerOffAlarmService -->
     <bool name="config_powerOffAlarmEnabled">true</bool>
