@@ -147,6 +147,8 @@ fi
 	echo 595200 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
 	echo 633600 > /sys/devices/system/cpu/cpufreq/policy2/scaling_min_freq
 	echo 633600 > /sys/devices/system/cpu/cpufreq/policy4/scaling_min_freq
+	echo 2803200 > /sys/devices/system/cpu/cpufreq/policy2/scaling_max_freq
+	echo 3014400 > /sys/devices/system/cpu/cpufreq/policy4/scaling_max_freq
 
 # Reset the RT boost, which is 1024 (max) by default.
 echo 0 > /proc/sys/kernel/sched_util_clamp_min_rt_default
