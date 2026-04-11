@@ -105,11 +105,8 @@ blob_fixups: blob_fixups_user_type = {
     'vendor/etc/init/vendor.qti.media.c2@1.0-service.rc': blob_fixup()
         .regex_replace(r'writepid\s+/dev/cpuset/foreground/tasks', 'task_profiles ProcessCapacityHigh HighPerformance'),
     (
-        'odm/bin/hw/vendor.xiaomi.sensor.citsensorservice.aidl',
         'odm/lib64/camera/plugins/com.xiaomi.plugin.anchor.so',
         'odm/lib64/com.qti.feature2.anchorsync.so',
-        'odm/lib64/hw/displayfeature.default.so',
-        'vendor/bin/hw/vendor.qti.hardware.display.composer-service',
         'vendor/lib64/libaudiocloudctrl.so',
         'vendor/lib64/libdpps.so',
         'vendor/lib64/liblearningmodule.so',
@@ -348,12 +345,6 @@ blob_fixups: blob_fixups_user_type = {
         .regex_replace(r'.+<!-- DOLBY.+\n', '')
         .regex_replace(r'.+<hal.*name=".*dv.*".*>\n', '')
         .regex_replace(r'.+<hal.*name=".*dolby.*".*>\n', ''),
-
-    'vendor/etc/clstc_config_library.xml': blob_fixup()
-        .regex_replace(
-            r'(<library>\s*<name>libdolbyclstc\.so</name>\s*<priority>1</priority>\s*)<enable>1</enable>',
-            r'\1<enable>0</enable>'
-        ),
 
     'vendor/etc/kvh2xml.xml': blob_fixup()
         .regex_replace(
