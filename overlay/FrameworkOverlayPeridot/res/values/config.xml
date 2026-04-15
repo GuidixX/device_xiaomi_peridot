@@ -3,7 +3,7 @@
      SPDX-FileCopyrightText: The LineageOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
     <!-- Enables or disables haptic effect when the text insertion/selection handle is moved
          manually by the user. Off by default, since the expected haptic feedback may not be
          available on some devices. -->
@@ -18,6 +18,9 @@
          so that applications can still use their own mechanisms. -->
     <bool name="config_enableAutoPowerModes">true</bool>
 
+    <!-- This string array should be overridden by the device to present a list of radio
+         attributes.  This is used by the connectivity manager to decide which networks can coexist
+         based on the hardware -->
     <!-- An Array of "[ConnectivityManager connectionType],
                       [# simultaneous connection types]"  -->
     <string-array name="radioAttributes" translatable="false">
@@ -31,10 +34,10 @@
     <bool name="config_automatic_brightness_available">true</bool>
 
     <!-- Fast brightness animation ramp rate in brightness units per second-->
-    <integer name="config_brightness_ramp_rate_fast" translatable="false">4932</integer>
+    <integer name="config_brightness_ramp_rate_fast">4932</integer>
 
     <!-- Slow brightness animation ramp rate in brightness units per second-->
-    <integer name="config_brightness_ramp_rate_slow" translatable="false">3946</integer>
+    <integer name="config_brightness_ramp_rate_slow">3946</integer>
 
     <!-- Indicate available ColorDisplayManager.COLOR_MODE_xxx. -->
     <integer-array name="config_availableColorModes">
@@ -64,18 +67,18 @@
          -2 is invalid so setting will resort to int value specified above.
          Set this to 0.0 to allow screen to go to minimal brightness.
          The user is forbidden from setting the brightness below this level. -->
-    <item name="config_screenBrightnessSettingMinimumFloat" type="dimen">8.54597E-4</item>
+    <item name="config_screenBrightnessSettingMinimumFloat" type="dimen" format="float">8.54597E-4</item>
 
     <!-- Maximum screen brightness allowed by the power manager.
          -2 is invalid so setting will resort to int value specified above.
          Set this to 1.0 for maximum brightness range.
          The user is forbidden from setting the brightness above this level. -->
-    <item name="config_screenBrightnessSettingMaximumFloat" type="dimen">1.0</item>
+    <item name="config_screenBrightnessSettingMaximumFloat" type="dimen" format="float">1.0</item>
 
     <!-- Default screen brightness setting set.
          -2 is invalid so setting will resort to int value specified above.
          Must be in the range specified by minimum and maximum. -->
-    <item name="config_screenBrightnessSettingDefaultFloat" type="dimen">0.07496032</item>
+    <item name="config_screenBrightnessSettingDefaultFloat" type="dimen" format="float">0.07496032</item>
 
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
          May be less than the minimum allowed brightness setting
@@ -104,7 +107,7 @@
          timeout expires.  May be less than the minimum allowed brightness setting
          that can be set by the user. -->
     <integer name="config_screenBrightnessDim">15</integer>
-    <item name="config_screenBrightnessDimFloat" type="dimen">8.54597E-4</item>
+    <item name="config_screenBrightnessDimFloat" type="dimen" format="float">8.54597E-4</item>
 
     <!-- Array of light sensor lux values to define our levels for auto backlight brightness support.
          The N entries of this array define N + 1 control points as follows:
@@ -476,7 +479,7 @@
          value < level[0]                0
          level[n] <= value < level[n+1]  n+1
          level[MAX] <= value             MAX+1 -->
-    <array name="config_screenThresholdLevels" />
+    <array name="config_screenThresholdLevels"/>
 
     <!-- Array of hysteresis constraint values for brightening, represented as tenths of a
          percent. The length of this array is assumed to be one greater than
@@ -501,34 +504,40 @@
     <!-- Note: This config is deprecated, use BluetoothProperties instead.
          Idle current for bluetooth controller. 0 by default
     -->
-    <integer name="config_bluetooth_idle_cur_ma" translatable="false">4</integer>
+    <integer name="config_bluetooth_idle_cur_ma">4</integer>
 
     <!-- Note: This config is deprecated, use BluetoothProperties instead.
          Rx current for bluetooth controller. 0 by default
     -->
-    <integer name="config_bluetooth_rx_cur_ma" translatable="false">18</integer>
+    <integer name="config_bluetooth_rx_cur_ma">18</integer>
 
     <!-- Note: This config is deprecated, use BluetoothProperties instead.
          Tx current for bluetooth controller. 0 by default
     -->
-    <integer name="config_bluetooth_tx_cur_ma" translatable="false">33</integer>
+    <integer name="config_bluetooth_tx_cur_ma">33</integer>
 
     <!-- Note: This config is deprecated, use BluetoothProperties instead.
          Operating volatage for bluetooth controller. 0 by default
     -->
-    <integer name="config_bluetooth_operating_voltage_mv" translatable="false">4000</integer>
+    <integer name="config_bluetooth_operating_voltage_mv">4000</integer>
 
     <!-- The default value for whether head tracking for
          spatial audio is enabled for a newly connected audio device -->
     <bool name="config_spatial_audio_head_tracking_enabled_default">true</bool>
 
+    <!-- Boolean indicating if restoring network selection should be skipped -->
     <!-- The restoring is handled by modem if it is true-->
-    <bool name="skip_restoring_network_selection" translatable="false">true</bool>
+    <bool name="skip_restoring_network_selection">true</bool>
 
-    <!-- MMS user agent string -->
+    <!-- MMS user agent string, for example OemNameDeviceName
+         If the string contains a '%s' format string then that substring will be replaced
+         with the value of Build.MODEL , ie
+         <string name="config_mms_user_agent">OemName%s</string> -->
     <string name="config_mms_user_agent" translatable="false">Android-Mms/2.0</string>
 
-    <!-- MMS user agent prolfile url -->
+    <!-- MMS user agent prolfile url, for example https://uaprof.oem_name.com/DeviceName.xml
+         if the string contains a '%s' format string then that substring will be replaced
+         with the value of Build.MODEL , ie https://uaprof.oem_name.com/%s.xml -->
     <string name="config_mms_user_agent_profile_url" translatable="false">http://www.google.com/oha/rdf/ua-profile-kila.xml</string>
 
     <!-- Whether a software navigation bar should be shown. NOTE: in the future this may be
@@ -609,10 +618,29 @@
     <!-- Set to true to add links to Cell Broadcast app from Settings and MMS app. -->
     <bool name="config_cellBroadcastAppLinks">true</bool>
 
-    <!--  Maximum number of supported users -->
+    <!--  Maximum number of supported switchable users (excluding Guests & Demo users).
+          Does not include profiles. See {@link UserManager#getMaxSwitchableUsers()} for details.
+
+          Setting to 1 disables multiple switchable users (e.g. secondary users).
+
+          To limit the number of any particular user type (whether switchable or not), set the
+          appropriate maximum in {@link com.android.internal.R.xml#config_user_types}.
+
+         Note: If > 1, it is expected that UserManager.USER_TYPE_FULL_SECONDARY users are supported
+         on the device (at least for testing purposes, even if in practice the UI really only allows
+         other switchable types, such as restricted profiles or guests, to be created).
+         -->
     <integer name="config_multiuserMaximumUsers">4</integer>
 
-    <!-- Whether UI for multi user should be shown -->
+    <!-- Whether UI for multi user should be shown.
+         Note: If true, it is expected that secondary users are supported on the device (at least
+         for testing purposes, even if in practice the UI really only allows other switchable
+         types, such as restricted profiles or guests, to be created).
+         @deprecated  Use config_multiuserMaximumUsers instead.
+         This config will likely be removed in the future; config_multiuserMaximumUsers, which now
+         only applies to full users, not profiles, should be updated accordingly as needed.
+         TODO(b/435521983): Remove this since it's now made redundant by config_multiuserMaximumUsers
+         -->
     <bool name="config_enableMultiUserUI">true</bool>
 
     <!-- Whether WiFi display is supported by this device.
