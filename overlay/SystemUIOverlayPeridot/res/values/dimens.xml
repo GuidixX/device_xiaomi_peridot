@@ -3,18 +3,18 @@
      SPDX-FileCopyrightText: The LineageOS Project
      SPDX-License-Identifier: Apache-2.0
 -->
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
+<resources>
 
     <!-- Bottom margin size when fingerprint in display is active -->
     <dimen name="keyguard_indication_margin_bottom">145dp</dimen>
 
     <!-- Location on the screen of the center of the physical power button. This is a reasonable
     default that should be overridden by device-specific overlays. -->
-    <dimen name="physical_power_button_center_screen_location_y">1210.0px</dimen>
+    <dimen name="physical_power_button_center_screen_location_y">1210px</dimen>
 
     <!-- Microns/ums (1000 um = 1mm) per pixel for the given device. If unspecified, UI that
          relies on this value will not be sized correctly. -->
-    <item name="pixel_pitch" type="dimen">56.96</item>
+    <item name="pixel_pitch" type="dimen" format="float">56.96</item>
 
     <!-- Status Bar Paddings -->
     <dimen name="status_bar_padding_top">-1dp</dimen>
