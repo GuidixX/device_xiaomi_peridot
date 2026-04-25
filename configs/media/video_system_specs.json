@@ -94,8 +94,6 @@
         // "c2.qti.dv.encoder"
         //
         "OptionalCodecs": [
-          "c2.qti.dv.decoder",
-          "c2.qti.dv.decoder.secure"
         ]
     }
 }
