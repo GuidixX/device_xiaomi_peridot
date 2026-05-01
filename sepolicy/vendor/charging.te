@@ -1,0 +1,13 @@
+type charging, domain;
+type charging_exec, exec_type, vendor_file_type, file_type;
+
+# Allow init to transition to this domain
+init_daemon_domain(charging)
+
+# Allow reading temperature and writing to charging limits
+# sysfs_battery_supply is the standard label for /sys/class/power_supply/battery/
+allow charging sysfs_battery_supply:dir r_dir_perms;
+allow charging sysfs_battery_supply:file rw_file_perms;
+
+# Silent dac spamming
+dontaudit charging self:capability dac_override;

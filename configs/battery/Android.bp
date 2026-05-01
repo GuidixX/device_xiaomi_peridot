@@ -1,0 +1,8 @@
+cc_binary {
+    name: "charging",
+    srcs: ["charging.cpp"],
+    vendor: true,
+    init_rc: ["init.charging.rc"],
+    shared_libs: ["liblog"],
+    cflags: ["-Wall", "-Werror", "-O3"],
+}
