@@ -4,7 +4,6 @@
 #
 
 import /vendor/etc/init/hw/init.batterysecret.rc
-import /vendor/etc/init/hw/init.mi_thermald.rc
 
 on early-boot
     # Modem
@@ -178,10 +177,6 @@ on post-fs-data
     chmod 0660 /dev/ir_spi
     chown system system /dev/ir_spi
 
-    # Thermal
-    mkdir /data/vendor/thermal 0771 root system
-    mkdir /data/vendor/thermal/config 0771 root system
-
     # Add torch node for cit && mmi
     chown system system /sys/class/leds/led:torch_0/brightness
     chown system system /sys/class/leds/led:torch_1/brightness
@@ -277,24 +272,15 @@ on property:sys.boot_completed=1
     copy_per_line /dev/cpuctl/tasks /dev/cpuctl/system/tasks
 
     # Thermal
-    chmod 0664 /sys/class/thermal/thermal_message/sconfig
-    chown system system /sys/class/thermal/thermal_message/sconfig
-    chmod 0664 /sys/class/thermal/thermal_message/balance_mode
-    chown system system /sys/class/thermal/thermal_message/balance_mode
     chmod 0664 /sys/class/thermal/thermal_message/torch_real_level
     chown cameraserver cameraserver /sys/class/thermal/thermal_message/torch_real_level
     chmod 0664 /sys/class/thermal/thermal_message/flash_state
     chown cameraserver cameraserver /sys/class/thermal/thermal_message/flash_state
-    chmod 0664 /sys/class/thermal/thermal_message/charger_temp
-    chown system system /sys/class/thermal/thermal_message/charger_temp
     chmod 0664 /sys/class/thermal/power_save/powersave_mode
     chown system system /sys/class/thermal/power_save/powersave_mode
     chmod 0664 /sys/class/thermal/power_save/power_level
     chown system system /sys/class/thermal/power_save/power_level
-    chmod 0664 /sys/class/thermal/thermal_message/board_sensor_temp_comp
-    chown system system /sys/class/thermal/thermal_message/board_sensor_temp_comp
-    chmod 0664 /sys/class/thermal/thermal_message/cpu_nolimit_temp
-    chown system system /sys/class/thermal/thermal_message/cpu_nolimit_temp
+    restart thermal-engine
 
     # For online boot cpu
     wait /sys/class/thermal/thermal_message/boot_complete
@@ -385,3 +371,12 @@ service vendor.qti.hardware.display.allocator /vendor/bin/hw/vendor.qti.hardware
     capabilities SYS_NICE
     onrestart restart surfaceflinger
     task_profiles ProcessCapacityHigh HighPerformance
+
+service thermal-engine /vendor/bin/thermal-engine-v2
+    class main
+    user root
+    group root
+    socket thermal-send-client stream 0660 system oem_2907
+    socket thermal-recv-client stream 0660 system oem_2907
+    socket thermal-recv-passive-client stream 0660 system oem_2907
+    socket thermal-send-rule stream 0660 system oem_2907
