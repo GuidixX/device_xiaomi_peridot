@@ -48,7 +48,8 @@ SPAMMY_LOG_TAGS := \
     BackupTransportManager \
     ActivityManager \
     qcrilNrd \
-    vendor.lineage.health-service.default
+    vendor.lineage.health-service.default \
+    thermal-engine
 
 ifneq ($(TARGET_BUILD_VARIANT),eng)
 PRODUCT_VENDOR_PROPERTIES += \
