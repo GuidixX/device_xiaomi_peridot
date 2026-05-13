@@ -1,0 +1,26 @@
+type vendor_thermal_engine, domain;
+type vendor_thermal_engine_exec, exec_type, vendor_file_type, file_type;
+
+init_daemon_domain(vendor_thermal_engine)
+r_dir_file(vendor_thermal_engine, thermal_data_file)
+
+# Allow ThermalEngine to create its client socket under /dev/socket (socket_device)
+allow vendor_thermal_engine socket_device:dir { add_name remove_name write search };
+allow vendor_thermal_engine vendor_thermal_socket:sock_file { create write setattr unlink };
+
+# Allow thermal engine to write to its files
+allow vendor_thermal_engine thermal_data_file:dir rw_dir_perms;
+allow vendor_thermal_engine thermal_data_file:file create_file_perms;
+
+# Suppress thermal-send-client socket creation errors
+dontaudit vendor_thermal_engine vendor_thermal_socket:sock_file { create };
+
+# Allow ThermalEngine to operate its Unix stream socket
+allow vendor_thermal_engine self:unix_stream_socket { create connect listen accept bind getopt setopt read write };
+
+# Allow ThermalEngine to create and bind Unix domain sockets
+allow vendor_thermal_engine self:unix_dgram_socket { create connect bind };
+allow vendor_thermal_engine self:unix_stream_socket { create connect bind };
+
+# Grant necessary capabilities: change file ownership and perform sysadmin tasks
+allow vendor_thermal_engine self:capability { chown fowner sys_admin };
