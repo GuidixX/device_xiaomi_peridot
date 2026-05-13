@@ -8,8 +8,6 @@ init_daemon_domain(charging)
 # sysfs_battery_supply is the standard label for /sys/class/power_supply/battery/
 allow charging sysfs_battery_supply:dir r_dir_perms;
 allow charging sysfs_battery_supply:file rw_file_perms;
-allow charging vendor_sysfs_battery_supply:dir r_dir_perms;
-allow charging vendor_sysfs_battery_supply:file r_file_perms;
 
 # Silent dac spamming
 dontaudit charging self:capability dac_override;
