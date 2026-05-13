@@ -35,6 +35,7 @@ allow hal_camera_default sysfs:file { open read };
 allow hal_camera_default sysfs:file r_file_perms;
 allow hal_camera_default vendor_displayfeature_device:chr_file { ioctl open read };
 allow hal_camera_default vendor_camera_data_file:sock_file { create getattr read setattr unlink write };
+allow hal_camera_default vendor_thermal_socket:sock_file rw_file_perms;
 allow hal_camera_default vendor_video_mi_prop:file read;
 allow hal_camera_default sys_thermal_flash_state:file { getattr write };
 allow hal_camera_default sys_thermal_flash_state:file w_file_perms;
