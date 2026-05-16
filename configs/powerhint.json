@@ -389,13 +389,13 @@
         {
             "PowerHint": "INTERACTION",
             "Node": "sysDevicesSystemCpuBusDcvsDdr24091000QcomBwmonDdrMinFreq",
-            "Value": "681000",
+            "Value": "547000",
             "Duration": 0
         },
         {
             "PowerHint": "INTERACTION",
             "Node": "sysKernelMsmPerformanceParametersCpuMinFreq",
-            "Value": "0:1843200 1:1843200 2:1843200 3:1286400 4:1286400 5:1286400 6:1286400 7:1651200",
+            "Value": "0:1593600 1:1593600 2:1593600 3:1286400 4:1286400 5:1286400 6:1286400 7:2150400",
             "Duration": 0
         },
         {
