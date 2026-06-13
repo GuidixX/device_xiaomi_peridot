@@ -343,15 +343,6 @@ blob_fixups: blob_fixups_user_type = {
             'libjpegencoder_prebuilt.so'
     ),
 
-    'odm/lib64/libwrapper_dlengine.so': blob_fixup()
-        .add_needed('libwrapper_dlengine_shim.so'),
-
-    'odm/lib64/libmibokeh_845_video.so': blob_fixup()
-        .add_needed('libwrapper_dlengine_shim.so'),
-
-    'odm/lib64/camera/components/com.mi.node.mawsaliency.so': blob_fixup()
-        .add_needed('libwrapper_dlengine_shim.so'),
-
     'vendor/etc/vintf/manifest/c2_manifest_vendor.xml': blob_fixup()
         .regex_replace(r'.+DOLBY.+\n', '')
         .regex_replace(r'.+<!-- DOLBY.+\n', '')
