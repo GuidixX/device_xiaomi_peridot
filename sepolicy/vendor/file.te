@@ -16,3 +16,4 @@ type proc_mtd, data_file_type, file_type;
 type sysfs_torch, fs_type, sysfs_type;
 type sysfs_haptics, fs_type, sysfs_type;
 type proc_walt, fs_type, proc_type;
+type sysfs_subset_parts, fs_type, sysfs_type;
