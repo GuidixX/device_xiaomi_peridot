@@ -85,7 +85,7 @@ case "$variant" in
 	/vendor/bin/sh /vendor/bin/init.kernel.post_boot-cliffs_2_3_0.sh
 	;;
 	"2_2_1")
-	vendor/bin/sh /vendor/bin/init.kernel.post_boot-cliffs_2_2_1.sh
+	/vendor/bin/sh /vendor/bin/init.kernel.post_boot-cliffs_2_2_1.sh
 	;;
 	*)
 	echo "***WARNING***: Postboot script not present for the variant ${variant}"
