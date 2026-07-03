@@ -437,7 +437,8 @@ PRODUCT_SOONG_NAMESPACES += \
     hardware/xiaomi \
     vendor/qcom/opensource/usb/etc \
     hardware/google/interfaces \
-    hardware/google/pixel \
+    hardware/google/pixel/pixelstats \
+    hardware/google/pixel/power-libperfmgr \
     hardware/qcom-caf/common/libqti-perfd-client \
     hardware/voltage/interfaces/power-libperfmgr
 
