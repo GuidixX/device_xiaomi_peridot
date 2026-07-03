@@ -13,7 +13,6 @@ vendor/etc/acdbdata/nn_ns_models/fai__11.0.1.6_1.0__3.0.0_0.0__3.1.1_0.0__3.2.0_
 vendor/bin/adsprpcd
 vendor/etc/init/vendor.qti.adsprpc-guestos-service.rc
 vendor/lib64/libadsp_default_listener.so
-vendor/lib64/libvmmem.so
 
 # ADSP modules
 odm/lib/rfsa/adsp/capi_elus_rx.so
