@@ -7,6 +7,8 @@
 
 #include <V2_1/SubHal.h>
 
+#include "LightCalibration.h"
+
 #include <thread>
 
 namespace android {
@@ -60,6 +62,11 @@ class SensorsSubHal : public ISensorsSubHal, public IHalProxyCallback {
     ScopedWakelock createScopedWakelock(bool lock) override;
 
   private:
+    int32_t currentBrightness() const;
+
+    LightCalibration light_cal_;
+    int32_t last_brightness_ = -1;
+
     std::unique_ptr<void, std::function<void(void*)>> lib_handle_;
     V2_1::implementation::ISensorsSubHal* impl_;
     sp<IHalProxyCallback> hal_proxy_callback_;

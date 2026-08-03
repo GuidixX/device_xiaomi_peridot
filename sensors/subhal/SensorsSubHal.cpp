@@ -5,7 +5,12 @@
 
 #include "SensorsSubHal.h"
 
+#include "QshOemConfig.h"
+
+#include <android-base/file.h>
 #include <android-base/logging.h>
+#include <android-base/parseint.h>
+#include <android-base/strings.h>
 #include <android-base/unique_fd.h>
 #include <display/drm/mi_disp.h>
 #include <dlfcn.h>
@@ -24,6 +29,7 @@ namespace qsh_wrapper {
 
 namespace {
 constexpr auto kLibName = "sensors.qsh.so";
+constexpr char kBrightnessPath[] = "/sys/class/backlight/panel0-backlight/brightness";
 constexpr int32_t kTsl2522FbRawType = 33171111;
 
 // This is larger than any sensor handle returned by the HAL
@@ -101,6 +107,16 @@ SensorsSubHal::~SensorsSubHal() {
 
 Return<Result> SensorsSubHal::setOperationMode(OperationMode mode) {
     return impl_->setOperationMode(mode);
+}
+
+int32_t SensorsSubHal::currentBrightness() const {
+    std::string value;
+    if (!android::base::ReadFileToString(kBrightnessPath, &value)) {
+        return 0;
+    }
+    int32_t brightness = 0;
+    android::base::ParseInt(android::base::Trim(value), &brightness);
+    return brightness;
 }
 
 int32_t SensorsSubHal::getRealHandle(int32_t sensor_handle) const {
@@ -327,11 +343,27 @@ void SensorsSubHal::postEvents(const std::vector<Event>& events, ScopedWakelock 
                 continue;
             }
             if (alias_handle != e.sensorHandle) {
+                const float als = e.u.vec4.x;
+                const float ir = e.u.vec4.y;
+                const int32_t brightness = currentBrightness();
+                const float lux = light_cal_.toLux(als, ir, brightness);
+                if (lux < 0.f) {
+                    continue;
+                }
+
                 auto event_copy = e;
                 event_copy.sensorHandle = alias_handle;
                 event_copy.sensorType = SensorType::LIGHT;
-                event_copy.u.scalar = e.u.vec4.y;
+                event_copy.u.scalar = lux;
+                LOG(VERBOSE) << "light: als=" << als << " ir=" << ir << " dbv=" << brightness
+                             << " -> " << lux << " lux";
                 forwarded_events.emplace_back(std::move(event_copy));
+                auto& qsh = QshOemConfig::getInstance();
+                if (brightness != last_brightness_) {
+                    last_brightness_ = brightness;
+                    qsh.notifyBacklight(brightness);
+                }
+                qsh.reportValue(lux, ir);
             }
         }
     }
