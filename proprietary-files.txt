@@ -1249,57 +1249,57 @@ vendor/etc/display/DPU10__.xml
 vendor/etc/display/DPU870.xml
 vendor/etc/display/DPU9__.xml
 
-# Display (HDR)
-vendor/lib64/libgame_enhance.so
-vendor/lib64/libhdr_backlight_adapter.so
-vendor/lib64/libhdr_tm.so
+# Display (HDR) - FP6.QREL.16.82.0.20260529172407
+vendor/lib64/libgame_enhance.so|f27a5cbcc831a7af069cf2a43060619d782352d7
+vendor/lib64/libhdr_backlight_adapter.so|88967e53b72aa4b7f2ef95aef758267e26ced981
+vendor/lib64/libhdr_tm.so|0d4054d38a6b721067839a238167caac38d7715c
 
 # Display (HDR dynamic)
 vendor/lib64/libhdrdynamic.so
 vendor/lib64/libhdrdynamicootf.so
 vendor/lib64/libhdrvivid.so
 
-# Display (HWC)
-vendor/bin/qdcmss
-vendor/etc/init/qdcmss.rc
-vendor/lib64/libbacklight-calib.so
-vendor/lib64/libdigital-dimming.so
-vendor/lib64/libdpps.so
-vendor/lib64/libmemutils.so
-vendor/lib64/libqdcm-algo.so
-vendor/lib64/libqdcm-json-mode-parser.so
-vendor/lib64/libqdcm-mode-parser.so
-vendor/lib64/libsnapdragoncolor-manager.so
-vendor/lib64/libsnapdragoncolor-qdcm.so
+# Display (HWC) - FP6.QREL.16.82.0.20260529172407
+vendor/bin/qdcmss|ddca861f23d33d97a702118666cb46b5e0a67833
+vendor/etc/init/qdcmss.rc|53d78d686678c4f923a9ec4ace7d4d3575b13788
+vendor/lib64/libbacklight-calib.so|37fa8613e9d81dfc644a699e18674e1323b8ffc2
+vendor/lib64/libdigital-dimming.so|41fc30e7bfed82ad745b7f8fae7fe2a18882055a
+vendor/lib64/libdpps.so|28b3be7e72e93420d3b41ac435766c7b05ffa6f5|28b3be7e72e93420d3b41ac435766c7b05ffa6f5
+vendor/lib64/libmemutils.so|f20cab9644e249f4cdf17e9002c2be733b626318
+vendor/lib64/libqdcm-algo.so|ea8b319328f5ad3eac94360335edae28b90686bd
+vendor/lib64/libqdcm-json-mode-parser.so|b642081aa94c39776e51530cf6dd5ca2285291e3
+vendor/lib64/libqdcm-mode-parser.so|3ce9fefde66f318af3ec043515739a7a1aa95f91
+vendor/lib64/libsnapdragoncolor-manager.so|3c7c2d5d4e4107f4eea8aed7cced9145c84a5fd1|3c7c2d5d4e4107f4eea8aed7cced9145c84a5fd1
+vendor/lib64/libsnapdragoncolor-qdcm.so|7f38a3437af7c1ecb0bc9678db29c798a22ae51b
 
-# Display (SDM)
-vendor/etc/display/advanced_sf_offsets.xml
-vendor/etc/display/thermallevel_to_fps.xml
-vendor/lib64/libclstc_algorithm_adapter.so
-vendor/lib64/libclstc_gcp_adapter.so
-vendor/lib64/libclstc_tm.so
-vendor/lib64/libdisplayqos.so
-vendor/lib64/libdisplayskuutils.so
-vendor/lib64/libintervmipc.so
-vendor/lib64/libqrtrclient.so
-vendor/lib64/libqseed3.so
-vendor/lib64/librcmask.so
-vendor/lib64/libsdm-color.so
-vendor/lib64/libsdm-colormgr-algo.so
-vendor/lib64/libsdm-disp-vndapis.so
-vendor/lib64/libsdmextension.so
-vendor/lib64/libtestutils.so
-vendor/lib64/libtinyxml2_1.so
-vendor/lib64/libvmfilexfer.so
+# Display (SDM) - FP6.QREL.16.82.0.20260529172407
+vendor/etc/display/advanced_sf_offsets.xml|c910f9e371defbaef64d235319bd1165d160950c
+vendor/etc/display/thermallevel_to_fps.xml|bc38035c8f41308fc25cc30969fbbf16ab86c43f
+vendor/lib64/libclstc_algorithm_adapter.so|d014e5928aef5a6ea8b5eff624e1a34f73c49f0b
+vendor/lib64/libclstc_gcp_adapter.so|41439a69101da583d822066037fa200635053998
+vendor/lib64/libclstc_tm.so|455236afd3b1cb0872b545a8391922cbf58d51a4
+vendor/lib64/libdisplayqos.so|523f275c2ca56a77e6296db7280e4b3c61bc9848
+vendor/lib64/libdisplayskuutils.so|f6150be7128951174ff5789db6242dd37615be01
+vendor/lib64/libintervmipc.so|ae450b73bccb323edb903df784d922e61b23065f
+vendor/lib64/libqrtrclient.so|8cc884b694968561fb6887960c2593bd67777c55
+vendor/lib64/libqseed3.so|dfa078c3e24b4933ba6901694f19b8b047cc9df6
+vendor/lib64/librcmask.so|d2d798263ebaf2c9e93090101c4303bc38a546b9
+vendor/lib64/libsdm-color.so|84e474d2036190136515fe6553820a84568a7f04
+vendor/lib64/libsdm-colormgr-algo.so|68acb1f1a10a1922afb5392ff79335947f64a9d9
+vendor/lib64/libsdm-disp-vndapis.so|6f1058731e8d34552a7f76ee52269cf34fd1a5ae
+vendor/lib64/libsdmextension.so|cd40055676a37d984df9f162c459563902155541
+vendor/lib64/libtestutils.so|9b00b16ceaa42120e22697fe0918f8f0442cea15
+vendor/lib64/libtinyxml2_1.so|54bd3e105c80618d49c49c0271abd61438c5353c
+vendor/lib64/libvmfilexfer.so|c84135f211de1df7942480bfb421a1ad0845d637
 
-# Display (Postprocessing)
-vendor/bin/feature_enabler_client
-vendor/bin/hw/vendor.qti.hardware.display.color-service
-vendor/bin/ppd
-vendor/etc/init/feature_enabler_client.rc
-vendor/etc/init/vendor.qti.hardware.display.color-service.rc
-vendor/lib64/libdisp-aba.so
-vendor/lib64/vendor.display.postproc@1.0.so
+# Display (Postprocessing) - FP6.QREL.16.82.0.20260529172407
+vendor/bin/feature_enabler_client|c426d8a43dffb59a687ee5063c6c4cb682792dd5
+vendor/bin/hw/vendor.qti.hardware.display.color-service|b4a591344442e4e651e4df571ae46a44d4bed280
+vendor/bin/ppd|61aa7d33860783915441425c783b007a2f6b51e6
+vendor/etc/init/feature_enabler_client.rc|6aeee1f0dc59f7e2841b8613e52a1ff81e0a9cae
+vendor/etc/init/vendor.qti.hardware.display.color-service.rc|c9e7bd7964270453b14a5f64d5d08cab4b71a274
+vendor/lib64/libdisp-aba.so|b010c58a686d4504d1105280abe90be9b44911e9
+vendor/lib64/vendor.display.postproc@1.0.so|8a3095624999eab253c4c0148a90956e24f2c50e
 
 # Display Calibration
 odm/etc/display/qdcm_calib_data_xiaomi_36_0f_0b_video_mode_dsc_dsi_panel.json
