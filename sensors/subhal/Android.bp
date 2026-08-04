@@ -8,6 +8,7 @@ cc_library_shared {
     name: "sensors.qsh_wrapper",
     defaults: ["hidl_defaults"],
     srcs: [
+        "QshOemConfig.cpp",
         "SensorsSubHal.cpp",
     ],
     shared_libs: [
@@ -16,6 +17,7 @@ cc_library_shared {
         "android.hardware.sensors@2.1",
         "libbase",
         "libhidlbase",
+        "libqsh",
         "libutils",
     ],
     header_libs: [
