@@ -145,7 +145,8 @@ Return<Result> SensorsSubHal::activate(int32_t sensor_handle, bool enabled) {
         gated_raw_handle_ = real_handle;
         requested_enabled_.store(enabled);
 
-        if (enabled && display_on_.load()) {
+        if (enabled && (display_on_.load() || currentBrightness() > 0)) {
+            display_on_.store(true);
             sensor_currently_enabled_.store(true);
             return impl_->activate(real_handle, enabled);
         }
@@ -260,6 +261,8 @@ void SensorsSubHal::displayMonitorThread() {
         LOG(ERROR) << "failed to register display event";
         return;
     }
+
+    display_on_.store(currentBrightness() > 0);
 
     struct pollfd dispEventPoll = {
             .fd = disp_fd.get(),
