@@ -9,7 +9,11 @@
 
 #include "LightCalibration.h"
 
+#include <atomic>
+#include <chrono>
+#include <condition_variable>
 #include <thread>
+#include <vector>
 
 namespace android {
 namespace hardware {
@@ -79,6 +83,7 @@ class SensorsSubHal : public ISensorsSubHal, public IHalProxyCallback {
     int32_t getAliasHandle(int32_t raw_sensor_handle) const;
 
     void displayMonitorThread();
+    void reportThread();
 
     std::atomic<bool> display_on_{false};
     std::atomic<bool> requested_enabled_{false};
@@ -87,6 +92,15 @@ class SensorsSubHal : public ISensorsSubHal, public IHalProxyCallback {
     int32_t gated_raw_handle_{-1};
     std::thread disp_thread_;
     std::mutex display_mutex_;
+
+    std::thread report_thread_;
+    std::mutex report_mutex_;
+    std::condition_variable report_cv_;
+    float report_lux_{0.f};
+    float report_ir_{0.f};
+    std::chrono::steady_clock::time_point last_forward_{};
+    std::vector<float> lux_samples_;
+    uint64_t forward_count_{0};
 };
 
 }  // namespace qsh_wrapper

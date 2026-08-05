@@ -16,6 +16,9 @@
 #include <dlfcn.h>
 #include <poll.h>
 
+#include <algorithm>
+#include <chrono>
+
 using ::android::hardware::sensors::V2_0::implementation::ScopedWakelock;
 using ::android::hardware::sensors::V2_1::implementation::ISensorsSubHal;
 
@@ -47,6 +50,10 @@ bool IsRawAmbientLightSensor(const android::hardware::sensors::V2_1::SensorInfo&
 }
 
 static constexpr char kDispFeatureDevice[] = "/dev/mi_display/disp_feature";
+static constexpr auto kSampleInterval = std::chrono::milliseconds(333);
+static constexpr auto kForwardInterval = std::chrono::milliseconds(1000);
+static constexpr size_t kMaxLuxSamples = 64;
+static constexpr uint64_t kForwardLogEvery = 60;
 
 bool IsDefaultLightSensor(const android::hardware::sensors::V2_1::SensorInfo& sensor) {
     return sensor.type == SensorType::LIGHT && !IsRawAmbientLightSensor(sensor);
@@ -96,12 +103,17 @@ SensorsSubHal::SensorsSubHal()
     impl_ = get_sub_hal(&version);
 
     disp_thread_ = std::thread(&SensorsSubHal::displayMonitorThread, this);
+    report_thread_ = std::thread(&SensorsSubHal::reportThread, this);
 }
 
 SensorsSubHal::~SensorsSubHal() {
     stop_disp_thread_.store(true);
+    report_cv_.notify_one();
     if (disp_thread_.joinable()) {
         disp_thread_.join();
+    }
+    if (report_thread_.joinable()) {
+        report_thread_.join();
     }
 }
 
@@ -224,6 +236,8 @@ Return<void> SensorsSubHal::getSensorsList_2_1(ISensors::getSensorsList_2_1_cb _
             handle_type_[alias.sensorHandle] = raw_sensor.type;
             alias_handle_to_raw_handle_[alias.sensorHandle] = raw_sensor.sensorHandle;
             raw_handle_to_alias_handle_[raw_sensor.sensorHandle] = alias.sensorHandle;
+            LOG(INFO) << "aliasing raw light " << std::hex << raw_sensor.sensorHandle << " onto "
+                      << alias_handle << std::dec;
             filtered.emplace_back(std::move(alias));
 
             auto aliased_sensors = hidl_vec<SensorInfo>(filtered.size());
@@ -307,6 +321,30 @@ void SensorsSubHal::displayMonitorThread() {
     }
 }
 
+void SensorsSubHal::reportThread() {
+    std::unique_lock<std::mutex> lock(report_mutex_);
+    while (!stop_disp_thread_.load()) {
+        report_cv_.wait_for(lock, kSampleInterval, [this] { return stop_disp_thread_.load(); });
+        if (stop_disp_thread_.load()) {
+            break;
+        }
+        if (!sensor_currently_enabled_.load()) {
+            continue;
+        }
+
+        const float lux = report_lux_;
+        const float ir = report_ir_;
+        lock.unlock();
+        const int32_t brightness = currentBrightness();
+        if (brightness != last_brightness_) {
+            last_brightness_ = brightness;
+            QshOemConfig::getInstance().notifyBacklight(brightness);
+        }
+        QshOemConfig::getInstance().reportValue(lux, ir);
+        lock.lock();
+    }
+}
+
 Return<void> SensorsSubHal::debug(const hidl_handle& fd, const hidl_vec<hidl_string>& args) {
     return impl_->debug(fd, args);
 }
@@ -353,20 +391,32 @@ void SensorsSubHal::postEvents(const std::vector<Event>& events, ScopedWakelock 
                 if (lux < 0.f) {
                     continue;
                 }
-
-                auto event_copy = e;
-                event_copy.sensorHandle = alias_handle;
-                event_copy.sensorType = SensorType::LIGHT;
-                event_copy.u.scalar = lux;
-                LOG(VERBOSE) << "light: als=" << als << " ir=" << ir << " dbv=" << brightness
-                             << " -> " << lux << " lux";
-                forwarded_events.emplace_back(std::move(event_copy));
-                auto& qsh = QshOemConfig::getInstance();
-                if (brightness != last_brightness_) {
-                    last_brightness_ = brightness;
-                    qsh.notifyBacklight(brightness);
+                if (lux_samples_.size() < kMaxLuxSamples) {
+                    lux_samples_.push_back(lux);
                 }
-                qsh.reportValue(lux, ir);
+                const auto now = std::chrono::steady_clock::now();
+                if (now - last_forward_ >= kForwardInterval && !lux_samples_.empty()) {
+                    last_forward_ = now;
+                    auto mid = lux_samples_.begin() + lux_samples_.size() / 2;
+                    std::nth_element(lux_samples_.begin(), mid, lux_samples_.end());
+                    const float median = *mid;
+                    lux_samples_.clear();
+
+                    auto event_copy = e;
+                    event_copy.sensorHandle = alias_handle;
+                    event_copy.sensorType = SensorType::LIGHT;
+                    event_copy.u.scalar = median;
+                    LOG(VERBOSE) << "light: als=" << als << " ir=" << ir << " dbv=" << brightness
+                                 << " -> " << median << " lux";
+                    forwarded_events.emplace_back(std::move(event_copy));
+                    if (++forward_count_ % kForwardLogEvery == 0) {
+                        LOG(INFO) << "forwarded " << forward_count_ << " lux events, last "
+                                  << median << " lux (dbv " << brightness << ")";
+                    }
+                }
+                std::lock_guard<std::mutex> lock(report_mutex_);
+                report_lux_ = lux;
+                report_ir_ = ir;
             }
         }
     }
