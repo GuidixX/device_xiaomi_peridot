@@ -8,6 +8,7 @@ cc_library_shared {
     name: "sensors.qsh_wrapper",
     defaults: ["hidl_defaults"],
     srcs: [
+        "CwbCapture.cpp",
         "LightCalibration.cpp",
         "QshOemConfig.cpp",
         "SensorsSubHal.cpp",
@@ -17,9 +18,12 @@ cc_library_shared {
         "android.hardware.sensors@2.0-ScopedWakelock",
         "android.hardware.sensors@2.1",
         "libbase",
+        "libbinder_ndk",
         "libhidlbase",
+        "libnativewindow",
         "libqsh",
         "libutils",
+        "vendor.qti.hardware.display.config-V10-ndk",
     ],
     header_libs: [
         "android.hardware.sensors@2.X-multihal.header",

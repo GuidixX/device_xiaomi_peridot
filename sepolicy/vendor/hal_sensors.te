@@ -1,5 +1,12 @@
+hal_client_domain(hal_sensors_default, hal_graphics_composer)
+hal_client_domain(hal_sensors_default, hal_graphics_allocator)
+
 allow hal_sensors_default audio_socket:sock_file rw_file_perms;
+allow hal_sensors_default dmabuf_system_heap_device:chr_file r_file_perms;
+allow hal_sensors_default gpu_device:chr_file rw_file_perms;
 allow hal_sensors_default hal_audio_default:unix_stream_socket connectto;
+allow hal_sensors_default hal_graphics_mapper_hwservice:hwservice_manager find;
+allow hal_sensors_default ion_device:chr_file r_file_perms;
 allow hal_sensors_default sound_device:chr_file rw_file_perms;
 allow hal_sensors_default vendor_displayfeature_device:chr_file { ioctl open read write };
 allow hal_sensors_default vendor_sysfs_graphics:dir r_dir_perms;

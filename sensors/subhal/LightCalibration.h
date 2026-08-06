@@ -12,6 +12,22 @@
 class LightCalibration {
   public:
     LightCalibration();
+    struct Region {
+        int32_t left = 0;
+        int32_t top = 0;
+        int32_t right = 0;
+        int32_t bottom = 0;
+        float weight = 0.f;
+    };
+
+    struct CwbInfo {
+        bool valid = false;
+        int32_t centreX = 0;
+        int32_t centreY = 0;
+        float powLow = 0.f;
+        float powHigh = 0.f;
+        std::vector<Region> regions;
+    };
 
     bool valid() const { return mValid; }
     float toLux(float als, float ir, int32_t brightness) const;
