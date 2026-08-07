@@ -101,6 +101,7 @@ class SensorsSubHal : public ISensorsSubHal, public IHalProxyCallback {
     std::chrono::steady_clock::time_point last_forward_{};
     std::vector<float> lux_samples_;
     uint64_t forward_count_{0};
+    uint64_t sample_tick_{0};
 };
 
 }  // namespace qsh_wrapper
