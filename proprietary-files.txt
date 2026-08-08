@@ -1318,6 +1318,7 @@ vendor/lib64/vendor.xiaomi.hardware.fx.tunnel-V1-ndk.so
 
 # GNSS
 vendor/app/CACertService/CACertService.apk
+vendor/lib64/libcacertclient.so
 
 # GNSS - pinned from GEN_NEEA_NX769SV2.0.0B06MR1
 vendor/bin/edgnss-daemon|3794ecebc034a2ac8f1356721f2908730b14ecfb

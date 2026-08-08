@@ -247,22 +247,18 @@ LocTimerContainer::~LocTimerContainer() {
 }
 
 LocTimerContainer* LocTimerContainer::get(bool wakeOnExpire) {
+    pthread_mutex_lock(&mMutex);
     // get the reference of either mHwTimer or mSwTimers per wakeOnExpire
     LocTimerContainer*& container = wakeOnExpire ? mHwTimers : mSwTimers;
-    // it is cheap to check pointer first than locking mutext unconditionally
     if (!container) {
-        pthread_mutex_lock(&mMutex);
-        // let's check one more time to be safe
-        if (!container) {
-            container = new LocTimerContainer(wakeOnExpire);
-            // timerfd_create failure
-            if (-1 == container->getTimerFd()) {
-                delete container;
-                container = NULL;
-            }
+        container = new LocTimerContainer(wakeOnExpire);
+        // timerfd_create failure
+        if (-1 == container->getTimerFd()) {
+            delete container;
+            container = NULL;
         }
-        pthread_mutex_unlock(&mMutex);
     }
+    pthread_mutex_unlock(&mMutex);
     return container;
 }
 

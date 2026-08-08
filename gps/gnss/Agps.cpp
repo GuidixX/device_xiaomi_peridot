@@ -545,6 +545,9 @@ void AgpsStateMachine::dropAllSubscribers(){
         it = mSubscriberList.erase(it);
         delete subscriber;
     }
+    // release data connection since no subscribers in list
+    transitionState(AGPS_STATE_RELEASED);
+    requestOrReleaseDataConn(false);
 }
 
 /* --------------------------------------------------------------------

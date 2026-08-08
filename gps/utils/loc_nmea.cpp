@@ -1176,8 +1176,8 @@ static void loc_nmea_get_fix_quality(const UlpLocation & location,
         }
         // NOTE: Order of the check is important
         if (locationExtended.flags & GPS_LOCATION_EXTENDED_HAS_POS_TECH_MASK) {
-            if ((LOC_POS_TECH_MASK_SENSORS & locationExtended.tech_mask) ||
-                    (LOC_POS_TECH_MASK_PROPAGATED & locationExtended.tech_mask)) {
+            if ((LOC_POS_TECH_MASK_SENSORS == locationExtended.tech_mask) ||
+                (LOC_POS_TECH_MASK_PROPAGATED & locationExtended.tech_mask)) {
                 ggaGpsQuality[0] = '6'; // 6 means estimated (dead reckoning)
                 rmcModeIndicator = 'E'; // E means estimated (dead reckoning)
                 vtgModeIndicator = 'E'; // E means estimated (dead reckoning)
