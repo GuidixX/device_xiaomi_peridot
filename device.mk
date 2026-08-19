@@ -303,6 +303,10 @@ PRODUCT_COPY_FILES += \
 
 $(call soong_config_set,libinit,vendor_init_lib,//$(LOCAL_PATH):init_xiaomi_peridot)
 
+# Keylayout
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/keylayout/uinput-xiaomi.kl:$(TARGET_COPY_OUT_ODM)/usr/keylayout/uinput-xiaomi.kl
+
 # Keymint
 PRODUCT_PACKAGES += \
     android.hardware.authsecret@1.0-service \
