@@ -30,6 +30,8 @@ genfscon sysfs /devices/virtual/touch/touch_dev/gesture_single_tap_state        
 
 # Touchscreen
 genfscon sysfs /devices/virtual/touch/touch_dev/bump_sample_rate                                                                                                                          u:object_r:vendor_sysfs_touch:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/game_mode                                                                                                                                 u:object_r:vendor_sysfs_touch:s0
+genfscon sysfs /devices/virtual/touch/touch_dev/touch_filters                                                                                                                             u:object_r:vendor_sysfs_touch:s0
 
 # Wakeup
 genfscon sysfs /class/wakeup/wakeup84                                                                                                                                                     u:object_r:sysfs_wakeup:s0
