@@ -306,11 +306,12 @@ float LightCalibration::interpolate(const std::vector<LeakageRow>& table, int32_
 }
 
 float LightCalibration::leakage(int32_t brightness, bool ir) const {
+    const float dark = interpolate(mLeakage, brightness, ir);
     const float content = mContentLevel.load();
     if (content >= 0.f && mFullWhite.size() > 1) {
-        return interpolate(mFullWhite, brightness, ir) * content;
+        return dark + (interpolate(mFullWhite, brightness, ir) - dark) * content;
     }
-    return interpolate(mLeakage, brightness, ir);
+    return dark;
 }
 
 float LightCalibration::leakageAls(int32_t brightness) const {
