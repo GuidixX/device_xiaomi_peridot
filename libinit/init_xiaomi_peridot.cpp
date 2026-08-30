@@ -18,7 +18,7 @@ static const variant_info_t global_variant = {
     .name = "peridot_global",
     .marketname = "POCO F6",
     .model = "24069PC21G",
-    .build_fingerprint = "POCO/peridot_global/peridot:16/BP2A.250605.031.A3/OS3.0.6.0.WNPMIXM:user/release-keys",
+    .build_fingerprint = "POCO/peridot_global/peridot:16/BP2A.250605.031.A3/OS3.0.303.0.WNPMIXM:user/release-keys",
 };
 
 static const variant_info_t indian_variant = {
@@ -30,7 +30,7 @@ static const variant_info_t indian_variant = {
     .name = "peridot_global",
     .marketname = "POCO F6",
     .model = "24069PC21I",
-    .build_fingerprint = "POCO/peridot_global/peridot:16/BP2A.250605.031.A3/OS3.0.6.0.WNPMIXM:user/release-keys",
+    .build_fingerprint = "POCO/peridot_global/peridot:16/BP2A.250605.031.A3/OS3.0.303.0.WNPMIXM:user/release-keys",
 };
 
 static const variant_info_t chinese_variant = {
