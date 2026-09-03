@@ -34,6 +34,8 @@ namespace qsh_wrapper {
 namespace {
 constexpr auto kLibName = "sensors.qsh.so";
 constexpr char kBrightnessPath[] = "/sys/class/backlight/panel0-backlight/brightness";
+constexpr char kMaxBrightnessPath[] = "/sys/class/backlight/panel0-backlight/max_brightness";
+constexpr char kBrightnessClonePath[] = "/sys/class/mi_display/disp-DSI-0/brightness_clone";
 constexpr int32_t kTsl2522FbRawType = 33171111;
 
 // This is larger than any sensor handle returned by the HAL
@@ -125,14 +127,62 @@ Return<Result> SensorsSubHal::setOperationMode(OperationMode mode) {
     return impl_->setOperationMode(mode);
 }
 
+int32_t SensorsSubHal::maxBrightness() const {
+    static int32_t max_brightness = -1;
+    if (max_brightness < 0) {
+        std::string value;
+        if (android::base::ReadFileToString(kMaxBrightnessPath, &value)) {
+            android::base::ParseInt(android::base::Trim(value), &max_brightness);
+        }
+        if (max_brightness <= 0) {
+            max_brightness = 16383;
+        }
+    }
+    return max_brightness;
+}
+
+namespace {
+int32_t scaleBrightnessToDbv(int32_t brightness, int32_t max_brightness) {
+    if (brightness <= 0) {
+        return 0;
+    }
+    if (max_brightness <= 2167) {
+        return brightness;
+    }
+    // For 14-bit backlight (max 16383):
+    // 0..8191 maps to 0..2047 (normal mode up to ~500 nits)
+    // 8192..16383 maps to 2048..2167 (HBM up to ~1400 nits)
+    constexpr int32_t kNormalBacklightMax = 8191;
+    constexpr int32_t kNormalDbvMax = 2047;
+    constexpr int32_t kHbmDbvMax = 2167;
+
+    if (max_brightness == 16383) {
+        if (brightness <= kNormalBacklightMax) {
+            return std::max(1, (brightness * kNormalDbvMax + kNormalBacklightMax / 2) / kNormalBacklightMax);
+        } else {
+            const int32_t hbmSpan = max_brightness - kNormalBacklightMax;
+            const int32_t dbvSpan = kHbmDbvMax - kNormalDbvMax;
+            return kNormalDbvMax + ((brightness - kNormalBacklightMax) * dbvSpan + hbmSpan / 2) / hbmSpan;
+        }
+    }
+    return std::max(1, static_cast<int32_t>((static_cast<int64_t>(brightness) * kNormalDbvMax + max_brightness / 2) / max_brightness));
+}
+}  // namespace
+
 int32_t SensorsSubHal::currentBrightness() const {
     std::string value;
+    if (android::base::ReadFileToString(kBrightnessClonePath, &value)) {
+        int32_t clone = 0;
+        if (android::base::ParseInt(android::base::Trim(value), &clone) && clone >= 0 && clone <= 2167) {
+            return clone;
+        }
+    }
     if (!android::base::ReadFileToString(kBrightnessPath, &value)) {
         return 0;
     }
     int32_t brightness = 0;
     android::base::ParseInt(android::base::Trim(value), &brightness);
-    return brightness;
+    return scaleBrightnessToDbv(brightness, maxBrightness());
 }
 
 int32_t SensorsSubHal::getRealHandle(int32_t sensor_handle) const {
@@ -396,12 +446,12 @@ void SensorsSubHal::postEvents(const std::vector<Event>& events, ScopedWakelock 
     forwarded_events.reserve(events.size() * 2);
 
     for (auto&& e : events) {
-        forwarded_events.emplace_back(e);
         if (static_cast<int32_t>(e.sensorType) == kTsl2522FbRawType) {
             const auto alias_handle = getAliasHandle(e.sensorHandle);
-            if (e.u.vec4.x == -1 && e.u.vec4.y == 0 && e.u.vec4.z == 0 && e.u.vec4.w == 0) {
+            if (e.u.vec4.x < 0 || (e.u.vec4.x == -1 && e.u.vec4.y == 0 && e.u.vec4.z == 0 && e.u.vec4.w == 0)) {
                 continue;
             }
+            forwarded_events.emplace_back(e);
             if (alias_handle != e.sensorHandle) {
                 if (reset_lux_hold_.exchange(false)) {
                     hold_brightness_ = -1;
@@ -441,11 +491,13 @@ void SensorsSubHal::postEvents(const std::vector<Event>& events, ScopedWakelock 
                     lux_samples_.clear();
 
                     const bool holding =
-                            held_lux_ >= 0.f && now < hold_deadline_ && now < hold_limit_;
+                            held_lux_ > 0.f && now < hold_deadline_ && now < hold_limit_;
                     if (holding) {
                         reported = held_lux_;
                     } else {
-                        held_lux_ = reported;
+                        if (reported > 0.f || als <= 0.f) {
+                            held_lux_ = reported;
+                        }
                     }
 
                     auto event_copy = e;
@@ -464,6 +516,11 @@ void SensorsSubHal::postEvents(const std::vector<Event>& events, ScopedWakelock 
                 report_lux_ = lux;
                 report_ir_ = ir;
             }
+        } else if (e.sensorType == SensorType::LIGHT) {
+            // Drop raw default light events from impl_ because we synthesize them from raw sensor
+            continue;
+        } else {
+            forwarded_events.emplace_back(e);
         }
     }
 

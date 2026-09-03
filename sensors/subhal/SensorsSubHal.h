@@ -67,6 +67,7 @@ class SensorsSubHal : public ISensorsSubHal, public IHalProxyCallback {
 
   private:
     int32_t currentBrightness() const;
+    int32_t maxBrightness() const;
 
     LightCalibration light_cal_;
     int32_t last_brightness_ = -1;
