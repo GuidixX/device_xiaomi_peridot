@@ -1248,7 +1248,7 @@ vendor/etc/display/DPU10__.xml
 vendor/etc/display/DPU870.xml
 vendor/etc/display/DPU9__.xml
 
-# Display (HDR) - FP6.QREL.16.82.0.20260529172407
+# Display (HDR) - FP6.QREL.16.100.0-WS1M-release-keys
 vendor/lib64/libgame_enhance.so|f27a5cbcc831a7af069cf2a43060619d782352d7
 vendor/lib64/libhdr_backlight_adapter.so|88967e53b72aa4b7f2ef95aef758267e26ced981
 vendor/lib64/libhdr_tm.so|0d4054d38a6b721067839a238167caac38d7715c
@@ -1258,20 +1258,20 @@ vendor/lib64/libhdrdynamic.so
 vendor/lib64/libhdrdynamicootf.so
 vendor/lib64/libhdrvivid.so
 
-# Display (HWC) - FP6.QREL.16.82.0.20260529172407
+# Display (HWC) - FP6.QREL.16.100.0-WS1M-release-keys
 vendor/bin/qdcmss|ddca861f23d33d97a702118666cb46b5e0a67833
 vendor/etc/init/qdcmss.rc|53d78d686678c4f923a9ec4ace7d4d3575b13788
 vendor/lib64/libbacklight-calib.so|37fa8613e9d81dfc644a699e18674e1323b8ffc2
 vendor/lib64/libdigital-dimming.so|41fc30e7bfed82ad745b7f8fae7fe2a18882055a
-vendor/lib64/libdpps.so|28b3be7e72e93420d3b41ac435766c7b05ffa6f5|28b3be7e72e93420d3b41ac435766c7b05ffa6f5
+vendor/lib64/libdpps.so|ad658d5aefe064ddb21eac5c4fab02fc2629640f|28b3be7e72e93420d3b41ac435766c7b05ffa6f5
 vendor/lib64/libmemutils.so|f20cab9644e249f4cdf17e9002c2be733b626318
 vendor/lib64/libqdcm-algo.so|ea8b319328f5ad3eac94360335edae28b90686bd
 vendor/lib64/libqdcm-json-mode-parser.so|b642081aa94c39776e51530cf6dd5ca2285291e3
 vendor/lib64/libqdcm-mode-parser.so|3ce9fefde66f318af3ec043515739a7a1aa95f91
-vendor/lib64/libsnapdragoncolor-manager.so|3c7c2d5d4e4107f4eea8aed7cced9145c84a5fd1|3c7c2d5d4e4107f4eea8aed7cced9145c84a5fd1
+vendor/lib64/libsnapdragoncolor-manager.so|0b09eb07df3539c22ef80c6f3b32b15dbf9fd102|3c7c2d5d4e4107f4eea8aed7cced9145c84a5fd1
 vendor/lib64/libsnapdragoncolor-qdcm.so|7f38a3437af7c1ecb0bc9678db29c798a22ae51b
 
-# Display (SDM) - FP6.QREL.16.82.0.20260529172407
+# Display (SDM) - FP6.QREL.16.100.0-WS1M-release-keys
 vendor/etc/display/advanced_sf_offsets.xml|c910f9e371defbaef64d235319bd1165d160950c
 vendor/etc/display/thermallevel_to_fps.xml|bc38035c8f41308fc25cc30969fbbf16ab86c43f
 vendor/lib64/libclstc_algorithm_adapter.so|d014e5928aef5a6ea8b5eff624e1a34f73c49f0b
@@ -1291,7 +1291,7 @@ vendor/lib64/libtestutils.so|9b00b16ceaa42120e22697fe0918f8f0442cea15
 vendor/lib64/libtinyxml2_1.so|54bd3e105c80618d49c49c0271abd61438c5353c
 vendor/lib64/libvmfilexfer.so|c84135f211de1df7942480bfb421a1ad0845d637
 
-# Display (Postprocessing) - FP6.QREL.16.82.0.20260529172407
+# Display (Postprocessing) - FP6.QREL.16.100.0-WS1M-release-keys
 vendor/bin/feature_enabler_client|c426d8a43dffb59a687ee5063c6c4cb682792dd5
 vendor/bin/hw/vendor.qti.hardware.display.color-service|b4a591344442e4e651e4df571ae46a44d4bed280
 vendor/bin/ppd|61aa7d33860783915441425c783b007a2f6b51e6
