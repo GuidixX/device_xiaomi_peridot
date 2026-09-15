@@ -293,6 +293,9 @@ ro.vendor.sensors.xiaomi.udfps=true
 # SKU
 ro.boot.product.vendor.sku=cliffs
 
+# SSR
+persist.vendor.ssr.restart_level=ALL_ENABLE
+
 # USB
 ro.usb.uvc.enabled=true
 ro.usb.uvc.disable_video_encode_flag=true
