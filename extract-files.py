@@ -376,6 +376,12 @@ blob_fixups: blob_fixups_user_type = {
         .replace_needed('libtensorflowlite_c.so', 'libtensorflowlite_c_vendor.so'),
     'odm/etc/init/vendor.qti.camera.provider-service_64.rc': blob_fixup()
         .regex_replace(r'^(.*\n){5}', '\\1    setenv JE_MALLOC_ZERO_FILLING 1\n'),
+    (
+        'vendor/etc/seccomp_policy/atfwd@2.0.policy',
+        'vendor/etc/seccomp_policy/codec2.vendor.ext-arm64.policy',
+        'vendor/etc/seccomp_policy/qti-systemd.policy',
+    ): blob_fixup()
+        .add_line_if_missing('lseek: 1'),
 }  # fmt: skip
 
 module = ExtractUtilsModule(
