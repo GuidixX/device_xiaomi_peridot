@@ -33,6 +33,7 @@ class LightCalibration {
     bool valid() const { return mValid; }
     float toLux(float als, float ir, int32_t brightness) const;
     void setContentLevel(float level) { mContentLevel.store(level); }
+    float contentLevel() const { return mContentLevel.load(); }
     const CwbInfo& cwbInfo() const { return mCwb; }
     float panelGamma(int32_t brightness) const;
     float leakageAls(int32_t brightness) const;

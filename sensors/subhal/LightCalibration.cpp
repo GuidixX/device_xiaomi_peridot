@@ -37,6 +37,9 @@ const char* configForPanel() {
 }
 constexpr char kRegistryDir[] = "/mnt/vendor/persist/sensors/registry/registry";
 constexpr float kLuxDivisor = 25600.0f;
+constexpr int32_t kContentDimTo = 400;
+constexpr int32_t kContentBrightFrom = 1400;
+constexpr float kContentNightScale = 0.25f;
 
 bool findFloat(const std::string& blob, const std::string& key, float* out) {
     size_t k = blob.find("\"" + key + "\"");
@@ -308,10 +311,22 @@ float LightCalibration::interpolate(const std::vector<LeakageRow>& table, int32_
 float LightCalibration::leakage(int32_t brightness, bool ir) const {
     const float dark = interpolate(mLeakage, brightness, ir);
     const float content = mContentLevel.load();
-    if (content >= 0.f && mFullWhite.size() > 1) {
-        return dark + (interpolate(mFullWhite, brightness, ir) - dark) * content;
+    if (content < 0.f || mFullWhite.size() <= 1) {
+        return dark;
     }
-    return dark;
+
+    const float white = interpolate(mFullWhite, brightness, ir);
+    const float full = white - dark;
+
+    const float span = static_cast<float>(kContentBrightFrom - kContentDimTo);
+    float dayness = span > 0.f
+                            ? (static_cast<float>(brightness) - kContentDimTo) / span
+                            : 1.f;
+    dayness = std::min(std::max(dayness, 0.f), 1.f);
+    const float scale = kContentNightScale + (1.f - kContentNightScale) * dayness;
+
+    const float comp = full * content * scale;
+    return dark + std::min(std::max(comp, 0.f), std::max(full, 0.f));
 }
 
 float LightCalibration::leakageAls(int32_t brightness) const {

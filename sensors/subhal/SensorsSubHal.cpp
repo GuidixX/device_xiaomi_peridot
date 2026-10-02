@@ -60,6 +60,8 @@ static constexpr auto kMaxBrightnessHold = std::chrono::milliseconds(4000);
 static constexpr int kCwbEveryNSamples = 3;
 static constexpr size_t kMaxLuxSamples = 64;
 static constexpr uint64_t kForwardLogEvery = 60;
+static constexpr float kDarkContentLevel = 0.15f;
+static constexpr auto kDarkContentHold = std::chrono::milliseconds(3000);
 
 bool IsDefaultLightSensor(const android::hardware::sensors::V2_1::SensorInfo& sensor) {
     return sensor.type == SensorType::LIGHT && !IsRawAmbientLightSensor(sensor);
@@ -495,7 +497,14 @@ void SensorsSubHal::postEvents(const std::vector<Event>& events, ScopedWakelock 
                     if (holding) {
                         reported = held_lux_;
                     } else {
-                        if (reported > 0.f || als <= 0.f) {
+                        const float content = light_cal_.contentLevel();
+                        const bool content_dark = content >= 0.f && content < kDarkContentLevel;
+                        if (content_dark && held_lux_ > 0.f && reported < held_lux_) {
+                            reported = held_lux_;
+                            content_hold_limit_ = now + kDarkContentHold;
+                        } else if (content_dark && now < content_hold_limit_) {
+                            reported = held_lux_ > 0.f ? held_lux_ : reported;
+                        } else if (reported > 0.f || als <= 0.f) {
                             held_lux_ = reported;
                         }
                     }

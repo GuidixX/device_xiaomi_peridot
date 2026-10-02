@@ -108,6 +108,7 @@ class SensorsSubHal : public ISensorsSubHal, public IHalProxyCallback {
     int32_t hold_brightness_{-1};
     std::chrono::steady_clock::time_point hold_deadline_{};
     std::chrono::steady_clock::time_point hold_limit_{};
+    std::chrono::steady_clock::time_point content_hold_limit_{};
     float held_lux_{-1.f};
 };
 
