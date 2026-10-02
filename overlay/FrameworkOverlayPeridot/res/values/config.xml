@@ -439,13 +439,15 @@
              display brightness <= disp0 && ambient brightness <= amb0
              || display brightness <= disp1 && ambient brightness <= amb1 -->
     <integer-array name="config_brightnessThresholdsOfPeakRefreshRate">
-         <!-- System brightness for 15 nits: round((15-2)/(1000-2)*(255-1)+1) -->
-         <item>4</item> <!-- 20% UI brightness -->
-         <!-- System brightness for 25 nits: round((25-2)/(1000-2)*(255-1)+1) -->
-         <item>7</item> <!-- 27% UI brightnes -->    </integer-array>
+         <!-- Wider low-brightness gate: block high refresh rates while the panel
+              is dim, so the per-refresh-rate gamma flicker does not show up on
+              dark themes at night. -->
+         <item>12</item> <!-- ~12/255 UI brightness -->
+         <item>40</item> <!-- ~40/255 UI brightness -->
+    </integer-array>
     <integer-array name="config_ambientThresholdsOfPeakRefreshRate">
         <item>-1</item>
-        <item>5</item>
+        <item>20</item>
     </integer-array>
 
     <!-- Array of ambient lux threshold values. This is used for determining hysteresis constraint
