@@ -27,6 +27,17 @@
 # ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 #
 
+# Enable modem SSR after boot without relying on ssr_setup.
+if [ "$(getprop persist.vendor.ssr.restart_level)" = "ALL_ENABLE" ]; then
+    # Match the modem hardware path; remoteproc indices depend on probe order.
+    for modem_recovery in /sys/devices/platform/soc/4080000.remoteproc-mss/remoteproc/remoteproc*/recovery; do
+        [ -f "$modem_recovery" ] || continue
+        if restorecon "$modem_recovery"; then
+            echo enabled > "$modem_recovery"
+        fi
+    done
+fi
+
 function 8953_sched_dcvs_eas()
 {
     #governor settings
