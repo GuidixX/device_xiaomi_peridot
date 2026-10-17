@@ -58,8 +58,6 @@ NonUiNotifier::~NonUiNotifier() {
 }
 
 void NonUiNotifier::notify() {
-    Result res;
-
     // Enable states of touchscreen sensors
     const std::vector<const char*> paths = {
             "/sys/class/touch/touch_dev/fod_longpress_gesture_enabled",
@@ -91,14 +89,15 @@ void NonUiNotifier::notify() {
             enabled = enabled || readBool(pollfds[i].fd);
         }
         if (enabled) {
-            res = mQueue->enableSensor(mSensorHandle, 20000 /* sample period */, 0 /* latency */);
-            if (res != Result::OK) {
-                LOG(ERROR) << "failed to enable sensor";
+            auto ret = mQueue->enableSensor(mSensorHandle, 20000 /* sample period */,
+                                            0 /* latency */);
+            if (!ret.isOk()) {
+                LOG(ERROR) << "failed to enable sensor: " << ret.description();
             }
         } else {
-            res = mQueue->disableSensor(mSensorHandle);
-            if (res != Result::OK) {
-                LOG(DEBUG) << "failed to disable sensor";
+            auto ret = mQueue->disableSensor(mSensorHandle);
+            if (!ret.isOk()) {
+                LOG(DEBUG) << "failed to disable sensor: " << ret.description();
             }
         }
     }

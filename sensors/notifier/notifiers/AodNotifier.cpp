@@ -63,8 +63,6 @@ AodNotifier::~AodNotifier() {
 }
 
 void AodNotifier::notify() {
-    Result res;
-
     android::base::unique_fd disp_fd_ =
             android::base::unique_fd(open(kDispFeatureDevice.c_str(), O_RDWR));
     if (disp_fd_.get() == -1) {
@@ -107,22 +105,24 @@ void AodNotifier::notify() {
         switch (response->data[0]) {
             case MI_DISP_POWER_LP1:
                 FALLTHROUGH_INTENDED;
-            case MI_DISP_POWER_LP2:
-                res = mQueue->enableSensor(mSensorHandle, 20000 /* sample period */,
-                                           0 /* latency */);
-                if (res != Result::OK) {
-                    LOG(ERROR) << "failed to enable sensor";
+            case MI_DISP_POWER_LP2: {
+                auto ret = mQueue->enableSensor(mSensorHandle, 20000 /* sample period */,
+                                                0 /* latency */);
+                if (!ret.isOk()) {
+                    LOG(ERROR) << "failed to enable sensor: " << ret.description();
                 }
                 break;
+            }
             case MI_DISP_POWER_ON:
                 requestDozeBrightness(disp_fd_.get(), DOZE_TO_NORMAL);
                 FALLTHROUGH_INTENDED;
-            default:
-                res = mQueue->disableSensor(mSensorHandle);
-                if (res != Result::OK) {
-                    LOG(DEBUG) << "failed to disable sensor";
+            default: {
+                auto ret = mQueue->disableSensor(mSensorHandle);
+                if (!ret.isOk()) {
+                    LOG(DEBUG) << "failed to disable sensor: " << ret.description();
                 }
                 break;
+            }
         }
     }
 }

@@ -29,12 +29,17 @@ SensorNotifier::~SensorNotifier() {
 Result SensorNotifier::initializeSensorQueue(std::string typeAsString, bool wakeup,
                                              sp<IEventQueueCallback> callback) {
     Result res;
+
     std::vector<SensorInfo> sensorList;
 
-    mManager->getSensorList([&sensorList, &res](const auto& l, auto r) {
+    auto listRet = mManager->getSensorList([&sensorList, &res](const auto& l, auto r) {
         sensorList = l;
         res = r;
     });
+    if (!listRet.isOk()) {
+        LOG(ERROR) << "failed to get sensors list: " << listRet.description();
+        return Result::BAD_VALUE;
+    }
     if (res != Result::OK) {
         LOG(ERROR) << "failed to get sensors list";
         return res;
@@ -52,10 +57,14 @@ Result SensorNotifier::initializeSensorQueue(std::string typeAsString, bool wake
         return Result::NOT_EXIST;
     }
 
-    mManager->createEventQueue(callback, [this, &res](const auto& q, auto r) {
+    auto queueRet = mManager->createEventQueue(callback, [this, &res](const auto& q, auto r) {
         this->mQueue = q;
         res = r;
     });
+    if (!queueRet.isOk()) {
+        LOG(ERROR) << "failed to create event queue: " << queueRet.description();
+        return Result::BAD_VALUE;
+    }
     if (res != Result::OK) {
         LOG(ERROR) << "failed to create event queue";
         return res;
@@ -81,6 +90,6 @@ void SensorNotifier::deactivate() {
         mThread.join();
     }
     if (mQueue != nullptr) {
-        mQueue->disableSensor(mSensorHandle);
+        mQueue->disableSensor(mSensorHandle).isOk();
     }
 }
