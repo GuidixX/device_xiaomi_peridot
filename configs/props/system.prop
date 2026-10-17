@@ -23,6 +23,7 @@ persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 
 # Logging
+persist.log.tag=I
 persist.vendor.camera.logInfoMask=false
 persist.log.tag.ACDB-LOADER=S
 persist.log.tag.CVP=S
