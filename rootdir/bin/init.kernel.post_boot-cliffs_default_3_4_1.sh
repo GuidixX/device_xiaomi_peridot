@@ -56,12 +56,12 @@ if [ -d /proc/sys/walt ]; then
 	echo 0x00 > /sys/devices/system/cpu/cpu0/core_ctl/assist_cpu_misfit_mask
 
 	# Core control parameters for gold
-	echo 3 > /sys/devices/system/cpu/cpu3/core_ctl/min_cpus
+	echo 2 > /sys/devices/system/cpu/cpu3/core_ctl/min_cpus
 	echo 60 > /sys/devices/system/cpu/cpu3/core_ctl/busy_up_thres
 	echo 30 > /sys/devices/system/cpu/cpu3/core_ctl/busy_down_thres
 	echo 100 > /sys/devices/system/cpu/cpu3/core_ctl/offline_delay_ms
 	echo 3 > /sys/devices/system/cpu/cpu3/core_ctl/task_thres
-	echo 0 0 0 > /sys/devices/system/cpu/cpu3/core_ctl/not_preferred
+	echo 0 0 0 0 > /sys/devices/system/cpu/cpu3/core_ctl/not_preferred
 	echo 0xF8 > /sys/devices/system/cpu/cpu3/core_ctl/nrrun_cpu_mask
 	echo 0x07 > /sys/devices/system/cpu/cpu3/core_ctl/nrrun_cpu_misfit_mask
 	echo 0x00 > /sys/devices/system/cpu/cpu3/core_ctl/assist_cpu_mask
@@ -121,14 +121,15 @@ if [ -d /proc/sys/walt ]; then
 	# binder activity tasks
 	echo 325 > /proc/sys/walt/walt_low_latency_task_threshold
 
-	echo 2147483647 2611200 2803200 > /proc/sys/walt/sched_fmax_cap
+	# Let frequency QoS and thermal constraints set ceilings.
+	echo 2147483647 2147483647 2147483647 > /proc/sys/walt/sched_fmax_cap
 
 	# Turn off scheduler boost at the end
 	echo 0 > /proc/sys/walt/sched_boost
 
 	# configure input boost settings
 	echo 1113600 0 0 0 0 0 0 0 > /proc/sys/walt/input_boost/input_boost_freq
-	echo 120 > /proc/sys/walt/input_boost/input_boost_ms
+	echo 40 > /proc/sys/walt/input_boost/input_boost_ms
 
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
 	echo "walt" > /sys/devices/system/cpu/cpufreq/policy3/scaling_governor
