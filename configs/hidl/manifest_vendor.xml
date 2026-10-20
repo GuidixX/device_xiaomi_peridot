@@ -15,6 +15,11 @@
         <fqname>@1.1::IBluetoothHci/default</fqname>
     </hal>
     <hal format="aidl">
+        <name>android.hardware.bluetooth.audio</name>
+        <version>3</version>
+        <fqname>IBluetoothAudioProviderFactory/default</fqname>
+    </hal>
+    <hal format="aidl">
         <name>android.hardware.gatekeeper</name>
         <fqname>IGatekeeper/default</fqname>
     </hal>

@@ -477,7 +477,8 @@ IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
         </module>
 
-
+        <!-- Bluetooth Audio HAL, for codecs the controller cannot encode -->
+        <xi:include href="/vendor/etc/bluetooth_qti_audio_policy_configuration.xml"/>
 
         <!-- Usb Audio HAL -->
         <module name="usb" halVersion="2.0">
