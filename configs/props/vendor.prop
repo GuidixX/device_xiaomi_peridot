@@ -261,6 +261,10 @@ vendor.netflix.bsp_rev=Q8635-38577-1
 ro.vendor.extension_library=libqti-perfd-client.so
 ro.vendor.perf-hal.ver=3.0
 ro.vendor.perf.scroll_opt=1
+vendor.powerhal.interaction.min=150
+vendor.powerhal.interaction.max=500
+vendor.powerhal.interaction.offset=0
+vendor.powerhal.disp.idle_wait=40
 
 # QCOM
 ro.soc.manufacturer=QTI
