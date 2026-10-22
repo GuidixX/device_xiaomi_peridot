@@ -1,0 +1,4 @@
+# Global Binder transactions are restricted to debug builds by platform policy.
+userdebug_or_eng(`
+    allow system_server binderfs_logs_transactions:file r_file_perms;
+')

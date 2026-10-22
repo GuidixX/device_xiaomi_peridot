@@ -3,6 +3,7 @@ allow platform_app vendor_file:file { read open getattr map execute watch };
 
 binder_call(platform_app, hal_camera_default)
 
+get_prop(platform_app, bluetooth_finder_prop)
 get_prop(platform_app, vendor_audio_prop)
 get_prop(platform_app, vendor_camera_prop)
 get_prop(platform_app, vendor_fp_prop)

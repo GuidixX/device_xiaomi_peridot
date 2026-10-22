@@ -1,0 +1,2 @@
+# Allow loc_launcher to notify xtra-daemon during shutdown on user builds.
+allow vendor_location vendor_location_xtra_daemon:process signal;
