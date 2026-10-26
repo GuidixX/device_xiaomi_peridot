@@ -68,12 +68,12 @@ if [ -d /proc/sys/walt ]; then
 	echo 0x00 > /sys/devices/system/cpu/cpu3/core_ctl/assist_cpu_misfit_mask
 
 	# Core control parameters for gold+
-	echo 0 > /sys/devices/system/cpu/cpu7/core_ctl/min_cpus
+	echo 1 > /sys/devices/system/cpu/cpu7/core_ctl/min_cpus
 	echo 60 > /sys/devices/system/cpu/cpu7/core_ctl/busy_up_thres
 	echo 30 > /sys/devices/system/cpu/cpu7/core_ctl/busy_down_thres
 	echo 100 > /sys/devices/system/cpu/cpu7/core_ctl/offline_delay_ms
 	echo 1 > /sys/devices/system/cpu/cpu7/core_ctl/task_thres
-	echo 1 > /sys/devices/system/cpu/cpu7/core_ctl/not_preferred
+	echo 0 > /sys/devices/system/cpu/cpu7/core_ctl/not_preferred
 	echo 0x80 > /sys/devices/system/cpu/cpu7/core_ctl/nrrun_cpu_mask
 	echo 0x78 > /sys/devices/system/cpu/cpu7/core_ctl/nrrun_cpu_misfit_mask
 	echo 0x78 > /sys/devices/system/cpu/cpu7/core_ctl/assist_cpu_mask
@@ -84,8 +84,8 @@ if [ -d /proc/sys/walt ]; then
 	echo 1 > /sys/devices/system/cpu/cpu7/core_ctl/enable
 
 	# Setting b.L scheduler parameters
-	echo 71 95 > /proc/sys/walt/sched_upmigrate
-	echo 65 85 > /proc/sys/walt/sched_downmigrate
+	echo 65 75 > /proc/sys/walt/sched_downmigrate
+	echo 71 85 > /proc/sys/walt/sched_upmigrate
 	echo 85 > /proc/sys/walt/sched_group_downmigrate
 	echo 100 > /proc/sys/walt/sched_group_upmigrate
 	echo 1 > /proc/sys/walt/sched_walt_rotate_big_tasks
@@ -151,10 +151,10 @@ if [ -d /proc/sys/walt ]; then
 
 	echo 1113600 > /sys/devices/system/cpu/cpufreq/policy0/walt/hispeed_freq
 	echo 1190400 > /sys/devices/system/cpu/cpufreq/policy3/walt/hispeed_freq
-	echo 1459200 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
+	echo 2400000 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_freq
 
 	echo 85 > /sys/devices/system/cpu/cpufreq/policy3/walt/hispeed_load
-	echo 85 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_load
+	echo 75 > /sys/devices/system/cpu/cpufreq/policy7/walt/hispeed_load
 
 else
 	echo "schedutil" > /sys/devices/system/cpu/cpufreq/policy0/scaling_governor
