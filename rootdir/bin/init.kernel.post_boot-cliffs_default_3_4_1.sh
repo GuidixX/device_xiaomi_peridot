@@ -163,12 +163,15 @@ else
 	echo 1 > /proc/sys/kernel/sched_pelt_multiplier
 fi
 
-	echo 595200 > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
-	echo 633600 > /sys/devices/system/cpu/cpufreq/policy3/scaling_min_freq
-	echo 633600 > /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
+	cpu_min_freq0=$(cat /sys/devices/system/cpu/cpufreq/policy0/cpuinfo_min_freq)
+	cpu_min_freq3=$(cat /sys/devices/system/cpu/cpufreq/policy3/cpuinfo_min_freq)
+	cpu_min_freq7=$(cat /sys/devices/system/cpu/cpufreq/policy7/cpuinfo_min_freq)
+	echo "$cpu_min_freq0" > /sys/devices/system/cpu/cpufreq/policy0/scaling_min_freq
+	echo "$cpu_min_freq3" > /sys/devices/system/cpu/cpufreq/policy3/scaling_min_freq
+	echo "$cpu_min_freq7" > /sys/devices/system/cpu/cpufreq/policy7/scaling_min_freq
 	echo 2803200 > /sys/devices/system/cpu/cpufreq/policy3/scaling_max_freq
 	echo 3014400 > /sys/devices/system/cpu/cpufreq/policy7/scaling_max_freq
-	echo "0:595200 3:633600 7:633600" > /data/vendor/perfd/default_scaling_min_freq
+	echo "0:$cpu_min_freq0 3:$cpu_min_freq3 7:$cpu_min_freq7" > /data/vendor/perfd/default_scaling_min_freq
 
 # Reset the RT boost, which is 1024 (max) by default.
 echo 0 > /proc/sys/kernel/sched_util_clamp_min_rt_default
