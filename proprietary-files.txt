@@ -1392,25 +1392,28 @@ vendor/bin/hw/android.hardware.gatekeeper-service-qti
 vendor/etc/init/android.hardware.gatekeeper-service-qti.rc
 vendor/lib64/hw/libqtigatekeeper.so
 
-# Graphics
-vendor/lib64/egl/eglSubDriverAndroid.so
-vendor/lib64/egl/libEGL_adreno.so;SYMLINK=vendor/lib64/libEGL_adreno.so
-vendor/lib64/egl/libGLESv1_CM_adreno.so
-vendor/lib64/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib64/libGLESv2_adreno.so
-vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.so
-vendor/lib64/egl/libq3dtools_esx.so
-vendor/lib64/hw/vulkan.adreno.so
+# Graphics - Adreno V837.0.6
+vendor/lib64/egl/eglSubDriverAndroid.so|aca34a99e51120c7b7511bc5e0cafd573242216a
+vendor/lib64/egl/libEGL_adreno.so;SYMLINK=vendor/lib64/libEGL_adreno.so|e49f8a0d8bd2f4eb3644669c2dc68f0aa2f73041
+vendor/lib64/egl/libGLESv1_CM_adreno.so|951d48a6e468d3f8fb2b3a5c7a0231e1ce6d3710
+vendor/lib64/egl/libGLESv2_adreno.so;SYMLINK=vendor/lib64/libGLESv2_adreno.so|3435f3013e182d76332c6e8debbc35f163902a47
+vendor/lib64/egl/libVkLayer_ADRENO_qprofiler.so|d0587fe2c57a291bf5f26528ea92beb0dc499234
+vendor/lib64/egl/libq3dtools_adreno.so;SYMLINK=vendor/lib64/libq3dtools_adreno.so|4d65983b09c1baa1f05e0d8cfc4c85203048c13a
+vendor/lib64/egl/libq3dtools_esx.so|745cadb311c1e83c81c09f868d92d16afa8efed7
+vendor/lib64/hw/vulkan.adreno.so|4f0fbd52852cd6c2fe912e7653f32306c4c79fbb
+vendor/lib64/libadreno_app_profiles.so|0d1b1db487af4b51f90d326b7315dafb39b9a183
+vendor/lib64/libadreno_utils.so|7ff4d65539c715923da8a71a6c448ca430064bac
+vendor/lib64/libgsl.so|4c5fc95750325bfbe7e4d9767557660a974b1188
+vendor/lib64/libllvm-glnext.so|f4df5fbeb892d3755059e286f6946dbc02e7cf54
+vendor/lib64/libllvm-qgl.so|5fe810fd5d6a920781eb96c0c99bb4bf55a1c1d6
+
+# Graphics (OpenCL)
 vendor/lib64/libCB.so
 vendor/lib64/libOpenCL.so
 vendor/lib64/libOpenCL_adreno.so
-vendor/lib64/libadreno_app_profiles.so
-vendor/lib64/libadreno_utils.so
-vendor/lib64/libgsl.so
 vendor/lib64/libkcl.so
 vendor/lib64/libkernelmanager.so
-vendor/lib64/libllvm-glnext.so
 vendor/lib64/libllvm-qcom.so
-vendor/lib64/libllvm-qgl.so
 vendor/lib64/libopencl_loader.so
 
 # Graphics firmware
