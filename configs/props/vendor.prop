@@ -203,6 +203,7 @@ vendor.display.disable_excl_rect=0
 vendor.display.disable_excl_rect_partial_fb=1
 vendor.display.disable_get_screen_decorator_support=1
 vendor.display.disable_hw_recovery_dump=1
+vendor.display.disable_idle_fps_switch=1
 vendor.display.disable_idle_scaling_layers=1
 vendor.display.disable_offline_rotator=1
 vendor.display.disable_scaler=0
