@@ -41,6 +41,26 @@ namespace_imports = [
     'packages/apps/XiaomiParts'
 ]
 
+def blob_fixup_opencl_gsl(
+    ctx: BlobFixupCtx,
+    file: File,
+    file_path: str,
+    *args,
+    **kwargs,
+):
+    original = b'libgsl.so\0'
+    replacement = b'libgsc.so\0'
+    expected_count = 2 if file_path.endswith('libgsc.so') else 1
+    with open(file_path, 'rb+') as f:
+        data = f.read()
+        if data.count(original) == 0 and data.count(replacement) == expected_count:
+            return
+        if data.count(original) != expected_count:
+            raise ValueError(f'Unexpected GSL references in {file_path}')
+        f.seek(0)
+        f.write(data.replace(original, replacement))
+
+
 def blob_fixup_graphic_buffer_size(
     ctx: BlobFixupCtx,
     file: File,
@@ -93,6 +113,12 @@ lib_fixups: lib_fixups_user_type = {
 }
 
 blob_fixups: blob_fixups_user_type = {
+    (
+        'vendor/lib64/libCB.so',
+        'vendor/lib64/libOpenCL_adreno.so',
+        'vendor/lib64/libgsc.so',
+    ): blob_fixup()
+        .call(blob_fixup_opencl_gsl),
     'system_ext/etc/init/qspa_system.rc': blob_fixup()
         .regex_replace(r'\$\{ro\.boot\.vendor\.qspa:-default\}', 'default'),
     'vendor/etc/init/vendor.qti.media.c2@1.0-service.rc': blob_fixup()
