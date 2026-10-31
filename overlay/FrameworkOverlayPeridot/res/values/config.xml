@@ -438,17 +438,8 @@
          For example, no higher refresh rate if
              display brightness <= disp0 && ambient brightness <= amb0
              || display brightness <= disp1 && ambient brightness <= amb1 -->
-    <integer-array name="config_brightnessThresholdsOfPeakRefreshRate">
-         <!-- Wider low-brightness gate: block high refresh rates while the panel
-              is dim, so the per-refresh-rate gamma flicker does not show up on
-              dark themes at night. -->
-         <item>12</item> <!-- ~12/255 UI brightness -->
-         <item>40</item> <!-- ~40/255 UI brightness -->
-    </integer-array>
-    <integer-array name="config_ambientThresholdsOfPeakRefreshRate">
-        <item>-1</item>
-        <item>20</item>
-    </integer-array>
+    <integer-array name="config_brightnessThresholdsOfPeakRefreshRate" />
+    <integer-array name="config_ambientThresholdsOfPeakRefreshRate" />
 
     <!-- Array of ambient lux threshold values. This is used for determining hysteresis constraint
          values by calculating the index to use for lookup and then setting the constraint value
