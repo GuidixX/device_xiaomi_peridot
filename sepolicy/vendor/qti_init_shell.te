@@ -7,6 +7,7 @@ allow vendor_qti_init_shell vendor_data_file:file { read open getattr };
 allow vendor_qti_init_shell vendor_data_file:dir { read open getattr };
 allow vendor_qti_init_shell proc_watermark_boost_factor:file w_file_perms;
 allow vendor_qti_init_shell vendor_sysfs_ssr_toggle:file { relabelto w_file_perms };
+allow vendor_qti_init_shell file_contexts_file:file r_file_perms;
 
 # Allow access to cgroup files
 allow vendor_qti_init_shell cgroup:file { getattr read };
